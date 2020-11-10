@@ -61,12 +61,12 @@ MOD = (
 )
 
 COD = (
-    ('MVC', 'Motor Vehicle Crash')
-    ('FLL', 'Fall')
-    ('BFT', 'Blunt Force Trauma') #if blunt bft, add an option to say where, option to say multiple?
-    ('CRS', 'Crush')
+    ('MVC', 'Motor Vehicle Crash'),
+    ('FLL', 'Fall'),
+    ('BFT', 'Blunt Force Trauma'), #if blunt bft, add an option to say where, option to say multiple?
+    ('CRS', 'Crush'),
     # ('MBF', 'Multiple Blunt Force Trauma') needed?
-    ('MAS', 'Mechanical Asphyxia')
+    ('MAS', 'Mechanical Asphyxia'),
 )
 
 class Patient(models.Model):
