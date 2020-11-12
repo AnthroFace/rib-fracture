@@ -24,7 +24,7 @@ componentDidMount() {
 }
 handleDelete(e,pk){
     var  self  =  this;
-    patientssService.deletePatient({pk :  pk}).then(()=>{
+    patientsService.deletePatient({pk :  pk}).then(()=>{
         var  newArr  =  self.state.patients.filter(function(obj) {
             return  obj.pk  !==  pk;
         });

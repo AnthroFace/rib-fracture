@@ -1,7 +1,7 @@
 import axios from 'axios';
 const API_URL = 'http://localhost:8000';
 
-export default class PatientssService{
+export default class PatientsService{
 
     constructor(){}
 
@@ -19,12 +19,12 @@ export default class PatientssService{
         return axios.get(url).then(response => response.data);
     }
     deletePatient(patient){
-        const url = `${API_URL}/api/patients/${patients.pk}`;
+        const url = `${API_URL}/api/patients/${patient.pk}`;
         return axios.delete(url);
     }
     createPatient(patient){
         const url = `${API_URL}/api/patients/`;
-        return axios.post(url,patients);
+        return axios.post(url,patient);
     }
     updatePatient(patient){
         const url = `${API_URL}/api/patients/${patient.pk}`;

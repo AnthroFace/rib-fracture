@@ -1,7 +1,65 @@
 import React, { Component } from 'react';
+import Select from 'react-select'
 import PatientsService from './PatientsService';
 
 const patientsService = new PatientsService();
+
+const decision = [
+  {values: 'y', label: 'yes'},
+  {values: 'n', label: 'no'}
+]
+
+const categories = [
+  {value: 'HYP', label: 'hypertension'},
+  {value: 'CYST', label: 'cyst'},
+  {value: 'DERM', label: 'dermititis'},
+  {value: 'HEP', label: 'hepatomegaly'},
+  {value: 'DEM', label: 'dementia'},
+  {value: 'CYS', label: 'cyst'},
+  {value: 'PRO', label: 'prostate enlargement'},
+  {value: 'MEDS', label: 'cholestoral meds'},
+  {value: 'OBS', label: 'obsese'},
+  {value: 'DRG', label: 'drug use'},
+  {value: 'LIV', label: 'fatty liver'},
+  {value: 'HRT', label: 'heart anomaly'},
+  {value: 'HEA', label: 'healthy'},
+  {value: 'SMO', label: 'smoker'},
+  {value: 'SUR', label: 'past surgeries'},
+  {value: 'SUB', label: 'substance abuse'}
+]
+
+const sex = [
+    {value: 'F', label: 'Female'},
+    {value: 'M', label: 'Male'},
+]
+
+const ancestry = [
+    {value: 'WHT', label: 'White'},
+    {value: 'HIS', label: 'Hispanic'},
+    {value: 'BLK', label: 'Black'},
+    {value: 'AMI', label: 'American Indian'},
+    {value: 'ASN', label: 'Asian'},
+    {value: 'PCI', label: 'Pacific Islander'},
+    {value: 'FIL', label: 'Filipino'},
+    {value: 'WAS', label: 'West Asian'},
+    {value: 'ASI', label: 'Asian Indian'}
+]
+
+const mod = [
+    {value: 'ACC', label: 'accident'},
+    {value: 'SUI', label: 'suicide'},
+    {value: 'HOM', label: 'homicide'},
+    {value: 'UND', label: 'undeterminded'}
+]
+
+const cod = [
+    {value: 'MVC', label: 'Motor Vehicle Crash'},
+    {value: 'FLL', label: 'Fall'},
+    {value: 'BFT', label: 'Blunt Force Trauma'}, //if blunt bft, add an option to say where, option to say multiple?
+    {value: 'CRS', label: 'Crush'},
+    // ('MBF', 'Multiple Blunt Force Trauma'] needed?
+    {value: 'MAS', label: 'Mechanical Asphyxia'}
+]
 
 class PatientCreateUpdate extends Component {
     constructor(props) {
@@ -125,25 +183,84 @@ class PatientCreateUpdate extends Component {
 
             <label>
               Age:</label>
-              <input className="form-control" type="text" ref='lastName'/>
+              <input className="form-control" type="text" ref='age'/>
 
             <label>
-              Phone:</label>
-              <input className="form-control" type="text" ref='phone' />
+              Sex:</label>
+              <Select options={sex}/>
 
             <label>
-              Email:</label>
-              <input className="form-control" type="text" ref='email' />
+              Weight:</label>
+              <input className="form-control" type="text" ref='weight' />
 
             <label>
-              Address:</label>
-              <input className="form-control" type="text" ref='address' />
+              Height:</label>
+              <input className="form-control" type="text" ref='height' />
 
             <label>
-              Description:</label>
-              <textarea className="form-control" ref='description' ></textarea>
+              Ancestry:</label>
+              <Select options={ancestry}/>
 
+            <label>
+              Mode of Death:</label>
+              <Select options={mod}/>
 
+            <label>
+              Cause of Death:</label>
+              <Select options={cod}/>
+
+            <label>
+              Cause of Death Type:</label>
+              <input className="form-control" type="text" ref='cod_type' />
+
+            <label>
+              X-Ray:</label>
+              <Select options={decision}/>
+              
+            <label>
+              CPR:</label>
+              <Select options={decision}/>
+
+            <label>
+              Belted:</label>
+              <Select options={decision}/>
+
+            <label>
+              Obese:</label>
+              <Select options={decision}/>
+
+            <label>
+              Cardio:</label>
+              <Select options={decision}/>
+
+            <label>
+              Tobacco:</label>
+              <Select options={decision}/>
+
+            <label>
+              Marijuana:</label>
+              <Select options={decision}/>
+          
+            <label>
+              Alcohol:</label>
+              <Select options={decision}/> 
+           
+            <label>
+              Prescription:</label>
+              <Select options={decision}/>
+
+            <label>
+              Drug Use:</label>
+              <Select options={decision}/>
+
+            <label>
+              Health Notes:</label>
+              <Select options={categories}/>
+            
+            <label>
+              Additional Notes:</label>
+              <input className="form-control" type="text" ref='add_notes' />
+              
             <input className="btn btn-primary" type="submit" value="Submit" />
             </div>
           </form>
