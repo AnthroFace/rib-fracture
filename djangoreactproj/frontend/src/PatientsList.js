@@ -62,7 +62,7 @@ render() {
                 <th>Pathology</th>
                 <th>Marijuana</th>
                 <th>Alcohol</th>
-                <th>Perscription</th>
+                <th>Prescription</th>
                 <th>Drug-Use</th>
                 <th>Health-Notes</th>
                 <th>Add-Notes</th>
@@ -87,7 +87,7 @@ render() {
                 <td>{p.tobacco}</td>
                 <td>{p.marijuana}</td>
                 <td>{p.alcohol}</td>
-                <td>{p.perscription}</td>
+                <td>{p.prescription}</td>
                 <td>{p.drug_use}</td>
                 <td>{p.health_notes}</td>
                 <td>{p.add_notes}</td>

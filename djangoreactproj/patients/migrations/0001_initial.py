@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('tobacco', models.CharField(choices=[('Y', 'Yes'), ('N', 'No')], max_length=1, verbose_name='Cigarette/Tobacco Use')),
                 ('marijuana', models.CharField(choices=[('Y', 'Yes'), ('N', 'No')], max_length=1, verbose_name='Marijuana Use')),
                 ('alcohol', models.CharField(choices=[('Y', 'Yes'), ('N', 'No')], max_length=1, verbose_name='Alcohol Use')),
-                ('perscription', models.CharField(choices=[('Y', 'Yes'), ('N', 'No')], max_length=1, verbose_name='Perscription Medications')),
+                ('prescription', models.CharField(choices=[('Y', 'Yes'), ('N', 'No')], max_length=1, verbose_name='Prescription Medications')),
                 ('drug_use', models.CharField(choices=[('Y', 'Yes'), ('N', 'No')], max_length=1, verbose_name='Illicit Drug Use')),
                 ('health_notes', models.CharField(choices=[('HYP', 'hypertension'), ('CYST', 'cyst'), ('DERM', 'dermititis'), ('HEP', 'hepatomegaly'), ('DEM', 'dementia'), ('CYS', 'cyst'), ('PRO', 'prostate enlargement'), ('MEDS', 'cholestoral meds'), ('OBS', 'obsese'), ('DRG', 'drug use'), ('LIV', 'fatty liver'), ('HRT', 'heart anomaly'), ('HEA', 'healthy'), ('SMO', 'smoker'), ('SUR', 'past surgeries'), ('SUB', 'substance abuse')], max_length=4, verbose_name='Health Notes')),
                 ('add_notes', models.TextField(blank=True, null=True, verbose_name='Additional Notes')),
