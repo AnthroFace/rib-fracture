@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom'
 
 import  PatientsList from './PatientsList'
 import  PatientCreateUpdate  from './PatientCreateUpdate'
+import  Home from './Components/Home.js'
 import './App.css';
 
 const BaseLayout = () => (
@@ -17,7 +18,7 @@ const BaseLayout = () => (
     <div className="navbar-nav">
       <a className="nav-item nav-link" href="/">PATIENTS</a>
       <a className="nav-item nav-link" href="/Patient">CREATE PATIENT</a>
-
+      <a className="nav-item nav-link" href="/Home">HOME</a>
     </div>
   </div>
 </nav>
@@ -26,7 +27,7 @@ const BaseLayout = () => (
       <Route path="/" exact component={PatientsList} />
       <Route path="/patient/:pk"  component={PatientCreateUpdate} />
       <Route path="/patient/" exact component={PatientCreateUpdate} />
-
+      <Route path="/home" exact component={Home} />
     </div>
 
   </div>
@@ -35,6 +36,7 @@ const BaseLayout = () => (
 class App extends Component {
   render() {
     return (
+
       <BrowserRouter>
         <BaseLayout/>
       </BrowserRouter>
