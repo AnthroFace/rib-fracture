@@ -21,8 +21,8 @@ from patients import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^api/customers/$', views.customers_list),
-    url(r'^api/customers/(?P<pk>[0-9]+)$', views.customers_detail),
+    #url(r'^api/customers/$', views.customers_list),
+    #url(r'^api/customers/(?P<pk>[0-9]+)$', views.customers_detail),
     url(r'^api/patients/$', views.patients_list),
     url(r'^api/patients/(?P<pk>[0-9]+)$', views.patients_detail),
 ]

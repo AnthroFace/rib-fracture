@@ -26,7 +26,7 @@ def patients_list(request):
         except EmptyPage:
             data = paginator.page(paginator.num_pages)
 
-        serializer = PatientsSerializer(data,context={'request': request} ,many=True)
+        serializer = PatientSerializer(data,context={'request': request} ,many=True)
         if data.has_next():
             nextPage = data.next_page_number()
         if data.has_previous():
