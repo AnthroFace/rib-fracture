@@ -16,7 +16,7 @@ class PatientForm(forms.ModelForm):
     tobacco = forms.ChoiceField(choices = DECISION, required=True)
     marijuana = forms.ChoiceField(choices = DECISION, required=True)
     alcohol = forms.ChoiceField(choices = DECISION, required=True)
-    perscription = forms.ChoiceField(choices = DECISION, required=True)
+    prescription = forms.ChoiceField(choices = DECISION, required=True)
     health_notes = forms.ChoiceField(choices = CATEGORIES, required=True)
 
     class Meta:

@@ -86,7 +86,7 @@ class Patient(models.Model):
     tobacco = models.CharField('Cigarette/Tobacco Use', max_length=1, choices=DECISION)
     marijuana = models.CharField('Marijuana Use', max_length=1, choices=DECISION)
     alcohol = models.CharField('Alcohol Use', max_length=1, choices=DECISION)
-    perscription = models.CharField('Perscription Medications', max_length=1, choices=DECISION)
+    prescription = models.CharField('Prescription Medications', max_length=1, choices=DECISION)
     drug_use = models.CharField('Illicit Drug Use', max_length=1, choices=DECISION)
     health_notes = models.CharField('Health Notes', max_length=4, choices = CATEGORIES)
     add_notes = models.TextField("Additional Notes", blank=True, null=True)
