@@ -198,9 +198,9 @@ class PatientCreateUpdate extends Component {
                 <label>
                   Height:</label>
                   <input className="form-control" type="text" ref='height' />
-              </div>              
+                           
 
-              <div class="flex-column">
+              
                 <label>
                     Ancestry:</label>
                     <Select options={ancestry}/>
@@ -216,16 +216,16 @@ class PatientCreateUpdate extends Component {
                 <label>
                   Cause of Death Type:</label>
                   <input className="form-control" type="text" ref='cod_type' />
-              </div>
               
-              <div class ="flex-column">
+              
+              
                 <FormControl component="fieldset">
                   <FormGroup aria-label="position" row>
                     <FormControlLabel
                       value="xray"
                       control={<Checkbox color="default" />}
                       label="X-Ray"
-                      labelPlacement="start"
+                      labelPlacement="end"
                     />
                   </FormGroup>
                 </FormControl>
@@ -238,7 +238,7 @@ class PatientCreateUpdate extends Component {
                       value="belted"
                       control={<Checkbox color="default" />}
                       label="Belted"
-                      labelPlacement="start"
+                      labelPlacement="end"
                     />
                   </FormGroup>
                 </FormControl>
@@ -249,7 +249,7 @@ class PatientCreateUpdate extends Component {
                       value="obese"
                       control={<Checkbox color="default" />}
                       label="Obese"
-                      labelPlacement="start"
+                      labelPlacement="end"
                     />
                   </FormGroup>
                 </FormControl>
@@ -260,7 +260,7 @@ class PatientCreateUpdate extends Component {
                       value="patho"
                       control={<Checkbox color="default" />}
                       label="Pathology"
-                      labelPlacement="start"
+                      labelPlacement="end"
                     />
                   </FormGroup>
                 </FormControl>
@@ -271,7 +271,7 @@ class PatientCreateUpdate extends Component {
                       value="tobacco"
                       control={<Checkbox color="default" />}
                       label="Tobacco Use"
-                      labelPlacement="start"
+                      labelPlacement="end"
                     />
                   </FormGroup>
                 </FormControl>
@@ -282,7 +282,7 @@ class PatientCreateUpdate extends Component {
                       value="marijuana"
                       control={<Checkbox color="default" />}
                       label="Marijuana Use"
-                      labelPlacement="start"
+                      labelPlacement="end"
                     />
                   </FormGroup>
                 </FormControl>
@@ -293,7 +293,7 @@ class PatientCreateUpdate extends Component {
                       value="alcohol"
                       control={<Checkbox color="default" />}
                       label="Alcohol"
-                      labelPlacement="start"
+                      labelPlacement="end"
                     />
                   </FormGroup>
                 </FormControl>
@@ -304,7 +304,7 @@ class PatientCreateUpdate extends Component {
                       value="prescription"
                       control={<Checkbox color="default" />}
                       label="Prescription"
-                      labelPlacement="start"
+                      labelPlacement="end"
                     />
                   </FormGroup>
                 </FormControl>
@@ -315,13 +315,13 @@ class PatientCreateUpdate extends Component {
                       value="drug_use"
                       control={<Checkbox color="default" />}
                       label="Drug Use"
-                      labelPlacement="start"
+                      labelPlacement="end"
                     />
                   </FormGroup>
                 </FormControl>
-              </div>
+              
 
-              <div class = "flex-column">
+              
                 <label>
                   Health Notes:</label>
                   <Select options={categories}/>
