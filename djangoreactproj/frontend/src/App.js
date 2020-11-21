@@ -16,18 +16,19 @@ const BaseLayout = () => (
   </button>
   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div className="navbar-nav">
-      <a className="nav-item nav-link" href="/">PATIENTS</a>
+      <a className="nav-item nav-link" href="/List">PATIENTS</a>
       <a className="nav-item nav-link" href="/Patient">CREATE PATIENT</a>
-      <a className="nav-item nav-link" href="/Home">HOME</a>
+      <a className="nav-item nav-link" href="/">HOME</a>
     </div>
   </div>
 </nav>
 
     <div className="content">
-      <Route path="/" exact component={PatientsList} />
+      <Route path="/" exact component={Home} />
+      <Route path="/list" exact component={PatientsList} />
       <Route path="/patient/:pk"  component={PatientCreateUpdate} />
       <Route path="/patient/" exact component={PatientCreateUpdate} />
-      <Route path="/home" exact component={Home} />
+      
     </div>
 
   </div>
