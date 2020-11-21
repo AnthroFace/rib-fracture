@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Select from 'react-select'
 import PatientsService from './PatientsService';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import './style.css';
 
 const patientsService = new PatientsService();
-
-const decision = [
-  {values: 'y', label: 'yes'},
-  {values: 'n', label: 'no'}
-]
 
 const categories = [
   {value: 'HYP', label: 'hypertension'},
@@ -176,93 +176,165 @@ class PatientCreateUpdate extends Component {
       render() {
         return (
           <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>
-              Case ID:</label>
-              <input className="form-control" type="text" ref='case_id' />
+          <div className='form-group'>
+            <div class = "row">
+              <div class="flex-column">
+                <label>
+                  Case ID:</label>
+                  <input className="form-control" type="text" ref='case_id' />
 
-            <label>
-              Age:</label>
-              <input className="form-control" type="text" ref='age'/>
+                <label>
+                  Age:</label>
+                  <input className="form-control" type="text" ref='age'/>
 
-            <label>
-              Sex:</label>
-              <Select options={sex}/>
+                <label>
+                  Sex:</label>
+                  <Select options={sex}/>
 
-            <label>
-              Weight:</label>
-              <input className="form-control" type="text" ref='weight' />
+                <label>
+                  Weight:</label>
+                  <input className="form-control" type="text" ref='weight' />
 
-            <label>
-              Height:</label>
-              <input className="form-control" type="text" ref='height' />
+                <label>
+                  Height:</label>
+                  <input className="form-control" type="text" ref='height' />
+                           
 
-            <label>
-              Ancestry:</label>
-              <Select options={ancestry}/>
-
-            <label>
-              Mode of Death:</label>
-              <Select options={mod}/>
-
-            <label>
-              Cause of Death:</label>
-              <Select options={cod}/>
-
-            <label>
-              Cause of Death Type:</label>
-              <input className="form-control" type="text" ref='cod_type' />
-
-            <label>
-              X-Ray:</label>
-              <Select options={decision}/>
               
-            <label>
-              CPR:</label>
-              <Select options={decision}/>
+                <label>
+                    Ancestry:</label>
+                    <Select options={ancestry}/>
 
-            <label>
-              Belted:</label>
-              <Select options={decision}/>
+                <label>
+                  Mode of Death:</label>
+                  <Select options={mod}/>
 
-            <label>
-              Obese:</label>
-              <Select options={decision}/>
+                <label>
+                  Cause of Death:</label>
+                  <Select options={cod}/>
 
-            <label>
-              Cardio:</label>
-              <Select options={decision}/>
-
-            <label>
-              Tobacco:</label>
-              <Select options={decision}/>
-
-            <label>
-              Marijuana:</label>
-              <Select options={decision}/>
-          
-            <label>
-              Alcohol:</label>
-              <Select options={decision}/> 
-           
-            <label>
-              Prescription:</label>
-              <Select options={decision}/>
-
-            <label>
-              Drug Use:</label>
-              <Select options={decision}/>
-
-            <label>
-              Health Notes:</label>
-              <Select options={categories}/>
-            
-            <label>
-              Additional Notes:</label>
-              <input className="form-control" type="text" ref='add_notes' />
+                <label>
+                  Cause of Death Type:</label>
+                  <input className="form-control" type="text" ref='cod_type' />
               
-            <input className="btn btn-primary" type="submit" value="Submit" />
-            </div>
+              
+              
+                <FormControl component="fieldset">
+                  <FormGroup aria-label="position" row>
+                    <FormControlLabel
+                      value="xray"
+                      control={<Checkbox color="default" />}
+                      label="X-Ray"
+                      labelPlacement="end"
+                    />
+                  </FormGroup>
+                </FormControl>
+
+                {/* CPR HERE */}
+
+                <FormControl component="fieldset">
+                  <FormGroup aria-label="position" row>
+                    <FormControlLabel
+                      value="belted"
+                      control={<Checkbox color="default" />}
+                      label="Belted"
+                      labelPlacement="end"
+                    />
+                  </FormGroup>
+                </FormControl>
+
+                <FormControl component="fieldset">
+                  <FormGroup aria-label="position" row>
+                    <FormControlLabel
+                      value="obese"
+                      control={<Checkbox color="default" />}
+                      label="Obese"
+                      labelPlacement="end"
+                    />
+                  </FormGroup>
+                </FormControl>
+
+                <FormControl component="fieldset">
+                  <FormGroup aria-label="position" row>
+                    <FormControlLabel
+                      value="patho"
+                      control={<Checkbox color="default" />}
+                      label="Pathology"
+                      labelPlacement="end"
+                    />
+                  </FormGroup>
+                </FormControl>
+
+                <FormControl component="fieldset">
+                  <FormGroup aria-label="position" row>
+                    <FormControlLabel
+                      value="tobacco"
+                      control={<Checkbox color="default" />}
+                      label="Tobacco Use"
+                      labelPlacement="end"
+                    />
+                  </FormGroup>
+                </FormControl>
+
+                <FormControl component="fieldset">
+                  <FormGroup aria-label="position" row>
+                    <FormControlLabel
+                      value="marijuana"
+                      control={<Checkbox color="default" />}
+                      label="Marijuana Use"
+                      labelPlacement="end"
+                    />
+                  </FormGroup>
+                </FormControl>
+
+                <FormControl component="fieldset">
+                  <FormGroup aria-label="position" row>
+                    <FormControlLabel
+                      value="alcohol"
+                      control={<Checkbox color="default" />}
+                      label="Alcohol"
+                      labelPlacement="end"
+                    />
+                  </FormGroup>
+                </FormControl>
+
+                <FormControl component="fieldset">
+                  <FormGroup aria-label="position" row>
+                    <FormControlLabel
+                      value="prescription"
+                      control={<Checkbox color="default" />}
+                      label="Prescription"
+                      labelPlacement="end"
+                    />
+                  </FormGroup>
+                </FormControl>
+
+                <FormControl component="fieldset">
+                  <FormGroup aria-label="position" row>
+                    <FormControlLabel
+                      value="drug_use"
+                      control={<Checkbox color="default" />}
+                      label="Drug Use"
+                      labelPlacement="end"
+                    />
+                  </FormGroup>
+                </FormControl>
+              
+
+              
+                <label>
+                  Health Notes:</label>
+                  <Select options={categories}/>
+                
+                <label>
+                  Additional Notes:</label>
+                  <input className="form-control" type="text" ref='add_notes' />
+                  
+                <input className="btn btn-primary" type="submit" value="Submit" />
+              </div>
+
+              </div>
+          </div>
           </form>
         );
       }
