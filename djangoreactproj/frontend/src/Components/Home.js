@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Typography } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 class  Home  extends  Component {
     render() {
@@ -8,12 +9,9 @@ class  Home  extends  Component {
                 <Typography variant="h1" component="h2" gutterBottom>
                     Anthroface
                 </Typography>
-                <Typography variant="h2" gutterBottom>
-                    Database
-                </Typography>
-                <Typography variant="h2" gutterBottom>
-                    Import Data
-                </Typography>
+                <Button variant="contained" href="/Patient">New Patient</Button>
+                <Button variant="contained" href="/Database">Database</Button>
+                <Button variant="contained">Import Data</Button>
             </div>
 
             );
