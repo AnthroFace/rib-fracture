@@ -18,6 +18,12 @@ class ImportCSV extends Component {
     })
   }
   handleUpload = () => {
+    if (!this.state.selectedFile.name.endsWith('.csv')) 
+    {
+      alert('You can only upload .csv flies.');
+      return false;
+    }
+
     const data = new FormData()
     data.append('file', this.state.selectedFile, this.state.selectedFile.name)
 
@@ -36,7 +42,7 @@ class ImportCSV extends Component {
   render() {
     return (
       <div className="ImportCSV">
-        <input type="file" name="" id="" onChange={this.handleselectedFile} />
+        <input type="file" accept='.csv' name="" id="" onChange={this.handleselectedFile} />
         <button onClick={this.handleUpload}>Upload</button>
         <div> {Math.round(this.state.loaded, 2)} %</div>
       </div>
