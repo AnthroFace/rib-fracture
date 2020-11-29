@@ -11,7 +11,7 @@ class  Home  extends  Component {
                 </Typography>
                 <Button variant="contained" href="/Patient">New Patient</Button>
                 <Button variant="contained" href="/Database">Database</Button>
-                <Button variant="contained">Import Data</Button>
+                <Button variant="contained" href="/Import">Import Data</Button>
             </div>
 
             );

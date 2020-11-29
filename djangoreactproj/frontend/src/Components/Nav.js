@@ -5,6 +5,7 @@ import { Route, Link } from 'react-router-dom'
 import  PatientsList from  './../PatientsList.js'
 import  PatientCreateUpdate  from './../PatientCreateUpdate'
 import  Home from './Home.js'
+import  ImportCSV from './ImportCSV.js'
 
 class Nav extends Component {
   render() {
@@ -20,6 +21,7 @@ class Nav extends Component {
                         <div className="navbar-nav">
                         <a className="nav-item nav-link" href="/Database">PATIENTS</a>
                         <a className="nav-item nav-link" href="/Patient">CREATE PATIENT</a>
+                        <a className="nav-item nav-link" href="/import">IMPORT DATA</a>
                         </div>
                     </div>
                 </nav>
@@ -27,7 +29,8 @@ class Nav extends Component {
                 <Route path="/" exact component={Home} />
                 <Route path="/database" exact component={PatientsList} />
                 <Route path="/patient/:pk"  component={PatientCreateUpdate} />
-                <Route path="/patient/" exact component={PatientCreateUpdate} />                
+                <Route path="/patient/" exact component={PatientCreateUpdate} />
+                <Route path="/import/" exact component={ImportCSV} />                 
                 </div>
             </div>
         </BrowserRouter>
