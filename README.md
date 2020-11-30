@@ -60,7 +60,7 @@ npm install @material-ui/core --save
 ```
 
 Do this before running the first time and if you install something  
-Also good to do everyone once and a while if something isn't working:
+Also good to do every once and a while if something isn't working:
 
 ```bash
 npm install
@@ -72,5 +72,3 @@ Run the app:
 npm start
 ```
 http://localhost:3000 for the app (should open automatically)
-
-Saving while app is running should instantly reflect changes
