@@ -1,13 +1,12 @@
 import React, { Component, Fragment } from "react";
-import Header from "./components/Header";
-import Home from "./components/Home";
+import PatientsPage from "./components/PatientsPage";
+import Nav from "./components/Nav";
 
 class App extends Component {
   render() {
     return (
       <Fragment>
-        <Header />
-        <Home />
+        <Nav />
       </Fragment>
     );
   }

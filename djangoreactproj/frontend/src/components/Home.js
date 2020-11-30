@@ -1,48 +1,20 @@
-import React, { Component } from "react";
-import { Col, Container, Row } from "reactstrap";
-import PatientList from "./PatientList";
-import NewPatientModal from "./NewPatientModal";
+import React, { Component } from 'react';
+import { Typography } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
-import axios from "axios";
+class  Home  extends  Component {
+    render() {
+        return (
+            <div>
+                <Typography variant="h1" component="h2" gutterBottom>
+                    Anthroface
+                </Typography>
+                <Button variant="contained" href="/Patient">New Patient</Button>
+                <Button variant="contained" href="/Database">Database</Button>
+                <Button variant="contained" href="/Import">Import Data</Button>
+            </div>
 
-import { API_URL } from "../constants";
-
-class Home extends Component {
-  state = {
-    patients: []
-  };
-
-  componentDidMount() {
-    this.resetState();
-  }
-
-  getPatients = () => {
-    axios.get(API_URL).then(res => this.setState({ patients: res.data }));
-  };
-
-  resetState = () => {
-    this.getPatients();
-  };
-
-  render() {
-    return (
-      <Container style={{ marginTop: "20px" }}>
-        <Row>
-          <Col>
-            <PatientList
-              patients={this.state.patients}
-              resetState={this.resetState}
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <NewPatientModal create={true} resetState={this.resetState} />
-          </Col>
-        </Row>
-      </Container>
-    );
-  }
-}
-
-export default Home;
+            );
+      }
+    }
+    export  default  Home;

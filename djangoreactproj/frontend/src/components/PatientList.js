@@ -14,7 +14,6 @@ class PatientList extends Component {
             <th>#</th>
             <th>Case Number</th>
             <th>Age</th>
-            <th>Sex</th>
             <th>Weight</th>
             <th>MOD</th>
             <th>COD</th>
