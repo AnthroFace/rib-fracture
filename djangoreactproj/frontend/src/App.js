@@ -1,11 +1,14 @@
-import React, { Component } from 'react';
-import  Nav from './Components/Nav.js'
-import './App.css';
+import React, { Component, Fragment } from "react";
+import Header from "./components/Header";
+import Home from "./components/Home";
 
 class App extends Component {
   render() {
     return (
-      <Nav />
+      <Fragment>
+        <Header />
+        <Home />
+      </Fragment>
     );
   }
 }

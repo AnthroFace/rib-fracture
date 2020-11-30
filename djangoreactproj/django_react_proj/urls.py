@@ -1,7 +1,7 @@
-"""djangoreactproj URL Configuration
+"""django_react_proj URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
+    https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -14,15 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from customers import views
-from django.conf.urls import url
+from django.urls import path, re_path
 from patients import views
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #url(r'^api/customers/$', views.customers_list),
-    #url(r'^api/customers/(?P<pk>[0-9]+)$', views.customers_detail),
-    url(r'^api/patients/$', views.patients_list),
-    url(r'^api/patients/(?P<pk>[0-9]+)$', views.patients_detail),
+    re_path(r'^api/patients/$', views.patients_list),
+    re_path(r'^api/patients/(?P<pk>[0-9]+)$', views.patients_detail),
 ]
