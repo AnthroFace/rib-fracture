@@ -9,7 +9,9 @@ In order to run the projects locally, you need to have Node, npm and Python inst
 
 ### Running the Django project (server)
 
-Ensure Python installed (recommened to use virtual environment - doesnt have to be in project folder)
+Ensure Python installed  
+
+Recommened to use virtual environment - doesnt have to be in project folder:
 
 ```bash
 python3 -m venv env
@@ -57,7 +59,7 @@ npm install react-router-dom --save
 npm install @material-ui/core --save
 ```
 
-Do this before running the first time and if you install something
+Do this before running the first time and if you install something  
 Also good to do everyone once and a while if something isn't working:
 
 ```bash
