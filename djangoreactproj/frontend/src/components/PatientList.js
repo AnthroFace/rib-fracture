@@ -15,9 +15,21 @@ class PatientList extends Component {
             <th>Case Number</th>
             <th>Age</th>
             <th>Weight</th>
+            <th>Ancestry</th>
             <th>MOD</th>
             <th>COD</th>
-            <th>Add_Notes</th>
+            <th>COD Type</th>
+            <th>XRAY</th>
+            <th>Belted</th>
+            <th>Obese</th>
+            <th>Cardio</th>
+            <th>Pathology</th>
+            <th>Marijuana</th>
+            <th>Alcohol</th>
+            <th>Prescription</th>
+            <th>Drug-Use</th>
+            <th>Health-Notes</th>
+            <th>Add-Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -33,9 +45,23 @@ class PatientList extends Component {
                 <td>{patient.pk}  </td>
                 <td>{patient.case_id}</td>
                 <td>{patient.age}</td>
+                <td>{patient.sex}</td>
                 <td>{patient.weight}</td>
+                <td>{patient.ancestry}</td>
                 <td>{patient.mod}</td>
                 <td>{patient.cod}</td>
+                <td>{patient.cod_type}</td>
+                <td>{patient.xray}</td>
+                <td>{patient.belted}</td>
+                <td>{patient.obese}</td>
+                <td>{patient.cardio}</td>
+                <td>{patient.patho}</td>
+                <td>{patient.tobacco}</td>
+                <td>{patient.marijuana}</td>
+                <td>{patient.alcohol}</td>
+                <td>{patient.prescription}</td>
+                <td>{patient.drug_use}</td>
+                <td>{patient.health_notes}</td>
                 <td>{patient.add_notes}</td>
                 <td align="center">
                   <NewPatientModal
