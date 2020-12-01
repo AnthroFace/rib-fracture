@@ -210,7 +210,7 @@ class NewPatientForm extends React.Component {
           </select>
         </FormGroup>
         <FormGroup>
-          <Label for="tobacco">tobacco:</Label>
+          <Label for="tobacco">Tobacco:</Label>
           <select 
             name="tobacco" 
             id ="tobacco-select" 
@@ -221,7 +221,7 @@ class NewPatientForm extends React.Component {
           </select>
         </FormGroup>
         <FormGroup>
-          <Label for="marijuana">marijuana:</Label>
+          <Label for="marijuana">Marijuana:</Label>
           <select 
             name="marijuana" 
             id ="marijuana-select" 

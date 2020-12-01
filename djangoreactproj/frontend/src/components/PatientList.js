@@ -8,12 +8,13 @@ class PatientList extends Component {
   render() {
     const patients = this.props.patients;
     return (
-      <Table>
+      <Table align="left">
         <thead>
           <tr>
             <th>#</th>
             <th>Case Number</th>
             <th>Age</th>
+            <th>Sex</th>
             <th>Weight</th>
             <th>Ancestry</th>
             <th>MOD</th>
@@ -24,10 +25,11 @@ class PatientList extends Component {
             <th>Obese</th>
             <th>Cardio</th>
             <th>Pathology</th>
+            <th>Tobacco</th>
             <th>Marijuana</th>
             <th>Alcohol</th>
             <th>Prescription</th>
-            <th>Drug-Use</th>
+            <th>Drug Use</th>
             <th>Health-Notes</th>
             <th>Add-Notes</th>
           </tr>
