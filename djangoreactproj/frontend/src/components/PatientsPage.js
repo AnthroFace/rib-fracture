@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Container, Row } from "reactstrap";
 import PatientList from "./PatientList";
 import NewPatientModal from "./NewPatientModal";
+import Box from '@material-ui/core/Box';
 
 import axios from "axios";
 
@@ -26,10 +27,11 @@ class PatientsPage extends Component {
 
   render() {
     return (
-      <Container style={{ marginTop: "20px" }}>
-        <Row>
+      <Box border={0} textAlign="left" >
+      <Container style={{ marginTop: "20px" }} textAlign="left" >
+        <Row textAlign="left">
           <Col>
-            <PatientList
+            <PatientList textAlign="left"
               patients={this.state.patients}
               resetState={this.resetState}
             />
@@ -41,6 +43,7 @@ class PatientsPage extends Component {
           </Col>
         </Row>
       </Container>
+      </Box>
     );
   }
 }

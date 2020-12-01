@@ -7,12 +7,12 @@ import  Home from "./Home";
 import  ImportCSV from "./ImportCSV";
 
 class Nav extends Component {
-  render() {
+  render() { 
     return (
         <BrowserRouter>
             <div className="container-fluid">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <a className="navbar-brand" href="/">AnthroFace</a>
+                    <a className="navbar-brand" href="/">AnthroFace</a> 
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -35,5 +35,6 @@ class Nav extends Component {
     );
   }
 }
+//if want name on navbar, insert on line navbar-brand between >< 
 
 export default Nav;

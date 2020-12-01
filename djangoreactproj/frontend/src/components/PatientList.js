@@ -38,7 +38,7 @@ class PatientList extends Component {
           {!patients || patients.length <= 0 ? (
             <tr>
               <td colSpan="6" align="center">
-                <b>Ops, no one here yet</b>
+                <b>Oops, no one here yet</b>
               </td>
             </tr>
           ) : (
