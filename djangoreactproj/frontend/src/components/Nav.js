@@ -5,14 +5,27 @@ import { Route, Link } from 'react-router-dom'
 import  PatientsPage from "./PatientsPage";
 import  Home from "./Home";
 import  ImportCSV from "./ImportCSV";
+import "./../App.css"
+import Image from 'react-image-resizer';
 
 class Nav extends Component {
   render() { 
     return (
         <BrowserRouter>
             <div className="container-fluid">
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <a className="navbar-brand" href="/">AnthroFace</a> 
+                
+                <nav className="navbar navbar-expand-lg navbar-dark navbar-custom">
+                    
+                <a className="navbar-brand" href="/">
+                    
+                       <Image
+                       src="/images/AnthrofaceLogo3.png"
+                       height={65}
+                       alt = ""
+                     />
+                     </a>
+            
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -29,6 +42,7 @@ class Nav extends Component {
                 <Route path="/patient/:pk"  component={PatientsPage} />
                 <Route path="/patient/" exact component={PatientsPage} />
                 <Route path="/import/" exact component={ImportCSV} />                 
+               
                 </div>
             </div>
         </BrowserRouter>
@@ -36,5 +50,8 @@ class Nav extends Component {
   }
 }
 //if want name on navbar, insert on line navbar-brand between >< 
+//img variant="h1" component="h2" src = "/images/AnthrofaceLogo3.png" alt=""
+// ^^ old code for image insertion without image resizer
+
 
 export default Nav;

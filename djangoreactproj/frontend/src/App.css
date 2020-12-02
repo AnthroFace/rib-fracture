@@ -1,3 +1,8 @@
 img{
     height: 200px;
 }
+.navbar-custom {
+    background-color: #818051;
+    background-image: none;
+    background-repeat: no-repeat;
+   }
