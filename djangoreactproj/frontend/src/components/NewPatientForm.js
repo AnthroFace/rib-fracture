@@ -157,6 +157,7 @@ class NewPatientForm extends React.Component {
             value={this.state.sex}
             onChange={this.onChange}
           >
+            <option value="">-- select an option --</option>
             <option value="F">Female</option>
             <option value="M">Male</option>
           </select>
@@ -178,6 +179,7 @@ class NewPatientForm extends React.Component {
             value={this.state.ancestry}
             onChange={this.onChange}
           >
+            <option value="">-- select an option --</option>
             <option value="White">White</option>
             <option value="Hispanic">Hispanic</option>
             <option value="Black">Black</option>
