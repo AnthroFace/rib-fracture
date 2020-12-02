@@ -1,15 +1,10 @@
 import React from "react";
-import Select from 'react-select'
+import Select from "react-select";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
 import axios from "axios";
 
 import { API_URL } from "../constants";
-
-// const sex = [
-//   {value: 'F', label: 'Female'},
-//   {value: 'M', label: 'Male'},
-// ]
 
 class NewPatientForm extends React.Component {
   state = {
@@ -37,25 +32,89 @@ class NewPatientForm extends React.Component {
 
   componentDidMount() {
     if (this.props.patient) {
-      const { pk, case_id, age, sex, weight, ancestry, mod, cod, cod_type, xray, belted, obese, cardio, patho, tobacco, marijuana, alcohol, prescription, drug_use, health_notes} = this.props.patient;
-      this.setState({ pk, case_id, age, sex, weight, ancestry, mod, cod, cod_type, xray, belted, obese, cardio, patho, tobacco, marijuana, alcohol, prescription, drug_use, health_notes});
+      const {
+        pk,
+        case_id,
+        age,
+        sex,
+        weight,
+        ancestry,
+        mod,
+        cod,
+        cod_type,
+        xray,
+        belted,
+        obese,
+        cardio,
+        patho,
+        tobacco,
+        marijuana,
+        alcohol,
+        prescription,
+        drug_use,
+        health_notes,
+      } = this.props.patient;
+      this.setState({
+        pk,
+        case_id,
+        age,
+        sex,
+        weight,
+        ancestry,
+        mod,
+        cod,
+        cod_type,
+        xray,
+        belted,
+        obese,
+        cardio,
+        patho,
+        tobacco,
+        marijuana,
+        alcohol,
+        prescription,
+        drug_use,
+        health_notes,
+      });
     }
   }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.value)
+    console.log(e.target.value);
   };
 
-  createPatient = e => {
+  createPatient = (e) => {
     e.preventDefault();
     axios.post(API_URL, this.state).then(() => {
-      this.props.resetState();
+      this.setState({
+        pk: 0,
+        case_id: "",
+        age: "",
+        sex: "",
+        weight: "",
+        ancestry: "",
+        mod: "",
+        cod: "",
+        cod_type: "",
+        xray: "",
+        belted: "",
+        obese: "",
+        cardio: "",
+        patho: "",
+        tobacco: "",
+        marijuana: "",
+        alcohol: "",
+        prescription: "",
+        drug_use: "",
+        health_notes: "",
+        add_notes: "",
+      });
       this.props.toggle();
     });
   };
 
-  editPatient = e => {
+  editPatient = (e) => {
     e.preventDefault();
     axios.put(API_URL + this.state.pk, this.state).then(() => {
       this.props.resetState();
@@ -63,13 +122,15 @@ class NewPatientForm extends React.Component {
     });
   };
 
-  defaultIfEmpty = value => {
+  defaultIfEmpty = (value) => {
     return value === "" ? "" : value;
   };
 
   render() {
     return (
-      <Form onSubmit={this.props.patient ? this.editPatient : this.createPatient}>
+      <Form
+        onSubmit={this.props.patient ? this.editPatient : this.createPatient}
+      >
         <FormGroup>
           <Label for="case_id">Case ID:</Label>
           <Input
@@ -90,11 +151,12 @@ class NewPatientForm extends React.Component {
         </FormGroup>
         <FormGroup>
           <Label for="sex">Sex:</Label>
-          <select 
-            name="sex" 
-            id ="sex-select" 
+          <select
+            name="sex"
+            id="sex-select"
             value={this.state.sex}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="F">Female</option>
             <option value="M">Male</option>
           </select>
@@ -110,11 +172,12 @@ class NewPatientForm extends React.Component {
         </FormGroup>
         <FormGroup>
           <Label for="ancestry">Ancestry:</Label>
-          <select 
-            name="ancestry" 
-            id ="ancestry-select" 
+          <select
+            name="ancestry"
+            id="ancestry-select"
             value={this.state.ancestry}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="White">White</option>
             <option value="Hispanic">Hispanic</option>
             <option value="Black">Black</option>
@@ -155,110 +218,120 @@ class NewPatientForm extends React.Component {
         </FormGroup>
         <FormGroup>
           <Label for="xray">XRAY:</Label>
-          <select 
-            name="xray" 
-            id ="xray-select" 
+          <select
+            name="xray"
+            id="xray-select"
             value={this.state.xray}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="Y">Yes</option>
             <option value="N">No</option>
           </select>
         </FormGroup>
         <FormGroup>
           <Label for="belted">Belted:</Label>
-          <select 
-            name="belted" 
-            id ="belted-select" 
+          <select
+            name="belted"
+            id="belted-select"
             value={this.state.belted}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="Y">Yes</option>
             <option value="N">No</option>
           </select>
         </FormGroup>
         <FormGroup>
           <Label for="obese">Obese:</Label>
-          <select 
-            name="obese" 
-            id ="obese-select" 
+          <select
+            name="obese"
+            id="obese-select"
             value={this.state.obese}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="Y">Yes</option>
             <option value="N">No</option>
           </select>
         </FormGroup>
         <FormGroup>
           <Label for="cardio">Cardio:</Label>
-          <select 
-            name="cardio" 
-            id ="cardio-select" 
+          <select
+            name="cardio"
+            id="cardio-select"
             value={this.state.cardio}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="Y">Yes</option>
             <option value="N">No</option>
           </select>
         </FormGroup>
         <FormGroup>
           <Label for="patho">Patho:</Label>
-          <select 
-            name="patho" 
-            id ="patho-select" 
+          <select
+            name="patho"
+            id="patho-select"
             value={this.state.patho}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="Y">Yes</option>
             <option value="N">No</option>
           </select>
         </FormGroup>
         <FormGroup>
           <Label for="tobacco">Tobacco:</Label>
-          <select 
-            name="tobacco" 
-            id ="tobacco-select" 
+          <select
+            name="tobacco"
+            id="tobacco-select"
             value={this.state.tobacco}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="Y">Yes</option>
             <option value="N">No</option>
           </select>
         </FormGroup>
         <FormGroup>
           <Label for="marijuana">Marijuana:</Label>
-          <select 
-            name="marijuana" 
-            id ="marijuana-select" 
+          <select
+            name="marijuana"
+            id="marijuana-select"
             value={this.state.marijuana}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="Y">Yes</option>
             <option value="N">No</option>
           </select>
         </FormGroup>
         <FormGroup>
           <Label for="alcohol">Alcohol:</Label>
-          <select 
-            name="alcohol" 
-            id ="alcohol-select" 
+          <select
+            name="alcohol"
+            id="alcohol-select"
             value={this.state.alcohol}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="Y">Yes</option>
             <option value="N">No</option>
           </select>
         </FormGroup>
         <FormGroup>
           <Label for="prescription">Prescription:</Label>
-          <select 
-            name="prescription" 
-            id ="prescription-select" 
+          <select
+            name="prescription"
+            id="prescription-select"
             value={this.state.prescription}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="Y">Yes</option>
             <option value="N">No</option>
           </select>
         </FormGroup>
         <FormGroup>
           <Label for="drug_use">Drug Use:</Label>
-          <select 
-            name="drug_use" 
-            id ="drug_use-select" 
+          <select
+            name="drug_use"
+            id="drug_use-select"
             value={this.state.drug_use}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             <option value="Y">Yes</option>
             <option value="N">No</option>
           </select>

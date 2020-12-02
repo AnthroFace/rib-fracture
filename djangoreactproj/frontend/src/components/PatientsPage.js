@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Col, Container, Row } from "reactstrap";
 import PatientList from "./PatientList";
 import NewPatientModal from "./NewPatientModal";
-import Box from '@material-ui/core/Box';
+import Box from "@material-ui/core/Box";
 
 import axios from "axios";
 
@@ -10,7 +10,7 @@ import { API_URL } from "../constants";
 
 class PatientsPage extends Component {
   state = {
-    patients: []
+    patients: [],
   };
 
   componentDidMount() {
@@ -18,7 +18,7 @@ class PatientsPage extends Component {
   }
 
   getPatients = () => {
-    axios.get(API_URL).then(res => this.setState({ patients: res.data }));
+    axios.get(API_URL).then((res) => this.setState({ patients: res.data }));
   };
 
   resetState = () => {
@@ -27,22 +27,18 @@ class PatientsPage extends Component {
 
   render() {
     return (
-      <Box border={0} textAlign="left" >
-      <Container style={{ marginTop: "20px" }} textAlign="left" >
-        <Row textAlign="left">
-          <Col>
-            <PatientList textAlign="left"
-              patients={this.state.patients}
-              resetState={this.resetState}
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <NewPatientModal create={true} resetState={this.resetState} />
-          </Col>
-        </Row>
-      </Container>
+      <Box border={0} textAlign="left">
+        <Container style={{ marginTop: "20px" }} textAlign="left">
+          <Row textAlign="left">
+            <Col>
+              <PatientList
+                textAlign="left"
+                patients={this.state.patients}
+                resetState={this.resetState}
+              />
+            </Col>
+          </Row>
+        </Container>
       </Box>
     );
   }
