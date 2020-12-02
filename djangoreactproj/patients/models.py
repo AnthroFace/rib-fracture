@@ -6,7 +6,7 @@ from django.db import models
 # )
 
 class Patient(models.Model):
-    case_id = models.CharField("Case ID", max_length=240)
+    case_id = models.CharField("Case ID", max_length=240,default="")
     age = models.IntegerField("Age")
     sex = models.CharField("Sex", max_length= 2)
     weight = models.IntegerField("Weight")
@@ -25,7 +25,6 @@ class Patient(models.Model):
     prescription = models.CharField('Prescription Medications', max_length=1)
     drug_use = models.CharField('Illicit Drug Use', max_length=1)
     health_notes = models.TextField('Health Notes', default=None)
-    add_notes = models.TextField("Additional Health Notes", default=None)
 
     #registrationDate = models.DateField("Registration Date", auto_now_add=True)
 

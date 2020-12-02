@@ -33,13 +33,12 @@ class NewPatientForm extends React.Component {
     prescription: "",
     drug_use: "",
     health_notes: "",
-    add_notes: ""
   };
 
   componentDidMount() {
     if (this.props.patient) {
-      const { pk, case_id, age, sex, weight, ancestry, mod, cod, cod_type, xray, belted, obese, cardio, patho, tobacco, marijuana, alcohol, prescription, drug_use, health_notes, add_notes } = this.props.patient;
-      this.setState({ pk, case_id, age, sex, weight, ancestry, mod, cod, cod_type, xray, belted, obese, cardio, patho, tobacco, marijuana, alcohol, prescription, drug_use, health_notes,  add_notes });
+      const { pk, case_id, age, sex, weight, ancestry, mod, cod, cod_type, xray, belted, obese, cardio, patho, tobacco, marijuana, alcohol, prescription, drug_use, health_notes} = this.props.patient;
+      this.setState({ pk, case_id, age, sex, weight, ancestry, mod, cod, cod_type, xray, belted, obese, cardio, patho, tobacco, marijuana, alcohol, prescription, drug_use, health_notes});
     }
   }
 
@@ -271,15 +270,6 @@ class NewPatientForm extends React.Component {
             name="health_notes"
             onChange={this.onChange}
             value={this.defaultIfEmpty(this.state.health_notes)}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="add_notes">Additional Health Notes:</Label>
-          <Input
-            type="text"
-            name="add_notes"
-            onChange={this.onChange}
-            value={this.defaultIfEmpty(this.state.add_notes)}
           />
         </FormGroup>
         <Button>Send</Button>

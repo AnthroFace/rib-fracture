@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Patient',
             fields=[
-                ('pk', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='PK')),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('case_id', models.CharField(max_length=140, verbose_name='Case ID')),
                 ('age', models.IntegerField(verbose_name='Age')),
                 ('sex', models.CharField( max_length=1, verbose_name='Sex')),
@@ -33,7 +33,6 @@ class Migration(migrations.Migration):
                 ('prescription', models.CharField(max_length=1, verbose_name='Prescription Medications')),
                 ('drug_use', models.CharField(max_length=1, verbose_name='Illicit Drug Use')),
                 ('health_notes', models.TextField(blank=True, null=True, verbose_name='Health Notes')),
-                ('add_notes', models.TextField(blank=True, null=True, verbose_name='Additional Notes')),
             ],
         ),
     ]

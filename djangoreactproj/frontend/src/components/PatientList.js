@@ -31,7 +31,6 @@ class PatientList extends Component {
             <th>Prescription</th>
             <th>Drug Use</th>
             <th>Health-Notes</th>
-            <th>Add-Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -64,7 +63,6 @@ class PatientList extends Component {
                 <td>{patient.prescription}</td>
                 <td>{patient.drug_use}</td>
                 <td>{patient.health_notes}</td>
-                <td>{patient.add_notes}</td>
                 <td align="center">
                   <NewPatientModal
                     create={false}
