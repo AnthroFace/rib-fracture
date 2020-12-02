@@ -28,20 +28,24 @@ class Home extends Component {
             <Button
               style={{
                 // borderRadius: 35,
-                backgroundColor: "#ffffff",
+                color:"#96382f",
+                backgroundColor: "#fffee9",
                 padding: "18px 36px",
                 fontSize: "18px",
+
               }}
               variant="contained"
               size="large"
               href="/Create"
             >
+              
               New Patient
             </Button>
             <Button
               style={{
                 //  borderRadius: 35,
-                backgroundColor: "#ffffff",
+                color:"#96382f",
+                backgroundColor: "#fffee9",
                 padding: "18px 36px",
                 fontSize: "18px",
               }}
@@ -54,7 +58,8 @@ class Home extends Component {
             <Button
               style={{
                 // borderRadius: 35,
-                backgroundColor: "#ffffff",
+                color:"#96382f",
+                backgroundColor: "#fffee9",
                 padding: "18px 36px",
                 fontSize: "18px",
               }}
