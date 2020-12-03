@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Patient, Fracture
+from .models import Patient
+from .models import Fracture
 
 class FractureSerializer(serializers.ModelSerializer):
 
@@ -13,4 +14,4 @@ class PatientSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Patient 
-        fields = ('pk', 'case_id', 'age', 'sex', 'weight', 'ancestry', 'mod', 'cod', 'cod_type', 'xray', 'belted', 'obese', 'cardio', 'patho', 'tobacco', 'marijuana', 'alcohol', 'prescription', 'drug_use', 'health_notes')
+        fields = ('pk', 'case_id', 'age', 'sex', 'weight', 'ancestry', 'mod', 'cod', 'cod_type', 'xray', 'belted', 'obese', 'cardio', 'patho', 'tobacco', 'marijuana', 'alcohol', 'prescription', 'drug_use', 'health_notes', 'rib_fracture')
