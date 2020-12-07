@@ -28,6 +28,7 @@ class NewPatientForm extends React.Component {
     prescription: "",
     drug_use: "",
     health_notes: "",
+    rib_fracture: "",
   };
 
   componentDidMount() {
@@ -53,6 +54,7 @@ class NewPatientForm extends React.Component {
         prescription,
         drug_use,
         health_notes,
+        rib_fracture,
       } = this.props.patient;
       this.setState({
         pk,
@@ -75,6 +77,7 @@ class NewPatientForm extends React.Component {
         prescription,
         drug_use,
         health_notes,
+        rib_fracture,
       });
     }
   }
@@ -108,7 +111,7 @@ class NewPatientForm extends React.Component {
         prescription: "",
         drug_use: "",
         health_notes: "",
-        add_notes: "",
+        rib_fracture: "",
       });
       this.props.toggle();
     });
