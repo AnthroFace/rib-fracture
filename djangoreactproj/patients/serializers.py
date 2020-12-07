@@ -13,5 +13,5 @@ class PatientSerializer(serializers.ModelSerializer):
     rib_fracture = FractureSerializer(many=True)
 
     class Meta:
-        model = Patient 
+        model = Patient
         fields = ('pk', 'case_id', 'age', 'sex', 'weight', 'ancestry', 'mod', 'cod', 'cod_type', 'xray', 'belted', 'obese', 'cardio', 'patho', 'tobacco', 'marijuana', 'alcohol', 'prescription', 'drug_use', 'health_notes', 'rib_fracture')
