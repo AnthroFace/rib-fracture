@@ -30,4 +30,7 @@ class Fracture(models.Model):
     location = models.CharField("Location", max_length=20)
     completeness = models.IntegerField("Completeness")
     fracture_type = models.CharField("Fracture Type", max_length=20)
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="rib_fracture")
+
+    def __str__(self):
+        return self.patient.case_id
