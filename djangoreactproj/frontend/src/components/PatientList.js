@@ -2,7 +2,17 @@ import React, { Component } from "react";
 import { Table } from "reactstrap";
 import NewPatientModal from "./NewPatientModal";
 
+import FractureList from "./FractureList";
+import SectionList from "./SectionList";
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
+
+getFractures = () => {
+  axios.get(API_URL).then((res) => this.setState({ fractures: res.data }));
+};
+
+resetState = () => {
+  this.getFractures();
+};
 
 class PatientList extends Component {
   render() {
@@ -41,9 +51,9 @@ class PatientList extends Component {
               </td>
             </tr>
           ) : (
-            patients.map(patient => (
+            patients.map((patient) => (
               <tr key={patient.pk}>
-                <td>{patient.pk}  </td>
+                <td>{patient.pk} </td>
                 <td>{patient.case_id}</td>
                 <td>{patient.age}</td>
                 <td>{patient.sex}</td>
