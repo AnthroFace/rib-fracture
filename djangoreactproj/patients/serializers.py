@@ -11,19 +11,11 @@ class SectionSerializer(serializers.ModelSerializer):
 
 
 class FractureSerializer(serializers.ModelSerializer):
-   # rib_section = SectionSerializer(many=True)
+    rib_section = SectionSerializer(many=True)
 
     class Meta:
         model = Fracture
-        #fields = ('id', 'location', 'rib_section')
-        fields = ('id', 'location')
-
-    #def create(self, validated_data):
-        #sections_data = validated_data.pop('rib_section')
-        #fract = Fracture.objects.create(**validated_data)
-        #for section_data in sections_data:
-            #Section.objects.create(fracture=fract, **section_data)
-        #return fract
+        fields = ('id', 'location', 'rib_section')
 
 # Connect both serializers maybe have many=True
 class PatientSerializer(serializers.ModelSerializer):
@@ -36,11 +28,11 @@ class PatientSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         fractures_data = validated_data.pop('rib_fracture')
         pat = Patient.objects.create(**validated_data)
-        for fracture_data in fractures_data:
-            Fracture.objects.create(patient=pat, **fracture_data)
 
-            #sections_data = fracture_data.pop('rib_section')
-            #fract = Fracture.objects.create(**validated_data)
-            #for section_data in sections_data:
-            #    Section.object.create(fracture=fract, **section_data)
+        for fracture_data in fractures_data:
+            sections_data = fracture_data.pop('rib_section')
+
+            for section_data in sections_data:
+                Section.objects.create(fracture=Fracture.objects.create(patient=pat, **fracture_data), **section_data)
+        
         return pat
