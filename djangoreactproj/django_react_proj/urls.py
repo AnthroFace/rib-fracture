@@ -15,11 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, re_path
-from patients import views
 from django.conf.urls import url
+from patients import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^api/patients/$', views.patients_list),
     re_path(r'^api/patients/(?P<pk>[0-9]+)$', views.patients_detail),
+    re_path(r'^api/fractures/$', views.fractures_list),
+    re_path(r'^api/fractures/(?P<pk>\d+)/$', views.fractures_detail),
+    re_path(r'^api/sections/$', views.sections_list),
+    re_path(r'^api/sections/(?P<pk>\d+)/$', views.sections_detail),
 ]

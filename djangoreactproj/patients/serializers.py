@@ -1,12 +1,20 @@
 from rest_framework import serializers
 from .models import Patient
 from .models import Fracture
+from .models import Section
+
+class SectionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Section
+        fields = ('id', 'section', 'completeness', 'fracture_type', 'cpr')
 
 class FractureSerializer(serializers.ModelSerializer):
+    rib_section = SectionSerializer(many=True)
 
     class Meta:
         model = Fracture
-        fields = ('pk', 'location', 'completeness', 'fracture_type')
+        fields = ('id', 'location', 'rib_section')
 
 # Connect both serializers maybe have many=True
 class PatientSerializer(serializers.ModelSerializer):
