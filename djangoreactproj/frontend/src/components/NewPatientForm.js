@@ -111,7 +111,7 @@ class NewPatientForm extends React.Component {
         prescription: "",
         drug_use: "",
         health_notes: "",
-        rib_fracture: "",
+        rib_fracture: [{ location: "" }],
       });
       this.props.toggle();
     });
