@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Select from "react-select";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 
@@ -28,7 +28,7 @@ class NewPatientForm extends React.Component {
     prescription: "",
     drug_use: "",
     health_notes: "",
-    rib_fracture: "",
+    rib_fracture: [{ location: "" }],
   };
 
   componentDidMount() {
@@ -123,6 +123,27 @@ class NewPatientForm extends React.Component {
       this.props.resetState();
       this.props.toggle();
     });
+  };
+
+  handleInputChange = (index, event) => {
+    const values = [...this.state.rib_fracture];
+    if (event.target.name === "location") {
+      values[index].location = event.target.value;
+    }
+
+    this.setState({ rib_fracture: values });
+  };
+
+  handleAddFields = () => {
+    const values = [...this.state.rib_fracture];
+    values.push({ location: "" });
+    this.setState({ rib_fracture: values });
+  };
+
+  handleRemoveFields = (index) => {
+    const values = [...this.state.rib_fracture];
+    values.splice(index, 1);
+    this.setState({ rib_fracture: values });
   };
 
   defaultIfEmpty = (value) => {
@@ -350,6 +371,39 @@ class NewPatientForm extends React.Component {
             value={this.defaultIfEmpty(this.state.health_notes)}
           />
         </FormGroup>
+        <div className="form-row">
+          {this.state.rib_fracture.map((fracture, index) => (
+            <Fragment key={`${fracture}~${index}`}>
+              <div className="form-group col-sm-6">
+                <label htmlFor="location">Location (Rib 1-12)</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="location"
+                  name="location"
+                  value={fracture.location}
+                  onChange={(event) => this.handleInputChange(index, event)}
+                />
+              </div>
+              <div className="form-group col-sm-2">
+                <button
+                  className="btn btn-link"
+                  type="button"
+                  onClick={() => this.handleRemoveFields(index)}
+                >
+                  -
+                </button>
+                <button
+                  className="btn btn-link"
+                  type="button"
+                  onClick={() => this.handleAddFields()}
+                >
+                  +
+                </button>
+              </div>
+            </Fragment>
+          ))}
+        </div>
         <Button>Send</Button>
       </Form>
     );
