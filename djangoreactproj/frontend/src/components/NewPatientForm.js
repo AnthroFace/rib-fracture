@@ -29,6 +29,7 @@ class NewPatientForm extends React.Component {
     drug_use: "",
     health_notes: "",
     rib_fracture: [{ location: "" }],
+    section: [{ section: "", completeness: "", fracture_type: "", cpr: "" }],
   };
 
   componentDidMount() {
@@ -55,6 +56,7 @@ class NewPatientForm extends React.Component {
         drug_use,
         health_notes,
         rib_fracture,
+        section,
       } = this.props.patient;
       this.setState({
         pk,
@@ -78,6 +80,7 @@ class NewPatientForm extends React.Component {
         drug_use,
         health_notes,
         rib_fracture,
+        section,
       });
     }
   }
@@ -112,6 +115,9 @@ class NewPatientForm extends React.Component {
         drug_use: "",
         health_notes: "",
         rib_fracture: [{ location: "" }],
+        section: [
+          { section: "", completeness: "", fracture_type: "", cpr: "" },
+        ],
       });
       this.props.toggle();
     });
@@ -127,11 +133,26 @@ class NewPatientForm extends React.Component {
 
   handleInputChange = (index, event) => {
     const values = [...this.state.rib_fracture];
-    if (event.target.name === "location") {
-      values[index].location = event.target.value;
+    if (event.target.name === "section") {
+      values[index].section = event.target.value;
     }
 
     this.setState({ rib_fracture: values });
+  };
+
+  handleSectionInputChange = (index, event) => {
+    const values = [...this.state.section];
+    if (event.target.name === "location") {
+      values[index].location = event.target.value;
+    } else if (event.target.name === "completeness") {
+      values[index].completeness = event.target.value;
+    } else if (event.target.name === "fracture_type") {
+      values[index].fracture_type = event.target.value;
+    } else if (event.target.name === "cpr") {
+      values[index].cpr = event.target.value;
+    }
+
+    this.setState({ section: values });
   };
 
   handleAddFields = () => {
@@ -144,6 +165,18 @@ class NewPatientForm extends React.Component {
     const values = [...this.state.rib_fracture];
     values.splice(index, 1);
     this.setState({ rib_fracture: values });
+  };
+
+  handleSectionAddFields = () => {
+    const values = [...this.state.section];
+    values.push({ section: "", completeness: "", fracture_type: "", cpr: "" });
+    this.setState({ section: values });
+  };
+
+  handleSectionRemoveFields = (index) => {
+    const values = [...this.state.section];
+    values.splice(index, 1);
+    this.setState({ section: values });
   };
 
   defaultIfEmpty = (value) => {
@@ -397,6 +430,80 @@ class NewPatientForm extends React.Component {
                   className="btn btn-link"
                   type="button"
                   onClick={() => this.handleAddFields()}
+                >
+                  +
+                </button>
+              </div>
+            </Fragment>
+          ))}
+        </div>
+        <div className="form-row">
+          {this.state.section.map((sect, index) => (
+            <Fragment key={`${sect}~${index}`}>
+              <div className="form-group col-sm-6">
+                <label htmlFor="section">Location (1-4)</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="section"
+                  name="section"
+                  value={sect.section}
+                  onChange={(event) =>
+                    this.handleSectionInputChange(index, event)
+                  }
+                />
+              </div>
+              <div className="form-group col-sm-6">
+                <label htmlFor="completeness">Completeness (%)</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="completeness"
+                  name="completeness"
+                  value={sect.completeness}
+                  onChange={(event) =>
+                    this.handleSectionInputChange(index, event)
+                  }
+                />
+              </div>
+              <div className="form-group col-sm-6">
+                <label htmlFor="fracture_type">Fracture Type</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="fracture_type"
+                  name="fracture_type"
+                  value={sect.fracture_type}
+                  onChange={(event) =>
+                    this.handleSectionInputChange(index, event)
+                  }
+                />
+              </div>
+              <div className="form-group col-sm-6">
+                <label htmlFor="cpr">Broken by CPR (Y/N) </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="cpr"
+                  name="cpr"
+                  value={sect.cpr}
+                  onChange={(event) =>
+                    this.handleSectionInputChange(index, event)
+                  }
+                />
+              </div>
+              <div className="form-group col-sm-2">
+                <button
+                  className="btn btn-link"
+                  type="button"
+                  onClick={() => this.handleSectionRemoveFields(index)}
+                >
+                  -
+                </button>
+                <button
+                  className="btn btn-link"
+                  type="button"
+                  onClick={() => this.handleSectionAddFields()}
                 >
                   +
                 </button>
