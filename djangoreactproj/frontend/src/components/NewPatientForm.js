@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import Select from "react-select";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import RibImage from "./RibImage";
@@ -29,7 +29,9 @@ class NewPatientForm extends React.Component {
     prescription: "",
     drug_use: "",
     health_notes: "",
-    rib_fracture: "",
+    rib_fracture: [
+      { location: "", completeness: "", fracture_type: "", cpr: "" },
+    ],
   };
 
   componentDidMount() {
@@ -112,7 +114,9 @@ class NewPatientForm extends React.Component {
         prescription: "",
         drug_use: "",
         health_notes: "",
-        rib_fracture: "",
+        rib_fracture: [
+          { location: "", completeness: "", fracture_type: "", cpr: "" },
+        ],
       });
       this.props.toggle();
     });
@@ -124,6 +128,33 @@ class NewPatientForm extends React.Component {
       this.props.resetState();
       this.props.toggle();
     });
+  };
+
+  handleFractureInputChange = (index, event) => {
+    const values = [...this.state.rib_fracture];
+    if (event.target.name === "location") {
+      values[index].location = event.target.value;
+    } else if (event.target.name === "completeness") {
+      values[index].completeness = event.target.value;
+    } else if (event.target.name === "fracture_type") {
+      values[index].fracture_type = event.target.value;
+    } else if (event.target.name === "cpr") {
+      values[index].cpr = event.target.value;
+    }
+
+    this.setState({ rib_fracture: values });
+  };
+
+  handleFractureAddFields = () => {
+    const values = [...this.state.rib_fracture];
+    values.push({ location: "", completeness: "", fracture_type: "", cpr: "" });
+    this.setState({ rib_fracture: values });
+  };
+
+  handleFractureRemoveFields = (index) => {
+    const values = [...this.state.rib_fracture];
+    values.splice(index, 1);
+    this.setState({ rib_fracture: values });
   };
 
   defaultIfEmpty = (value) => {
@@ -351,6 +382,82 @@ class NewPatientForm extends React.Component {
             value={this.defaultIfEmpty(this.state.health_notes)}
           />
         </FormGroup>
+        <div className="form-row">
+          {this.state.rib_fracture.map((fracture, index) => (
+            <Fragment key={`${fracture}~${index}`}>
+              <div className="form-group col-sm-6">
+                <label htmlFor="location">Rib (1-12).Location (1-4)</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="location"
+                  name="location"
+                  value={fracture.location}
+                  onChange={(event) =>
+                    this.handleFractureInputChange(index, event)
+                  }
+                />
+              </div>
+              <div className="form-group col-sm-6">
+                <label htmlFor="completeness">Completeness (%)</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="completeness"
+                  name="completeness"
+                  value={fracture.completeness}
+                  onChange={(event) =>
+                    this.handleFractureInputChange(index, event)
+                  }
+                />
+              </div>
+              <div className="form-group col-sm-6">
+                <label htmlFor="fracture_type">Fracture Type</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="fracture_type"
+                  name="fracture_type"
+                  value={fracture.fracture_type}
+                  onChange={(event) =>
+                    this.handleFractureInputChange(index, event)
+                  }
+                />
+              </div>
+              <div className="form-group col-sm-6">
+                <label htmlFor="cpr">Broken by CPR (Y/N) </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="cpr"
+                  name="cpr"
+                  value={fracture.cpr}
+                  onChange={(event) =>
+                    this.handleFractureInputChange(index, event)
+                  }
+                />
+              </div>
+              <div className="form-group col-sm-2">
+                <button
+                  className="btn btn-link"
+                  type="button"
+                  onClick={() => this.handleFractureRemoveFields(index)}
+                >
+                  -
+                </button>
+                <button
+                  className="btn btn-link"
+                  type="button"
+                  onClick={() => this.handleFractureAddFields()}
+                >
+                  +
+                </button>
+              </div>
+            </Fragment>
+          ))}
+          {/*<br />
+          <pre>{JSON.stringify(this.state.rib_fracture, null, 2)}</pre>*/}
+        </div>
         <RibImage resetState={this.resetState}/>
         <Button>Send</Button>
       </Form>

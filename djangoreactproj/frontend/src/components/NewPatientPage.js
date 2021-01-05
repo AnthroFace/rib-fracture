@@ -33,6 +33,7 @@ class NewPatientPage extends Component {
       drug_use: "",
       health_notes: "",
       add_notes: "",
+      rib_fracture: "",
     });
   };
 
