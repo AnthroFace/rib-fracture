@@ -7,7 +7,7 @@ class SectionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Section
-        fields = ('pk', 'section', 'completeness', 'fracture_type', 'cpr')
+        fields = ('id', 'section', 'completeness', 'fracture_type', 'cpr')
 
 
 class FractureSerializer(serializers.ModelSerializer):
@@ -15,7 +15,7 @@ class FractureSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Fracture
-        fields = ('pk', 'location', 'rib_section')
+        fields = ('id', 'location', 'rib_section')
 
 # Connect both serializers maybe have many=True
 class PatientSerializer(serializers.ModelSerializer):
