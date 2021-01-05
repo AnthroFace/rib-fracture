@@ -7,7 +7,7 @@ var MAP = {
 		{
 			name: "l.p.rib.1",
 			shape: "rect",
-            coords: [42,10,57,21],
+            coords: [42,10,58,21],
             fillColor: "green"
 		},
 		{
@@ -40,34 +40,35 @@ class RibImage extends Component{
             msg: null,
             moveMsg: null 
         };
-    }
-	load() {
+	}
+	load = () => {
 		this.setState({ msg: "Click on Fractured Ribs" });
 	};
-	clicked(area) {
+	clicked = area => {
 		this.setState({
 			msg: `You clicked on ${area.name}`
 		});
+		this.props.onSelectLocation(area.name);
 	};
-	clickedOutside(evt) {
+	clickedOutside = evt => {
 		const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
 		this.setState({
 			msg: `Please select a rib section`
 		});
 	};
-	moveOnImage(evt) {
+	moveOnImage = evt => {
 		const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
 		this.setState({
 			moveMsg: `You moved on the image at coords ${JSON.stringify(coords)} !`
 		});
 	};
-	enterArea(area) {
+	enterArea = area => {
 		this.setState({
 			hoveredArea: area,
 			msg: `${area.name}`
 		});
 	};
-	leaveArea(area) {
+	leaveArea = area => {
 		this.setState({
 			hoveredArea: null,
 			msg: null
@@ -80,7 +81,7 @@ class RibImage extends Component{
 	// 	});
 	// };
 
-	getTipPosition(area) {
+	getTipPosition = area => {
 		return { top: `${area.center[1]}px`, left: `${area.center[0]}px` };
 	};
 

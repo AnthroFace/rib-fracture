@@ -130,6 +130,10 @@ class NewPatientForm extends React.Component {
     });
   };
 
+  handleLocationChange = (location) =>{
+    console.log(location)
+  }
+
   handleFractureInputChange = (index, event) => {
     const values = [...this.state.rib_fracture];
     if (event.target.name === "location") {
@@ -141,7 +145,7 @@ class NewPatientForm extends React.Component {
     } else if (event.target.name === "cpr") {
       values[index].cpr = event.target.value;
     }
-
+    console.log(index)
     this.setState({ rib_fracture: values });
   };
 
@@ -382,6 +386,11 @@ class NewPatientForm extends React.Component {
             value={this.defaultIfEmpty(this.state.health_notes)}
           />
         </FormGroup>
+        <RibImage onSelectLocation={this.handleLocationChange}/>
+        {/* <img src="/images/rib_image.png" alt="Workplace" usemap="#workmap" height="100"/> */}
+        <map name="workmap">
+          <area shape="circle" coords="337,300,44" onclick="myFunction()"/>
+        </map>
         <div className="form-row">
           {this.state.rib_fracture.map((fracture, index) => (
             <Fragment key={`${fracture}~${index}`}>
@@ -458,7 +467,6 @@ class NewPatientForm extends React.Component {
           {/*<br />
           <pre>{JSON.stringify(this.state.rib_fracture, null, 2)}</pre>*/}
         </div>
-        <RibImage resetState={this.resetState}/>
         <Button>Send</Button>
       </Form>
     );
