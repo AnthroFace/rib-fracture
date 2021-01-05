@@ -1,6 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import RibImage from "./RibImage";
 
 import axios from "axios";
 
@@ -350,6 +351,7 @@ class NewPatientForm extends React.Component {
             value={this.defaultIfEmpty(this.state.health_notes)}
           />
         </FormGroup>
+        <RibImage resetState={this.resetState}/>
         <Button>Send</Button>
       </Form>
     );
