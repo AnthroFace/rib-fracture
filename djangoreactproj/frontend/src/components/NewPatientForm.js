@@ -28,8 +28,9 @@ class NewPatientForm extends React.Component {
     prescription: "",
     drug_use: "",
     health_notes: "",
-    rib_fracture: [{ location: "" }],
-    section: [{ section: "", completeness: "", fracture_type: "", cpr: "" }],
+    rib_fracture: [
+      { location: "", completeness: "", fracture_type: "", cpr: "" },
+    ],
   };
 
   componentDidMount() {
@@ -56,7 +57,6 @@ class NewPatientForm extends React.Component {
         drug_use,
         health_notes,
         rib_fracture,
-        section,
       } = this.props.patient;
       this.setState({
         pk,
@@ -80,7 +80,6 @@ class NewPatientForm extends React.Component {
         drug_use,
         health_notes,
         rib_fracture,
-        section,
       });
     }
   }
@@ -114,9 +113,8 @@ class NewPatientForm extends React.Component {
         prescription: "",
         drug_use: "",
         health_notes: "",
-        rib_fracture: [{ location: "" }],
-        section: [
-          { section: "", completeness: "", fracture_type: "", cpr: "" },
+        rib_fracture: [
+          { location: "", completeness: "", fracture_type: "", cpr: "" },
         ],
       });
       this.props.toggle();
@@ -131,17 +129,8 @@ class NewPatientForm extends React.Component {
     });
   };
 
-  handleInputChange = (index, event) => {
+  handleFractureInputChange = (index, event) => {
     const values = [...this.state.rib_fracture];
-    if (event.target.name === "section") {
-      values[index].section = event.target.value;
-    }
-
-    this.setState({ rib_fracture: values });
-  };
-
-  handleSectionInputChange = (index, event) => {
-    const values = [...this.state.section];
     if (event.target.name === "location") {
       values[index].location = event.target.value;
     } else if (event.target.name === "completeness") {
@@ -152,31 +141,19 @@ class NewPatientForm extends React.Component {
       values[index].cpr = event.target.value;
     }
 
-    this.setState({ section: values });
-  };
-
-  handleAddFields = () => {
-    const values = [...this.state.rib_fracture];
-    values.push({ location: "" });
     this.setState({ rib_fracture: values });
   };
 
-  handleRemoveFields = (index) => {
+  handleFractureAddFields = () => {
     const values = [...this.state.rib_fracture];
-    values.splice(index, 1);
+    values.push({ location: "", completeness: "", fracture_type: "", cpr: "" });
     this.setState({ rib_fracture: values });
   };
 
-  handleSectionAddFields = () => {
-    const values = [...this.state.section];
-    values.push({ section: "", completeness: "", fracture_type: "", cpr: "" });
-    this.setState({ section: values });
-  };
-
-  handleSectionRemoveFields = (index) => {
-    const values = [...this.state.section];
+  handleFractureRemoveFields = (index) => {
+    const values = [...this.state.rib_fracture];
     values.splice(index, 1);
-    this.setState({ section: values });
+    this.setState({ rib_fracture: values });
   };
 
   defaultIfEmpty = (value) => {
@@ -408,48 +385,15 @@ class NewPatientForm extends React.Component {
           {this.state.rib_fracture.map((fracture, index) => (
             <Fragment key={`${fracture}~${index}`}>
               <div className="form-group col-sm-6">
-                <label htmlFor="location">Location (Rib 1-12)</label>
+                <label htmlFor="location">Rib (1-12).Location (1-4)</label>
                 <input
                   type="text"
                   className="form-control"
                   id="location"
                   name="location"
                   value={fracture.location}
-                  onChange={(event) => this.handleInputChange(index, event)}
-                />
-              </div>
-              <div className="form-group col-sm-2">
-                <button
-                  className="btn btn-link"
-                  type="button"
-                  onClick={() => this.handleRemoveFields(index)}
-                >
-                  -
-                </button>
-                <button
-                  className="btn btn-link"
-                  type="button"
-                  onClick={() => this.handleAddFields()}
-                >
-                  +
-                </button>
-              </div>
-            </Fragment>
-          ))}
-        </div>
-        <div className="form-row">
-          {this.state.section.map((sect, index) => (
-            <Fragment key={`${sect}~${index}`}>
-              <div className="form-group col-sm-6">
-                <label htmlFor="section">Location (1-4)</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="section"
-                  name="section"
-                  value={sect.section}
                   onChange={(event) =>
-                    this.handleSectionInputChange(index, event)
+                    this.handleFractureInputChange(index, event)
                   }
                 />
               </div>
@@ -460,9 +404,9 @@ class NewPatientForm extends React.Component {
                   className="form-control"
                   id="completeness"
                   name="completeness"
-                  value={sect.completeness}
+                  value={fracture.completeness}
                   onChange={(event) =>
-                    this.handleSectionInputChange(index, event)
+                    this.handleFractureInputChange(index, event)
                   }
                 />
               </div>
@@ -473,9 +417,9 @@ class NewPatientForm extends React.Component {
                   className="form-control"
                   id="fracture_type"
                   name="fracture_type"
-                  value={sect.fracture_type}
+                  value={fracture.fracture_type}
                   onChange={(event) =>
-                    this.handleSectionInputChange(index, event)
+                    this.handleFractureInputChange(index, event)
                   }
                 />
               </div>
@@ -486,9 +430,9 @@ class NewPatientForm extends React.Component {
                   className="form-control"
                   id="cpr"
                   name="cpr"
-                  value={sect.cpr}
+                  value={fracture.cpr}
                   onChange={(event) =>
-                    this.handleSectionInputChange(index, event)
+                    this.handleFractureInputChange(index, event)
                   }
                 />
               </div>
@@ -496,20 +440,22 @@ class NewPatientForm extends React.Component {
                 <button
                   className="btn btn-link"
                   type="button"
-                  onClick={() => this.handleSectionRemoveFields(index)}
+                  onClick={() => this.handleFractureRemoveFields(index)}
                 >
                   -
                 </button>
                 <button
                   className="btn btn-link"
                   type="button"
-                  onClick={() => this.handleSectionAddFields()}
+                  onClick={() => this.handleFractureAddFields()}
                 >
                   +
                 </button>
               </div>
             </Fragment>
           ))}
+          {/*<br />
+          <pre>{JSON.stringify(this.state.rib_fracture, null, 2)}</pre>*/}
         </div>
         <Button>Send</Button>
       </Form>
