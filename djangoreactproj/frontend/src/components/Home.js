@@ -11,7 +11,7 @@ class Home extends Component {
         style={{
           position: "absolute",
           left: "50%",
-          top: "30%",
+          top: "40%",
           transform: "translate(-50%, -50%)",
         }}
       >
@@ -28,23 +28,21 @@ class Home extends Component {
             <Button
               style={{
                 // borderRadius: 35,
-                color:"#96382f",
+                color: "#96382f",
                 backgroundColor: "#fffee9",
                 padding: "18px 36px",
                 fontSize: "18px",
-
               }}
               variant="contained"
               size="large"
               href="/Create"
             >
-              
               New Patient
             </Button>
             <Button
               style={{
                 //  borderRadius: 35,
-                color:"#96382f",
+                color: "#96382f",
                 backgroundColor: "#fffee9",
                 padding: "18px 36px",
                 fontSize: "18px",
@@ -58,7 +56,7 @@ class Home extends Component {
             <Button
               style={{
                 // borderRadius: 35,
-                color:"#96382f",
+                color: "#96382f",
                 backgroundColor: "#fffee9",
                 padding: "18px 36px",
                 fontSize: "18px",
