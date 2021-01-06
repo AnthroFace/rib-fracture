@@ -6,6 +6,7 @@ import RibImage from "./RibImage";
 import axios from "axios";
 
 import { API_URL } from "../constants";
+import zIndex from "@material-ui/core/styles/zIndex";
 
 class NewPatientForm extends React.Component {
   state = {
@@ -130,9 +131,13 @@ class NewPatientForm extends React.Component {
     });
   };
 
-  handleLocationChange = (location) =>{
-    console.log(location)
-  }
+  handleLocationChange = (index, location) => {
+    console.log(location);
+    console.log(index);
+    const values = [...this.state.rib_fracture];
+    values[index].location = location;
+    this.setState({ rib_fracture: values });
+  };
 
   handleFractureInputChange = (index, event) => {
     const values = [...this.state.rib_fracture];
@@ -145,7 +150,7 @@ class NewPatientForm extends React.Component {
     } else if (event.target.name === "cpr") {
       values[index].cpr = event.target.value;
     }
-    console.log(index)
+    console.log(index);
     this.setState({ rib_fracture: values });
   };
 
@@ -386,16 +391,26 @@ class NewPatientForm extends React.Component {
             value={this.defaultIfEmpty(this.state.health_notes)}
           />
         </FormGroup>
-        <RibImage onSelectLocation={this.handleLocationChange}/>
-        {/* <img src="/images/rib_image.png" alt="Workplace" usemap="#workmap" height="100"/> */}
-        <map name="workmap">
-          <area shape="circle" coords="337,300,44" onclick="myFunction()"/>
-        </map>
-        <div className="form-row">
+        <div id="dynamicform" className="form-row">
           {this.state.rib_fracture.map((fracture, index) => (
             <Fragment key={`${fracture}~${index}`}>
+              {/* <img src="/images/rib_image.png" alt="Workplace" usemap="#workmap" height="100"/> <map name="workmap">
+                <area
+                  shape="circle"
+                  coords="337,300,44"
+                  onclick="myFunction()"
+                />
+              </map>*/}
+
               <div className="form-group col-sm-6">
                 <label htmlFor="location">Rib (1-12).Location (1-4)</label>
+                <RibImage
+                  id={index}
+                  name="image"
+                  onSelectLocation={(event) =>
+                    this.handleLocationChange(index, event)
+                  }
+                />
                 <input
                   type="text"
                   className="form-control"
@@ -464,8 +479,9 @@ class NewPatientForm extends React.Component {
               </div>
             </Fragment>
           ))}
-          {/*<br />
-          <pre>{JSON.stringify(this.state.rib_fracture, null, 2)}</pre>*/}
+          {/**/}
+          <br />
+          <pre>{JSON.stringify(this.state.rib_fracture, null, 2)}</pre>
         </div>
         <Button>Send</Button>
       </Form>
