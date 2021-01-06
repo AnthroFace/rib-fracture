@@ -8,37 +8,37 @@ var MAP = {
     {
       name: "l.p.rib.1",
       shape: "rect",
-      coords: [40, 10, 58, 22],
+      coords: [85, 20, 117, 45],
       fillColor: "green",
     },
     {
       name: "l.pl.rib.1",
       shape: "rect",
-      coords: [60, 10, 74, 21],
+      coords: [118, 26, 146, 46],
       fillColor: "green",
     },
     {
       name: "l.al.rib.1",
       shape: "rect",
-      coords: [75, 12, 90, 20],
+      coords: [147, 26, 180, 46],
       fillColor: "green",
     },
     {
       name: "r.p.rib.1",
       shape: "rect",
-      coords: [133, 10, 150, 23],
+      coords: [258, 24, 291, 47],
       fillColor: "green",
     },
     {
       name: "r.pl.rib.1",
       shape: "rect",
-      coords: [120, 13, 132, 23],
+      coords: [229, 29, 257, 47],
       fillColor: "green",
     },
     {
       name: "r.al.rib.1",
       shape: "rect",
-      coords: [102, 13, 119, 22],
+      coords: [195, 28, 228, 45],
       fillColor: "green",
     },
 
