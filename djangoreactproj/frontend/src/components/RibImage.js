@@ -293,6 +293,56 @@ var MAP = {
 
     // rib 7
     {
+      name: "l.p.rib.7",
+      shape: "rect",
+      coords: [20, 223, 66, 243],
+      fillColor: "green",
+    },
+    {
+      name: "l.pl.rib.7",
+      shape: "rect",
+      coords: [67, 226, 97, 244],
+      fillColor: "green",
+    },
+    {
+      name: "l.al.rib.7",
+      shape: "rect",
+      coords: [98, 226, 135, 246],
+      fillColor: "green",
+    },
+    {
+      name: "l.a.rib.7",
+      shape: "rect",
+      coords: [136, 223, 179, 246],
+      fillColor: "green",
+    },
+    {
+      name: "r.p.rib.7",
+      shape: "rect",
+      coords: [309, 229, 338, 248],
+      fillColor: "green",
+    },
+    {
+      name: "r.pl.rib.7",
+      shape: "rect",
+      coords: [279, 228, 308, 247],
+      fillColor: "green",
+    },
+    {
+      name: "r.al.rib.7",
+      shape: "rect",
+      coords: [240, 228, 278, 249],
+      fillColor: "green",
+    },
+    {
+      name: "r.a.rib.7",
+      shape: "rect",
+      coords: [193, 224, 239, 245],
+      fillColor: "green",
+    },
+
+    // rib 8
+    {
       name: "l.p.rib.5",
       shape: "rect",
       coords: [],
