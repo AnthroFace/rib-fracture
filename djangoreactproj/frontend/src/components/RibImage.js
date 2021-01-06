@@ -343,51 +343,227 @@ var MAP = {
 
     // rib 8
     {
-      name: "l.p.rib.5",
+      name: "l.p.rib.8",
       shape: "rect",
-      coords: [],
+      coords: [33, 260, 65, 276],
       fillColor: "green",
     },
     {
-      name: "l.pl.rib.5",
+      name: "l.pl.rib.8",
       shape: "rect",
-      coords: [],
+      coords: [65, 261, 97, 277],
       fillColor: "green",
     },
     {
-      name: "l.al.rib.5",
+      name: "l.al.rib.8",
       shape: "rect",
-      coords: [],
+      coords: [98, 259, 139, 282],
       fillColor: "green",
     },
     {
-      name: "l.a.rib.5",
+      name: "l.a.rib.8",
       shape: "rect",
-      coords: [],
+      coords: [140, 258, 178, 280],
       fillColor: "green",
     },
     {
-      name: "r.p.rib.5",
+      name: "r.p.rib.8",
       shape: "rect",
-      coords: [],
+      coords: [312, 265, 340, 280],
       fillColor: "green",
     },
     {
-      name: "r.pl.rib.5",
+      name: "r.pl.rib.8",
       shape: "rect",
-      coords: [],
+      coords: [279, 264, 311, 280],
       fillColor: "green",
     },
     {
-      name: "r.al.rib.5",
+      name: "r.al.rib.8",
       shape: "rect",
-      coords: [],
+      coords: [237, 263, 278, 283],
       fillColor: "green",
     },
     {
-      name: "r.a.rib.5",
+      name: "r.a.rib.8",
       shape: "rect",
-      coords: [],
+      coords: [195, 258, 236, 280],
+      fillColor: "green",
+    },
+
+    // rib 9
+    {
+      name: "l.p.rib.9",
+      shape: "rect",
+      coords: [48, 293, 67, 309],
+      fillColor: "green",
+    },
+    {
+      name: "l.pl.rib.9",
+      shape: "rect",
+      coords: [68, 292, 104, 311],
+      fillColor: "green",
+    },
+    {
+      name: "l.al.rib.9",
+      shape: "rect",
+      coords: [105, 292, 144, 316],
+      fillColor: "green",
+    },
+    {
+      name: "l.a.rib.9",
+      shape: "rect",
+      coords: [145, 292, 178, 314],
+      fillColor: "green",
+    },
+    {
+      name: "r.p.rib.9",
+      shape: "rect",
+      coords: [309, 298, 325, 313],
+      fillColor: "green",
+    },
+    {
+      name: "r.pl.rib.9",
+      shape: "rect",
+      coords: [272, 295, 308, 312],
+      fillColor: "green",
+    },
+    {
+      name: "r.al.rib.9",
+      shape: "rect",
+      coords: [231, 294, 271, 315],
+      fillColor: "green",
+    },
+    {
+      name: "r.a.rib.9",
+      shape: "rect",
+      coords: [195, 291, 230, 313],
+      fillColor: "green",
+    },
+
+    // rib 10
+    {
+      name: "l.p.rib.10",
+      shape: "rect",
+      coords: [57, 325, 75, 341],
+      fillColor: "green",
+    },
+    {
+      name: "l.pl.rib.10",
+      shape: "rect",
+      coords: [76, 324, 110, 342],
+      fillColor: "green",
+    },
+    {
+      name: "l.al.rib.10",
+      shape: "rect",
+      coords: [111, 324, 147, 346],
+      fillColor: "green",
+    },
+    {
+      name: "l.a.rib.10",
+      shape: "rect",
+      coords: [148, 324, 178, 344],
+      fillColor: "green",
+    },
+    {
+      name: "r.p.rib.10",
+      shape: "rect",
+      coords: [302, 331, 317, 346],
+      fillColor: "green",
+    },
+    {
+      name: "r.pl.rib.10",
+      shape: "rect",
+      coords: [266, 328, 301, 344],
+      fillColor: "green",
+    },
+    {
+      name: "r.al.rib.10",
+      shape: "rect",
+      coords: [229, 325, 265, 347],
+      fillColor: "green",
+    },
+    {
+      name: "r.a.rib.10",
+      shape: "rect",
+      coords: [194, 324, 228, 344],
+      fillColor: "green",
+    },
+
+    // rib 11
+    {
+      name: "l.p.rib.11",
+      shape: "rect",
+      coords: [77, 358, 117, 374],
+      fillColor: "green",
+    },
+    {
+      name: "l.pl.rib.11",
+      shape: "rect",
+      coords: [118, 357, 156, 376],
+      fillColor: "green",
+    },
+    {
+      name: "l.al.rib.11",
+      shape: "rect",
+      coords: [157, 356, 176, 373],
+      fillColor: "green",
+    },
+    {
+      name: "r.p.rib.11",
+      shape: "rect",
+      coords: [259, 360, 294, 376],
+      fillColor: "green",
+    },
+    {
+      name: "r.pl.rib.11",
+      shape: "rect",
+      coords: [220, 357, 258, 376],
+      fillColor: "green",
+    },
+    {
+      name: "r.al.rib.11",
+      shape: "rect",
+      coords: [193, 356, 219, 373],
+      fillColor: "green",
+    },
+
+    // rib 12
+    {
+      name: "l.p.rib.12",
+      shape: "rect",
+      coords: [87, 387, 123, 406],
+      fillColor: "green",
+    },
+    {
+      name: "l.pl.rib.12",
+      shape: "rect",
+      coords: [123, 388, 151, 406],
+      fillColor: "green",
+    },
+    {
+      name: "l.al.rib.12",
+      shape: "rect",
+      coords: [152, 388, 176, 408],
+      fillColor: "green",
+    },
+    {
+      name: "r.p.rib.12",
+      shape: "rect",
+      coords: [253, 389, 281, 409],
+      fillColor: "green",
+    },
+    {
+      name: "r.pl.rib.12",
+      shape: "rect",
+      coords: [225, 388, 252, 409],
+      fillColor: "green",
+    },
+    {
+      name: "r.al.rib.12",
+      shape: "rect",
+      coords: [194, 387, 224, 408],
       fillColor: "green",
     },
   ],
@@ -419,12 +595,12 @@ class RibImage extends Component {
       msg: `Please select a rib section`,
     });
   };
-  moveOnImage = (evt) => {
-    const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
-    this.setState({
-      moveMsg: `You moved on the image at coords ${JSON.stringify(coords)} !`,
-    });
-  };
+  // moveOnImage = (evt) => {
+  //   const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
+  //   this.setState({
+  //     moveMsg: `You moved on the image at coords ${JSON.stringify(coords)} !`,
+  //   });
+  // };
   enterArea = (area) => {
     this.setState({
       hoveredArea: area,
@@ -465,7 +641,7 @@ class RibImage extends Component {
               onMouseLeave={(area) => this.leaveArea(area)}
               // onMouseMove={(area, _, evt) => this.moveOnArea(area, evt)}
               onImageClick={(evt) => this.clickedOutside(evt)}
-              onImageMouseMove={(evt) => this.moveOnImage(evt)}
+              //onImageMouseMove={(evt) => this.moveOnImage(evt)}
               lineWidth={4}
               strokeColor={"white"}
             />
