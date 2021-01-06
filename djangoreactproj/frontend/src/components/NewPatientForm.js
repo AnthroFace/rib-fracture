@@ -33,6 +33,7 @@ class NewPatientForm extends React.Component {
     rib_fracture: [
       { location: "", completeness: "", fracture_type: "", cpr: "" },
     ],
+    num_fractures: 1,
   };
 
   componentDidMount() {
@@ -59,6 +60,7 @@ class NewPatientForm extends React.Component {
         drug_use,
         health_notes,
         rib_fracture,
+        num_fractures,
       } = this.props.patient;
       this.setState({
         pk,
@@ -82,6 +84,7 @@ class NewPatientForm extends React.Component {
         drug_use,
         health_notes,
         rib_fracture,
+        num_fractures,
       });
     }
   }
@@ -131,12 +134,25 @@ class NewPatientForm extends React.Component {
     });
   };
 
-  handleLocationChange = (index, location) => {
-    console.log(location);
-    console.log(index);
+  handleLocationChange = (loc) => {
+    console.log(loc);
+    // console.log(index);
     const values = [...this.state.rib_fracture];
-    values[index].location = location;
+    if (this.state.num_fractures == 1) {
+      values[0].location = loc;
+    } else {
+      values.push({
+        location: loc,
+        completeness: "",
+        fracture_type: "",
+        cpr: "",
+      });
+    }
     this.setState({ rib_fracture: values });
+    this.setState({ num_fractures: this.state.num_fractures + 1 });
+    // const values = [...this.state.rib_fracture];
+    // values[index].location = location;
+    // this.setState({ rib_fracture: values });
   };
 
   handleFractureInputChange = (index, event) => {
@@ -151,6 +167,7 @@ class NewPatientForm extends React.Component {
       values[index].cpr = event.target.value;
     }
     console.log(index);
+    console.log(event);
     this.setState({ rib_fracture: values });
   };
 
@@ -158,6 +175,7 @@ class NewPatientForm extends React.Component {
     const values = [...this.state.rib_fracture];
     values.push({ location: "", completeness: "", fracture_type: "", cpr: "" });
     this.setState({ rib_fracture: values });
+    this.setState({ num_fractures: this.state.num_fractures + 1 });
   };
 
   handleFractureRemoveFields = (index) => {
@@ -392,6 +410,11 @@ class NewPatientForm extends React.Component {
           />
         </FormGroup>
         <div id="dynamicform" className="form-row">
+          <RibImage
+            id="image"
+            name="image"
+            onSelectLocation={(event) => this.handleLocationChange(event)}
+          />
           {this.state.rib_fracture.map((fracture, index) => (
             <Fragment key={`${fracture}~${index}`}>
               {/* <img src="/images/rib_image.png" alt="Workplace" usemap="#workmap" height="100"/> <map name="workmap">
@@ -404,13 +427,6 @@ class NewPatientForm extends React.Component {
 
               <div className="form-group col-sm-6">
                 <label htmlFor="location">Rib (1-12).Location (1-4)</label>
-                <RibImage
-                  id={index}
-                  name="image"
-                  onSelectLocation={(event) =>
-                    this.handleLocationChange(index, event)
-                  }
-                />
                 <input
                   type="text"
                   className="form-control"
