@@ -411,8 +411,6 @@ class NewPatientForm extends React.Component {
         </FormGroup>
         <div id="dynamicform" className="form-row">
           <RibImage
-            id="image"
-            name="image"
             onSelectLocation={(event) => this.handleLocationChange(event)}
           />
           {this.state.rib_fracture.map((fracture, index) => (

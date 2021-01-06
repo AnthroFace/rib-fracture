@@ -139,6 +139,9 @@ class RibImage extends Component {
         <div className="presenter">
           <div style={{ position: "relative" }}>
             <ImageMapper
+              width="350"
+              height="425"
+              //imgWidth="100"
               src={URL}
               map={MAP}
               onLoad={() => this.load()}

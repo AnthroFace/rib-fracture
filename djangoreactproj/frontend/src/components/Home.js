@@ -20,6 +20,7 @@ class Home extends Component {
             <img
               variant="h1"
               component="h2"
+              height="200"
               src="/images/AnthrofaceLogo1.png"
               alt=""
             />
