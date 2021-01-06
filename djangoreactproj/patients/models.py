@@ -28,7 +28,7 @@ class Patient(models.Model):
 
 class Fracture(models.Model):
     location = models.CharField("Location", max_length=20)
-    completeness = models.IntegerField("Completeness")
+    completeness = models.FloatField("Completeness")
     fracture_type = models.CharField("Fracture Type", max_length=20)
     cpr = models.CharField('CPR', max_length=1)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="rib_fracture")
