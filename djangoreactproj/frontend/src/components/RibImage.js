@@ -225,13 +225,13 @@ var MAP = {
     {
       name: "r.pl.rib.5",
       shape: "rect",
-      coords: [273, 155, 307, 178],
+      coords: [273, 157, 307, 178],
       fillColor: "green",
     },
     {
       name: "r.al.rib.5",
       shape: "rect",
-      coords: [235, 162, 272, 178],
+      coords: [235, 160, 272, 178],
       fillColor: "green",
     },
     {
@@ -242,6 +242,56 @@ var MAP = {
     },
 
     // rib 6
+    {
+      name: "l.p.rib.6",
+      shape: "rect",
+      coords: [21, 188, 66, 210],
+      fillColor: "green",
+    },
+    {
+      name: "l.pl.rib.6",
+      shape: "rect",
+      coords: [67, 190, 103, 211],
+      fillColor: "green",
+    },
+    {
+      name: "l.al.rib.6",
+      shape: "rect",
+      coords: [104, 193, 140, 214],
+      fillColor: "green",
+    },
+    {
+      name: "l.a.rib.6",
+      shape: "rect",
+      coords: [140, 190, 178, 210],
+      fillColor: "green",
+    },
+    {
+      name: "r.p.rib.6",
+      shape: "rect",
+      coords: [309, 195, 340, 212],
+      fillColor: "green",
+    },
+    {
+      name: "r.pl.rib.6",
+      shape: "rect",
+      coords: [273, 195, 308, 211],
+      fillColor: "green",
+    },
+    {
+      name: "r.al.rib.5",
+      shape: "rect",
+      coords: [236, 194, 272, 214],
+      fillColor: "green",
+    },
+    {
+      name: "r.a.rib.6",
+      shape: "rect",
+      coords: [194, 190, 235, 210],
+      fillColor: "green",
+    },
+
+    // rib 7
     {
       name: "l.p.rib.5",
       shape: "rect",
