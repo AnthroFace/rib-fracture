@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import PatientsPage from "./PatientsPage";
 import NewPatientPage from "./NewPatientPage";

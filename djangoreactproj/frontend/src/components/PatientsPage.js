@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Col, Container, Row } from "reactstrap";
 import PatientList from "./PatientList";
-import NewPatientModal from "./NewPatientModal";
 import Box from "@material-ui/core/Box";
 
 import axios from "axios";

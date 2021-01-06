@@ -1,12 +1,10 @@
 import React, { Fragment } from "react";
-import Select from "react-select";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import RibImage from "./RibImage";
 
 import axios from "axios";
 
 import { API_URL } from "../constants";
-import zIndex from "@material-ui/core/styles/zIndex";
 
 class NewPatientForm extends React.Component {
   state = {

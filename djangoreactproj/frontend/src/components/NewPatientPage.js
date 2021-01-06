@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { Button, Modal, ModalHeader, ModalBody, Label } from "reactstrap";
 import NewPatientForm from "./NewPatientForm";
 import { Typography } from "@material-ui/core";
 

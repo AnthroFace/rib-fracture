@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import "./../App.css";
 import Box from "@material-ui/core/Box";
