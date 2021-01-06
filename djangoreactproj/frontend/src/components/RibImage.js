@@ -195,6 +195,56 @@ var MAP = {
     {
       name: "l.p.rib.5",
       shape: "rect",
+      coords: [22, 152, 67, 174],
+      fillColor: "green",
+    },
+    {
+      name: "l.pl.rib.5",
+      shape: "rect",
+      coords: [68, 156, 103, 175],
+      fillColor: "green",
+    },
+    {
+      name: "l.al.rib.5",
+      shape: "rect",
+      coords: [104, 159, 140, 178],
+      fillColor: "green",
+    },
+    {
+      name: "l.a.rib.5",
+      shape: "rect",
+      coords: [141, 157, 179, 177],
+      fillColor: "green",
+    },
+    {
+      name: "r.p.rib.5",
+      shape: "rect",
+      coords: [308, 158, 338, 177],
+      fillColor: "green",
+    },
+    {
+      name: "r.pl.rib.5",
+      shape: "rect",
+      coords: [273, 155, 307, 178],
+      fillColor: "green",
+    },
+    {
+      name: "r.al.rib.5",
+      shape: "rect",
+      coords: [235, 162, 272, 178],
+      fillColor: "green",
+    },
+    {
+      name: "r.a.rib.5",
+      shape: "rect",
+      coords: [194, 156, 234, 177],
+      fillColor: "green",
+    },
+
+    // rib 6
+    {
+      name: "l.p.rib.5",
+      shape: "rect",
       coords: [],
       fillColor: "green",
     },
