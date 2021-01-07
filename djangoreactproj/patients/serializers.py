@@ -8,6 +8,10 @@ class FractureSerializer(serializers.ModelSerializer):
         model = Fracture
         fields = ('pk', 'location', 'completeness', 'fracture_type', 'cpr')
 
+    def to_internal_value(self,data):
+        if data.get('completeness') == "":
+            data['completeness'] = None
+        return super(FractureSerializer,self).to_internal_value(data)
 
 class PatientSerializer(serializers.ModelSerializer):
     rib_fracture = FractureSerializer(many=True)
@@ -16,6 +20,15 @@ class PatientSerializer(serializers.ModelSerializer):
         model = Patient
         fields = ('pk', 'case_id', 'age', 'sex', 'weight', 'height', 'ancestry', 'mod', 'cod', 'cod_type', 'xray', 'cpr','belted', 'obese', 'cardio', 'patho', 'tobacco', 'marijuana', 'alcohol', 'prescription', 'drug_use', 'health_notes', 'notes', 'rib_fracture')
 
+    def to_internal_value(self,data):
+        if data.get('age') == "":
+            data['age'] = None
+        if data.get('weight') == "":
+            data['weight'] = None
+        if data.get('height') == "":
+            data['height'] = None
+        return super(PatientSerializer,self).to_internal_value(data)
+    
     def create(self, validated_data):
         fractures_data = validated_data.pop('rib_fracture')
         pat = Patient.objects.create(**validated_data)
