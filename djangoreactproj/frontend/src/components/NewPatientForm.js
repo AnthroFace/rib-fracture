@@ -13,11 +13,13 @@ class NewPatientForm extends React.Component {
     age: "",
     sex: "",
     weight: "",
+    height: "",
     ancestry: "",
     mod: "",
     cod: "",
     cod_type: "",
     xray: "",
+    cpr: "",
     belted: "",
     obese: "",
     cardio: "",
@@ -28,6 +30,7 @@ class NewPatientForm extends React.Component {
     prescription: "",
     drug_use: "",
     health_notes: "",
+    notes: "",
     rib_fracture: [
       { location: "", completeness: "", fracture_type: "", cpr: "" },
     ],
@@ -42,11 +45,13 @@ class NewPatientForm extends React.Component {
         age,
         sex,
         weight,
+        height,
         ancestry,
         mod,
         cod,
         cod_type,
         xray,
+        cpr,
         belted,
         obese,
         cardio,
@@ -57,6 +62,7 @@ class NewPatientForm extends React.Component {
         prescription,
         drug_use,
         health_notes,
+        notes,
         rib_fracture,
         num_fractures,
       } = this.props.patient;
@@ -66,11 +72,13 @@ class NewPatientForm extends React.Component {
         age,
         sex,
         weight,
+        height,
         ancestry,
         mod,
         cod,
         cod_type,
         xray,
+        cpr,
         belted,
         obese,
         cardio,
@@ -81,6 +89,7 @@ class NewPatientForm extends React.Component {
         prescription,
         drug_use,
         health_notes,
+        notes,
         rib_fracture,
         num_fractures,
       });
@@ -101,11 +110,13 @@ class NewPatientForm extends React.Component {
         age: "",
         sex: "",
         weight: "",
+        height: "",
         ancestry: "",
         mod: "",
         cod: "",
         cod_type: "",
         xray: "",
+        cpr: "",
         belted: "",
         obese: "",
         cardio: "",
@@ -116,6 +127,7 @@ class NewPatientForm extends React.Component {
         prescription: "",
         drug_use: "",
         health_notes: "",
+        notes: "",
         rib_fracture: [
           { location: "", completeness: "", fracture_type: "", cpr: "" },
         ],
@@ -232,6 +244,15 @@ class NewPatientForm extends React.Component {
           />
         </FormGroup>
         <FormGroup>
+          <Label for="height">Height:</Label>
+          <Input
+            type="text"
+            name="height"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.height)}
+          />
+        </FormGroup>
+        <FormGroup>
           <Label for="ancestry">Ancestry:</Label>
           <select
             name="ancestry"
@@ -284,6 +305,18 @@ class NewPatientForm extends React.Component {
             name="xray"
             id="xray-select"
             value={this.state.xray}
+            onChange={this.onChange}
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
+        </FormGroup>
+        <FormGroup>
+          <Label for="cpr">CPR:</Label>
+          <select
+            name="cpr"
+            id="cpr-select"
+            value={this.state.cpr}
             onChange={this.onChange}
           >
             <option value="Y">Yes</option>
@@ -405,6 +438,15 @@ class NewPatientForm extends React.Component {
             name="health_notes"
             onChange={this.onChange}
             value={this.defaultIfEmpty(this.state.health_notes)}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="notes">Notes:</Label>
+          <Input
+            type="text"
+            name="notes"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.notes)}
           />
         </FormGroup>
         <div id="dynamicform" className="form-row">
