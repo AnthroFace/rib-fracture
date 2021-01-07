@@ -1,8 +1,8 @@
 from django.db import models
 
 class Patient(models.Model):
-    case_id = models.CharField("Case ID", max_length=240,default="")
-    age = models.IntegerField("Age", blank=True, null=True, default=None)
+    case_id = models.CharField("Case ID", max_length=240,default="", unique=True)
+    age = models.IntegerField("Age", blank=True, null=True, default=0)
     sex = models.CharField("Sex", max_length= 2, blank=True)
     weight = models.IntegerField("Weight", blank=True, null=True)
     height = models.IntegerField("Height", blank=True, null=True)
