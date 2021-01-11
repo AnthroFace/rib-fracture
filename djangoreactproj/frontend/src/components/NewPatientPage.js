@@ -16,11 +16,13 @@ class NewPatientPage extends Component {
       age: "",
       sex: "",
       weight: "",
+      height: "",
       ancestry: "",
       mod: "",
       cod: "",
       cod_type: "",
       xray: "",
+      cpr: "",
       belted: "",
       obese: "",
       cardio: "",
@@ -31,7 +33,7 @@ class NewPatientPage extends Component {
       prescription: "",
       drug_use: "",
       health_notes: "",
-      add_notes: "",
+      notes: "",
       rib_fracture: "",
     });
   };
