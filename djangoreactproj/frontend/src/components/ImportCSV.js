@@ -9,7 +9,7 @@ import { API_URL } from "../constants";
 
 //fixes the rib location since they're only denoted with a 1 in the .csv
 function rib_position(value, columnNumber) {
-  if (columnNumber > 22 && columnNumber % 4 === 3 && value == 1) 
+  if (columnNumber > 22 && columnNumber % 4 === 3 && value === "1") 
   {
     //is the rib on the left or right
     if (columnNumber < 215) 
@@ -97,13 +97,13 @@ class ImportCSV extends Component {
     super()
     this.state = {
       selectedFile: null,
-      loaded: 0,
+      //loaded: 0,
     }
   }
   handleselectedFile = event => {
     this.setState({
       selectedFile: event.target.files[0],
-      loaded: 0,
+      //loaded: 0,
     })
   }
   handleUpload = () => {
@@ -172,6 +172,9 @@ class ImportCSV extends Component {
       },
       complete: function() {
        console.log("Finished parsing");
+       
+      
+       
       }
     });
 
@@ -195,7 +198,6 @@ class ImportCSV extends Component {
       <div className="ImportCSV">
         <input type="file" accept='.csv' name="" id="" onChange={this.handleselectedFile} />
         <button onClick={this.handleUpload}>Upload</button>
-        <div> {Math.round(this.state.loaded, 2)} %</div>
       </div>
     )
   }
