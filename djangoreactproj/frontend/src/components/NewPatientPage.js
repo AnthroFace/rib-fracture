@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { Button, Modal, ModalHeader, ModalBody, Label } from "reactstrap";
 import NewPatientForm from "./NewPatientForm";
 import { Typography } from "@material-ui/core";
 
@@ -17,11 +16,13 @@ class NewPatientPage extends Component {
       age: "",
       sex: "",
       weight: "",
+      height: "",
       ancestry: "",
       mod: "",
       cod: "",
       cod_type: "",
       xray: "",
+      cpr: "",
       belted: "",
       obese: "",
       cardio: "",
@@ -32,7 +33,7 @@ class NewPatientPage extends Component {
       prescription: "",
       drug_use: "",
       health_notes: "",
-      add_notes: "",
+      notes: "",
       rib_fracture: "",
     });
   };

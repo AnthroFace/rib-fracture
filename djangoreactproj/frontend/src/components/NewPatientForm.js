@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import Select from "react-select";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
+import RibImage from "./RibImage";
 
 import axios from "axios";
 
@@ -13,11 +13,13 @@ class NewPatientForm extends React.Component {
     age: "",
     sex: "",
     weight: "",
+    height: "",
     ancestry: "",
     mod: "",
     cod: "",
     cod_type: "",
     xray: "",
+    cpr: "",
     belted: "",
     obese: "",
     cardio: "",
@@ -28,9 +30,11 @@ class NewPatientForm extends React.Component {
     prescription: "",
     drug_use: "",
     health_notes: "",
+    notes: "",
     rib_fracture: [
       { location: "", completeness: "", fracture_type: "", cpr: "" },
     ],
+    num_fractures: 1,
   };
 
   componentDidMount() {
@@ -41,11 +45,13 @@ class NewPatientForm extends React.Component {
         age,
         sex,
         weight,
+        height,
         ancestry,
         mod,
         cod,
         cod_type,
         xray,
+        cpr,
         belted,
         obese,
         cardio,
@@ -56,7 +62,9 @@ class NewPatientForm extends React.Component {
         prescription,
         drug_use,
         health_notes,
+        notes,
         rib_fracture,
+        num_fractures,
       } = this.props.patient;
       this.setState({
         pk,
@@ -64,11 +72,13 @@ class NewPatientForm extends React.Component {
         age,
         sex,
         weight,
+        height,
         ancestry,
         mod,
         cod,
         cod_type,
         xray,
+        cpr,
         belted,
         obese,
         cardio,
@@ -79,7 +89,9 @@ class NewPatientForm extends React.Component {
         prescription,
         drug_use,
         health_notes,
+        notes,
         rib_fracture,
+        num_fractures,
       });
     }
   }
@@ -98,11 +110,13 @@ class NewPatientForm extends React.Component {
         age: "",
         sex: "",
         weight: "",
+        height: "",
         ancestry: "",
         mod: "",
         cod: "",
         cod_type: "",
         xray: "",
+        cpr: "",
         belted: "",
         obese: "",
         cardio: "",
@@ -113,6 +127,7 @@ class NewPatientForm extends React.Component {
         prescription: "",
         drug_use: "",
         health_notes: "",
+        notes: "",
         rib_fracture: [
           { location: "", completeness: "", fracture_type: "", cpr: "" },
         ],
@@ -129,6 +144,27 @@ class NewPatientForm extends React.Component {
     });
   };
 
+  handleLocationChange = (loc) => {
+    console.log(loc);
+    // console.log(index);
+    const values = [...this.state.rib_fracture];
+    if (this.state.num_fractures == 1) {
+      values[0].location = loc;
+    } else {
+      values.push({
+        location: loc,
+        completeness: "",
+        fracture_type: "",
+        cpr: "",
+      });
+    }
+    this.setState({ rib_fracture: values });
+    this.setState({ num_fractures: this.state.num_fractures + 1 });
+    // const values = [...this.state.rib_fracture];
+    // values[index].location = location;
+    // this.setState({ rib_fracture: values });
+  };
+
   handleFractureInputChange = (index, event) => {
     const values = [...this.state.rib_fracture];
     if (event.target.name === "location") {
@@ -140,7 +176,8 @@ class NewPatientForm extends React.Component {
     } else if (event.target.name === "cpr") {
       values[index].cpr = event.target.value;
     }
-
+    console.log(index);
+    console.log(event);
     this.setState({ rib_fracture: values });
   };
 
@@ -148,6 +185,7 @@ class NewPatientForm extends React.Component {
     const values = [...this.state.rib_fracture];
     values.push({ location: "", completeness: "", fracture_type: "", cpr: "" });
     this.setState({ rib_fracture: values });
+    this.setState({ num_fractures: this.state.num_fractures + 1 });
   };
 
   handleFractureRemoveFields = (index) => {
@@ -206,6 +244,15 @@ class NewPatientForm extends React.Component {
           />
         </FormGroup>
         <FormGroup>
+          <Label for="height">Height:</Label>
+          <Input
+            type="text"
+            name="height"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.height)}
+          />
+        </FormGroup>
+        <FormGroup>
           <Label for="ancestry">Ancestry:</Label>
           <select
             name="ancestry"
@@ -258,6 +305,18 @@ class NewPatientForm extends React.Component {
             name="xray"
             id="xray-select"
             value={this.state.xray}
+            onChange={this.onChange}
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
+        </FormGroup>
+        <FormGroup>
+          <Label for="cpr">CPR:</Label>
+          <select
+            name="cpr"
+            id="cpr-select"
+            value={this.state.cpr}
             onChange={this.onChange}
           >
             <option value="Y">Yes</option>
@@ -381,9 +440,29 @@ class NewPatientForm extends React.Component {
             value={this.defaultIfEmpty(this.state.health_notes)}
           />
         </FormGroup>
-        <div className="form-row">
+        <FormGroup>
+          <Label for="notes">Notes:</Label>
+          <Input
+            type="text"
+            name="notes"
+            onChange={this.onChange}
+            value={this.defaultIfEmpty(this.state.notes)}
+          />
+        </FormGroup>
+        <div id="dynamicform" className="form-row">
+          <RibImage
+            onSelectLocation={(event) => this.handleLocationChange(event)}
+          />
           {this.state.rib_fracture.map((fracture, index) => (
             <Fragment key={`${fracture}~${index}`}>
+              {/* <img src="/images/rib_image.png" alt="Workplace" usemap="#workmap" height="100"/> <map name="workmap">
+                <area
+                  shape="circle"
+                  coords="337,300,44"
+                  onclick="myFunction()"
+                />
+              </map>*/}
+
               <div className="form-group col-sm-6">
                 <label htmlFor="location">Rib (1-12).Location (1-4)</label>
                 <input
@@ -454,8 +533,9 @@ class NewPatientForm extends React.Component {
               </div>
             </Fragment>
           ))}
-          {/*<br />
-          <pre>{JSON.stringify(this.state.rib_fracture, null, 2)}</pre>*/}
+          {/**/}
+          <br />
+          <pre>{JSON.stringify(this.state.rib_fracture, null, 2)}</pre>
         </div>
         <Button>Send</Button>
       </Form>

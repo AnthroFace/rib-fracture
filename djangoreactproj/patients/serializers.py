@@ -8,14 +8,27 @@ class FractureSerializer(serializers.ModelSerializer):
         model = Fracture
         fields = ('pk', 'location', 'completeness', 'fracture_type', 'cpr')
 
+    def to_internal_value(self,data):
+        if data.get('completeness') == "":
+            data['completeness'] = None
+        return super(FractureSerializer,self).to_internal_value(data)
 
 class PatientSerializer(serializers.ModelSerializer):
     rib_fracture = FractureSerializer(many=True)
 
     class Meta:
         model = Patient
-        fields = ('pk', 'case_id', 'age', 'sex', 'weight', 'ancestry', 'mod', 'cod', 'cod_type', 'xray', 'belted', 'obese', 'cardio', 'patho', 'tobacco', 'marijuana', 'alcohol', 'prescription', 'drug_use', 'health_notes', 'rib_fracture')
+        fields = ('pk', 'case_id', 'age', 'sex', 'weight', 'height', 'ancestry', 'mod', 'cod', 'cod_type', 'xray', 'cpr','belted', 'obese', 'cardio', 'patho', 'tobacco', 'marijuana', 'alcohol', 'prescription', 'drug_use', 'health_notes', 'notes', 'rib_fracture')
 
+    def to_internal_value(self,data):
+        if data.get('age') == "":
+            data['age'] = None
+        if data.get('weight') == "":
+            data['weight'] = None
+        if data.get('height') == "":
+            data['height'] = None
+        return super(PatientSerializer,self).to_internal_value(data)
+    
     def create(self, validated_data):
         fractures_data = validated_data.pop('rib_fracture')
         pat = Patient.objects.create(**validated_data)
@@ -33,11 +46,13 @@ class PatientSerializer(serializers.ModelSerializer):
         instance.age = validated_data.get('age', instance.age)
         instance.sex = validated_data.get('sex', instance.sex)
         instance.weight = validated_data.get('weight', instance.weight)
+        instance.height = validated_data.get('height', instance.height)
         instance.ancestry = validated_data.get('ancestry', instance.ancestry)
         instance.mod = validated_data.get('mod', instance.mod)
         instance.cod = validated_data.get('cod', instance.cod)
         instance.cod_type = validated_data.get('cod_type', instance.cod_type)
         instance.xray = validated_data.get('xray', instance.xray)
+        instance.cpr = validated_data.get('cpr', instance.cpr)
         instance.belted = validated_data.get('belted', instance.belted)
         instance.obese = validated_data.get('obese', instance.obese)
         instance.cardio = validated_data.get('cardio', instance.cardio)
@@ -48,6 +63,7 @@ class PatientSerializer(serializers.ModelSerializer):
         instance.prescription = validated_data.get('prescription', instance.prescription)
         instance.drug_use = validated_data.get('drug_use', instance.drug_use)
         instance.health_notes = validated_data.get('health_notes', instance.health_notes)
+        instance.notes = validated_data.get('notes', instance.notes)
         instance.save()
 
         for fracture_data in fractures_data:
