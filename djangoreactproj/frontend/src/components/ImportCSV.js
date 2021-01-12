@@ -150,11 +150,13 @@ class ImportCSV extends Component {
             age: row.data[1],
             sex: row.data[2],
             weight: row.data[3],
+            height: row.data[4],
             ancestry: row.data[5],
             mod: row.data[6],
             cod: row.data[7],
             cod_type: row.data[8],
             xray: row.data[9],
+            cpr: row.data[10],
             belted: row.data[11],
             obese: row.data[12],
             cardio: row.data[13],
@@ -165,6 +167,7 @@ class ImportCSV extends Component {
             prescription: row.data[18],
             drug_use: row.data[19],
             health_notes: row.data[20],
+            notes: row.data[406],
             rib_fracture: rib_fractures,
           };
           axios.post(API_URL, new_entry);
