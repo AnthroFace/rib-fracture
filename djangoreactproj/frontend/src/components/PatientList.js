@@ -11,7 +11,6 @@ class PatientList extends Component {
       <Table align="left">
         <thead>
           <tr>
-            <th>#</th>
             <th>Case Number</th>
             <th>Age</th>
             <th>Sex</th>
@@ -46,7 +45,6 @@ class PatientList extends Component {
           ) : (
             patients.map(patient => (
               <tr key={patient.pk}>
-                <td>{patient.pk}  </td>
                 <td>{patient.case_id}</td>
                 <td>{patient.age}</td>
                 <td>{patient.sex}</td>
