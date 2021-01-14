@@ -8,7 +8,7 @@ class PatientList extends Component {
   render() {
     const patients = this.props.patients;
     return (
-      <Table align="left">
+      <Table striped hover size="sm" align="left">
         <thead>
           <tr>
             <th>#</th>
