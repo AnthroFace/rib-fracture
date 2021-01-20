@@ -8,7 +8,7 @@ import axios from "axios";
 
 import { API_URL } from "../constants";
 
-const URL = 'http://localhost:8000/filter'
+const URL = "http://localhost:8000/api/filter";
 
 class PatientsPage extends Component {
   state = {
@@ -19,9 +19,22 @@ class PatientsPage extends Component {
     this.resetState();
   }
 
-  getPatients = (f,v) => {
-    console.log(f,v)
+  getFilteredPatients = (f, v) => {
+    console.log(f, v);
+    axios
+      .get("URL", {
+        params: {
+          fil: "ancestry",
+          val: "asian",
+        },
+      })
+      .then((res) => this.setState({ patients: res.data }));
     axios.get(URL + f + v).then((res) => this.setState({ patients: res.data }));
+  };
+
+  getPatients = () => {
+    console.log();
+    axios.get(API_URL).then((res) => this.setState({ patients: res.data }));
   };
 
   resetState = () => {
@@ -32,7 +45,7 @@ class PatientsPage extends Component {
     return (
       <Box border={0} textAlign="left">
         <Container style={{ marginTop: "20px" }} textAlign="left">
-          <SearchBar onSelectValue={(f,v) => this.getPatients(f,v)}/>
+          <SearchBar onSelectValue={(f, v) => this.getFilteredPatients(f, v)} />
           <Row textAlign="left">
             <Col>
               <PatientList
