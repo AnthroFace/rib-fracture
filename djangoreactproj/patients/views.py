@@ -16,6 +16,7 @@ def patients_list(request):
         return Response(serializer.data)
 
     elif request.method == 'POST':
+        print(request.data)
         serializer = PatientSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -57,6 +58,16 @@ def fractures_list(request):
             return Response(status=status.HTTP_201_CREATED)
             
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET', 'POST'])
+def patients_filter(request, fil, val):
+    if request.method == 'GET':
+        filter_kwargs = {fil + '__contains': val}
+        data = Patient.objects.filter(**filter_kwargs)
+
+        serializer = PatientSerializer(data, context={'request': request}, many=True)
+
+        return Response(serializer.data)
 
 # @api_view(['PUT', 'DELETE'])
 # def fractures_detail(request, pk):
