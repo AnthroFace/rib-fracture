@@ -81,20 +81,6 @@ class Home extends Component {
             >
               Export Data
             </Button>
-            <Button
-              style={{
-                // borderRadius: 35,
-                color:"#96382f",
-                backgroundColor: "#fffee9",
-                padding: "18px 36px",
-                fontSize: "18px",
-              }}
-              variant="contained"
-              size="large"
-              href="/Heatmap"
-            >
-              Heatmap
-            </Button>
           </Box>
         </Box>
       </div>

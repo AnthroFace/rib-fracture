@@ -222,42 +222,18 @@ class NewPatientForm extends React.Component {
           />
         </FormGroup>
         <FormGroup>
-          <Label for="sex">Sex: </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <Label for="sex">Sex:</Label>
+          <select
             name="sex"
-            checked={(this.state.sex == "M")}
+            id="sex-select"
+            value={this.state.sex}
             onChange={this.onChange}
-            value="M"
-            />
-          Male
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="sex"
-            checked={(this.state.sex == "F")}
-            onChange={this.onChange}
-            value="F"
-            />
-          Female
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="sex"
-            checked={(this.state.sex == "")}
-            onChange={this.onChange}
-            value=""
-            />
-          Unknown
-          </Label>
+          >
+            <option value="">-- select an option --</option>
+            <option value="F">Female</option>
+            <option value="M">Male</option>
+          </select>
         </FormGroup>
-        
         <FormGroup>
           <Label for="weight">Weight:</Label>
           <Input
@@ -323,295 +299,138 @@ class NewPatientForm extends React.Component {
             value={this.defaultIfEmpty(this.state.cod_type)}
           />
         </FormGroup>
-
-
         <FormGroup>
           <Label for="xray">XRAY:</Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="xray"
-            checked={(this.state.xray == "Y")}
+            id="xray-select"
+            value={this.state.xray}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="xray"
-            checked={(this.state.xray == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-
         <FormGroup>
           <Label for="cpr">CPR:</Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="cpr"
-            checked={(this.state.cpr == "Y")}
+            id="cpr-select"
+            value={this.state.cpr}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="cpr"
-            checked={(this.state.cpr == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-
         <FormGroup>
           <Label for="belted">Belted:</Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="belted"
-            checked={(this.state.belted == "Y")}
+            id="belted-select"
+            value={this.state.belted}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="belted"
-            checked={(this.state.belted == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-        
         <FormGroup>
           <Label for="obese">Obese:</Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="obese"
-            checked={(this.state.obese == "Y")}
+            id="obese-select"
+            value={this.state.obese}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="obese"
-            checked={(this.state.obese == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-
         <FormGroup>
           <Label for="cardio">Cardio:</Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="cardio"
-            checked={(this.state.cardio == "Y")}
+            id="cardio-select"
+            value={this.state.cardio}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="cardio"
-            checked={(this.state.cardio == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-
         <FormGroup>
           <Label for="patho">Patho:</Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="patho"
-            checked={(this.state.patho == "Y")}
+            id="patho-select"
+            value={this.state.patho}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="patho"
-            checked={(this.state.patho == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-
         <FormGroup>
           <Label for="tobacco">Tobacco:</Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="tobacco"
-            checked={(this.state.tobacco == "Y")}
+            id="tobacco-select"
+            value={this.state.tobacco}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="tobacco"
-            checked={(this.state.tobacco == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-
         <FormGroup>
           <Label for="marijuana">Marijuana:</Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="marijuana"
-            checked={(this.state.marijuana == "Y")}
+            id="marijuana-select"
+            value={this.state.marijuana}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="marijuana"
-            checked={(this.state.marijuana == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-
         <FormGroup>
           <Label for="alcohol">Alcohol:</Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="alcohol"
-            checked={(this.state.alcohol == "Y")}
+            id="alcohol-select"
+            value={this.state.alcohol}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="alcohol"
-            checked={(this.state.alcohol == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-
-
         <FormGroup>
           <Label for="prescription">Prescription:</Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="prescription"
-            checked={(this.state.prescription == "Y")}
+            id="prescription-select"
+            value={this.state.prescription}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="prescription"
-            checked={(this.state.prescription == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-
         <FormGroup>
           <Label for="drug_use">Drug Use:</Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
+          <select
             name="drug_use"
-            checked={(this.state.drug_use == "Y")}
+            id="drug_use-select"
+            value={this.state.drug_use}
             onChange={this.onChange}
-            value="Y"
-            />
-          Yes
-          </Label>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <Label>
-          <Input 
-            type="radio"
-            name="drug_use"
-            checked={(this.state.drug_use == "N")}
-            onChange={this.onChange}
-            value="N"
-            />
-          No
-          </Label>
+          >
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+          </select>
         </FormGroup>
-
         <FormGroup>
           <Label for="health_notes">Health Notes:</Label>
           <Input
