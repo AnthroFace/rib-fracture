@@ -29,6 +29,7 @@ class Patient(models.Model):
     def __str__(self):
         return self.case_id
 
+
 class Fracture(models.Model):
     location = models.CharField("Location", max_length=20, blank=True)
     completeness = models.FloatField("Completeness", blank=True, null=True)
