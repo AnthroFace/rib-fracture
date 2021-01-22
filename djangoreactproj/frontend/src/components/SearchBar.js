@@ -57,44 +57,42 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <table>
-        <tr>
-          <div>{`filter: ${
-            this.state.fil !== "" ? `'${this.state.fil}'` : ""
-          }`}</div>
-          <div>{`value: ${
-            this.state.value !== "" ? `'${this.state.value}'` : ""
-          }`}</div>
-          <div>{`inputValue: '${this.state.inputValue}'`}</div>
-          <br />
+      <div>
+        <div>{`filter: ${
+          this.state.fil !== "" ? `'${this.state.fil}'` : ""
+        }`}</div>
+        <div>{`value: ${
+          this.state.value !== "" ? `'${this.state.value}'` : ""
+        }`}</div>
+        <div>{`inputValue: '${this.state.inputValue}'`}</div>
+        <br />
 
-          <Autocomplete
-            value={this.state.value}
-            onChange = {(event, newValue) => {
-              //setValue(newValue);
-              this.setState({ fil: "ancestry", value: newValue });
-              axios.post(URL, {
-                fil: "ancestry",
-                value: newValue
-              }).then(function (response) {
-                console.log(response);
-              });
-                  // this.props.toggle();
-              // this.props.onSelectValue(this.state.filter, this.state.value);
-            }}
-            inputValue={this.state.inputValue}
-            onInputChange={(event, newInputValue) => {
-              this.setState({ inputValue: newInputValue });
-            }}
-            id="controllable-states-demo"
-            options={Ancestries}
-            style={{ width: 300 }}
-            renderInput={(params) => (
-              <TextField {...params} label="Ancestry" variant="outlined" />
-            )}
-          />
-        </tr>
-      </table>
+        <Autocomplete
+          value={this.state.value}
+          onChange = {(event, newValue) => {
+            //setValue(newValue);
+            this.setState({ fil: "ancestry", value: newValue });
+            axios.post(URL, {
+              fil: "ancestry",
+              value: newValue
+            }).then(function (response) {
+              console.log(response);
+            });
+                // this.props.toggle();
+            // this.props.onSelectValue(this.state.filter, this.state.value);
+          }}
+          inputValue={this.state.inputValue}
+          onInputChange={(event, newInputValue) => {
+            this.setState({ inputValue: newInputValue });
+          }}
+          id="controllable-states-demo"
+          options={Ancestries}
+          style={{ width: 300 }}
+          renderInput={(params) => (
+            <TextField {...params} label="Ancestry" variant="outlined" />
+          )}
+        />
+      </div>
     );
   }
 }
