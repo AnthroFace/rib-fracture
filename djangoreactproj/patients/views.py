@@ -65,14 +65,28 @@ def fractures_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'POST'])
-def patients_filter(request, fil, val):
+def patients_filter(request):
     if request.method == 'GET':
-        filter_kwargs = {fil + '__contains': val}
-        data = Patient.objects.filter(**filter_kwargs)
+        data = Filter.objects.all()
 
-        serializer = PatientSerializer(data, context={'request': request}, many=True)
+        serializer = FilterSerializer(data, context={'request': request}, many=True)
 
         return Response(serializer.data)
+
+    elif request.method == 'POST':
+        serializer = FilterSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # elif request.method == 'GET':
+    #     filter_kwargs = {fil + '__contains': val}
+    #     data = Patient.objects.filter(**filter_kwargs)
+
+    #     serializer = PatientSerializer(data, context={'request': request}, many=True)
+
+    #     return Response(serializer.data)
 
 # @api_view(['PUT', 'DELETE'])
 # def fractures_detail(request, pk):

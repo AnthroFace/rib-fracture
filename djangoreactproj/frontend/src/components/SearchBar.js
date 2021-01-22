@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
+import axios from "axios";
+
+const URL = "http://localhost:8000/api/filter/";
+
 const ancestries = [
   { ancestry: "Asian" },
   { ancestry: "White" },
@@ -16,6 +20,7 @@ const ancestries = [
 ];
 
 const Ancestries = [
+  "",
   "Asian",
   "White",
   "Black",
@@ -32,9 +37,9 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: null,
-      value: null,
-      inputValue: null,
+      fil: "",
+      value: "",
+      inputValue: "",
     };
   }
 
@@ -55,20 +60,27 @@ class SearchBar extends Component {
       <table>
         <tr>
           <div>{`filter: ${
-            this.state.filter !== null ? `'${this.state.filter}'` : "null"
+            this.state.fil !== "" ? `'${this.state.fil}'` : ""
           }`}</div>
           <div>{`value: ${
-            this.state.value !== null ? `'${this.state.value}'` : "null"
+            this.state.value !== "" ? `'${this.state.value}'` : ""
           }`}</div>
           <div>{`inputValue: '${this.state.inputValue}'`}</div>
           <br />
 
           <Autocomplete
             value={this.state.value}
-            onChange={(event, newValue) => {
+            onChange = {(event, newValue) => {
               //setValue(newValue);
-              this.setState({ filter: "ancestry", value: newValue });
-              this.props.onSelectValue(this.state.filter, this.state.value);
+              this.setState({ fil: "ancestry", value: newValue });
+              axios.post(URL, {
+                fil: "ancestry",
+                value: newValue
+              }).then(function (response) {
+                console.log(response);
+              });
+                  // this.props.toggle();
+              // this.props.onSelectValue(this.state.filter, this.state.value);
             }}
             inputValue={this.state.inputValue}
             onInputChange={(event, newInputValue) => {

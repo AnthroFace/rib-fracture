@@ -1,6 +1,13 @@
 from rest_framework import serializers
 from .models import Patient
 from .models import Fracture
+from .models import Filter
+
+class FilterSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Filter
+        fields = ('pk', 'fil', 'value')
 
 class FractureSerializer(serializers.ModelSerializer):
 

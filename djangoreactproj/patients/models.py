@@ -39,3 +39,7 @@ class Fracture(models.Model):
 
     def __str__(self):
         return self.patient.case_id
+
+class Filter(models.Model):
+    fil = models.CharField("Filter", max_length=100, blank=True)
+    value = models.CharField("Value", max_length=100, blank=True)
