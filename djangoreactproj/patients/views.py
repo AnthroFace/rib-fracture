@@ -15,6 +15,9 @@ from .serializers import *
 def patients_list(request):
     if request.method == 'GET':
         data = Patient.objects.all()
+        if 'fil' in request.session:
+            fil = request.session.get('fil')
+            print("HELLO",request.session.get('fil'))
 
         serializer = PatientSerializer(data, context={'request': request}, many=True)
 
@@ -76,6 +79,9 @@ def patients_filter(request):
     elif request.method == 'POST':
         serializer = FilterSerializer(data=request.data)
         if serializer.is_valid():
+            # print(serializer.validated_data["fil"])
+            request.session['fil'] = serializer.validated_data["fil"]
+            # print(request.session['fil'])
             serializer.save()
             return Response(status=status.HTTP_201_CREATED)
 

@@ -45,7 +45,7 @@ class PatientsPage extends Component {
     return (
       <Box border={0}>
         <Container style={{ marginTop: "20px", marginLeft: "0px"}} align="left">
-          <SearchBar/>  
+          <SearchBar onSelectValue={this.getPatients}/>  
           {/* onSelectValue={(f, v) => this.getFilteredPatients(f, v)} /> */}
           <Row textAlign="left">
             <Col textAlign="left">

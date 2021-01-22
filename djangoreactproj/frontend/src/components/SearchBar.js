@@ -80,6 +80,7 @@ class SearchBar extends Component {
             });
                 // this.props.toggle();
             // this.props.onSelectValue(this.state.filter, this.state.value);
+            this.props.onSelectValue();
           }}
           inputValue={this.state.inputValue}
           onInputChange={(event, newInputValue) => {
