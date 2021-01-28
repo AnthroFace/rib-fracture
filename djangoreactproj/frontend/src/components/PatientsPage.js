@@ -47,6 +47,13 @@ class PatientsPage extends Component {
         <Container style={{ marginTop: "20px", marginLeft: "0px"}} align="left">
           <SearchBar onSelectValue={this.getPatients}/>  
           {/* onSelectValue={(f, v) => this.getFilteredPatients(f, v)} /> */}
+          <button
+              className="btn btn-link"
+              type="button"
+              onClick={this.resetState}
+            >
+              Click me
+            </button>
           <Row textAlign="left">
             <Col textAlign="left">
               <PatientList
@@ -55,6 +62,8 @@ class PatientsPage extends Component {
                 resetState={this.resetState}
               />
             </Col>
+          </Row>
+          <Row>
           </Row>
         </Container>
       </Box>
