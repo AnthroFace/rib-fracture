@@ -12,7 +12,7 @@ from .models import *
 from .serializers import *
 
 def index(request):
-    return render(request, 'frontend/index.html')
+    return render(request, 'index.html')
 
 @api_view(['GET', 'POST'])
 def patients_list(request):
