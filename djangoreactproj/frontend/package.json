@@ -51,5 +51,6 @@
   },
   "devDependencies": {
     "react-image-resizer": "^1.3.0"
-  }
+  },
+  "proxy": "http://localhost:8000"
 }
