@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['anthroface.herokuapp.com', '127.0.0.1:8000', 'localhost']
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'frontend/build', 'frontend/static')
 STATICFILES_DIRS = []
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -66,7 +66,7 @@ ROOT_URLCONF = 'django_react_proj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,6 +132,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'build', 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'frontend/build', 'media')
 
 django_heroku.settings(locals())
