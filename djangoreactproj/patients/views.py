@@ -11,6 +11,9 @@ from django.http import HttpResponse
 from .models import *
 from .serializers import *
 
+def index(request):
+    return render(request, 'frontend/index.html')
+
 @api_view(['GET', 'POST'])
 def patients_list(request):
     if request.method == 'GET':
