@@ -6,30 +6,52 @@ import ConfirmRemovalModal from "./ConfirmRemovalModal";
 
 class PatientList extends Component {
   state = {
-    lprib1: "",
-    lplrib1: "",
+    lprib1: [
+      { location: "lprib1", completeness: "", fracture_type: "", cpr: "" },
+    ],
+    lplrib1: [
+      { location: "lplrib1", completeness: "", fracture_type: "", cpr: "" },
+    ],
+    // s: "not working",
   };
 
-  // mapFractures = (fmap, fractures) => {
-  //   for (i = 0; i < fractures.length; i++) {
-  //     if (fractures[i].location in fmap) {
-  //       fmap[fractures[i].location] = 1;
-  //     }
-  //   }
+  // resetState = () => {
+  //   this.setState({
+  //     lprib1: "",
+  //     lplrib1: "",
+  //   });
   // };
-  resetState = () => {
-    this.setState({
-      lprib1: "",
-      lplrib1: "",
-    });
+
+  fillState = (patient) => {
+    // console.log(patients.length);
+    // for (var i = 0; i < patients.length; i++) {
+    //   var fracture = patients[i].rib_fracture
+    // }
+    console.log("fillState");
+    var fractures = patient.rib_fracture;
+    for (var i = 0; i < fractures.length; i++) {
+      // var str = toString(fractures[i].location);
+      var s = fractures[i].location.replace(/\./g, "");
+      // if (s === "lprib1")
+      // this.setState({lprib1.location: });
+
+      console.log(s);
+      console.log(fractures[i].location);
+      console.log(typeof fractures[i].location);
+    }
   };
+
+  // setString = (str) => {
+  //   // String new_s = str.replace(".", "");
+  //   var new_s = str.replace(".", "");
+  //   console.log(str);
+  //   console.log("trying to set string");
+  //   console.log(new_s);
+  //   this.setState({ s: new_s });
+  // };
 
   render() {
     const patients = this.props.patients;
-    var fractureMap = new Map([
-      ["l.p.rib.1", ""],
-      ["l.pl.rib.1", ""],
-    ]);
     return (
       <Table striped hover size="sm" align="left">
         <thead>
@@ -56,7 +78,7 @@ class PatientList extends Component {
             <th>Drug Use</th>
             <th>Health-Notes</th>
             <th>Notes</th>
-            <th>sternum</th>
+            {/* <th>sternum</th> */}
             <th>l.p.rib.1</th>
             <th>l.pl.rib.1</th>
             <th>l.al.rib.1</th>
@@ -176,13 +198,14 @@ class PatientList extends Component {
                 <td>{patient.patho}</td>
                 <td>{patient.tobacco}</td>
                 <td>{patient.marijuana}</td>
-
                 <td>{patient.alcohol}</td>
                 <td>{patient.prescription}</td>
                 <td>{patient.drug_use}</td>
                 <td>{patient.health_notes}</td>
                 <td>{patient.notes}</td>
-                {/* <td>{patient.rib_fracture[0].location}</td> */}
+                <td>{this.state.lprib1[0].location}</td>
+                <td>{this.state.lplrib1[0].location}</td>
+                {this.fillState(patient)}
                 <td align="center">
                   <NewPatientModal
                     create={false}
