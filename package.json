@@ -24,11 +24,11 @@
     "reactstrap": "^8.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postinstall": "npm run build"
+    "start": "cd djangoreactproj/frontend && react-scripts start",
+    "build": "cd djangoreactproj/frontend && react-scripts build",
+    "test": "cd djangoreactproj/frontend && react-scripts test",
+    "eject": "cd djangoreactproj/frontend &&react-scripts eject",
+    "postinstall": "cd djangoreactproj/frontend && npm install && npm run build"
   },
   "engines":{
     "node": "14.15.0",
