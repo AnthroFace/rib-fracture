@@ -10,6 +10,7 @@ var MAP = {
       shape: "circle",
       coords: [101, 38, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "l.pl.rib.1",
