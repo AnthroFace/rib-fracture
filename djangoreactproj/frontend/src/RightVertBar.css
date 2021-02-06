@@ -15,16 +15,15 @@ body {
     fill: #333;
   }
   
-  .bar-group .value-label {
+  .bar-group .value-label_r {
     text-anchor: end;
     fill: #fff;
     font-weight: 900;
     font-size: 0.7em;
+    transform: rotate(180deg);
   }
 
-  .LeftVertBar{
+  .RightVertBar{
     display: flex;
     flex-wrap: wrap;
-
 }
-

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./../LeftVertBar.css";
+import "./../RightVertBar.css";
 import ReactDOM from 'react-dom';
 
 function BarGroup(props) {
@@ -13,7 +13,7 @@ function BarGroup(props) {
     return <g className="bar-group">
       <text className="name-label" x="-6" y={yMid} alignmentBaseline="middle" >{props.d.name}</text>
       <rect y={barPadding * 0.5} width={width} height={props.barHeight - barPadding} fill={barColour} />
-      <text className="value-label" x={width- 8} y={yMid} alignmentBaseline="middle" >{props.d.value}</text>
+      <text className="value-label_r" x={-width+ 8} y={-yMid} alignmentBaseline="middle" >{props.d.value}</text>
     </g>
   }
   
@@ -42,10 +42,10 @@ function BarGroup(props) {
                                                       <BarGroup d={d} barHeight={barHeight} />
                                                     </g>)                         
       
-      return <svg width="400" height="600" >
+      return <svg width="400" height="700" >
         <g className="container">
 
-          <g className="chart" transform="translate(50,60)">
+          <g className="chart" transform="translate(30,100)">
             {barGroups}
           </g>
         </g>

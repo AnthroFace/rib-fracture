@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./../LeftVertBar.css";
+import "./../LeftHorBar.css";
 import ReactDOM from 'react-dom';
 
 function BarGroup(props) {
@@ -24,14 +24,7 @@ function BarGroup(props) {
         {  value: 4 },
         {  value: 3 },
         {  value: 9 },
-        {  value: 5 },
-        { value: 2 },
-        { value: 7 },
-        {  value: 4 },
-        {  value: 3 },
-        {  value: 9 },
-        {  value: 5 },
-        { value: 2 }
+
       ]
     }
   
@@ -42,7 +35,7 @@ function BarGroup(props) {
                                                       <BarGroup d={d} barHeight={barHeight} />
                                                     </g>)                         
       
-      return <svg width="400" height="600" >
+      return <svg width="200" height="300" >
         <g className="container">
 
           <g className="chart" transform="translate(50,60)">

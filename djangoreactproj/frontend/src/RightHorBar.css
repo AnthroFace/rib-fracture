@@ -22,9 +22,7 @@ body {
     font-size: 0.7em;
   }
 
-  .LeftVertBar{
+  .RightHorBar{
     display: flex;
     flex-wrap: wrap;
-
 }
-

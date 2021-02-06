@@ -7,6 +7,9 @@ import RibHeatGrid from './RibHeatGrid';
 import RightRibHeatGrid from './RightRibHeatGrid';
 import "./../heatmap.css";
 import LeftVertBar from "./LeftVertBar";
+import RightVertBar from "./RightVertBar";
+import LeftHorBar from "./LeftHorBar";
+import RightHorBar from "./RightHorBar";
 
 //const xLabels = ["p", "pl", "al", "a"];
 // Display only even labels
@@ -51,27 +54,52 @@ import LeftVertBar from "./LeftVertBar";
   export default function() {
     return (
       <div className= 'Heatmap'>
-        
-        <Box padding="60px 0px">
-        <div><RibHeatGrid/></div>
+<Box padding ="35px 0px 0px 180px" style={{position: "relative" 
+        }}>
+<Box   padding="0px 0px 0px 0px" border={0} style={{position: "fixed",
+          transform: 'rotate(180deg)'
+        }}>
+            <div><RightVertBar
+            /></div>
+        </Box>
+        </Box>
+        <Box padding="60px 12px 0px 540px" style={{position: "fixed" 
+        }}>
+        <div><p><RibHeatGrid/></p></div>
 
         </Box>
 
-        <Box padding="60px 25px">
+        <Box padding="60px 12px 0px 750px" style={{position: "fixed" 
+        }}>
 
         <div><p><RightRibHeatGrid/></p></div>
         </Box>
 
-        <Box    style={{
-          position: "relative"
+
+        <Box padding="25px 0px 0px 950px" style={{position: "fixed" 
         }}>
-            <LeftVertBar
-            />
+            <div><p><LeftVertBar
+            /></p></div>
         </Box>
-        <Box   padding="50px 75px"    style={{
+
+        <Box  padding="0px 0px 0px 220px" border={0} style={{position: "fixed" 
+        }}>
+        <Box   padding="207px 0px 0px 900px" border={0} style={{position: "fixed" ,transform: 'rotate(90deg)'
+        }}>
+        <div><p><RightHorBar
+            /></p></div>
+        </Box>
+        <Box   padding="0px 0px 207px 900px" border={0} style={{position: "fixed", transform: 'rotate(90deg)'
+        }}>
+            <div><p><LeftHorBar
+            /></p></div>
+        </Box>
+        </Box>
+
+        <Box   padding="900px 0px 0px 75px"    style={{
           position: "relative"
           //display: "flex", 
-         // transform: "translate(-50%, -50%)",
+         //transform: "translate(-50%, -50%)",
         }}>
             <RibHeatImage 
             />
@@ -81,12 +109,10 @@ import LeftVertBar from "./LeftVertBar";
 
 
 
-
-
       </div>
     );
   }
-
+//right,bottom,left,top
 /*
 
 class Heatmap extends Component {
@@ -106,5 +132,20 @@ class Heatmap extends Component {
       )
     }
 }
+
+
+
+
+        <Box   padding="50px 75px"    style={{
+          position: "relative"
+          //display: "flex", 
+         //transform: "translate(-50%, -50%)",
+        }}>
+            <RibHeatImage 
+            />
+        </Box>
+
+
+
 
 export default Heatmap */

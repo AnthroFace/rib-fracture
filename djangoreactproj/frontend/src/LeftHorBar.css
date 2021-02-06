@@ -15,16 +15,14 @@ body {
     fill: #333;
   }
   
-  .bar-group .value-label {
+  .bar-group .value-label{
     text-anchor: end;
     fill: #fff;
     font-weight: 900;
     font-size: 0.7em;
   }
 
-  .LeftVertBar{
+  .LeftHorBar{
     display: flex;
     flex-wrap: wrap;
-
 }
-

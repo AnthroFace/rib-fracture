@@ -47,7 +47,7 @@ const data = [
         <HeatMap
         xLabels={xLabels}
         yLabels={yLabels}
-        xLabelsLocation={"bottom"}
+        xLabelsLocation={"top"}
        // xLabelsVisibility={xLabelsVisibility}
         xLabelWidth={60}
         data={data}
