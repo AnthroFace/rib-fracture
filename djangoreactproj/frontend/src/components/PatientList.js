@@ -5,53 +5,95 @@ import NewPatientModal from "./NewPatientModal";
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
 
 class PatientList extends Component {
-  state = {
-    lprib1: [
-      { location: "lprib1", completeness: "", fracture_type: "", cpr: "" },
-    ],
-    lplrib1: [
-      { location: "lplrib1", completeness: "", fracture_type: "", cpr: "" },
-    ],
-    // s: "not working",
-  };
+  // state = {
+  // lprib1: [{ location: "", completeness: "", fracture_type: "", cpr: "" }],
+  // lplrib1: [{ location: "", completeness: "", fracture_type: "", cpr: "" }],
+  // lprib1: [],
+  // lplrib1: [],
+  // };
 
   // resetState = () => {
   //   this.setState({
-  //     lprib1: "",
-  //     lplrib1: "",
+  //     lprib1: [{ location: "", completeness: "", fracture_type: "", cpr: "" }],
+  //     lplrib1: [{ location: "", completeness: "", fracture_type: "", cpr: "" }],
   //   });
   // };
 
-  fillState = (patient) => {
-    // console.log(patients.length);
-    // for (var i = 0; i < patients.length; i++) {
-    //   var fracture = patients[i].rib_fracture
-    // }
-    console.log("fillState");
-    var fractures = patient.rib_fracture;
-    for (var i = 0; i < fractures.length; i++) {
-      // var str = toString(fractures[i].location);
-      var s = fractures[i].location.replace(/\./g, "");
-      // if (s === "lprib1")
-      // this.setState({lprib1.location: });
+  // fillState = (patient, i) => {
+  //   console.log("fillState");
+  //   var fractures = patient.rib_fracture;
+  //   for (var i = 0; i < fractures.length; i++) {
+  //     var s = fractures[i].location.replace(/\./g, "");
+  //     this.state[s].location = 1;
+  //     this.state[s].completeness = fractures[i].completeness;
+  //     this.state[s].fracture_type = fractures[i].fracture_type;
+  //     this.state[s].cpr = fractures[i].cpr;
 
-      console.log(s);
-      console.log(fractures[i].location);
-      console.log(typeof fractures[i].location);
-    }
-  };
-
-  // setString = (str) => {
-  //   // String new_s = str.replace(".", "");
-  //   var new_s = str.replace(".", "");
-  //   console.log(str);
-  //   console.log("trying to set string");
-  //   console.log(new_s);
-  //   this.setState({ s: new_s });
+  // console.log(s);
+  // console.log(this.state[s]);
+  // console.log(fractures[i].location);
+  // console.log(typeof fractures[i].location);
+  // }
   // };
 
   render() {
     const patients = this.props.patients;
+    // return (
+    //   <div>
+    //     {!patients || patients.length <= 0 ? (
+    //       <tr>
+    //         <td>
+    //           <b>Sorry, no patients here</b>
+    //         </td>
+    //       </tr>
+    //     ) : (
+    //       <div>
+    //         <List dense>
+    //           {/* {issues
+    //             .slice(
+    //               (this.state.page - 1) * ISSUESPERPAGE,
+    //               this.state.page * ISSUESPERPAGE
+    //             ) */}
+    //           {patients.map((patient, i) => {
+    //             return (
+    //               <div>
+    //                 <ListItem
+    //                   key={patient.pk}
+    //                   button
+    //                   onClick={() => {
+    //                     console.log(i);
+    //                   }}
+    //                 >
+    //                   <div>
+    //                     <ListItemText
+    //                       // id={labelId}
+    //                       primary={pri}
+    //                       secondary={issue.title}
+    //                     />
+    //                   </div>
+    //                 </ListItem>
+    //                 <Divider />
+    //               </div>
+    //             );
+    //           })}
+    //         </List>
+    //         <Divider />
+    //         {/* <Box>
+    //           <Pagination
+    //             count={numPages}
+    //             defaultPage={1}
+    //             onChange={this.handleChange}
+    //             page={this.state.page}
+    //             shape="rounded"
+    //             size="large"
+    //             showFirstButton
+    //             showLastButton
+    //           />
+    //         </Box> */}
+    //       </div>
+    //     )}
+    //   </div>
+    // );
     return (
       <Table striped hover size="sm" align="left">
         <thead>
@@ -81,7 +123,7 @@ class PatientList extends Component {
             {/* <th>sternum</th> */}
             <th>l.p.rib.1</th>
             <th>l.pl.rib.1</th>
-            <th>l.al.rib.1</th>
+            {/* <th>l.al.rib.1</th>
             <th>l.p.rib.2</th>
             <th>l.pl.rib.2</th>
             <th>l.al.rib.2</th>
@@ -168,7 +210,7 @@ class PatientList extends Component {
             <th>r.al.rib.11</th>
             <th>r.p.rib.12</th>
             <th>r.pl.rib.12</th>
-            <th>r.al.rib.12</th>
+            <th>r.al.rib.12</th> */}
           </tr>
         </thead>
         <tbody>
@@ -203,9 +245,16 @@ class PatientList extends Component {
                 <td>{patient.drug_use}</td>
                 <td>{patient.health_notes}</td>
                 <td>{patient.notes}</td>
-                <td>{this.state.lprib1[0].location}</td>
-                <td>{this.state.lplrib1[0].location}</td>
-                {this.fillState(patient)}
+                {!patient.rib_fracture || patient.rib_fracture.length <= 0 ? (
+                  <td>No Fracture Here</td>
+                ) : (
+                  <div>
+                    {patient.rib_fracture.map(function (fracture) {
+                      return <td>{fracture.location}</td>;
+                    })}
+                  </div>
+                )}
+
                 <td align="center">
                   <NewPatientModal
                     create={false}

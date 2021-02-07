@@ -6,7 +6,7 @@ import PatientsPage from "./PatientsPage";
 import NewPatientPage from "./NewPatientPage";
 import Home from "./Home";
 import ImportCSV from "./ImportCSV";
-import ExportCSV from "./ExportCSV"; 
+import ExportCSV from "./ExportCSV";
 import "./../App.css";
 import Image from "react-image-resizer";
 
@@ -14,7 +14,7 @@ class Nav extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container-fluid">
+        <div>
           <nav className="navbar navbar-expand-lg navbar-dark navbar-custom">
             <a className="navbar-brand" href="/">
               <Image src="/images/AnthrofaceLogo3.png" height={65} alt="" />
