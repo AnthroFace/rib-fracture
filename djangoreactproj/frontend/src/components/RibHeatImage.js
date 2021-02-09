@@ -597,8 +597,8 @@ load()
         <div className="presenter">
           <div style={{ position: "relative" }}>
             <ImageMapper
-              width={350}
-              height={425}
+              width={550}
+              height={625}
               //imgWidth="100"
               src={URL}
               map={MAP}
