@@ -7,6 +7,7 @@ import NewPatientPage from "./NewPatientPage";
 import Home from "./Home";
 import ImportCSV from "./ImportCSV";
 import ExportCSV from "./ExportCSV"; 
+import Heatmap from "./Heatmap"; 
 import "./../App.css";
 import Image from "react-image-resizer";
 
@@ -45,6 +46,9 @@ class Nav extends Component {
                 <a className="nav-item nav-link" href="/export">
                   EXPORT DATA
                 </a>
+                <a className="nav-item nav-link" href="/heatmap">
+                  HEATMAP
+                </a>
               </div>
             </div>
           </nav>
@@ -56,6 +60,7 @@ class Nav extends Component {
             <Route path="/patient/" exact component={PatientsPage} />
             <Route path="/import/" exact component={ImportCSV} />
             <Route path="/export/" exact component={ExportCSV} />
+            <Route path="/heatmap/" exact component={Heatmap} />
           </div>
         </div>
       </BrowserRouter>

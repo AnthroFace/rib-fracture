@@ -28,10 +28,9 @@ class PatientsPage extends Component {
     return (
       <Box border={0}>
         <Container style={{ marginTop: "20px", marginLeft: "0px"}} align="left">
-          <Row textAlign="left">
-            <Col textAlign="left">
-              <PatientList
-                textAlign="left"
+          <Row >
+            <Col >
+              <PatientList 
                 patients={this.state.patients}
                 resetState={this.resetState}
               />
