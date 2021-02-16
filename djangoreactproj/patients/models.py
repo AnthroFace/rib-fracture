@@ -22,7 +22,7 @@ class Patient(models.Model):
     prescription = models.CharField('Prescription Medications', max_length=1, blank=True)
     drug_use = models.CharField('Illicit Drug Use', max_length=1, blank=True)
     health_notes = models.TextField('Health Notes', default=None, blank=True)
-    notes = models.TextField('Notes', default=None, blank=True)
+    notes = models.TextField('Notes', default=None, blank=True, null=True)
     sternum = models.IntegerField(blank=True, null=True)
     cpr_sternum = models.CharField(max_length=1, blank=True)
     lprib1 = models.IntegerField(blank=True, null=True)

@@ -47,7 +47,7 @@ class PatientSerializer(serializers.ModelSerializer):
                   'ralrib10', 'com_ralrib10', 'type_ralrib10', 'rarib10', 'com_rarib10', 'type_rarib10',
                   'rprib11', 'com_rprib11', 'type_rprib11', 'rplrib11', 'com_rplrib11', 'type_rplrib11',
                   'ralrib11', 'com_ralrib11', 'type_ralrib11','rprib12', 'com_rprib12', 'type_rprib12', 'rplrib12', 
-                  'com_rplrib12', 'type_rplrib12','ralrib12', 'com_ralrib12', 'typerlalrib12')
+                  'com_rplrib12', 'type_rplrib12','ralrib12', 'com_ralrib12', 'type_lalrib12')
 
     def to_internal_value(self,data):
         if data.get('age') == "":
