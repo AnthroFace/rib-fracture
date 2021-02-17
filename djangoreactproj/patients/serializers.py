@@ -31,8 +31,8 @@ class PatientSerializer(serializers.ModelSerializer):
                   'com_rprib1', 'type_rprib1', 'cpr_rprib1', 'rplrib1', 'com_rplrib1', 'type_rplrib1', 'cpr_rplrib1','ralrib1', 'com_ralrib1', 
                   'type_ralrib1', 'cpr_ralrib1', 'rprib2', 'com_rprib2', 'type_rprib2', 'cpr_rprib2', 'rplrib2', 'com_rplrib2', 'type_rplrib2', 'cpr_rplrib2',
                   'ralrib2', 'com_ralrib2', 'type_ralrib2', 'cpr_ralrib2', 'rarib2', 'com_rarib2', 'type_rarib2', 'cpr_rarib2', 'rprib3',
-                  'com_rprib3', 'type_rprib3', 'cpr_rprib3', 'rplrib3', 'com_rplrib3', 'type_rplrib3', 'cpr_rplrib3','ralrib3', 'com_lalrib3', 
-                  'type_ralrib3', 'cpr_ralrib3', 'rarib3', 'com_rarib3', 'type_rarib3', 'cpr_rarib3', 'rprib4', 'com_rprib4', 'type_lprib4', 'cpr_rprib4',
+                  'com_rprib3', 'type_rprib3', 'cpr_rprib3', 'rplrib3', 'com_rplrib3', 'type_rplrib3', 'cpr_rplrib3','ralrib3', 'com_ralrib3', 
+                  'type_ralrib3', 'cpr_ralrib3', 'rarib3', 'com_rarib3', 'type_rarib3', 'cpr_rarib3', 'rprib4', 'com_rprib4', 'type_rprib4', 'cpr_rprib4',
                   'rplrib4', 'com_rplrib4', 'type_rplrib4', 'cpr_rplrib4', 'ralrib4', 'com_ralrib4', 'type_ralrib4', 'cpr_ralrib4', 'rarib4', 
                   'com_rarib4', 'type_rarib4', 'cpr_rarib4','rprib5', 'com_rprib5', 'type_rprib5', 'cpr_rprib5', 'rplrib5', 'com_rplrib5', 
                   'type_rplrib5', 'cpr_rplrib5','ralrib5', 'com_ralrib5', 'type_ralrib5', 'cpr_ralrib5', 'rarib5', 'com_rarib5', 'type_rarib5', 'cpr_rarib5',
@@ -669,7 +669,7 @@ class PatientSerializer(serializers.ModelSerializer):
         instance.type_ralrib3 = validated_data.get('type_ralrib3', instance.type_ralrib3)
         instance.cpr_ralrib3 = validated_data.get('cpr_ralrib3', instance.cpr_ralrib3)
         instance.rarib3 = validated_data.get('rarib2', instance.rarib3)
-        instance.com_rarib3 = validated_data.get('com_rarib3', instance.com_ralrib3)
+        instance.com_rarib3 = validated_data.get('com_rarib3', instance.com_rarib3)
         instance.type_rarib3 = validated_data.get('type_rarib2', instance.type_rarib3)
         instance.cpr_rarib3 = validated_data.get('cpr_rarib3', instance.cpr_rarib3)
         instance.rprib4 = validated_data.get('rprib4', instance.rprib4)
