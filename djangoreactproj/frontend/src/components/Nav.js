@@ -15,7 +15,7 @@ class Nav extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container-fluid">
+        <div>
           <nav className="navbar navbar-expand-lg navbar-dark navbar-custom">
             <a className="navbar-brand" href="/">
               <Image src="/images/AnthrofaceLogo3.png" height={65} alt="" />
