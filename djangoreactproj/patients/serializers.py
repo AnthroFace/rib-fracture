@@ -121,7 +121,7 @@ class PatientSerializer(serializers.ModelSerializer):
         if data.get('lprib5') == "":
             data['lprib5'] = None
         if data.get('com_lprib5') == "":
-            data['5'] = None
+            data['com_lprib5'] = None
         if data.get('lplrib5') == "":
             data['lplrib5'] = None
         if data.get('com_lplrib5') == "":
@@ -301,7 +301,7 @@ class PatientSerializer(serializers.ModelSerializer):
         if data.get('rprib5') == "":
             data['rprib5'] = None
         if data.get('com_rprib5') == "":
-            data['5'] = None
+            data['com_rprib5'] = None
         if data.get('rplrib5') == "":
             data['rplrib5'] = None
         if data.get('com_rplrib5') == "":
