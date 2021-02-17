@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
 import NewPatientModal from "./NewPatientModal";
-import Box from "@material-ui/core/Box";
 
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
 
@@ -36,6 +35,7 @@ class PatientList extends Component {
             <th>Notes</th>
             <th>Sternum</th>
             <th>CPR Sternum</th>
+
             <th>l.p.rib.1</th>
             <th>Completeness</th>
             <th> Fracture Type</th>
@@ -307,7 +307,7 @@ class PatientList extends Component {
             <th>CPR</th>
 
             <th>r.al.rib.3</th>
-            {/* <th>Completeness</th> */}
+            <th>Completeness</th>
             <th>Fracture Type</th>
             <th>CPR</th>
 
@@ -318,7 +318,7 @@ class PatientList extends Component {
 
             <th>r.p.rib.4</th>
             <th>Completeness</th>
-            {/* <th>Fracture Type</th> */}
+            <th>Fracture Type</th>
             <th>CPR</th>
 
             <th>r.pl.rib.4</th>
@@ -497,7 +497,6 @@ class PatientList extends Component {
           ) : (
             patients.map((patient) => (
               <tr key={patient.pk}>
-                <td>{patient.pk} </td>
                 <td>{patient.case_id}</td>
                 <td style={{ backgroundColor: patient.age ? "" : "red" }}>
                   {patient.age}
@@ -785,7 +784,7 @@ class PatientList extends Component {
                 <td>{patient.type_rplrib3}</td>
                 <td>{patient.cpr_rplrib3}</td>
                 <td>{patient.ralrib3}</td>
-                {/* <td>{patient.com_rplrib3}</td> */}
+                <td>{patient.com_rplrib3}</td>
                 <td>{patient.type_ralrib3}</td>
                 <td>{patient.cpr_ralrib3}</td>
                 <td>{patient.rarib3}</td>
@@ -794,7 +793,7 @@ class PatientList extends Component {
                 <td>{patient.cpr_rarib3}</td>
                 <td>{patient.rprib4}</td>
                 <td>{patient.com_rprib4}</td>
-                {/* <td>{patient.type_rarib3}</td> */}
+                <td>{patient.type_rarib3}</td>
                 <td>{patient.cpr_rprib4}</td>
                 <td>{patient.rplrib4}</td>
                 <td>{patient.com_rplrib4}</td>
