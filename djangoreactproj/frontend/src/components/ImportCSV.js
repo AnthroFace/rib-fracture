@@ -115,14 +115,14 @@ class ImportCSV extends Component {
     super()
     this.state = {
       selectedFile: null,
-      errorMessage: '',
+      //errorMessage: 'No file selected',
       //loaded: 0,
     }
   }
   handleselectedFile = event => {
     this.setState({
       selectedFile: event.target.files[0],
-      errorMessage: '',
+      //errorMessage: 'File is ready for upload',
       //loaded: 0,
     })
   }
@@ -137,7 +137,7 @@ class ImportCSV extends Component {
       alert('You can only upload .csv flies.');
       return false;
     }
-
+    var rowNum = 0;
     Papa.parse(this.state.selectedFile, {
       //header: true,
       transform: rib_position, customDynamicTyping,
@@ -145,15 +145,17 @@ class ImportCSV extends Component {
       dynamicTyping: false,
       skipEmptyLines: true,
       step: function(row){
+        
         //axios.post(API_URL, row.data);
         //console.log("Row:", row.data);
   
         //ignore the header row
-        if (row.data[1] === "age" || row.data[1] === "Age") {}
+        if (rowNum === 0) {}
         //take each parsed row and submit as a new patient
         else
         {
           var rib_fractures = [];
+          var error_list = [];
           for (var i = 23; i < 406; i += 4) 
           {
             if (row.data[i] == null) {}
@@ -193,44 +195,44 @@ class ImportCSV extends Component {
           };
           axios.post(API_URL, new_entry).then(res => {
             //put success message here
-            console.log("this means it worked i think");
+            //console.log("this means it worked i think");
           })
           .catch(err => {
             if (err.response) {
               //error messages for if the database didnt like the data (ie data alread exists) (400 or 500 errors)
+
+              //TODO: add err.response.data to array? display after upload
               console.log("oop error", err.response.data);
-              this.setState({errorMessage: err.response.data});
+              this.setState({errorMessage: 'Oops error D:'})//err.response.data});
+              //var error_response = err.response.data;
+              //error_list.push(error_resopnse);
             }
           })
         }
-
+        rowNum++;
       },
       complete: function() {
-       console.log("Finished parsing");
+       //console.log("Finished parsing");
+       //this.setState({errorMessage: 'Parse Success'});
       }
     });
 
-   /* const data = new FormData()
-    data.append('file', this.state.selectedFile, this.state.selectedFile.name)
 
-    axios
-      .post("http://localhost:8000/api/patients", data, {
-        onUploadProgress: ProgressEvent => {
-          this.setState({
-            loaded: (ProgressEvent.loaded / ProgressEvent.total) * 100,
-          })
-        },
-      })
-      .then(res => {
-        console.log(res.statusText)
-      })*/
+    //TODO: take array of errors and display (state which case ID's failed)
+    //TODO: colapse to number of type of errors if > 5
+    //TODO: indicate number of successful uploads as well
+    this.setState({
+      //errorMessage: 'uploaded: ', error_list,
+    });
+
+
   }
   render() {
     return (
       <div className="ImportCSV">
         <input type="file" accept='.csv' name="" id="" onChange={this.handleselectedFile} />
         <button onClick={this.handleUpload}>Upload</button>
-        <h1>{JSON.stringify(this.errorMessage)}</h1>
+        <h1>{this.state.errorMessage}</h1>
       </div>
     )
   }
