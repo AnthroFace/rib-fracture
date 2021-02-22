@@ -1,5 +1,11 @@
 from django.db import models
 
+def validate_only_one_instance(obj):
+    model = obj.__class__
+    if (model.objects.count() > 0 and
+            obj.id != model.objects.get().id):
+        raise ValidationError("Can only create 1 %s instance" % model.__name__)
+
 class Patient(models.Model):
     case_id = models.CharField("Case ID", max_length=240,default="", unique=True)
     age = models.IntegerField("Age", blank=True, null=True)
@@ -21,8 +27,8 @@ class Patient(models.Model):
     alcohol = models.CharField('Alcohol Use', max_length=1, blank=True)
     prescription = models.CharField('Prescription Medications', max_length=1, blank=True)
     drug_use = models.CharField('Illicit Drug Use', max_length=1, blank=True)
-    health_notes = models.TextField('Health Notes', default=None, blank=True)
-    notes = models.TextField('Notes', default=None, blank=True, null=True)
+    health_notes = models.TextField('Health Notes', blank=True)
+    notes = models.TextField('Notes', blank=True, null=True)
     sternum = models.IntegerField(blank=True, null=True)
     cpr_sternum = models.CharField(max_length=2, blank=True)
     lprib1 = models.IntegerField(blank=True, null=True)
@@ -390,5 +396,9 @@ class Patient(models.Model):
         return self.case_id
 
 class Filter(models.Model):
-    fil = models.CharField("Filter", max_length=100, blank=True)
-    value = models.CharField("Value", max_length=100, blank=True)
+    # fil = models.CharField("Filter", max_length=100, blank=True)
+    # value = models.CharField("Value", max_length=100, blank=True)
+    ancestry = models.CharField("Ancestry", max_length=100, blank=True)
+
+    def clean(self):
+        validate_only_one_instance(self)

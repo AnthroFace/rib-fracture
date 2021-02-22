@@ -3,6 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 import axios from "axios";
+import { API_URL } from "../constants";
 
 const URL = "http://localhost:8000/api/filter/";
 
@@ -37,8 +38,9 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fil: "",
-      value: "",
+      // fil: "",
+      // value: "",
+      ancestry: "",
       inputValue: "",
     };
   }
@@ -58,23 +60,27 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <div>{`filter: ${
+        {/* <div>{`filter: ${
           this.state.fil !== "" ? `'${this.state.fil}'` : ""
         }`}</div>
         <div>{`value: ${
           this.state.value !== "" ? `'${this.state.value}'` : ""
+        }`}</div> */}
+        <div>{`ancestry: ${
+          this.state.ancestry !== "" ? `'${this.state.ancestry}'` : ""
         }`}</div>
         <div>{`inputValue: '${this.state.inputValue}'`}</div>
         <br />
 
         <Autocomplete
-          value={this.state.value}
+          value={this.state.ancestry}
           onChange = {(event, newValue) => {
             //setValue(newValue);
-            this.setState({ fil: "ancestry", value: newValue });
+            this.setState({ ancestry: newValue });
             axios.post(URL, {
-              fil: "ancestry",
-              value: newValue
+              // fil: "ancestry",
+              // value: newValue,
+              ancestry: newValue
             }).then(function (response) {
               console.log(response);
             });
