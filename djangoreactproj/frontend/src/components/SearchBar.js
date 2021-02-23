@@ -48,14 +48,42 @@ class SearchBar extends Component {
   //   load = () => {
   //     this.setState({ msg: "Click on Fractured Ribs" });
   //   };
+  deleteFilter = pk => {
+    axios.delete(URL + pk).then(() => {
 
-  //handleChange = (f, v) => {
-  //  this.setState({
-  //    filter: f,
-  //    value: v,
-  //  });
-  //  this.props.onSelectValue(f, v);
-  //};
+    });
+  };
+
+  editFilter = (e, pk) => {
+    e.preventDefault();
+    axios.put(URL + pk, this.state).then(() => {
+      this.props.resetState();
+      this.props.toggle();
+    });
+  };
+
+  handleChange = (newValue) => {
+    try{
+      this.editFilter(1);
+      // axios.post(URL, {
+      //   // fil: "ancestry",
+      //   // value: newValue,
+      //   ancestry: newValue
+      // }).then(function (response) {
+      //   console.log(response);
+      // });
+    }
+    catch{
+      axios.post(URL, {
+        // fil: "ancestry",
+        // value: newValue,
+        ancestry: newValue
+      }).then(function (response) {
+        console.log(response);
+      });
+    }
+
+  };
 
   render() {
     return (
@@ -77,13 +105,7 @@ class SearchBar extends Component {
           onChange = {(event, newValue) => {
             //setValue(newValue);
             this.setState({ ancestry: newValue });
-            axios.post(URL, {
-              // fil: "ancestry",
-              // value: newValue,
-              ancestry: newValue
-            }).then(function (response) {
-              console.log(response);
-            });
+            this.handleChange(newValue);
                 // this.props.toggle();
             // this.props.onSelectValue(this.state.filter, this.state.value);
             this.props.onSelectValue();

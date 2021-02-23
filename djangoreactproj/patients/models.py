@@ -1,10 +1,5 @@
 from django.db import models
-
-def validate_only_one_instance(obj):
-    model = obj.__class__
-    if (model.objects.count() > 0 and
-            obj.id != model.objects.get().id):
-        raise ValidationError("Can only create 1 %s instance" % model.__name__)
+from django.core.exceptions import ValidationError
 
 class Patient(models.Model):
     case_id = models.CharField("Case ID", max_length=240,default="", unique=True)
@@ -400,5 +395,9 @@ class Filter(models.Model):
     # value = models.CharField("Value", max_length=100, blank=True)
     ancestry = models.CharField("Ancestry", max_length=100, blank=True)
 
-    def clean(self):
-        validate_only_one_instance(self)
+    def save(self, *args, **kwargs):
+        if not self.pk and Filter.objects.exists():
+        # if you'll not check for self.pk 
+        # then error will also raised in update of exists model
+            raise ValidationError('There is can be only one Filter instance')
+        return super(Filter, self).save(*args, **kwargs)

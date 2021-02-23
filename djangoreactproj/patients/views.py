@@ -6,6 +6,7 @@ from rest_framework import status
 from rest_framework import generics
 
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse
 
 from .models import *
@@ -58,12 +59,20 @@ def patients_filter(request):
         data = Filter.objects.all()
 
         serializer = FilterSerializer(data, context={'request': request}, many=True)
-        kwargs = {
-            'ancestry': serializer.data[0]['ancestry']
-        }
-        patient_data = Patient.objects.filter(**kwargs)
-        patient_serializer = PatientSerializer(patient_data, context={'request': request}, many=True)
-        return Response(patient_serializer.data)
+        try:
+            kwargs = {
+                'ancestry': serializer.data[0]['ancestry']
+            }
+            print(serializer.data[0]['ancestry'])
+            patient_data = Patient.objects.filter(**kwargs)
+            patient_serializer = PatientSerializer(patient_data, context={'request': request}, many=True)
+            return Response({
+                'patients':patient_serializer.data,
+                'filters': serializer.data
+            })
+        except:
+            return redirect(patients_list)
+
 
     elif request.method == 'POST':
         serializer = FilterSerializer(data=request.data)
@@ -87,16 +96,23 @@ def patients_filter(request):
 
     #     return Response(serializer.data)
 
-# @api_view(['DELETE'])
-# def filter_delete(request, pk):
-#     try:
-#         fil = Filter.objects.get(pk=pk)
-#     except Filter.DoesNotExist:
-#         return Response(status=status.HTTP_404_NOT_FOUND)
+@api_view(['PUT','DELETE'])
+def filter_delete(request, pk):
+    try:
+        fil = Filter.objects.get(pk=pk)
+    except Filter.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
-#     if request.method == 'DELETE':
-#         fil.delete()
-#         return Response(status=status.HTTP_204_NO_CONTENT)
+    if request.method == 'PUT':
+        serializer = PatientSerializer(patient, data=request.data,context={'request': request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        fil.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 # @api_view(['GET'])
 # def filtered_patients_list(request):
