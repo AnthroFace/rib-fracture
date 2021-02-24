@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./../LeftVertBar.css";
 import ReactDOM from 'react-dom';
+import RightRibHeatGrid from './RightRibHeatGrid';
+import { leftBarTotals } from './RightRibHeatGrid';
 
 function BarGroup(props) {
     let barPadding = 2
@@ -20,18 +22,18 @@ function BarGroup(props) {
   class BarChart extends React.Component {
     state = {
       data: [
-        { value: 5},
-        {  value: 4 },
-        {  value: 3 },
-        {  value: 9 },
-        {  value: 5 },
-        { value: 2 },
-        { value: 7 },
-        {  value: 4 },
-        {  value: 3 },
-        {  value: 9 },
-        {  value: 5 },
-        { value: 2 }
+        { value: leftBarTotals.leftbar1},
+        {  value: leftBarTotals.leftbar2},
+        {  value: leftBarTotals.leftbar3},
+        {  value: leftBarTotals.leftbar4},
+        {  value: leftBarTotals.leftbar5},
+        { value: leftBarTotals.leftbar6},
+        { value: leftBarTotals.leftbar7},
+        {  value: leftBarTotals.leftbar8},
+        {  value: leftBarTotals.leftbar9},
+        {  value: leftBarTotals.leftbar10},
+        {  value: leftBarTotals.leftbar11},
+        { value: leftBarTotals.leftbar12}
       ]
     }
   
@@ -42,7 +44,7 @@ function BarGroup(props) {
                                                       <BarGroup d={d} barHeight={barHeight} />
                                                     </g>)                         
       
-      return <svg width="400" height="600" >
+      return <svg width="400" height="650" >
         <g className="container">
 
           <g className="chart" transform="translate(50,60)">
