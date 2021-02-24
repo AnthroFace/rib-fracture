@@ -152,11 +152,11 @@ class Content2 extends Component {
             <div><LeftVertBar/></div>
         </Box>
 
-        <Box   padding="207px 40px 40px 900px" border={0} style={{position: "absolute" ,transform: 'rotate(90deg)'}}>
+        <Box   padding="865px 0px 738px 0px" border={0} style={{position: "absolute" ,transform: 'rotate(90deg)'}}>
         <div><RightHorBar/></div>
         </Box>
         
-        <Box   padding="207px 245px 245px 900px" border={0} style={{position: "absolute", transform: 'rotate(90deg)'}}>
+        <Box   padding="904px 245px 942px 3px" border={0} style={{position: "absolute", transform: 'rotate(90deg)'}}>
             <div><LeftHorBar/></div>
         </Box>
         </Box>
@@ -170,7 +170,7 @@ render() {
        <Box padding = "25px 0px 0px 275px">
          <CoolTabs
            tabKey={'1'}
-           style={{ width:  1200, height:  775, background:  'white' }}
+           style={{ width:  1200, height:  1800, background:  'white' }}
            activeTabStyle={{ background:  '#FFFEE9', color:  '#963A2F' }}
            unActiveTabStyle={{ background:  '#D0F0C0', color:  '#963A2F' }}
            activeLeftTabBorderBottomStyle={{ background:  '#963A2F', height:  4 }}
