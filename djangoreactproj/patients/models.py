@@ -391,9 +391,27 @@ class Patient(models.Model):
         return self.case_id
 
 class Filter(models.Model):
-    # fil = models.CharField("Filter", max_length=100, blank=True)
-    # value = models.CharField("Value", max_length=100, blank=True)
+    # case_id = models.CharField("Case ID", max_length=240,default="", unique=True)
+    # age = models.IntegerField("Age", blank=True, null=True)
+    # sex = models.CharField("Sex", max_length= 2, blank=True)
+    # weight = models.IntegerField("Weight", blank=True, null=True)
+    # height = models.IntegerField("Height", blank=True, null=True)
     ancestry = models.CharField("Ancestry", max_length=100, blank=True)
+    # mod = models.CharField("Mode of Death", max_length=240, blank=True)
+    # cod = models.CharField("Cause of Death", max_length=240, blank=True)
+    # cod_type = models.TextField("CoD Info", blank=True)
+    # xray = models.CharField('X-Ray', max_length=1, blank=True)
+    # cpr = models.CharField('CPR', max_length=1, blank=True)
+    # belted = models.CharField('Belted', max_length=1, blank=True)
+    # obese = models.CharField('Obese', max_length=1,blank=True)
+    # cardio = models.CharField('Cardiovascular Issues', max_length=1, blank=True)
+    # patho = models.CharField('Pathologies', max_length=1, blank=True)
+    # tobacco = models.CharField('Cigarette/Tobacco Use', max_length=1, blank=True)
+    # marijuana = models.CharField('Marijuana Use', max_length=1, blank=True)
+    # alcohol = models.CharField('Alcohol Use', max_length=1, blank=True)
+    # prescription = models.CharField('Prescription Medications', max_length=1, blank=True)
+    # drug_use = models.CharField('Illicit Drug Use', max_length=1, blank=True)
+
 
     def save(self, *args, **kwargs):
         if not self.pk and Filter.objects.exists():

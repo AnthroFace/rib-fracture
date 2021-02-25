@@ -54,17 +54,15 @@ class SearchBar extends Component {
     });
   };
 
-  editFilter = (e, pk) => {
+  editFilter = (e) => {
     e.preventDefault();
-    axios.put(URL + pk, this.state).then(() => {
-      this.props.resetState();
-      this.props.toggle();
+    axios.put(URL + '1', this.state).then(() => {
     });
   };
 
-  handleChange = (newValue) => {
+  handleChange = (event, newValue) => {
     try{
-      this.editFilter(1);
+      this.editFilter(event);
       // axios.post(URL, {
       //   // fil: "ancestry",
       //   // value: newValue,
@@ -105,7 +103,7 @@ class SearchBar extends Component {
           onChange = {(event, newValue) => {
             //setValue(newValue);
             this.setState({ ancestry: newValue });
-            this.handleChange(newValue);
+            this.handleChange(event, newValue);
                 // this.props.toggle();
             // this.props.onSelectValue(this.state.filter, this.state.value);
             this.props.onSelectValue();
