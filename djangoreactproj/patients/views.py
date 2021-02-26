@@ -62,6 +62,7 @@ def patients_filter(request):
         try:
             kwargs = {
                 'ancestry': serializer.data[0]['ancestry']
+                'sternum': serializer.data[0]['sternum']
             }
             print(serializer.data[0]['ancestry'])
             patient_data = Patient.objects.filter(**kwargs)
