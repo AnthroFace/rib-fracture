@@ -59,9 +59,12 @@ def patients_filter(request):
         data = Filter.objects.all()
 
         serializer = FilterSerializer(data, context={'request': request}, many=True)
+        print(serializer.data[0].keys())
+        # for i in serializer.data[0]:
+        #     print serializer.data[0].keys()
         try:
             kwargs = {
-                'ancestry': serializer.data[0]['ancestry']
+                'ancestry': serializer.data[0]['ancestry'],
                 'sternum': serializer.data[0]['sternum']
             }
             print(serializer.data[0]['ancestry'])
