@@ -7,6 +7,7 @@ class NewPatientPage extends Component {
 
   toggle = () => {
     alert("Database changed");
+    window.scrollTo(0, 0);
   };
 
   resetState = () => {

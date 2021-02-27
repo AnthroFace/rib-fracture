@@ -75,6 +75,7 @@ def patients_filter(request):
             kwargs = fil_dic
             patient_data = Patient.objects.filter(**kwargs)
             patient_serializer = PatientSerializer(patient_data, context={'request': request}, many=True)
+            print(patient_serializer.data)
             return Response({
                 'patients': patient_serializer.data,
                 'filters': serializer.data

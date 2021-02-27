@@ -1605,10 +1605,6 @@ class NewPatientForm extends React.Component {
         drug_use: "",
         health_notes: "",
         notes: "",
-        rib_fracture: [
-          { location: "", completeness: "", fracture_type: "", cpr: "" },
-        ],
-        num_fractures: 1,
         sternum: "",
         cpr_sternum: "",
         lprib1: null,
