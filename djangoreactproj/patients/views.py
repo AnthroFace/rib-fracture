@@ -1,4 +1,5 @@
 import json
+import ast
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -11,6 +12,9 @@ from django.http import HttpResponse
 
 from .models import *
 from .serializers import *
+
+# import logging
+# logger = logging.getLogger(__name__)
 
 @api_view(['GET', 'POST'])
 def patients_list(request):
@@ -60,28 +64,28 @@ def patients_filter(request):
         fil_string = "{"
 
         serializer = FilterSerializer(data, context={'request': request}, many=True)
-        for key in serializer.data[0].keys():
-            if key != "pk" and serializer.data[0][key] != "":
-                fil_string = fil_string + '"' + key + '": ' + '"' + serializer.data[0][key] + '"' 
-        fil_string = fil_string + "}"
-        fil_dic = json.loads(fil_string)
-        print("DICTIONARY",fil_dic)
-
         try:
-            # kwargs = {
-            #     'ancestry': serializer.data[0]['ancestry'], 
-            #     # 'sternum': serializer.data[0]['sternum']
-            # }
-            kwargs = fil_dic
-            patient_data = Patient.objects.filter(**kwargs)
+            for key in serializer.data[0].keys():
+                if key != "pk" and serializer.data[0][key] != "":
+                    fil_string = fil_string + '\'' + key + '\': ' + '"' + serializer.data[0][key] + '",' 
+            fil_string = fil_string[:-1]
+            fil_string = fil_string + "}"
+            # print("string", fil_string)
+            # print ("string", type(fil_string))
+            # fil_dict = json.loads(fil_string) - its still a string after 
+            fil_dict = ast.literal_eval(fil_string) 
+           
+            # print("DICTIONARY",fil_dict)
+            # print ("type of final_dictionary", type(fil_dict))
+
+            patient_data = Patient.objects.filter(**fil_dict)
             patient_serializer = PatientSerializer(patient_data, context={'request': request}, many=True)
-            print(patient_serializer.data)
             return Response({
                 'patients': patient_serializer.data,
                 'filters': serializer.data
             })
         except:
-            return Response(serializer.data)
+            return Response([])
             # return redirect(patients_list)
 
 

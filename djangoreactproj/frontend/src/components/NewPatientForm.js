@@ -2572,9 +2572,8 @@ class NewPatientForm extends React.Component {
               </div>
             </Fragment>
           ))}
-          {/**/}
-          <br />
-          <pre>{JSON.stringify(this.state, null, 2)}</pre>
+          {/* <br />
+          <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
         </div>
         <Button>Send</Button>
       </Form>

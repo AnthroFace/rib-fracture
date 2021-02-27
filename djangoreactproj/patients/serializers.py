@@ -6,7 +6,7 @@ class FilterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Filter
-        fields = ('pk', 'ancestry')
+        fields = ('pk', 'sex', 'ancestry', 'xray', 'cpr', 'belted', 'obese', 'cardio', 'patho', 'tobacco', 'marijuana', 'alcohol', 'prescription', 'drug_use')
 
 class PatientSerializer(serializers.ModelSerializer):
 

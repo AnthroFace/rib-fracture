@@ -4,7 +4,6 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import Button from "@material-ui/core/Button";
 
 import axios from "axios";
-import { API_URL } from "../constants";
 
 const URL = "http://localhost:8000/api/filter/";
 
@@ -23,7 +22,7 @@ const Ancestries = [
 
 const Sexes = ["Female", "Male"];
 
-const YesNo = ["Yes", "No"];
+const YesNo = ["Y", "N"];
 
 class SearchBar extends Component {
   constructor(props) {
@@ -41,7 +40,7 @@ class SearchBar extends Component {
       marijuana: "",
       alcohol: "",
       prescripiton: "",
-      druguse: "",
+      drug_use: "",
       ancestryinputValue: "",
       sexinputvalue: "",
       xrayinputvalue: "",
@@ -72,10 +71,27 @@ class SearchBar extends Component {
 
   filter = (event) => {
     console.log("filtering");
-    axios.get(API_URL).then((res) => {
+    axios.get(URL).then((res) => {
+      console.log(res.data);
+      console.log("data length:", res.data.length);
+
       if (res.data.length == 0) {
         axios
-          .post(URL, { ancestry: this.state.ancestry })
+          .post(URL, {
+            sex: this.state.sex,
+            ancestry: this.state.ancestry,
+            xray: this.state.xray,
+            cpr: this.state.cpr,
+            belted: this.state.belted,
+            obese: this.state.obese,
+            cardio: this.state.cardio,
+            patho: this.state.patho,
+            tobacco: this.state.tobacco,
+            marijuana: this.state.marijuana,
+            alcohol: this.state.alcohol,
+            prescripiton: this.state.prescripiton,
+            drug_use: this.state.drug_use,
+          })
           .then(function (response) {
             console.log(response);
           });
@@ -94,7 +110,11 @@ class SearchBar extends Component {
             if (reason == "clear") {
               this.setState({ sex: "" });
             } else {
-              this.setState({ sex: newValue });
+              if (newValue === "Female") {
+                this.setState({ sex: "F" });
+              } else {
+                this.setState({ sex: "M" });
+              }
             }
             // this.props.onSelectValue();
           }}
@@ -370,12 +390,12 @@ class SearchBar extends Component {
         />
 
         <Autocomplete
-          value={this.state.druguse}
+          value={this.state.drug_use}
           onChange={(event, newValue, reason) => {
             if (reason == "clear") {
-              this.setState({ druguse: "" });
+              this.setState({ drug_use: "" });
             } else {
-              this.setState({ druguse: newValue });
+              this.setState({ drug_use: newValue });
             }
             // this.props.onSelectValue();
           }}
@@ -383,7 +403,7 @@ class SearchBar extends Component {
           onInputChange={(event, newInputValue) => {
             this.setState({ druguseinputValue: newInputValue });
           }}
-          id="druguse-choice"
+          id="drug_use-choice"
           options={YesNo}
           openOnFocus={true}
           style={{ width: 300 }}
