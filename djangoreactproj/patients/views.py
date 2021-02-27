@@ -57,25 +57,31 @@ def patients_detail(request, pk):
 def patients_filter(request):
     if request.method == 'GET':
         data = Filter.objects.all()
+        fil_string = "{"
 
         serializer = FilterSerializer(data, context={'request': request}, many=True)
-        print(serializer.data[0].keys())
-        # for i in serializer.data[0]:
-        #     print serializer.data[0].keys()
+        for key in serializer.data[0].keys():
+            if key != "pk" and serializer.data[0][key] != "":
+                fil_string = fil_string + '"' + key + '": ' + '"' + serializer.data[0][key] + '"' 
+        fil_string = fil_string + "}"
+        fil_dic = json.loads(fil_string)
+        print("DICTIONARY",fil_dic)
+
         try:
-            kwargs = {
-                'ancestry': serializer.data[0]['ancestry'],
-                'sternum': serializer.data[0]['sternum']
-            }
-            print(serializer.data[0]['ancestry'])
+            # kwargs = {
+            #     'ancestry': serializer.data[0]['ancestry'], 
+            #     # 'sternum': serializer.data[0]['sternum']
+            # }
+            kwargs = fil_dic
             patient_data = Patient.objects.filter(**kwargs)
             patient_serializer = PatientSerializer(patient_data, context={'request': request}, many=True)
             return Response({
-                'patients':patient_serializer.data,
+                'patients': patient_serializer.data,
                 'filters': serializer.data
             })
         except:
-            return redirect(patients_list)
+            return Response(serializer.data)
+            # return redirect(patients_list)
 
 
     elif request.method == 'POST':
