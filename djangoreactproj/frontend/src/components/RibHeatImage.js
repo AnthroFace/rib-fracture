@@ -8,152 +8,175 @@ var MAP = {
     {
       name: "l.p.rib.1",
       shape: "circle",
-      coords: [101, 38, 8],
+      coords: [160, 50, 8],
       fillColor: "red",
       preFillColor: "red"
     },
     {
       name: "l.pl.rib.1",
       shape: "circle",
-      coords: [132, 38, 8],
+      coords: [210, 50, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "l.al.rib.1",
       shape: "circle",
-      coords: [163, 38, 8],
+      coords: [260, 50, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.p.rib.1",
       shape: "circle",
-      coords: [274, 38, 8],
+      coords: [330, 50, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.pl.rib.1",
       shape: "circle",
-      coords: [243, 38, 8],
+      coords: [380, 50, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.al.rib.1",
       shape: "circle",
-      coords: [211, 38, 8],
+      coords: [430, 50, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     // rib 2
     {
       name: "l.p.rib.2",
       shape: "circle",
-      coords: [72, 70,8],
+      coords: [113, 90,8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "l.pl.rib.2",
       shape: "circle",
-      coords: [97, 70, 8],
+      coords: [150, 95, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "l.al.rib.2",
       shape: "circle",
-      coords: [126, 70, 8],
+      coords: [195, 100, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "l.a.rib.2",
       shape: "circle",
-      coords: [150, 70, 8],
+      coords: [245, 100, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.p.rib.2",
       shape: "circle",
-      coords: [304,70, 8],
+      coords: [350,100, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.pl.rib.2",
       shape: "circle",
-      coords: [278, 70, 9],
+      coords: [390, 103, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.al.rib.2",
       shape: "circle",
-      coords: [249, 70, 8],
+      coords: [435, 103, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.a.rib.2",
       shape: "circle",
-      coords: [216, 70,8],
+      coords: [475, 98,8],
       fillColor: "red",
+      preFillColor: "red"
     },
 
     // rib 3
     {
       name: "l.p.rib.3",
       shape: "circle",
-      coords: [63, 98, 8],
+      coords: [100, 137, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "l.pl.rib.3",
       shape: "circle",
-      coords: [92, 98, 8],
+      coords: [145, 139, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "l.al.rib.3",
       shape: "circle",
-      coords: [123, 98, 8],
+      coords: [190, 142, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "l.a.rib.3",
       shape: "circle",
-      coords: [160, 98, 8],
+      coords: [245, 145, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.p.rib.3",
       shape: "circle",
-      coords: [313, 98, 8],
+      coords: [345, 145, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.pl.rib.3",
       shape: "circle",
-      coords: [283, 98, 7],
+      coords: [395, 147, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.al.rib.3",
       shape: "circle",
-      coords: [252, 98, 8],
+      coords: [443, 145, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "r.a.rib.3",
       shape: "circle",
-      coords: [215, 98, 8],
+      coords: [485, 145, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
 
     // rib 4
     {
       name: "l.p.rib.4",
       shape: "circle",
-      coords: [57, 133, 8],
+      coords: [90, 187, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "l.pl.rib.4",
       shape: "circle",
-      coords: [91, 133, 8],
+      coords: [140, 190, 8],
       fillColor: "red",
+      preFillColor: "red"
     },
     {
       name: "l.al.rib.4",
