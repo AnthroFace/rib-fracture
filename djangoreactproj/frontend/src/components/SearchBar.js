@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import Button from "@material-ui/core/Button";
 
 import axios from "axios";
 import { API_URL } from "../constants";
@@ -42,45 +43,59 @@ class SearchBar extends Component {
       // value: "",
       ancestry: "",
       inputValue: "",
+      filter: [],
     };
   }
 
   //   load = () => {
   //     this.setState({ msg: "Click on Fractured Ribs" });
   //   };
-  deleteFilter = pk => {
-    axios.delete(URL + pk).then(() => {
-
-    });
+  deleteFilter = (pk) => {
+    axios.delete(URL + pk).then(() => {});
   };
 
   editFilter = (e) => {
     e.preventDefault();
-    axios.put(URL + '1', this.state).then(() => {
-    });
+    axios.put(URL + "1", this.state).then(() => {});
   };
 
-  handleChange = (event, newValue) => {
-    try{
+  filter = (event) => {
+    console.log("filtering");
+    axios.get(API_URL).then((res) => this.setState({ filter: res.data }));
+    console.log(this.state.filter.length);
+    if (this.state.filter.length == 0) {
+      axios
+        .post(URL, {
+          // fil: "ancestry",
+          // value: newValue,
+          ancestry: this.state.an,
+        })
+        .then(function (response) {
+          console.log(response);
+        });
+    } else {
       this.editFilter(event);
-      // axios.post(URL, {
-      //   // fil: "ancestry",
-      //   // value: newValue,
-      //   ancestry: newValue
-      // }).then(function (response) {
-      //   console.log(response);
-      // });
     }
-    catch{
-      axios.post(URL, {
-        // fil: "ancestry",
-        // value: newValue,
-        ancestry: newValue
-      }).then(function (response) {
-        console.log(response);
-      });
-    }
-
+    // try {
+    //   this.editFilter(event);
+    //   // axios.post(URL, {
+    //   //   // fil: "ancestry",
+    //   //   // value: newValue,
+    //   //   ancestry: newValue
+    //   // }).then(function (response) {
+    //   //   console.log(response);
+    //   // });
+    // } catch {
+    //   axios
+    //     .post(URL, {
+    //       // fil: "ancestry",
+    //       // value: newValue,
+    //       ancestry: this.state.an,
+    //     })
+    //     .then(function (response) {
+    //       console.log(response);
+    //     });
+    // }
   };
 
   render() {
@@ -100,11 +115,11 @@ class SearchBar extends Component {
 
         <Autocomplete
           value={this.state.ancestry}
-          onChange = {(event, newValue) => {
+          onChange={(event, newValue) => {
             //setValue(newValue);
             this.setState({ ancestry: newValue });
-            this.handleChange(event, newValue);
-                // this.props.toggle();
+            //this.handleChange(event, newValue);
+            // this.props.toggle();
             // this.props.onSelectValue(this.state.filter, this.state.value);
             this.props.onSelectValue();
           }}
@@ -119,6 +134,9 @@ class SearchBar extends Component {
             <TextField {...params} label="Ancestry" variant="outlined" />
           )}
         />
+        <Button variant="contained" onClick={this.filter}>
+          Filter
+        </Button>
       </div>
     );
   }
