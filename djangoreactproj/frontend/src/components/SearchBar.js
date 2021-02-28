@@ -98,6 +98,7 @@ class SearchBar extends Component {
       } else {
         this.editFilter(event);
       }
+      this.props.onSelectValue();
     });
   };
 
@@ -414,6 +415,10 @@ class SearchBar extends Component {
 
         <Button variant="contained" onClick={this.filter}>
           Filter
+        </Button>
+
+        <Button variant="contained" onClick={this.props.onClear}>
+          Clear
         </Button>
         {console.log(this.state)}
       </div>

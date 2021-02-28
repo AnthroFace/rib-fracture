@@ -37,6 +37,17 @@ class PatientsPage extends Component {
     axios.get(API_URL).then((res) => this.setState({ patients: res.data }));
   };
 
+  getFilteredPatients = () => {
+    console.log();
+    axios
+      .get(URL)
+      .then((res) =>
+        this.setState({
+          patients: res.data.patients ? res.data.patients : res.data,
+        })
+      );
+  };
+
   resetState = () => {
     this.getPatients();
   };
@@ -48,7 +59,10 @@ class PatientsPage extends Component {
           style={{ marginTop: "20px", marginLeft: "0px" }}
           align="left"
         >
-          <SearchBar onSelectValue={this.getPatients} />
+          <SearchBar
+            onSelectValue={this.getFilteredPatients}
+            onClear={this.getPatients}
+          />
           <Row textAlign="left">
             <Col textAlign="left">
               <PatientList
