@@ -85,8 +85,8 @@ def patients_filter(request):
                 'filters': serializer.data
             })
         except:
-            # return Response([])
-            return redirect(patients_list)
+            return Response([])
+            #return redirect(patients_list)
 
 
     elif request.method == 'POST':
