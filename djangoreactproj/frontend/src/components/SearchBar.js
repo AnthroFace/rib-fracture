@@ -136,20 +136,19 @@ class SearchBar extends Component {
       prescripiton: "",
       drug_use: "",
       rib_section: [],
-      ancestryinputValue: "",
-      sexinputvalue: "",
-      xrayinputvalue: "",
-      cprinputvalue: "",
-      beltedinputvalue: "",
-      obeseinputvalue: "",
-      cardioinputvalue: "",
-      pathoinputvalue: "",
-      tobaccoinputvalue: "",
-      marijuanainputvalue: "",
-      alcoholinputvalue: "",
-      prescriptioninputvalue: "",
-      druguseinputvalue: "",
-      ribsectioninputvalue: [],
+      // ancestryinputValue: "",
+      // sexinputvalue: "",
+      // xrayinputvalue: "",
+      // cprinputvalue: "",
+      // beltedinputvalue: "",
+      // obeseinputvalue: "",
+      // cardioinputvalue: "",
+      // pathoinputvalue: "",
+      // tobaccoinputvalue: "",
+      // marijuanainputvalue: "",
+      // alcoholinputvalue: "",
+      // prescriptioninputvalue: "",
+      // druguseinputvalue: "",
       filter: [],
       sternum: "",
       lprib1: "",
@@ -402,11 +401,11 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.sexinputvalue}
-          onInputChange={(event, newInputValue) => {
-            console.log(newInputValue);
-            this.setState({ sexinputvalue: newInputValue });
-          }}
+          // inputValue={this.state.sexinputvalue}
+          // onInputChange={(event, newInputValue) => {
+          //   console.log(newInputValue);
+          //   this.setState({ sexinputvalue: newInputValue });
+          // }}
           id="sex-choices"
           openOnFocus={true}
           options={Sexes}
@@ -426,10 +425,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.ancestryinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ ancestryinputValue: newInputValue });
-          }}
+          // inputValue={this.state.ancestryinputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ ancestryinputValue: newInputValue });
+          // }}
           id="ancestry-choice"
           options={Ancestries}
           openOnFocus={true}
@@ -449,10 +448,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.xrayinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ xrayinputValue: newInputValue });
-          }}
+          // inputValue={this.state.xrayinputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ xrayinputValue: newInputValue });
+          // }}
           id="xray-choice"
           openOnFocus={true}
           options={YesNo}
@@ -472,10 +471,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.cprinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ cprinputValue: newInputValue });
-          }}
+          // inputValue={this.state.cprinputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ cprinputValue: newInputValue });
+          // }}
           id="cpr-choice"
           openOnFocus={true}
           options={YesNo}
@@ -495,10 +494,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.beltedinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ beltedinputValue: newInputValue });
-          }}
+          // inputValue={this.state.beltedinputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ beltedinputValue: newInputValue });
+          // }}
           id="belted-choice"
           options={YesNo}
           openOnFocus={true}
@@ -518,10 +517,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.obeseinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ obeseinputValue: newInputValue });
-          }}
+          // inputValue={this.state.obeseinputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ obeseinputValue: newInputValue });
+          // }}
           id="obese-choice"
           options={YesNo}
           openOnFocus={true}
@@ -541,11 +540,11 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.cardioinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ cardioinputValue: newInputValue });
-          }}
-          id="cardio-choice"
+          // inputValue={this.state.cardioinputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ cardioinputValue: newInputValue });
+          // }}
+          // id="cardio-choice"
           options={YesNo}
           openOnFocus={true}
           style={{ width: 300 }}
@@ -564,10 +563,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.pathoinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ pathoinputValue: newInputValue });
-          }}
+          // inputValue={this.state.pathoinputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ pathoinputValue: newInputValue });
+          // }}
           id="patho-choice"
           options={YesNo}
           openOnFocus={true}
@@ -587,10 +586,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.tobaccoinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ tobaccoinputValue: newInputValue });
-          }}
+          // inputValue={this.state.tobaccoinputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ tobaccoinputValue: newInputValue });
+          // }}
           id="tobacco-choice"
           options={YesNo}
           openOnFocus={true}
@@ -610,10 +609,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.marijuanainputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ marijuanainputValue: newInputValue });
-          }}
+          // inputValue={this.state.marijuanainputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ marijuanainputValue: newInputValue });
+          // }}
           id="marijuana-choice"
           options={YesNo}
           openOnFocus={true}
@@ -633,10 +632,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.alcoholinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ alcoholinputValue: newInputValue });
-          }}
+          // inputValue={this.state.alcoholinputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ alcoholinputValue: newInputValue });
+          // }}
           id="alcohol-choice"
           options={YesNo}
           openOnFocus={true}
@@ -683,10 +682,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.druguseinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ druguseinputValue: newInputValue });
-          }}
+          // inputValue={this.state.druguseinputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ druguseinputValue: newInputValue });
+          // }}
           id="drug_use-choice"
           options={YesNo}
           openOnFocus={true}
@@ -705,10 +704,10 @@ class SearchBar extends Component {
               this.setState({ rib_section: newValue });
             }
           }}
-          inputValue={this.state.ribsectioninputvalue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ ribsectioninputvalue: newInputValue });
-          }}
+          // inputValue={this.state.ribsectioninputvalue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ ribsectioninputvalue: newInputValue });
+          // }}
           id="rib_section-choice"
           options={RibSections}
           openOnFocus={true}
