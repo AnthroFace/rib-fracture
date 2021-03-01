@@ -102,6 +102,37 @@ class SearchBar extends Component {
     });
   };
 
+  clearFilter = () => {
+    this.setState({
+      ancestry: "",
+      sex: "",
+      xray: "",
+      cpr: "",
+      belted: "",
+      obese: "",
+      cardio: "",
+      patho: "",
+      tobacco: "",
+      marijuana: "",
+      alcohol: "",
+      prescripiton: "",
+      drug_use: "",
+      ancestryinputValue: "",
+      sexinputvalue: "",
+      xrayinputvalue: "",
+      cprinputvalue: "",
+      beltedinputvalue: "",
+      obeseinputvalue: "",
+      cardioinputvalue: "",
+      pathoinputvalue: "",
+      tobaccoinputvalue: "",
+      marijuanainputvalue: "",
+      alcoholinputvalue: "",
+      prescriptioninputvalue: "",
+      druguseinputvalue: "",
+    });
+  };
+
   render() {
     return (
       <div>
