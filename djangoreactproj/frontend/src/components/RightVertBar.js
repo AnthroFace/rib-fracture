@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./../RightVertBar.css";
 import ReactDOM from 'react-dom';
+import { rightBarTotals } from './RibHeatGrid';
 
 function BarGroup(props) {
     let barPadding = 2
@@ -13,25 +14,25 @@ function BarGroup(props) {
     return <g className="bar-group">
       <text className="name-label" x="-6" y={yMid} alignmentBaseline="middle" >{props.d.name}</text>
       <rect y={barPadding * 0.5} width={width} height={props.barHeight - barPadding} fill={barColour} />
-      <text className="value-label_r" x={-width+ 8} y={-yMid} alignmentBaseline="middle" >{props.d.value}</text>
+      <text className="value-label_r" x={-width+ 20} y={-yMid} alignmentBaseline="middle" >{props.d.value}</text>
     </g>
   }
   
   class BarChart extends React.Component {
     state = {
       data: [
-        { value: 5},
-        {  value: 4 },
-        {  value: 3 },
-        {  value: 9 },
-        {  value: 5 },
-        { value: 2 },
-        { value: 7 },
-        {  value: 4 },
-        {  value: 3 },
-        {  value: 9 },
-        {  value: 5 },
-        { value: 2 }
+        { value: rightBarTotals.rightbar12},
+        {  value: rightBarTotals.rightbar11},
+        {  value: rightBarTotals.rightbar10},
+        {  value: rightBarTotals.rightbar9},
+        {  value: rightBarTotals.rightbar8},
+        { value: rightBarTotals.rightbar7},
+        { value: rightBarTotals.rightbar6},
+        {  value: rightBarTotals.rightbar5},
+        {  value: rightBarTotals.rightbar4},
+        {  value: rightBarTotals.rightbar3},
+        {  value: rightBarTotals.rightbar2},
+        { value: rightBarTotals.rightbar1}
       ]
     }
   

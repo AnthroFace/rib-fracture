@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./../RightHorBar.css";
 import ReactDOM from 'react-dom';
+import RibHeatGrid from "./RibHeatGrid";
+import { bottomRightBarTotals } from "./RibHeatGrid";
 
 function BarGroup(props) {
     let barPadding = 2
@@ -16,14 +18,24 @@ function BarGroup(props) {
       <text className="value-label" x={width- 8} y={yMid} alignmentBaseline="middle" >{props.d.value}</text>
     </g>
   }
-  
+  /*
   class BarChart extends React.Component {
     state = {
       data: [
-        { value: 5},
-        {  value: 4 },
+        { value: 1},
+        {  value: 2},
         {  value: 3 },
-        {  value: 9 },
+        {  value: 4},
+      ]
+    }
+*/
+  class BarChart extends React.Component {
+    state = {
+      data: [
+        { value: bottomRightBarTotals.bottomright1},
+        {  value: bottomRightBarTotals.bottomright2 },
+        {  value: bottomRightBarTotals.bottomright3 },
+        {  value: bottomRightBarTotals.bottomright4},
       ]
     }
   
@@ -34,7 +46,7 @@ function BarGroup(props) {
                                                       <BarGroup d={d} barHeight={barHeight} />
                                                     </g>)                         
       
-      return <svg width="200" height="300" >
+      return <svg width="900" height="500" >
         <g className="container">
 
           <g className="chart" transform="translate(50,60)">
