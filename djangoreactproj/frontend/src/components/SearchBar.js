@@ -656,10 +656,10 @@ class SearchBar extends Component {
             }
             // this.props.onSelectValue();
           }}
-          inputValue={this.state.prescriptioninputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ prescriptioninputValue: newInputValue });
-          }}
+          // inputValue={this.state.prescriptioninputValue}
+          // onInputChange={(event, newInputValue) => {
+          //   this.setState({ prescriptioninputValue: newInputValue });
+          // }}
           id="prescription-choice"
           options={YesNo}
           openOnFocus={true}
