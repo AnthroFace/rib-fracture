@@ -135,7 +135,6 @@ class ImportCSV extends Component {
           var new_entry = {
             pk: 0,
             case_id: row.data[0],
-            // (row.data[1]) ? row.data[1] : "";
             age: row.data[1] ? row.data[1] : "",
             sex: row.data[2] ? row.data[2] : "",
             weight: row.data[3] ? row.data[3] : "",
@@ -156,8 +155,8 @@ class ImportCSV extends Component {
             prescription: row.data[18] ? row.data[18] : "",
             drug_use: row.data[19] ? row.data[19] : "",
             health_notes: row.data[20] ? row.data[20] : "",
-            // sternum: row.data[21] ? row.data[21] : "",
-            // cpr_sternum: row.data[22] ? row.data[22] : "",
+            sternum: row.data[21],
+            cpr_sternum: row.data[22] ? row.data[22] : "",
             lprib1: row.data[23],
             com_lprib1: row.data[24],
             type_lprib1: row.data[25] ? row.data[25] : "",
