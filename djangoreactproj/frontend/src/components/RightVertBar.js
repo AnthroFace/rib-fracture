@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import "./../RightVertBar.css";
-import ReactDOM from 'react-dom';
 import { rightBarTotals } from './RibHeatGrid';
 
 function BarGroup(props) {

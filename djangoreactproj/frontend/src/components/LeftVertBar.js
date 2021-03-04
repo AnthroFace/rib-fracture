@@ -1,7 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import "./../LeftVertBar.css";
-import ReactDOM from 'react-dom';
-import RightRibHeatGrid from './RightRibHeatGrid';
 import { leftBarTotals } from './RightRibHeatGrid';
 
 function BarGroup(props) {

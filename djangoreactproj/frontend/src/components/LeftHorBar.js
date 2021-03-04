@@ -1,7 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import "./../LeftHorBar.css";
-import ReactDOM from 'react-dom';
-import RightRibHeatGrid from "./RightRibHeatGrid";
 import { bottomLeftBarTotals } from "./RightRibHeatGrid";
 
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import RibHeatImage from "./RibHeatImage";
 //import RibHeatGrid from "./RibHeatGrid";
 import Box from "@material-ui/core/Box";
-import HeatMap from "react-heatmap-grid";
 import RibHeatGrid from './RibHeatGrid';
 import RightRibHeatGrid from './RightRibHeatGrid';
 import "./../heatmap.css";
@@ -11,7 +10,6 @@ import RightVertBar from "./RightVertBar";
 import LeftHorBar from "./LeftHorBar";
 import RightHorBar from "./RightHorBar";
 
-import combinedHeatmap from "./combinedHeatmap";
 import CoolTabs from 'react-cool-tabs';
 
 //const xLabels = ["p", "pl", "al", "a"];
