@@ -16,6 +16,290 @@ class FilterSerializer(serializers.ModelSerializer):
                   'rprib9', 'rplrib9', 'ralrib9', 'rarib9', 'rprib10', 'rplrib10', 'ralrib10', 'rarib10', 'rprib11', 'rplrib11', 'ralrib11', 'rprib12', 'rplrib12', 
                   'ralrib12')
 
+    def to_internal_value(self,data):
+        if data.get('sternum') == "":
+            data['sternum'] = None
+        if data.get('lprib1') == "":
+            data['lprib1'] = None
+        if data.get('lplrib1') == "":
+            data['lplrib1'] = None
+        if data.get('lalrib1') == "":
+            data['lalrib1'] = None
+        if data.get('lprib2') == "":
+            data['lprib2'] = None
+        if data.get('lplrib2') == "":
+            data['lplrib2'] = None
+        if data.get('lalrib2') == "":
+            data['lalrib2'] = None
+        if data.get('larib2') == "":
+            data['larib2'] = None
+        if data.get('lprib3') == "":
+            data['lprib3'] = None
+        if data.get('lplrib3') == "":
+            data['lplrib3'] = None
+        if data.get('lalrib3') == "":
+            data['lalrib3'] = None
+        if data.get('larib3') == "":
+            data['larib3'] = None
+        if data.get('lprib4') == "":
+            data['lprib4'] = None
+        if data.get('lplrib4') == "":
+            data['lplrib4'] = None
+        if data.get('lalrib4') == "":
+            data['lalrib4'] = None
+        if data.get('larib4') == "":
+            data['larib4'] = None
+        if data.get('lprib5') == "":
+            data['lprib5'] = None
+        if data.get('lplrib5') == "":
+            data['lplrib5'] = None
+        if data.get('lalrib5') == "":
+            data['lalrib5'] = None
+        if data.get('larib5') == "":
+            data['larib5'] = None
+        if data.get('lprib6') == "":
+            data['lprib6'] = None
+        if data.get('lplrib6') == "":
+            data['lplrib6'] = None
+        if data.get('lalrib6') == "":
+            data['lalrib6'] = None
+        if data.get('larib6') == "":
+            data['larib6'] = None
+        if data.get('lprib7') == "":
+            data['lprib7'] = None
+        if data.get('lplrib7') == "":
+            data['lplrib7'] = None
+        if data.get('lalrib7') == "":
+            data['lalrib7'] = None
+        if data.get('larib7') == "":
+            data['larib7'] = None
+        if data.get('lprib8') == "":
+            data['lprib8'] = None
+        if data.get('lplrib8') == "":
+            data['lplrib8'] = None
+        if data.get('lalrib8') == "":
+            data['lalrib8'] = None
+        if data.get('larib8') == "":
+            data['larib8'] = None
+        if data.get('lprib9') == "":
+            data['lprib9'] = None
+        if data.get('lplrib9') == "":
+            data['lplrib9'] = None
+        if data.get('lalrib9') == "":
+            data['lalrib9'] = None
+        if data.get('larib9') == "":
+            data['larib9'] = None
+        if data.get('lprib10') == "":
+            data['lprib10'] = None
+        if data.get('lplrib10') == "":
+            data['lplrib10'] = None
+        if data.get('lalrib10') == "":
+            data['lalrib10'] = None
+        if data.get('larib10') == "":
+            data['larib10'] = None
+        if data.get('lprib11') == "":
+            data['lprib11'] = None
+        if data.get('lplrib11') == "":
+            data['lplrib11'] = None
+        if data.get('lalrib11') == "":
+            data['lalrib11'] = None
+        if data.get('lprib12') == "":
+            data['lprib12'] = None
+        if data.get('lplrib12') == "":
+            data['lplrib12'] = None
+        if data.get('lalrib12') == "":
+            data['lalrib12'] = None
+        if data.get('rprib1') == "":
+            data['rprib1'] = None
+        if data.get('rplrib1') == "":
+            data['rplrib1'] = None
+        if data.get('ralrib1') == "":
+            data['ralrib1'] = None
+        if data.get('rprib2') == "":
+            data['rprib2'] = None
+        if data.get('rplrib2') == "":
+            data['rplrib2'] = None
+        if data.get('ralrib2') == "":
+            data['ralrib2'] = None
+        if data.get('rarib2') == "":
+            data['rarib2'] = None
+        if data.get('rprib3') == "":
+            data['rprib3'] = None
+        if data.get('rplrib3') == "":
+            data['rplrib3'] = None
+        if data.get('ralrib3') == "":
+            data['ralrib3'] = None
+        if data.get('rarib3') == "":
+            data['rarib3'] = None
+        if data.get('rprib4') == "":
+            data['rprib4'] = None
+        if data.get('rplrib4') == "":
+            data['rplrib4'] = None
+        if data.get('ralrib4') == "":
+            data['ralrib4'] = None
+        if data.get('rarib4') == "":
+            data['rarib4'] = None
+        if data.get('rprib5') == "":
+            data['rprib5'] = None
+        if data.get('rplrib5') == "":
+            data['rplrib5'] = None
+        if data.get('ralrib5') == "":
+            data['ralrib5'] = None
+        if data.get('rarib5') == "":
+            data['rarib5'] = None
+        if data.get('rprib6') == "":
+            data['rprib6'] = None
+        if data.get('rplrib6') == "":
+            data['rplrib6'] = None
+        if data.get('ralrib6') == "":
+            data['ralrib6'] = None
+        if data.get('rarib6') == "":
+            data['rarib6'] = None
+        if data.get('rprib7') == "":
+            data['rprib7'] = None
+        if data.get('rplrib7') == "":
+            data['rplrib7'] = None
+        if data.get('ralrib7') == "":
+            data['ralrib7'] = None
+        if data.get('rarib7') == "":
+            data['rarib7'] = None
+        if data.get('rprib8') == "":
+            data['rprib8'] = None
+        if data.get('rplrib8') == "":
+            data['rplrib8'] = None
+        if data.get('ralrib8') == "":
+            data['ralrib8'] = None
+        if data.get('rarib8') == "":
+            data['rarib8'] = None
+        if data.get('rprib9') == "":
+            data['rprib9'] = None
+        if data.get('rplrib9') == "":
+            data['rplrib9'] = None
+        if data.get('ralrib9') == "":
+            data['ralrib9'] = None
+        if data.get('rarib9') == "":
+            data['rarib9'] = None
+        if data.get('rprib10') == "":
+            data['rprib10'] = None
+        if data.get('rplrib10') == "":
+            data['rplrib10'] = None
+        if data.get('ralrib10') == "":
+            data['ralrib10'] = None
+        if data.get('rarib10') == "":
+            data['rarib10'] = None
+        if data.get('rprib11') == "":
+            data['rprib11'] = None
+        if data.get('rplrib11') == "":
+            data['rplrib11'] = None
+        if data.get('ralrib11') == "":
+            data['ralrib11'] = None
+        if data.get('rprib12') == "":
+            data['rprib12'] = None
+        if data.get('rplrib12') == "":
+            data['rplrib12'] = None
+        if data.get('ralrib12') == "":
+            data['ralrib12'] = None
+        return super(FilterSerializer,self).to_internal_value(data)
+    
+    def create(self, validated_data):
+        return  Filter.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.sternum = validated_data.get('sternum', instance.sternum)
+        instance.lprib1 = validated_data.get('lprib1', instance.lprib1)
+        instance.lplrib1 = validated_data.get('lplrib1', instance.lplrib1)
+        instance.lalrib1 = validated_data.get('lalrib1', instance.lalrib1)
+        instance.lprib2 = validated_data.get('lprib2', instance.lprib2)
+        instance.lplrib2 = validated_data.get('lplrib2', instance.lplrib2)
+        instance.lalrib2 = validated_data.get('lalrib2', instance.lalrib2)
+        instance.larib2 = validated_data.get('larib2', instance.larib2)
+        instance.lprib3 = validated_data.get('lprib3', instance.lprib3)
+        instance.lplrib3 = validated_data.get('lplrib3', instance.lplrib3)
+        instance.lalrib3 = validated_data.get('lalrib3', instance.lalrib3)
+        instance.larib3 = validated_data.get('larib2', instance.larib3)
+        instance.lprib4 = validated_data.get('lprib4', instance.lprib4)
+        instance.lplrib4 = validated_data.get('lplrib4', instance.lplrib4)
+        instance.lalrib4 = validated_data.get('lalrib4', instance.lalrib4)
+        instance.larib4 = validated_data.get('larib4', instance.larib4)
+        instance.lprib5 = validated_data.get('lprib5', instance.lprib5)
+        instance.lplrib5 = validated_data.get('lplrib5', instance.lplrib5)
+        instance.lalrib5 = validated_data.get('lalrib5', instance.lalrib5)
+        instance.larib5 = validated_data.get('larib5', instance.larib5)
+        instance.lprib6 = validated_data.get('lprib6', instance.lprib6)
+        instance.lplrib6 = validated_data.get('lplrib6', instance.lplrib6)
+        instance.lalrib6 = validated_data.get('lalrib6', instance.lalrib6)
+        instance.larib6 = validated_data.get('larib6', instance.larib6)
+        instance.lprib7 = validated_data.get('lprib7', instance.lprib7)
+        instance.lplrib7 = validated_data.get('lplrib7', instance.lplrib7)
+        instance.lalrib7 = validated_data.get('lalrib7', instance.lalrib7)
+        instance.larib7 = validated_data.get('larib7', instance.larib7)
+        instance.lprib8 = validated_data.get('lprib8', instance.lprib8)
+        instance.lplrib8 = validated_data.get('lplrib8', instance.lplrib8)
+        instance.lalrib8 = validated_data.get('lalrib8', instance.lalrib8)
+        instance.larib8 = validated_data.get('larib8', instance.larib8)
+        instance.lprib9 = validated_data.get('lprib9', instance.lprib9)
+        instance.lplrib9 = validated_data.get('lplrib9', instance.lplrib9)
+        instance.lalrib9 = validated_data.get('lalrib9', instance.lalrib9)
+        instance.larib9 = validated_data.get('larib9', instance.larib9)
+        instance.lprib10 = validated_data.get('lprib10', instance.lprib10)
+        instance.lplrib10 = validated_data.get('lplrib10', instance.lplrib10)
+        instance.lalrib10 = validated_data.get('lalrib10', instance.lalrib10)
+        instance.larib10 = validated_data.get('larib10', instance.larib10)
+        instance.lprib11 = validated_data.get('lprib11', instance.lprib1)
+        instance.lplrib11 = validated_data.get('lplrib11', instance.lplrib11)
+        instance.lalrib11 = validated_data.get('lalrib11', instance.lalrib11)
+        instance.lprib12 = validated_data.get('lprib12', instance.lprib12)
+        instance.lplrib12 = validated_data.get('lplrib12', instance.lplrib12)
+        instance.lalrib12 = validated_data.get('lalrib12', instance.lalrib12)
+        instance.rprib1 = validated_data.get('rprib1', instance.rprib1)
+        instance.rplrib1 = validated_data.get('rplrib1', instance.rplrib1)
+        instance.ralrib1 = validated_data.get('ralrib1', instance.ralrib1)
+        instance.rprib2 = validated_data.get('rprib2', instance.rprib2)
+        instance.rplrib2 = validated_data.get('rplrib2', instance.rplrib2)
+        instance.ralrib2 = validated_data.get('ralrib2', instance.ralrib2)
+        instance.rarib2 = validated_data.get('rarib2', instance.rarib2)
+        instance.rprib3 = validated_data.get('rprib3', instance.rprib3)
+        instance.rplrib3 = validated_data.get('rplrib3', instance.rplrib3)
+        instance.ralrib3 = validated_data.get('ralrib3', instance.ralrib3)
+        instance.rarib3 = validated_data.get('rarib2', instance.rarib3)
+        instance.rprib4 = validated_data.get('rprib4', instance.rprib4)
+        instance.rplrib4 = validated_data.get('rplrib4', instance.rplrib4)
+        instance.ralrib4 = validated_data.get('ralrib4', instance.ralrib4)
+        instance.rarib4 = validated_data.get('rarib4', instance.rarib4)
+        instance.rprib5 = validated_data.get('rprib5', instance.rprib5)
+        instance.rplrib5 = validated_data.get('rplrib5', instance.rplrib5)
+        instance.ralrib5 = validated_data.get('ralrib5', instance.ralrib5)
+        instance.rarib5 = validated_data.get('rarib5', instance.rarib5)
+        instance.rprib6 = validated_data.get('rprib6', instance.rprib6)
+        instance.rplrib6 = validated_data.get('rplrib6', instance.rplrib6)
+        instance.ralrib6 = validated_data.get('ralrib6', instance.ralrib6)
+        instance.rarib6 = validated_data.get('rarib6', instance.rarib6)
+        instance.rprib7 = validated_data.get('rprib7', instance.rprib7)
+        instance.rplrib7 = validated_data.get('rplrib7', instance.rplrib7)
+        instance.ralrib7 = validated_data.get('ralrib7', instance.ralrib7)
+        instance.rarib7 = validated_data.get('rarib7', instance.rarib7)
+        instance.rprib8 = validated_data.get('rprib8', instance.rprib8)
+        instance.rplrib8 = validated_data.get('rplrib8', instance.rplrib8)
+        instance.ralrib8 = validated_data.get('ralrib8', instance.ralrib8)
+        instance.rarib8 = validated_data.get('rarib8', instance.rarib8)
+        instance.rprib9 = validated_data.get('rprib9', instance.rprib9)
+        instance.rplrib9 = validated_data.get('rplrib9', instance.rplrib9)
+        instance.ralrib9 = validated_data.get('ralrib9', instance.ralrib9)
+        instance.rarib9 = validated_data.get('rarib9', instance.rarib9)
+        instance.rprib10 = validated_data.get('rprib10', instance.rprib10)
+        instance.rplrib10 = validated_data.get('rplrib10', instance.rplrib10)
+        instance.ralrib10 = validated_data.get('ralrib10', instance.ralrib10)
+        instance.rarib10 = validated_data.get('rarib10', instance.rarib10)
+        instance.rprib11 = validated_data.get('rprib11', instance.rprib1)
+        instance.rplrib11 = validated_data.get('rplrib11', instance.rplrib11)
+        instance.ralrib11 = validated_data.get('ralrib11', instance.ralrib11)
+        instance.rprib12 = validated_data.get('rprib12', instance.rprib12)
+        instance.rplrib12 = validated_data.get('rplrib12', instance.rplrib12)
+        instance.ralrib12 = validated_data.get('ralrib12', instance.ralrib12)
+        instance.save()
+
+        return instance
+
 class PatientSerializer(serializers.ModelSerializer):
 
     class Meta:
