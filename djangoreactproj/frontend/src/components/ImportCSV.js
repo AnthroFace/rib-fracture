@@ -10,7 +10,7 @@ class ImportCSV extends Component {
     super();
     this.state = {
       selectedFile: null,
-      loaded: 0,
+      //loaded: 0,
     };
   }
   //const endpoint = 'http://localhost:8000/api/upload'
@@ -105,7 +105,7 @@ class ImportCSV extends Component {
   handleselectedFile = (event) => {
     this.setState({
       selectedFile: event.target.files[0],
-      loaded: 0,
+      //loaded: 0,
     });
   };
   handleUpload = () => {
@@ -118,17 +118,39 @@ class ImportCSV extends Component {
       return false;
     }
 
+    var already_exists = false
+    var row_number = 1
+
     Papa.parse(this.state.selectedFile, {
       //header: true,
       // transform: rib_position,
       dynamicTyping: true,
       skipEmptyLines: true,
-      step: function (row) {
+      step: function (row, parser) {
         //axios.post(API_URL, row.data);
         //console.log("Row:", row.data);
 
-        //ignore the header row
-        if (row.data[1] === "age" || row.data[1] === "Age") {
+        //check that header row is properly formatted and cancel import if it is not
+        if (row_number === 1) {
+          console.log(row)
+          if (row.data.length != 384) {
+            alert("This CSV file does not have the expected headers.\nPlease note that headers must match the template exactly and are case sensitive.\nThe template can be downloaded from the Export page.")
+            parser.abort()
+          }
+          else if (row.data[0] != "Case ID" || row.data[1] != "Age" || row.data[2] != "Sex" || row.data[3] != "Weight" ||
+           row.data[4] != "Height (in)" || row.data[5] != "Ancestry" || row.data[6] != "MOD" || row.data[7] != "COD" ||
+           row.data[8] != "COD.type" || row.data[9] != "XRAY" || row.data[10] != "CPR" || row.data[11] != "Belted (if ap)" ||
+           row.data[12] != "Obese" || row.data[13] != "Cardiovascular Issues" || row.data[14] != "Pathologies" ||
+           row.data[15] != "Cigarette/Tobacco Use" || row.data[16] != "Marijuana Use" || row.data[17] != "Alcohol Use" ||
+           row.data[18] != "Perscription Medications" || row.data[19] != "Illicit Drug Use" || row.data[20] != "Health Notes" ||
+           row.data[21] != "Sternum" || row.data[22] != "CPR" || row.data[23] != "l.p.rib.1" || row.data[24] != "Completeness" ||
+           row.data[25] != "Type" || row.data[26] != "CPR" || row.data[199] != "l.al.rib.12" || row.data[200] != "Completeness" ||
+           row.data[201] != "Type" || row.data[202] != "CPR" || row.data[203] != "r.p.rib.1" || row.data[204] != "Completeness" ||
+           row.data[205] != "Type" || row.data[206] != "CPR" || row.data[379] != "r.al.rib.12" || row.data[380] != "Completeness" ||
+           row.data[381] != "Type" || row.data[382] != "CPR" || row.data[383] != "Notes") {
+            alert("This CSV file does not have the expected headers.\nPlease note that headers must match the template exactly and are case sensitive.\nThe template can be downloaded from the Export page.")
+            parser.abort()
+          }
         }
         //take each parsed row and submit as a new patient
         else {
@@ -177,7 +199,7 @@ class ImportCSV extends Component {
             com_lplrib2: row.data[40],
             type_lplrib2: row.data[41] ? row.data[41] : "",
             cpr_lplrib2: row.data[42] ? row.data[42] : "",
-            lalrib1: row.data[43],
+            lalrib2: row.data[43],
             com_lalrib2: row.data[44],
             type_lalrib2: row.data[45] ? row.data[45] : "",
             cpr_lalrib2: row.data[46] ? row.data[46] : "",
@@ -521,8 +543,35 @@ class ImportCSV extends Component {
           };
           axios.post(API_URL, new_entry).then(() => {
             console.log("posted patient");
+          })
+          .catch((err) =>{
+            if (err.response) {
+              if (already_exists == false) {
+                if (err.response.data.case_id == "patient with this Case ID already exists.") {
+                  alert("One or more of these patient Case ID's are already in this database, these enteries will be skipped.")
+                  already_exists = true
+                }
+                else {
+                  alert("Error for patient with case ID " + row.data[0] + ":\n" + JSON.stringify(err.response.data))
+                }
+              }
+              else {
+                if (err.response.data.case_id == "patient with this Case ID already exists.") {
+                  //do nothing, user has already been warned about repeated patient ID's
+                }
+                else {
+                  alert("Error for patient with case ID " + row.data[0] + ":\n" + JSON.stringify(err.response.data))
+                }
+              }
+              console.log(row.data[0])
+              console.log(row_number)
+              console.log(err.response.data);
+              //console.log(err.response.status);
+              //console.log(err.response.headers);
+            }
           });
         }
+        row_number++
       },
       complete: function () {
         console.log("Finished parsing");
@@ -554,8 +603,7 @@ class ImportCSV extends Component {
           id=""
           onChange={this.handleselectedFile}
         />
-        <button onClick={this.handleUpload}>Upload</button>
-        <div> {Math.round(this.state.loaded, 2)} %</div>
+        <button onClick={this.handleUpload}> Upload </button>
       </div>
     );
   }
