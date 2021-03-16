@@ -66,7 +66,7 @@ def patients_filter(request):
         serializer = FilterSerializer(data, context={'request': request}, many=True)
         try:
             for key in serializer.data[0].keys():
-                if key != "pk" and serializer.data[0][key] != "":
+                if key != "pk" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
                     fil_string = fil_string + '\'' + key + '\': ' + '"' + serializer.data[0][key] + '",' 
             fil_string = fil_string[:-1]
             fil_string = fil_string + "}"
@@ -75,8 +75,8 @@ def patients_filter(request):
             # fil_dict = json.loads(fil_string) - its still a string after 
             fil_dict = ast.literal_eval(fil_string) 
            
-            # print("DICTIONARY",fil_dict)
-            # print ("type of final_dictionary", type(fil_dict))
+            print("DICTIONARY",fil_dict)
+            print ("type of final_dictionary", type(fil_dict))
 
             patient_data = Patient.objects.filter(**fil_dict)
             patient_serializer = PatientSerializer(patient_data, context={'request': request}, many=True)
