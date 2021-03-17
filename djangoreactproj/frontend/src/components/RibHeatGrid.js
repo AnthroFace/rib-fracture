@@ -18,6 +18,21 @@ rprib4=10, rplrib4=4, ralrib4=3, rarib4=1, rprib5=2, rplrib5=9, ralrib5=6, rarib
 rprib7=9, rplrib7=7, ralrib7=4, rarib7=6, rprib8=2, rplrib8=8, ralrib8=1, rarib8=4, rprib9=7, rplrib9=4, ralrib9=3, rarib9=1,
 rprib10=11, rplrib10=5, ralrib10=3, rarib10=6, rplrib11=1, ralrib11=6, rarib11=2, rplrib12=7, ralrib12=9, rarib12=1; 
 
+var rightRibValues ={
+  vrplrib1: rplrib1, vralrib1: ralrib1, vrarib1: rarib1, vrprib2:rprib2, vrplrib2:rplrib2, 
+  vralrib2:ralrib2, vrarib2:rarib2, vrprib3:rprib3, vrplrib3:rplrib3, vralrib3:ralrib3, 
+  vrarib3:rarib3, vrprib4:rprib4, vrplrib4:rplrib4, vralrib4:ralrib4, vrarib4:rarib4, 
+  vrprib5:rprib5, vrplrib5:rplrib5, vralrib5:ralrib5, vrarib5:rarib5, vrprib6:rprib6, 
+  vrplrib6:rplrib6, vralrib6:ralrib6, vrarib6:rarib6, vrprib7:rprib7, vrplrib7:rplrib7, 
+  vralrib7:ralrib7, vrarib7:rarib7, vrprib8:rprib8, vrplrib8:rplrib8, vralrib8:ralrib8, 
+  vrarib8:rarib8, vrprib9:rprib9, vrplrib9:rplrib9, vralrib9:ralrib9, vrarib9:rarib9,
+vrprib10:rprib10, vrplrib10:rplrib10, vralrib10:ralrib10, vrarib10:rarib10, 
+vrplrib11:rplrib11, vralrib11:ralrib11, vrarib11:rarib11, vrplrib12:rplrib12, 
+vralrib12:ralrib12, vrarib12:rarib12
+}; 
+
+export { rightRibValues };
+
 var rightBarTotals ={
   rightbar1: rplrib1+ralrib1+rarib1, 
   rightbar2: rprib2+rplrib2+ralrib2+rarib2,

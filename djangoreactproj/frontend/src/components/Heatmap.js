@@ -178,8 +178,8 @@ render() {
            tabsBorderBottomStyle={{ background:  '#D0F0C0', height:  4 }}
            leftContentStyle={{ background:  '#FFFEE9' }}
            rightContentStyle={{ background:  '#FFFEE9' }}
-           leftTabTitle={'Heat Map Grid'}
-           rightTabTitle={'Heat Map Image'}
+           leftTabTitle={'Heat Map Image'}
+           rightTabTitle={'Heat Map Grid'}
            leftContent={<Content1/>}
            rightContent={<Content2/>}
            contentTransitionStyle={'transform 0.6s ease-in'}

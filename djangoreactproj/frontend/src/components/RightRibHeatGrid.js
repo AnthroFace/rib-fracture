@@ -17,6 +17,19 @@ larib4=10, lalrib4=4, lplrib4=3, lprib4=1, larib5=2, lalrib5=9, lplrib5=6, lprib
 larib7=9, lalrib7=7, lplrib7=4, lprib7=6, larib8=2, lalrib8=8, lplrib8=1, lprib8=4, larib9=7, lalrib9=4, lplrib9=3, lprib9=1,
 larib10=11, lalrib10=5, lplrib10=3, lprib10=6, larib11=1, lalrib11=6, lplrib11=2, larib12=7, lalrib12=9, lplrib12=1; 
 
+var leftRibValues ={
+  vlarib1: larib1, vlalrib1: lalrib1, vlplrib1: lplrib1, vlarib2: larib2, vlalrib2: lalrib2, vlplrib2: lplrib2, 
+  vlprib2: lprib2, vlarib3: larib3, vlalrib3: lalrib3, vlplrib3: lplrib3, vlprib3: lprib3,
+  vlarib4: larib4, vlalrib4: lalrib4, vlplrib4: lplrib4, vlprib4: lprib4, vlarib5: larib5, vlalrib5: lalrib5, 
+  vlplrib5: lplrib5, vlprib5: lprib5, vlarib6: larib6, vlalrib6: lalrib6, vlplrib6: lplrib6, vlprib6: lprib6, 
+  vlarib7: larib7, vlalrib7: lalrib7, vlplrib7: lplrib7, vlprib7: lprib7, vlarib8: larib8, vlalrib8: lalrib8, 
+  vlplrib8: lplrib8, vlprib8: lprib8, vlarib9: larib9, vlalrib9: lalrib9, vlplrib9: lplrib9, vlprib9: lprib9, 
+  vlarib10: larib10, vlalrib10: lalrib10, vlplrib10: lplrib10, vlprib10: lprib10, vlarib11: larib11, 
+  vlalrib11: lalrib11, vlplrib11: lplrib11, vlarib12: larib12, vlalrib12: lalrib12, vlplrib12: lplrib12, 
+}; 
+
+export { leftRibValues };
+
 var leftBarTotals ={
   leftbar1: larib1+lalrib1+lplrib1, 
   leftbar2: larib2+lalrib2+lplrib2+lprib2,

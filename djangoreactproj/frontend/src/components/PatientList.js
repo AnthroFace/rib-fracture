@@ -4,6 +4,8 @@ import NewPatientModal from "./NewPatientModal";
 
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
 
+var count1; 
+
 class PatientList extends Component {
   render() {
     const patients = this.props.patients;
@@ -498,71 +500,71 @@ class PatientList extends Component {
             patients.map((patient) => (
               <tr key={patient.pk}>
                 <td>{patient.case_id}</td>
-                <td style={{ backgroundColor: patient.age ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.age ? "" : "#fffee9" }}>
                   {patient.age}
                 </td>
-                <td style={{ backgroundColor: patient.sex ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.sex ? "" : "#fffee9" }}>
                   {patient.sex}
                 </td>
-                <td style={{ backgroundColor: patient.weight ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.weight ? "" : "#fffee9" }}>
                   {patient.weight}
                 </td>
-                <td style={{ backgroundColor: patient.height ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.height ? "" : "#fffee9" }}>
                   {patient.height}
                 </td>
-                <td style={{ backgroundColor: patient.ancestry ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.ancestry ? "" : "#fffee9" }}>
                   {patient.ancestry}
                 </td>
-                <td style={{ backgroundColor: patient.mod ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.mod ? "" : "#fffee9" }}>
                   {patient.mod}
                 </td>
-                <td style={{ backgroundColor: patient.cod ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.cod ? "" : "#fffee9" }}>
                   {patient.cod}
                 </td>
-                <td style={{ backgroundColor: patient.cod_type ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.cod_type ? "" : "#fffee9" }}>
                   {patient.cod_type}
                 </td>
-                <td style={{ backgroundColor: patient.xray ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.xray ? "" : "#fffee9" }}>
                   {patient.xray}
                 </td>
-                <td style={{ backgroundColor: patient.cpr ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.cpr ? "" : "#fffee9" }}>
                   {patient.cpr}
                 </td>
-                <td style={{ backgroundColor: patient.belted ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.belted ? "" : "#fffee9" }}>
                   {patient.belted}
                 </td>
-                <td style={{ backgroundColor: patient.obese ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.obese ? "" : "#fffee9" }}>
                   {patient.obese}
                 </td>
-                <td style={{ backgroundColor: patient.cardio ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.cardio ? "" : "#fffee9" }}>
                   {patient.cardio}
                 </td>
-                <td style={{ backgroundColor: patient.patho ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.patho ? "" : "#fffee9" }}>
                   {patient.patho}
                 </td>
-                <td style={{ backgroundColor: patient.tobacco ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.tobacco ? "" : "#fffee9" }}>
                   {patient.tobacco}
                 </td>
-                <td style={{ backgroundColor: patient.marijuana ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.marijuana ? "" : "#fffee9" }}>
                   {patient.marijuana}
                 </td>
-                <td style={{ backgroundColor: patient.alcohol ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.alcohol ? "" : "#fffee9" }}>
                   {patient.alcohol}
                 </td>
                 <td
-                  style={{ backgroundColor: patient.prescription ? "" : "red" }}
+                  style={{ backgroundColor: patient.prescription ? "" : "#fffee9" }}
                 >
                   {patient.prescription}
                 </td>
-                <td style={{ backgroundColor: patient.drug_use ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.drug_use ? "" : "#fffee9" }}>
                   {patient.drug_use}
                 </td>
                 <td
-                  style={{ backgroundColor: patient.health_notes ? "" : "red" }}
+                  style={{ backgroundColor: patient.health_notes ? "" : "#fffee9" }}
                 >
                   {patient.health_notes}
                 </td>
-                <td style={{ backgroundColor: patient.notes ? "" : "red" }}>
+                <td style={{ backgroundColor: patient.notes ? "" : "#fffee9" }}>
                   {patient.notes}
                 </td>
                 <td>{patient.sternum}</td>
@@ -949,3 +951,4 @@ class PatientList extends Component {
 }
 
 export default PatientList;
+
