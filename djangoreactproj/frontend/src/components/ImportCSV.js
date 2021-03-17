@@ -548,7 +548,7 @@ class ImportCSV extends Component {
             if (err.response) {
               if (already_exists == false) {
                 if (err.response.data.case_id == "patient with this Case ID already exists.") {
-                  alert("One or more of these patient Case ID's are already in this database, these enteries will be skipped.")
+                  alert("One or more of these patient Case IDs are already in this database, these entries will be skipped.")
                   already_exists = true
                 }
                 else {
