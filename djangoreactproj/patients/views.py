@@ -75,11 +75,32 @@ def patients_filter(request):
             # fil_dict = json.loads(fil_string) - its still a string after 
             fil_dict = ast.literal_eval(fil_string) 
            
-            print("DICTIONARY",fil_dict)
-            print ("type of final_dictionary", type(fil_dict))
+            # print("DICTIONARY",fil_dict)
+            # print ("type of final_dictionary", type(fil_dict))
 
             patient_data = Patient.objects.filter(**fil_dict)
             patient_serializer = PatientSerializer(patient_data, context={'request': request}, many=True)
+            rib_counts = {"sternum": 0,"lprib1": 0,"lplrib1": 0,"lalrib1": 0,"lprib2": 0,"lplrib2": 0,"lalrib2": 0,"larib2": 0,"lprib3": 0,"lplrib3": 0,"lalrib3": 0,"larib3": 0,"lprib4": 0,"lplrib4": 0,"lalrib4": 0,"larib4": 0,"lprib5": 0,"lplrib5": 0,"lalrib5": 0,"larib5": 0,"lprib6": 0,"lplrib6": 0,"lalrib6": 0,"larib6": 0,"lprib7": 0,"lplrib7": 0,"lalrib7": 0,"larib7": 0,"lprib8": 0,"lplrib8": 0,"lalrib8": 0,"larib8": 0,"lprib9": 0,"lplrib9": 0,"lalrib9": 0,"larib9": 0,"lprib10": 0,"lplrib10": 0,"lalrib10": 0,"larib10": 0,"lprib11": 0,"lplrib11": 0,"lalrib11": 0,"lprib12": 0,"lplrib12": 0,"lalrib12": 0,"rprib1": 0,"rplrib1": 0,"ralrib1": 0,"rprib2": 0,"rplrib2": 0,"ralrib2": 0,"rarib2": 0,"rprib3": 0,"rplrib3": 0,"ralrib3": 0,"rarib3": 0,"rprib4": 0,"rplrib4": 0,"ralrib4": 0,"rarib4": 0,"rprib5": 0,"rplrib5": 0,"ralrib5": 0,"rarib5": 0,"rprib6": 0,"rplrib6": 0,"ralrib6": 0,"rarib6": 0,"rprib7": 0,"rplrib7": 0,"ralrib7": 0,"rarib7": 0,"rprib8": 0,"rplrib8": 0,"ralrib8": 0,"rarib8": 0,"rprib9": 0,"rplrib9": 0,"ralrib9": 0,"rarib9": 0,"rprib10": 0,"rplrib10": 0,"ralrib10": 0,"rarib10": 0,"rprib11": 0,"rplrib11": 0,"ralrib11": 0,"rprib12": 0,"rplrib12": 0,"ralrib12": 0}
+            # print(rib_counts)
+
+            if len(patient_serializer.data) > 0:
+                for patient in patient_serializer.data:
+                    for key in patient.keys():
+                        if key in rib_counts.keys() and patient[key] == 1:
+                            # print(key)
+                            rib_counts[key] += 1
+
+            print(rib_counts)
+
+            # for patient in patient_serializer.data:
+            #     for key in patient.keys():
+            #         # print(key)
+            #         # if key == "pk":
+            #             # print(key, patient[key])
+            #         if patient[key] === 1:
+            #             rib_counts[key] += 1
+
+            # print(rib_counts)
             return Response({
                 'patients': patient_serializer.data,
                 'filters': serializer.data
@@ -119,10 +140,10 @@ def filter_delete(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'PUT':
-        print("request", request.data)
+        # print("request", request.data)
         serializer = FilterSerializer(fil, data=request.data,context={'request': request})
         if serializer.is_valid():
-            print("SERIALIZER",serializer.validated_data)
+            # print("SERIALIZER",serializer.validated_data)
 
             serializer.save()
             return Response(status=status.HTTP_204_NO_CONTENT)
