@@ -9,7 +9,6 @@ import LeftVertBar from "./LeftVertBar";
 import RightVertBar from "./RightVertBar";
 import LeftHorBar from "./LeftHorBar";
 import RightHorBar from "./RightHorBar";
-
 import CoolTabs from "react-cool-tabs";
 
 // var { state } = props.location.state ? this.props.location.state : "";
@@ -131,9 +130,10 @@ class Content1 extends Component {
 }
 
 class Content2 extends Component {
+  
+
   render() {
-    // var { state } = props.location.state ? props.location.state : "";
-    // console.log("heatmap", state);
+    console.log("context2", this.props.rib_count);
     return (
       <Box padding="0px 0px 0px 0px">
         <Box
@@ -142,13 +142,13 @@ class Content2 extends Component {
           style={{ position: "absolute", transform: "rotate(180deg)" }}
         >
           <div>
-            <RightVertBar />
+            <RightVertBar rib_count={this.props.rib_count}/>
           </div>
         </Box>
 
         <Box padding="60px 12px 50px 350px" style={{ position: "absolute" }}>
           <div>
-            <RibHeatGrid />
+            <RibHeatGrid rib_count={this.props.rib_count}/>
           </div>
         </Box>
 
@@ -170,7 +170,7 @@ class Content2 extends Component {
           style={{ position: "absolute", transform: "rotate(90deg)" }}
         >
           <div>
-            <RightHorBar />
+            <RightHorBar rib_count={this.props.rib_count}/>
           </div>
         </Box>
 
@@ -189,16 +189,21 @@ class Content2 extends Component {
 }
 
 export default class Example extends React.Component {
-  // state = {
-  //   rib_count: []
-  // }
+  state = {
+    rib_count: ""
+  }
 
   componentDidMount () {
-    const { ribCount } = this.props.location.state
-    console.log("HELLO", ribCount)
+    // console.log(this.props.location.state);
+    var { ribCount } = this.props.location.state;
+    
+    var ribCount  = JSON.parse(ribCount);
+    console.log("LPRIB1", ribCount['lprib1'])
+    this.setState({ rib_count: ribCount })
   }
 
   render() {
+    // console.log("render rib count", this.state.rib_count)
     return (
       <div>
         <Box padding="25px 0px 0px 275px">
@@ -221,7 +226,7 @@ export default class Example extends React.Component {
             leftTabTitle={"Heat Map Grid"}
             rightTabTitle={"Heat Map Image"}
             leftContent={<Content1 />}
-            rightContent={<Content2 />}
+            rightContent={<Content2 rib_count={this.state.rib_count}/>}
             contentTransitionStyle={"transform 0.6s ease-in"}
             borderTransitionStyle={"all 0.6s ease-in"}
           />

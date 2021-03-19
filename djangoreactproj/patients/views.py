@@ -74,8 +74,9 @@ def patients_filter(request):
                     for key in patient.keys():
                         if key in rib_counts.keys() and patient[key] == 1:
                             rib_counts[key] += 1
-
+            rib_counts = json.dumps(rib_counts)
             print(rib_counts)
+            print(type(rib_counts))
 
             # for patient in patient_serializer.data:
             #     for key in patient.keys():

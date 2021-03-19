@@ -14,7 +14,7 @@ const URL = "http://localhost:8000/api/filter";
 class PatientsPage extends Component {
   state = {
     patients: [],
-    rib_counts: [],
+    rib_counts: "",
   };
 
   componentDidMount() {
