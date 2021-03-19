@@ -1,16 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import RibHeatImage from "./RibHeatImage";
 //import RibHeatGrid from "./RibHeatGrid";
 import Box from "@material-ui/core/Box";
-import RibHeatGrid from './RibHeatGrid';
-import RightRibHeatGrid from './RightRibHeatGrid';
+import RibHeatGrid from "./RibHeatGrid";
+import RightRibHeatGrid from "./RightRibHeatGrid";
 import "./../heatmap.css";
 import LeftVertBar from "./LeftVertBar";
 import RightVertBar from "./RightVertBar";
 import LeftHorBar from "./LeftHorBar";
 import RightHorBar from "./RightHorBar";
 
-import CoolTabs from 'react-cool-tabs';
+import CoolTabs from "react-cool-tabs";
+
+// var { state } = props.location.state ? this.props.location.state : "";
 
 //const xLabels = ["p", "pl", "al", "a"];
 // Display only even labels
@@ -117,77 +119,108 @@ import CoolTabs from 'react-cool-tabs';
   </Box>
 */
 
-
-
 class Content1 extends Component {
   render() {
-    return <Box padding = "50px 0px 0px 300px">
-        <RibHeatImage 
-        />
-    </Box>
+    // console.log("heatmap", state);
+    return (
+      <Box padding="50px 0px 0px 300px">
+        <RibHeatImage />
+      </Box>
+    );
   }
 }
 
-
 class Content2 extends Component {
   render() {
+    // var { state } = props.location.state ? props.location.state : "";
+    // console.log("heatmap", state);
     return (
-      <Box padding ="0px 0px 0px 0px" >
-        <Box   padding="0px 0px 35px 0px" border={0} style={{position: "absolute", transform: 'rotate(180deg)'}}>
-            <div><RightVertBar/></div>
+      <Box padding="0px 0px 0px 0px">
+        <Box
+          padding="0px 0px 35px 0px"
+          border={0}
+          style={{ position: "absolute", transform: "rotate(180deg)" }}
+        >
+          <div>
+            <RightVertBar />
+          </div>
         </Box>
 
-        <Box padding="60px 12px 50px 350px" style={{position: "absolute" }}>
-        <div><RibHeatGrid/></div>
+        <Box padding="60px 12px 50px 350px" style={{ position: "absolute" }}>
+          <div>
+            <RibHeatGrid />
+          </div>
         </Box>
 
-        <Box padding="60px 12px 0px 560px" style={{position: "absolute" }}>
-        <div><RightRibHeatGrid/></div>
+        <Box padding="60px 12px 0px 560px" style={{ position: "absolute" }}>
+          <div>
+            <RightRibHeatGrid />
+          </div>
         </Box>
 
-
-        <Box padding="25px 0px 0px 750px" style={{position: "absolute" }}>
-            <div><LeftVertBar/></div>
+        <Box padding="25px 0px 0px 750px" style={{ position: "absolute" }}>
+          <div>
+            <LeftVertBar />
+          </div>
         </Box>
 
-        <Box   padding="865px 0px 738px 0px" border={0} style={{position: "absolute" ,transform: 'rotate(90deg)'}}>
-        <div><RightHorBar/></div>
+        <Box
+          padding="865px 0px 738px 0px"
+          border={0}
+          style={{ position: "absolute", transform: "rotate(90deg)" }}
+        >
+          <div>
+            <RightHorBar />
+          </div>
         </Box>
-        
-        <Box   padding="904px 245px 942px 3px" border={0} style={{position: "absolute", transform: 'rotate(90deg)'}}>
-            <div><LeftHorBar/></div>
+
+        <Box
+          padding="904px 245px 942px 3px"
+          border={0}
+          style={{ position: "absolute", transform: "rotate(90deg)" }}
+        >
+          <div>
+            <LeftHorBar />
+          </div>
         </Box>
-        </Box>
-    );}
+      </Box>
+    );
+  }
 }
 
-export  default  class  Example  extends  React.Component {
-render() {
-   return (
-     <div>
-       <Box padding = "25px 0px 0px 275px">
-         <CoolTabs
-           tabKey={'1'}
-           style={{ width:  1200, height:  1800, background:  'white' }}
-           activeTabStyle={{ background:  '#FFFEE9', color:  '#963A2F' }}
-           unActiveTabStyle={{ background:  '#D0F0C0', color:  '#963A2F' }}
-           activeLeftTabBorderBottomStyle={{ background:  '#963A2F', height:  4 }}
-           activeRightTabBorderBottomStyle={{ background:  '#963A2F', height:  4 }}
-           tabsBorderBottomStyle={{ background:  '#D0F0C0', height:  4 }}
-           leftContentStyle={{ background:  '#FFFEE9' }}
-           rightContentStyle={{ background:  '#FFFEE9' }}
-           leftTabTitle={'Heat Map Grid'}
-           rightTabTitle={'Heat Map Image'}
-           leftContent={<Content1/>}
-           rightContent={<Content2/>}
-           contentTransitionStyle={'transform 0.6s ease-in'}
-           borderTransitionStyle={'all 0.6s ease-in'}/>
-     </Box>
-     </div>
-);
-}}
-
-
+export default class Example extends React.Component {
+  render() {
+    return (
+      <div>
+        <Box padding="25px 0px 0px 275px">
+          <CoolTabs
+            tabKey={"1"}
+            style={{ width: 1200, height: 1800, background: "white" }}
+            activeTabStyle={{ background: "#FFFEE9", color: "#963A2F" }}
+            unActiveTabStyle={{ background: "#D0F0C0", color: "#963A2F" }}
+            activeLeftTabBorderBottomStyle={{
+              background: "#963A2F",
+              height: 4,
+            }}
+            activeRightTabBorderBottomStyle={{
+              background: "#963A2F",
+              height: 4,
+            }}
+            tabsBorderBottomStyle={{ background: "#D0F0C0", height: 4 }}
+            leftContentStyle={{ background: "#FFFEE9" }}
+            rightContentStyle={{ background: "#FFFEE9" }}
+            leftTabTitle={"Heat Map Grid"}
+            rightTabTitle={"Heat Map Image"}
+            leftContent={<Content1 />}
+            rightContent={<Content2 />}
+            contentTransitionStyle={"transform 0.6s ease-in"}
+            borderTransitionStyle={"all 0.6s ease-in"}
+          />
+        </Box>
+      </div>
+    );
+  }
+}
 
 //right,bottom,left,top
 /*

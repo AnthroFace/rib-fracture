@@ -6,8 +6,8 @@ import PatientsPage from "./PatientsPage";
 import NewPatientPage from "./NewPatientPage";
 import Home from "./Home";
 import ImportCSV from "./ImportCSV";
-import ExportCSV from "./ExportCSV"; 
-import Heatmap from "./Heatmap"; 
+import ExportCSV from "./ExportCSV";
+import Heatmap from "./Heatmap";
 import "./../App.css";
 import Image from "react-image-resizer";
 

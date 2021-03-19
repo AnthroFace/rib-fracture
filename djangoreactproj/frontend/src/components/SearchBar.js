@@ -116,7 +116,7 @@ const RibSections = [
   "rprib12",
   "rplrib12",
   "ralrib12",
-]
+];
 
 class SearchBar extends Component {
   constructor(props) {
@@ -251,125 +251,127 @@ class SearchBar extends Component {
 
   editFilter = (e) => {
     // e.preventDefault();
-    axios.put(URL + "1", {
-      sex: this.state.sex,
-      ancestry: this.state.ancestry,
-      xray: this.state.xray,
-      cpr: this.state.cpr,
-      belted: this.state.belted,
-      obese: this.state.obese,
-      cardio: this.state.cardio,
-      patho: this.state.patho,
-      tobacco: this.state.tobacco,
-      marijuana: this.state.marijuana,
-      alcohol: this.state.alcohol,
-      prescripiton: this.state.prescripiton,
-      drug_use: this.state.drug_use,
-      sternum: this.state.sternum,
-      lprib1: this.state.lprib1,
-      lplrib1: this.state.lplrib1,
-      lalrib1: this.state.lalrib1,
-      lprib2: this.state.lprib2,
-      lplrib2: this.state.lplrib2,
-      lalrib2: this.state.lalrib2,
-      larib2: this.state.larib2,
-      lprib3: this.state.lprib3,
-      lplrib3: this.state.lplrib3,
-      lalrib3: this.state.lalrib3,
-      larib3: this.state.larib3,
-      lprib4: this.state.lprib4,
-      lplrib4: this.state.lplrib4,
-      lalrib4: this.state.lalrib4,
-      larib4: this.state.larib4,
-      lprib5: this.state.lprib5,
-      lplrib5: this.state.lplrib5,
-      lalrib5: this.state.lalrib5,
-      larib5: this.state.larib5,
-      lprib6: this.state.lprib6,
-      lplrib6: this.state.lplrib6,
-      lalrib6: this.state.lalrib6,
-      larib6: this.state.larib6,
-      lprib7: this.state.lprib7,
-      lplrib7: this.state.lplrib7,
-      lalrib7: this.state.lalrib7,
-      larib7: this.state.larib7,
-      lprib8: this.state.lprib8,
-      lplrib8: this.state.lplrib8,
-      lalrib8: this.state.lalrib8,
-      larib8: this.state.larib8,
-      lprib9: this.state.lprib9,
-      lplrib9: this.state.lplrib9,
-      lalrib9: this.state.lalrib9,
-      larib9: this.state.larib9,
-      lprib10: this.state.lprib10,
-      lplrib10: this.state.lplrib10,
-      lalrib10: this.state.lalrib10,
-      larib10: this.state.larib10,
-      lprib11: this.state.lprib11,
-      lplrib11: this.state.lplrib11,
-      lalrib11: this.state.lalrib11,
-      lprib12: this.state.lprib12,
-      lplrib12: this.state.lplrib12,
-      lalrib12: this.state.lalrib12,
-      rprib1: this.state.rprib1,
-      rplrib1: this.state.rplrib1,
-      ralrib1: this.state.ralrib1,
-      rprib2: this.state.rprib2,
-      rplrib2: this.state.rplrib2,
-      ralrib2: this.state.ralrib2,
-      rarib2: this.state.rarib2,
-      rprib3: this.state.rprib3,
-      rplrib3: this.state.rplrib3,
-      ralrib3: this.state.ralrib3,
-      rarib3: this.state.rarib3,
-      rprib4: this.state.rprib4,
-      rplrib4: this.state.rplrib4,
-      ralrib4: this.state.ralrib4,
-      rarib4: this.state.rarib4,
-      rprib5: this.state.rprib5,
-      rplrib5: this.state.rplrib5,
-      ralrib5: this.state.ralrib5,
-      rarib5: this.state.rarib5,
-      rprib6: this.state.rprib6,
-      rplrib6: this.state.rplrib6,
-      ralrib6: this.state.ralrib6,
-      rarib6: this.state.rarib6,
-      rprib7: this.state.rprib7,
-      rplrib7: this.state.rplrib7,
-      ralrib7: this.state.ralrib7,
-      rarib7: this.state.rarib7,
-      rprib8: this.state.rprib8,
-      rplrib8: this.state.rplrib8,
-      ralrib8: this.state.ralrib8,
-      rarib8: this.state.rarib8,
-      rprib9: this.state.rprib9,
-      rplrib9: this.state.rplrib9,
-      ralrib9: this.state.ralrib9,
-      rarib9: this.state.rarib9,
-      rprib10: this.state.rprib10,
-      rplrib10: this.state.rplrib10,
-      ralrib10: this.state.ralrib10,
-      rarib10: this.state.rarib10,
-      rprib11: this.state.rprib11,
-      rplrib11: this.state.rplrib11,
-      ralrib11: this.state.ralrib11,
-      rprib12: this.state.rprib12,
-      rplrib12: this.state.rplrib12,
-      ralrib12: this.state.ralrib12,
-    }).then(function (response) {
-      console.log("EDITING", response);
-    });
+    axios
+      .put(URL + "1", {
+        sex: this.state.sex,
+        ancestry: this.state.ancestry,
+        xray: this.state.xray,
+        cpr: this.state.cpr,
+        belted: this.state.belted,
+        obese: this.state.obese,
+        cardio: this.state.cardio,
+        patho: this.state.patho,
+        tobacco: this.state.tobacco,
+        marijuana: this.state.marijuana,
+        alcohol: this.state.alcohol,
+        prescripiton: this.state.prescripiton,
+        drug_use: this.state.drug_use,
+        sternum: this.state.sternum,
+        lprib1: this.state.lprib1,
+        lplrib1: this.state.lplrib1,
+        lalrib1: this.state.lalrib1,
+        lprib2: this.state.lprib2,
+        lplrib2: this.state.lplrib2,
+        lalrib2: this.state.lalrib2,
+        larib2: this.state.larib2,
+        lprib3: this.state.lprib3,
+        lplrib3: this.state.lplrib3,
+        lalrib3: this.state.lalrib3,
+        larib3: this.state.larib3,
+        lprib4: this.state.lprib4,
+        lplrib4: this.state.lplrib4,
+        lalrib4: this.state.lalrib4,
+        larib4: this.state.larib4,
+        lprib5: this.state.lprib5,
+        lplrib5: this.state.lplrib5,
+        lalrib5: this.state.lalrib5,
+        larib5: this.state.larib5,
+        lprib6: this.state.lprib6,
+        lplrib6: this.state.lplrib6,
+        lalrib6: this.state.lalrib6,
+        larib6: this.state.larib6,
+        lprib7: this.state.lprib7,
+        lplrib7: this.state.lplrib7,
+        lalrib7: this.state.lalrib7,
+        larib7: this.state.larib7,
+        lprib8: this.state.lprib8,
+        lplrib8: this.state.lplrib8,
+        lalrib8: this.state.lalrib8,
+        larib8: this.state.larib8,
+        lprib9: this.state.lprib9,
+        lplrib9: this.state.lplrib9,
+        lalrib9: this.state.lalrib9,
+        larib9: this.state.larib9,
+        lprib10: this.state.lprib10,
+        lplrib10: this.state.lplrib10,
+        lalrib10: this.state.lalrib10,
+        larib10: this.state.larib10,
+        lprib11: this.state.lprib11,
+        lplrib11: this.state.lplrib11,
+        lalrib11: this.state.lalrib11,
+        lprib12: this.state.lprib12,
+        lplrib12: this.state.lplrib12,
+        lalrib12: this.state.lalrib12,
+        rprib1: this.state.rprib1,
+        rplrib1: this.state.rplrib1,
+        ralrib1: this.state.ralrib1,
+        rprib2: this.state.rprib2,
+        rplrib2: this.state.rplrib2,
+        ralrib2: this.state.ralrib2,
+        rarib2: this.state.rarib2,
+        rprib3: this.state.rprib3,
+        rplrib3: this.state.rplrib3,
+        ralrib3: this.state.ralrib3,
+        rarib3: this.state.rarib3,
+        rprib4: this.state.rprib4,
+        rplrib4: this.state.rplrib4,
+        ralrib4: this.state.ralrib4,
+        rarib4: this.state.rarib4,
+        rprib5: this.state.rprib5,
+        rplrib5: this.state.rplrib5,
+        ralrib5: this.state.ralrib5,
+        rarib5: this.state.rarib5,
+        rprib6: this.state.rprib6,
+        rplrib6: this.state.rplrib6,
+        ralrib6: this.state.ralrib6,
+        rarib6: this.state.rarib6,
+        rprib7: this.state.rprib7,
+        rplrib7: this.state.rplrib7,
+        ralrib7: this.state.ralrib7,
+        rarib7: this.state.rarib7,
+        rprib8: this.state.rprib8,
+        rplrib8: this.state.rplrib8,
+        ralrib8: this.state.ralrib8,
+        rarib8: this.state.rarib8,
+        rprib9: this.state.rprib9,
+        rplrib9: this.state.rplrib9,
+        ralrib9: this.state.ralrib9,
+        rarib9: this.state.rarib9,
+        rprib10: this.state.rprib10,
+        rplrib10: this.state.rplrib10,
+        ralrib10: this.state.ralrib10,
+        rarib10: this.state.rarib10,
+        rprib11: this.state.rprib11,
+        rplrib11: this.state.rplrib11,
+        ralrib11: this.state.ralrib11,
+        rprib12: this.state.rprib12,
+        rplrib12: this.state.rplrib12,
+        ralrib12: this.state.ralrib12,
+      })
+      .then(function (response) {
+        console.log("EDITING", response);
+      });
   };
 
   filter = (event) => {
     console.log("filtering");
     var i;
     for (i = 0; i < this.state.rib_section.length; i++) {
-      this.setState({[this.state.rib_section[i]]: 1});
+      this.setState({ [this.state.rib_section[i]]: 1 });
     }
     axios.get(URL).then((res) => {
-      console.log(res.data);
-      console.log("data length:", res.data.length);
+      // console.log(res.data);
+      // console.log("data length:", res.data.length);
 
       if (res.data.length == 0) {
         axios
@@ -481,7 +483,7 @@ class SearchBar extends Component {
             ralrib12: this.state.ralrib12,
           })
           .then(function (response) {
-            console.log(response);
+            // console.log(response);
           });
       } else {
         this.editFilter(event);
@@ -509,7 +511,7 @@ class SearchBar extends Component {
           }}
           inputValue={this.state.sexinputvalue}
           onInputChange={(event, newInputValue) => {
-            console.log(newInputValue);
+            // console.log(newInputValue);
             this.setState({ sexinputvalue: newInputValue });
           }}
           id="sex-choices"
@@ -806,8 +808,8 @@ class SearchBar extends Component {
           onChange={(event, newValue, reason) => {
             var i;
             if (reason == "clear") {
-              for (i = 0; i < this.state.rib_section.length; i++){
-                this.setState({[this.state.rib_section[i]]: null});
+              for (i = 0; i < this.state.rib_section.length; i++) {
+                this.setState({ [this.state.rib_section[i]]: null });
               }
               this.setState({ rib_section: "" });
             } else {
@@ -840,7 +842,7 @@ class SearchBar extends Component {
         <Button variant="contained" onClick={this.props.onClear}>
           Clear
         </Button>
-        {console.log(this.state)}
+        {/* {console.log(this.state)} */}
       </div>
     );
   }

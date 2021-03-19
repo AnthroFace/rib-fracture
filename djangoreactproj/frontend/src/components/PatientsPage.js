@@ -3,8 +3,9 @@ import { Col, Container, Row } from "reactstrap";
 import PatientList from "./PatientList";
 import Box from "@material-ui/core/Box";
 import SearchBar from "./SearchBar";
-
+import { Link } from "react-router-dom";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
 
 import { API_URL } from "../constants";
 
@@ -13,43 +14,34 @@ const URL = "http://localhost:8000/api/filter";
 class PatientsPage extends Component {
   state = {
     patients: [],
+    rib_counts: [],
   };
 
   componentDidMount() {
     this.resetState();
   }
 
-  // getFilteredPatients = (f, v) => {
-  //   console.log(f, v);
-  //   axios
-  //     .get("URL", {
-  //       params: {
-  //         fil: "ancestry",
-  //         val: "asian",
-  //       },
-  //     })
-  //     .then((res) => this.setState({ patients: res.data }));
-  //   axios.get(URL + f + v).then((res) => this.setState({ patients: res.data }));
-  // };
-
   getPatients = () => {
-    console.log();
     axios.get(API_URL).then((res) => this.setState({ patients: res.data }));
   };
 
   getFilteredPatients = () => {
-    console.log();
-    axios
-      .get(URL)
-      .then((res) =>
+    axios.get(URL).then(
+      (res) =>
         this.setState({
           patients: res.data.patients ? res.data.patients : res.data,
+          rib_counts: res.data.rib_counts ? res.data.rib_counts : "",
         })
-      );
+      // console.log(res)
+    );
   };
 
   resetState = () => {
     this.getPatients();
+  };
+
+  logging = () => {
+    console.log(this.state.rib_counts);
   };
 
   render() {
@@ -63,6 +55,16 @@ class PatientsPage extends Component {
             onSelectValue={this.getFilteredPatients}
             onClear={this.getPatients}
           />
+          <Link
+            to={{
+              pathname: "/heatmap",
+              state: this.state.rib_counts,
+            }}
+          >
+            <Button variant="contained" onClick={this.logging}>
+              HeatMap
+            </Button>
+          </Link>
           <Row textAlign="left">
             <Col textAlign="left">
               <PatientList

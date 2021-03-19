@@ -62,7 +62,7 @@ def patients_filter(request):
             fil_string = fil_string[:-1]
             fil_string = fil_string + "}"
             fil_dict = ast.literal_eval(fil_string) 
-            print(fil_dict)
+            # print(fil_dict)
            
             patient_data = Patient.objects.filter(**fil_dict)
             patient_serializer = PatientSerializer(patient_data, context={'request': request}, many=True)
