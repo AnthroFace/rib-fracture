@@ -365,7 +365,7 @@ class SearchBar extends Component {
     console.log("filtering");
     var i;
     for (i = 0; i < this.state.rib_section.length; i++) {
-      this.setState({[this.state.rib_section[i]]: 1})
+      this.setState({[this.state.rib_section[i]]: 1});
     }
     axios.get(URL).then((res) => {
       console.log(res.data);
@@ -804,7 +804,11 @@ class SearchBar extends Component {
           multiple
           value={this.state.rib_section}
           onChange={(event, newValue, reason) => {
+            var i;
             if (reason == "clear") {
+              for (i = 0; i < this.state.rib_section.length; i++){
+                this.setState({[this.state.rib_section[i]]: null});
+              }
               this.setState({ rib_section: "" });
             } else {
               this.setState({ rib_section: newValue });
