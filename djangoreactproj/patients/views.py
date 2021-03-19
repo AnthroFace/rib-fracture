@@ -56,15 +56,13 @@ def patients_filter(request):
         serializer = FilterSerializer(data, context={'request': request}, many=True)
         try:
             for key in serializer.data[0].keys():
-                # if serializer.data[0][key] == 1:
-                #     fil_string = fil_string + '\'' + key + '\': ' + serializer.data[0][key] + ',' 
                 if key != "pk" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
-                    fil_string = fil_string + '\'' + key + '\': ' + '"' + serializer.data[0][key] + '",' 
-                # else:
-                #     pass
+                    fil_string = fil_string + '\'' + key + '\': ' + '"' + str(serializer.data[0][key]) + '",' 
+                    print(fil_string)
             fil_string = fil_string[:-1]
             fil_string = fil_string + "}"
             fil_dict = ast.literal_eval(fil_string) 
+            print(fil_dict)
            
             patient_data = Patient.objects.filter(**fil_dict)
             patient_serializer = PatientSerializer(patient_data, context={'request': request}, many=True)
