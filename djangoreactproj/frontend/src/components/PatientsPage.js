@@ -58,7 +58,9 @@ class PatientsPage extends Component {
           <Link
             to={{
               pathname: "/heatmap",
-              state: this.state.rib_counts,
+              state: {
+                ribCount: this.state.rib_counts
+              }
             }}
           >
             <Button variant="contained" onClick={this.logging}>

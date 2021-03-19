@@ -189,6 +189,15 @@ class Content2 extends Component {
 }
 
 export default class Example extends React.Component {
+  // state = {
+  //   rib_count: []
+  // }
+
+  componentDidMount () {
+    const { ribCount } = this.props.location.state
+    console.log("HELLO", ribCount)
+  }
+
   render() {
     return (
       <div>
