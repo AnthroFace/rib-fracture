@@ -1,7 +1,7 @@
 import React from "react";
 import HeatMap from "react-heatmap-grid";
 
-const xLabels = ["a", "al", "pl", "p"];
+const xLabels = ["p", "pl", "al", "a"];
 // Display only even labels
 /*const xLabelsVisibility = new Array(4)
   .fill(0)
@@ -58,18 +58,18 @@ export { bottomLeftBarTotals };
 
 
 const data = [
-  [larib1, lalrib1, lplrib1, " "],
-  [larib2, lalrib2, lplrib2, lprib2],
-  [larib3, lalrib3, lplrib3, lprib3],
-  [larib4, lalrib4, lplrib4, lprib4],
-  [larib5, lalrib5, lplrib5, lprib5],
-  [larib6, lalrib6, lplrib6, lprib6],
-  [larib7, lalrib7, lplrib7, lprib7],
-  [larib8, lalrib8, lplrib8, lprib8],
-  [larib9, lalrib9, lplrib9, lprib9],
-  [larib10, lalrib10, lplrib10, lprib10],
-  [larib11, lalrib11, lplrib11, " "],
-  [larib12, lalrib12, lplrib12, " "]
+  [larib1, lplrib1, lalrib1, " "],
+  [lprib2, lplrib2, lalrib2, larib2],
+  [lprib3, lplrib3, lalrib3, larib3],
+  [lprib4, lplrib4, lalrib4, larib4],
+  [lprib5, lplrib5, lalrib5, larib5],
+  [lprib6, lplrib6, lalrib6, larib6],
+  [lprib7, lplrib7, lalrib7, larib7],
+  [lprib8, lplrib8, lalrib8, larib8],
+  [lprib9, lplrib9, lalrib9, larib9],
+  [lprib10, lplrib10, lalrib10, larib10],
+  [larib11, lplrib11, lalrib11, " "],
+  [larib12, lplrib12, lalrib12, " "]
 ];
 
 

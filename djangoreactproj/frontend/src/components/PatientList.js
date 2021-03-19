@@ -4,13 +4,11 @@ import NewPatientModal from "./NewPatientModal";
 
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
 
-var count1; 
-
 class PatientList extends Component {
   render() {
     const patients = this.props.patients;
     return (
-      <Table striped hover size="sm">
+      <Table striped hover size="sm" id="PatientTable">
         <thead>
           <tr>
             <th>Case Number</th>
@@ -951,4 +949,6 @@ class PatientList extends Component {
 }
 
 export default PatientList;
+
+
 

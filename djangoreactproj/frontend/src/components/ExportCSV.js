@@ -4,8 +4,6 @@ import {CSVLink} from 'react-csv';
 import PatientList from "./PatientList";
 
 import Box from "@material-ui/core/Box";
-import { Table } from "reactstrap";
-import { Col, Container, Row } from "reactstrap";
 
 import axios from 'axios'
 import { API_URL } from "../constants";
@@ -71,7 +69,7 @@ resetState = () => {
       <div className="ExportCSV" >
 
       <Box >
-        <CSVLink data={this.state.patients} style={link1Style} filename="ExportData.csv">Export Data</CSVLink>
+        <CSVLink data={this.state.patients} style={link1Style} filename="ExportData.csv">Export Data</CSVLink> 
       </Box>
       <Box>
         <CSVLink data={tempData} style={link2Style} filename="Template.csv">Download Template</CSVLink>
