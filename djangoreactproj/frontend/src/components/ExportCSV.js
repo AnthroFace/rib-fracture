@@ -68,7 +68,7 @@ resetState = () => {
       <div className="ExportCSV" >
 
       <Box >
-        <CSVLink data={this.state.patients} style={link1Style} filename="ExportData.csv">Export Data</CSVLink>
+        <CSVLink data={this.state.patients} style={link1Style} filename="ExportData.csv">Export Data</CSVLink> 
       </Box>
       <Box>
         <CSVLink data={tempData} style={link2Style} filename="Template.csv">Download Template</CSVLink>
