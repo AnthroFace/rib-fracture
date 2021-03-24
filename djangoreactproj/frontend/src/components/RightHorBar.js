@@ -39,7 +39,7 @@ function BarGroup(props) {
 
     componentDidMount () {
       var d = this.props.rib_count;
-      console.log("YOYOYO", d);
+      // console.log("YOYOYO", d);
       var bottomRightBarTotals ={
         bottomright1: d['rarib1']+d['rarib2']+d['rarib3']+d['rarib4']+d['rarib5']+d['rarib6']+d['rarib7']+d['rarib8']+d['rarib9']+d['rarib10']+d['rarib11']+d['rarib12'],
         bottomright2: d['ralrib1']+d['ralrib2']+d['ralrib3']+d['ralrib4']+d['ralrib5']+d['ralrib6']+d['ralrib7']+d['ralrib8']+d['ralrib9']+d['ralrib10']+d['ralrib11']+d['ralrib12'],

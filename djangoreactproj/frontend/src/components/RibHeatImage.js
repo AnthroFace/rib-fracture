@@ -801,6 +801,9 @@ class RibImage extends Component {
       msg: null,
       moveMsg: null,
     };
+    var d = props.rib_count;
+    // print("ribheatgrid")
+    console.log("ribheatimage", d);
   }
   load = () => {
     this.setState({ msg: "Hover ribs to see total breaks for each area" });
