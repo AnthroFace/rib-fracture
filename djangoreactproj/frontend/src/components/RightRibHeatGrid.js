@@ -105,7 +105,6 @@ const data = [
           data={data}
           squares
           height={45}
-          //onClick={(x, y) => alert(`Clicked ${x}, ${y}`)}
           cellStyle={(background, value, min, max, data, x, y) => ({
             background: `rgb(230, 40,0, ${1 - (max - value) / (max - min)})`,
             fontSize: "11.5px",
@@ -116,28 +115,4 @@ const data = [
         />
       </div>
     );
-    // return (
-    //   <div>
-    //     <HeatMap
-    //     xLabels={xLabels}
-    //     yLabels={yLabels}
-    //     xLabelsLocation={"top"}
-    //    // xLabelsVisibility={xLabelsVisibility}
-    //     xLabelWidth={60}
-    //     data={data}
-    //     squares
-    //     height={45}
-    //     //onClick={(x, y) => alert(`Clicked ${x}, ${y}`)}
-    //     cellStyle={(background, value, min, max, data, x, y) => ({
-    //       background: `rgb(230, 40,0, ${1 - (max - value) / (max - min)})`,
-    //       fontSize: "11.5px",
-    //       color: "#000"
-    //     })}
-    //     //renders number
-    //     cellRender={value => value && <div>{value}</div>}
-    //   />
-
-
-    //   </div>
-    // );
   }

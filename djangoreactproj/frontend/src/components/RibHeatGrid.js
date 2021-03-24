@@ -8,27 +8,6 @@ const yLabels = ["", "", "", "", "", "", "", "", "", "", "", ""];
 
 //const right_yLabels = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
 
-// OUR ADDITIONS
-// var rplrib1=1, ralrib1=8, rarib1=10, rprib2=5, rplrib2=1, ralrib2=3, rarib2=9, rprib3=1, rplrib3=4, ralrib3=3, rarib3=6,
-// rprib4=10, rplrib4=4, ralrib4=3, rarib4=1, rprib5=2, rplrib5=9, ralrib5=6, rarib5=4, rprib6=3, rplrib6=1, ralrib6=0, rarib6=2, 
-// rprib7=9, rplrib7=7, ralrib7=4, rarib7=6, rprib8=2, rplrib8=8, ralrib8=1, rarib8=4, rprib9=7, rplrib9=4, ralrib9=3, rarib9=1,
-// rprib10=11, rplrib10=5, ralrib10=3, rarib10=6, rplrib11=1, ralrib11=6, rarib11=2, rplrib12=7, ralrib12=9, rarib12=1; 
-
-// var rightBarTotals 
-// ={
-  // rightbar1: rplrib1+ralrib1+rarib1, 
-  // rightbar2: rprib2+rplrib2+ralrib2+rarib2,
-  // rightbar3: rprib3+rplrib3+ralrib3+rarib3,
-  // rightbar4: rprib4+rplrib4+ralrib4+rarib4,
-  // rightbar5: rprib5+rplrib5+ralrib5+rarib5,
-  // rightbar6: rprib6+rplrib6+ralrib6+rarib6,
-  // rightbar7: rprib7+rplrib7+ralrib7+rarib7,
-  // rightbar8: rprib8+rplrib8+ralrib8+rarib8,
-  // rightbar9: rprib9+rplrib9+ralrib9+rarib9,
-  // rightbar10: rprib10+rplrib10+ralrib10+rarib10,
-  // rightbar11: rplrib11+ralrib11+rarib11,
-  // rightbar12: rplrib12+ralrib12+rarib12,
-// }; 
 //SKY"S ADDITIONS
 
 var ralrib1=8, rplrib1=1, rprib1=10, 
@@ -92,78 +71,11 @@ var bottomRightBarTotals ={
 
 export { bottomRightBarTotals }; 
 
-// OUR ADDITIONS
-// const data = [
-//   [" ", rplrib1, ralrib1, rarib1],
-//   [rprib2, rplrib2, ralrib2, rarib2],
-//   [rprib3, rplrib3, ralrib3, rarib3],
-//   [rprib4, rplrib4, ralrib4, rarib4],
-//   [rprib5, rplrib5, ralrib5, rarib5],
-//   [rprib6, rplrib6, ralrib6, rarib6],
-//   [rprib7, rplrib7, ralrib7, rarib7],
-//   [rprib8, rplrib8, ralrib8, rarib8],
-//   [rprib9, rplrib9, ralrib9, rarib9],
-//   [rprib10, rplrib10, ralrib10, rarib10],
-//   [" ", rplrib11, ralrib11, rarib11],
-//   [" ", rplrib12, ralrib12, rarib12]
-// ];
-
-  // export default function(props) {
-  //   var d = props.rib_count;
-  //   // print("ribheatgrid")
-  //   console.log("ribheatgrid", d);
-  //   console.log("TYPE", typeof(d));
-  //   var data = [
-  //     [" ", d['rplrib1'], d['ralrib1'], d['rarib1']],
-  //     [d['rprib2'], d['rplrib2'], d['ralrib2'], d['rarib2']],
-  //     [d['rprib3'], d['rplrib3'], d['ralrib3'], d['rarib3']],
-  //     [d['rprib4'], d['rplrib4'], d['ralrib4'], d['rarib4']],
-  //     [d['rprib5'], d['rplrib5'], d['ralrib5'], d['rarib5']],
-  //     [d['rprib6'], d['rplrib6'], d['ralrib6'], d['rarib6']],
-  //     [d['rprib7'], d['rplrib7'], d['ralrib7'], d['rarib7']],
-  //     [d['rprib8'], d['rplrib8'], d['ralrib8'], d['rarib8']],
-  //     [d['rprib9'], d['rplrib9'], d['ralrib9'], d['rarib9']],
-  //     [d['rprib10'], d['rplrib10'], d['ralrib10'], d['rarib10']],
-  //     [" ", d['rplrib11'], d['ralrib11'], d['rarib11']],
-  //     [" ", d['rplrib12'], d['ralrib12'], d['rarib12']]
-  // ];
-  
-//SKY"S ADDITIONS
-// const data = [
-//   [" ", ralrib1, rplrib1, rprib1],
-//   [rarib2, ralrib2, rplrib2, rprib2],
-//   [rarib3, ralrib3, rplrib3, rprib3],
-//   [rarib4, ralrib4, rplrib4, rprib4],
-//   [rarib5, ralrib5, rplrib5, rprib5],
-//   [rarib6, ralrib6, rplrib6, rprib6],
-//   [rarib7, ralrib7, rplrib7, rprib7],
-//   [rarib8, ralrib8, rplrib8, rprib8],
-//   [rarib9, ralrib9, rplrib9, rprib9],
-//   [rarib10, ralrib10, rplrib10, rprib10],
-//   [" ", ralrib11, rplrib11, rprib11],
-//   [" ", ralrib12, rplrib12, rprib12]
-// ];
-
-
   export default function(props) {
     var d = props.rib_count;
     // print("ribheatgrid")
     console.log("ribheatgrid", d);
     // console.log("TYPE", typeof d);
-    // var data = [
-    //   [d["rprib1"], d["rplrib1"], d["ralrib1"], ""],
-    //   [d["rprib2"], d["rplrib2"], d["ralrib2"], d["rarib2"]],
-    //   [d["rprib3"], d["rplrib3"], d["ralrib3"], d["rarib3"]],
-    //   [d["rprib4"], d["rplrib4"], d["ralrib4"], d["rarib4"]],
-    //   [d["rprib5"], d["rplrib5"], d["ralrib5"], d["rarib5"]],
-    //   [d["rprib6"], d["rplrib6"], d["ralrib6"], d["rarib6"]],
-    //   [d["rprib7"], d["rplrib7"], d["ralrib7"], d["rarib7"]],
-    //   [d["rprib8"], d["rplrib8"], d["ralrib8"], d["rarib8"]],
-    //   [d["rprib9"], d["rplrib9"], d["ralrib9"], d["rarib9"]],
-    //   [d["rprib10"], d["rplrib10"], d["ralrib10"], d["rarib10"]],
-    //   [d["rprib11"], d["rplrib11"], d["ralrib11"], ""],
-    //   [d["rprib12"], d["rplrib12"], d["ralrib12"], ""],
-    // ];
 
     var data = [
       ["", d["ralrib1"], d["rplrib1"], d["rprib1"]],

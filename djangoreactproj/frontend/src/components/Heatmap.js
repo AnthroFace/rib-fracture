@@ -186,7 +186,7 @@ class Content2 extends Component {
 
 export default class Example extends React.Component {
   state = {
-    rib_count: "",
+    rib_count: "empty",
   };
 
   componentDidMount() {
