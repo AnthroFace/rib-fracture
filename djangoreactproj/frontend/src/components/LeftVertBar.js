@@ -1,6 +1,5 @@
 import React from "react";
 import "./../LeftVertBar.css";
-import { leftBarTotals } from './RightRibHeatGrid';
 
 function BarGroup(props) {
     let barPadding = 2
@@ -18,27 +17,28 @@ function BarGroup(props) {
   }
   
   class BarChart extends React.Component {
-    state = {
-      data: [
-        { value: leftBarTotals.leftbar1},
-        {  value: leftBarTotals.leftbar2},
-        {  value: leftBarTotals.leftbar3},
-        {  value: leftBarTotals.leftbar4},
-        {  value: leftBarTotals.leftbar5},
-        { value: leftBarTotals.leftbar6},
-        { value: leftBarTotals.leftbar7},
-        {  value: leftBarTotals.leftbar8},
-        {  value: leftBarTotals.leftbar9},
-        {  value: leftBarTotals.leftbar10},
-        {  value: leftBarTotals.leftbar11},
-        { value: leftBarTotals.leftbar12}
-      ]
-    }
   
     render() {
       let barHeight =46
+
+      var d = this.props.rib_count;
+
+      var data = [
+        { value: d["lplrib12"] + d["lalrib12"] + d["lprib12"] },
+        { value: d["lplrib11"] + d["lalrib11"] + d["lprib11"] },
+        { value: d["lprib10"] + d["lplrib10"] + d["lalrib10"] + d["lprib10"] },
+        { value: d["lprib9"] + d["lplrib9"] + d["lalrib9"] + d["larib9"] },
+        { value: d["lprib8"] + d["lplrib8"] + d["lalrib8"] + d["larib8"] },
+        { value: d["lprib7"] + d["lplrib7"] + d["lalrib7"] + d["larib7"] },
+        { value: d["lprib6"] + d["lplrib6"] + d["lalrib6"] + d["larib6"] },
+        { value: d["lprib5"] + d["lplrib5"] + d["lalrib5"] + d["larib5"] },
+        { value: d["lprib4"] + d["lplrib4"] + d["lalrib4"] + d["larib4"] },
+        { value: d["lprib3"] + d["lplrib3"] + d["lalrib3"] + d["larib3"] },
+        { value: d["lprib2"] + d["lplrib2"] + d["lalrib2"] + d["larib2"] },
+        { value: d["lplrib1"] + d["lalrib1"] + d["lprib1"] },
+      ];
           
-      let barGroups = this.state.data.map((d, i) => <g transform={`translate(0, ${i * barHeight})`}>
+      let barGroups = data.map((d, i) => <g transform={`translate(0, ${i * barHeight})`}>
                                                       <BarGroup d={d} barHeight={barHeight} />
                                                     </g>)                         
       

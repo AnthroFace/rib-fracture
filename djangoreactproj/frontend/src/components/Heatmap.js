@@ -156,7 +156,7 @@ class Content2 extends Component {
 
         <Box padding="25px 0px 0px 750px" style={{ position: "absolute" }}>
           <div>
-            <LeftVertBar />
+            <LeftVertBar rib_count={this.props.rib_count} />
           </div>
         </Box>
 
