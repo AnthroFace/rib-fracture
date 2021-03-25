@@ -24,18 +24,18 @@ function BarGroup(props) {
       var d = this.props.rib_count;
 
       var data = [
-        { value: d["lplrib12"] + d["lalrib12"] + d["lprib12"] },
-        { value: d["lplrib11"] + d["lalrib11"] + d["lprib11"] },
-        { value: d["lprib10"] + d["lplrib10"] + d["lalrib10"] + d["lprib10"] },
-        { value: d["lprib9"] + d["lplrib9"] + d["lalrib9"] + d["larib9"] },
-        { value: d["lprib8"] + d["lplrib8"] + d["lalrib8"] + d["larib8"] },
-        { value: d["lprib7"] + d["lplrib7"] + d["lalrib7"] + d["larib7"] },
-        { value: d["lprib6"] + d["lplrib6"] + d["lalrib6"] + d["larib6"] },
-        { value: d["lprib5"] + d["lplrib5"] + d["lalrib5"] + d["larib5"] },
-        { value: d["lprib4"] + d["lplrib4"] + d["lalrib4"] + d["larib4"] },
-        { value: d["lprib3"] + d["lplrib3"] + d["lalrib3"] + d["larib3"] },
-        { value: d["lprib2"] + d["lplrib2"] + d["lalrib2"] + d["larib2"] },
         { value: d["lplrib1"] + d["lalrib1"] + d["lprib1"] },
+        { value: d["lprib2"] + d["lplrib2"] + d["lalrib2"] + d["larib2"] },
+        { value: d["lprib3"] + d["lplrib3"] + d["lalrib3"] + d["larib3"] },
+        { value: d["lprib4"] + d["lplrib4"] + d["lalrib4"] + d["larib4"] },
+        { value: d["lprib5"] + d["lplrib5"] + d["lalrib5"] + d["larib5"] },
+        { value: d["lprib6"] + d["lplrib6"] + d["lalrib6"] + d["larib6"] },
+        { value: d["lprib7"] + d["lplrib7"] + d["lalrib7"] + d["larib7"] },
+        { value: d["lprib8"] + d["lplrib8"] + d["lalrib8"] + d["larib8"] },
+        { value: d["lprib9"] + d["lplrib9"] + d["lalrib9"] + d["larib9"] },
+        { value: d["lprib10"] + d["lplrib10"] + d["lalrib10"] + d["larib10"] },
+        { value: d["lplrib11"] + d["lalrib11"] + d["lprib11"] },
+        { value: d["lplrib12"] + d["lalrib12"] + d["lprib12"] },
       ];
           
       let barGroups = data.map((d, i) => <g transform={`translate(0, ${i * barHeight})`}>

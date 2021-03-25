@@ -74,7 +74,7 @@ export { bottomRightBarTotals };
   export default function(props) {
     var d = props.rib_count;
     // print("ribheatgrid")
-    console.log("ribheatgrid", d);
+    // console.log("ribheatgrid", d);
     // console.log("TYPE", typeof d);
 
     var data = [

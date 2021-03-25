@@ -59,7 +59,7 @@ class BarChart extends React.Component {
         <BarGroup d={d} barHeight={barHeight} />
       </g>
     ));
-    console.log("vertbar", this.props.rib_count);
+    // console.log("vertbar", this.props.rib_count);
     return (
       <svg width="400" height="700">
         <g className="container">

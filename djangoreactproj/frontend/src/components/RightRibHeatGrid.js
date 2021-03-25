@@ -76,7 +76,7 @@ const data = [
   export default function(props) {
     var d = props.rib_count;
     // print("ribheatgrid")
-    console.log("rightribheatgrid", d);
+    // console.log("rightribheatgrid", d);
     // console.log("TYPE", typeof d);
     var data = [
       [d["lprib1"], d["lplrib1"], d["lalrib1"], ""],

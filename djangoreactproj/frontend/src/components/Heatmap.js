@@ -118,7 +118,7 @@ import CoolTabs from "react-cool-tabs";
 
 class Content1 extends Component {
   render() {
-    console.log("context1", this.props.rib_count);
+    // console.log("context1", this.props.rib_count);
     return (
       <Box padding="50px 0px 0px 300px">
         <RibHeatImage />
@@ -129,7 +129,7 @@ class Content1 extends Component {
 
 class Content2 extends Component {
   render() {
-    console.log("context2", this.props.rib_count);
+    // console.log("context2", this.props.rib_count);
     return (
       <Box padding="0px 0px 0px 0px">
         <Box
@@ -176,7 +176,7 @@ class Content2 extends Component {
           style={{ position: "absolute", transform: "rotate(90deg)" }}
         >
           <div>
-            <LeftHorBar />
+            <LeftHorBar rib_count={this.props.rib_count} />
           </div>
         </Box>
       </Box>
