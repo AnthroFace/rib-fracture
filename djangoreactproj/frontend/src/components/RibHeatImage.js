@@ -111,7 +111,7 @@ class RibImage extends Component {
       d["ralrib12"],
       d["rprib12"],
       //left rib variables
-      d["larib1"],
+      d["lprib1"],
       d["lalrib1"],
       d["lplrib1"],
       d["larib2"],
@@ -150,16 +150,15 @@ class RibImage extends Component {
       d["lalrib10"],
       d["lplrib10"],
       d["lprib10"],
-      d["larib11"],
+      d["lprib11"],
       d["lalrib11"],
       d["lplrib11"],
-      d["larib12"],
+      d["lprib12"],
       d["lalrib12"],
       d["lplrib12"],
     ];
-
-    var maxValue = Math.max.apply(null, nums);
-    var minValue = Math.min.apply(null, nums);
+    var maxValue = Math.max.apply(Math, nums);
+    var minValue = Math.min.apply(Math, nums);
 
     //5, 10, 15, 20, 25 radius
     //darkest red "rgb(220,20,60)"
@@ -1457,6 +1456,7 @@ class RibImage extends Component {
         },
       ],
     };
+    console.log(MAP)
 
     return (
       <div className="grid">
