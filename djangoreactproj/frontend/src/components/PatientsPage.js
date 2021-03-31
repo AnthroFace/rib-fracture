@@ -26,12 +26,13 @@ class PatientsPage extends Component {
   };
 
   getFilteredPatients = () => {
-    axios.get(URL).then(
+    var nums = axios.get(URL).then(
       (res) =>
         this.setState({
           patients: res.data.patients ? res.data.patients : res.data,
           rib_counts: res.data.rib_counts ? res.data.rib_counts : "",
         })
+
       // console.log(res)
     );
   };
@@ -59,8 +60,8 @@ class PatientsPage extends Component {
             to={{
               pathname: "/heatmap",
               state: {
-                ribCount: this.state.rib_counts
-              }
+                ribCount: this.state.rib_counts,
+              },
             }}
           >
             <Button variant="contained" onClick={this.logging}>

@@ -1456,7 +1456,7 @@ class RibImage extends Component {
         },
       ],
     };
-    console.log(MAP)
+    console.log(MAP);
 
     return (
       <div className="grid">

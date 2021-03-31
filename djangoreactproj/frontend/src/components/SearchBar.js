@@ -122,6 +122,8 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      age_start: null,
+      age_end: null,
       ancestry: "",
       sex: "",
       xray: "",
@@ -253,6 +255,8 @@ class SearchBar extends Component {
     // e.preventDefault();
     axios
       .put(URL + "1", {
+        age_start: this.state.age_start,
+        age_end: this.state.age_end,
         sex: this.state.sex,
         ancestry: this.state.ancestry,
         xray: this.state.xray,
@@ -376,6 +380,8 @@ class SearchBar extends Component {
       if (res.data.length == 0) {
         axios
           .post(URL, {
+            age_start: this.state.age_start,
+            age_end: this.state.age_end,
             sex: this.state.sex,
             ancestry: this.state.ancestry,
             xray: this.state.xray,
@@ -495,6 +501,22 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
+        <TextField
+          label="Age Start"
+          variant="outlined"
+          value={this.state.age_start}
+          onChange={(event) => {
+            this.setState({ age_start: event.target.value });
+          }}
+        />
+        <TextField
+          label="Age End"
+          variant="outlined"
+          value={this.state.age_end}
+          onChange={(event) => {
+            this.setState({ age_end: event.target.value });
+          }}
+        />
         <Autocomplete
           value={this.state.sex}
           onChange={(event, newValue, reason) => {
@@ -522,7 +544,6 @@ class SearchBar extends Component {
             <TextField {...params} label="Sex" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.ancestry}
           onChange={(event, newValue, reason) => {
@@ -545,7 +566,6 @@ class SearchBar extends Component {
             <TextField {...params} label="Ancestry" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.xray}
           onChange={(event, newValue, reason) => {
@@ -568,7 +588,6 @@ class SearchBar extends Component {
             <TextField {...params} label="X-Ray Taken" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.cpr}
           onChange={(event, newValue, reason) => {
@@ -591,7 +610,6 @@ class SearchBar extends Component {
             <TextField {...params} label="CPR Performed" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.belted}
           onChange={(event, newValue, reason) => {
@@ -614,7 +632,6 @@ class SearchBar extends Component {
             <TextField {...params} label="Belted" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.obese}
           onChange={(event, newValue, reason) => {
@@ -637,7 +654,6 @@ class SearchBar extends Component {
             <TextField {...params} label="Obese" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.cardio}
           onChange={(event, newValue, reason) => {
@@ -660,7 +676,6 @@ class SearchBar extends Component {
             <TextField {...params} label="Cardio" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.patho}
           onChange={(event, newValue, reason) => {
@@ -683,7 +698,6 @@ class SearchBar extends Component {
             <TextField {...params} label="Pathology Taken" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.tobacco}
           onChange={(event, newValue, reason) => {
@@ -706,7 +720,6 @@ class SearchBar extends Component {
             <TextField {...params} label="Tobacco Usage" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.marijuana}
           onChange={(event, newValue, reason) => {
@@ -729,7 +742,6 @@ class SearchBar extends Component {
             <TextField {...params} label="Marijuana Usage" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.alcohol}
           onChange={(event, newValue, reason) => {
@@ -752,7 +764,6 @@ class SearchBar extends Component {
             <TextField {...params} label="Alcohol Usage" variant="outlined" />
           )}
         />
-
         <Autocomplete
           value={this.state.prescription}
           onChange={(event, newValue, reason) => {
@@ -779,7 +790,6 @@ class SearchBar extends Component {
             />
           )}
         />
-
         <Autocomplete
           value={this.state.drug_use}
           onChange={(event, newValue, reason) => {
@@ -834,15 +844,13 @@ class SearchBar extends Component {
             />
           )}
         />
-
         <Button variant="contained" onClick={this.filter}>
           Filter
         </Button>
-
         <Button variant="contained" onClick={this.props.onClear}>
           Clear
         </Button>
-        {/* {console.log(this.state)} */}
+        {console.log(this.state)}
       </div>
     );
   }
