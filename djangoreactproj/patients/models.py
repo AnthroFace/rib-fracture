@@ -394,6 +394,8 @@ class Filter(models.Model):
     # case_id = models.CharField("Case ID", max_length=240,default="", unique=True)
     age_start = models.IntegerField("Age Start", blank=True, null=True)
     age_end = models.IntegerField("Age End", blank=True, null=True)
+    weight_start = models.IntegerField("Age Start", blank=True, null=True)
+    weight_end = models.IntegerField("Age End", blank=True, null=True)
     sex = models.CharField("Sex", max_length= 2, blank=True)
     # weight = models.IntegerField("Weight", blank=True, null=True)
     # height = models.IntegerField("Height", blank=True, null=True)

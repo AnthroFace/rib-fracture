@@ -124,6 +124,8 @@ class SearchBar extends Component {
     this.state = {
       age_start: null,
       age_end: null,
+      weight_start: null,
+      weight_end: null,
       ancestry: "",
       sex: "",
       xray: "",
@@ -257,6 +259,8 @@ class SearchBar extends Component {
       .put(URL + "1", {
         age_start: this.state.age_start,
         age_end: this.state.age_end,
+        weight_start: this.state.weight_start,
+        weight_end: this.state.weight_end,
         sex: this.state.sex,
         ancestry: this.state.ancestry,
         xray: this.state.xray,
@@ -382,6 +386,8 @@ class SearchBar extends Component {
           .post(URL, {
             age_start: this.state.age_start,
             age_end: this.state.age_end,
+            weight_start: this.state.weight_start,
+            weight_end: this.state.weight_end,
             sex: this.state.sex,
             ancestry: this.state.ancestry,
             xray: this.state.xray,
@@ -515,6 +521,22 @@ class SearchBar extends Component {
           value={this.state.age_end}
           onChange={(event) => {
             this.setState({ age_end: event.target.value });
+          }}
+        />
+        <TextField
+          label="Weight Start"
+          variant="outlined"
+          value={this.state.weight_start}
+          onChange={(event) => {
+            this.setState({ weight_start: event.target.value });
+          }}
+        />
+        <TextField
+          label="Weight End"
+          variant="outlined"
+          value={this.state.weight_end}
+          onChange={(event) => {
+            this.setState({ weight_end: event.target.value });
           }}
         />
         <Autocomplete

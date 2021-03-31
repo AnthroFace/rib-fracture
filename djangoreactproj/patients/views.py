@@ -56,6 +56,9 @@ def patients_filter(request):
         age_start = None
         age_end = None
         both_age = False
+        weight_start = None
+        weight_end = None
+        both_weight = False
         fil_string = "{"
 
         serializer = FilterSerializer(data, context={'request': request}, many=True)
@@ -68,11 +71,20 @@ def patients_filter(request):
                     if serializer.data[0]['age_end'] != "" and serializer.data[0]['age_end'] is not None:
                         age_start = serializer.data[0][key]
                         age_end = serializer.data[0]['age_end']
-                        print(serializer.data[0]['age_end'])
+                        # print(serializer.data[0]['age_end'])
 
                         both_age = True
 
-                if key != "pk" and key != "age_start" and key != "age_end" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                if key == "weight_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                    print("weight_start", serializer.data[0][key])
+                    if serializer.data[0]['weight_end'] != "" and serializer.data[0]['weight_end'] is not None:
+                        weight_start = serializer.data[0][key]
+                        weight_end = serializer.data[0]['weight_end']
+                        # print(serializer.data[0]['weight_end'])
+
+                        both_weight = True
+
+                if key != "pk" and key != "age_start" and key != "age_end" and key != "weight_start" and key != "weight_end" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
                     fil_string = fil_string + '\'' + key + '\': ' + '"' + str(serializer.data[0][key]) + '",' 
                     # print(fil_string)
             fil_string = fil_string[:-1]
@@ -82,8 +94,10 @@ def patients_filter(request):
            
             # getting the rib fracture counts for every section
             if both_age:
-                print("age filter")
-                patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end))
+                if both_weight:
+                    patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end), weight__range=(weight_start, weight_end))
+            elif both_weight:
+                patient_data = Patient.objects.filter(**fil_dict, weight__range=(weight_start, weight_end))
             else:
                 print("normal filter")
                 patient_data = Patient.objects.filter(**fil_dict)
