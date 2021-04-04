@@ -570,10 +570,10 @@ class PatientList extends Component {
                 <td>{patient.sternum}</td>
                 <td>{patient.cpr_sternum}</td>
                 <td>{patient.lprib1}</td>
-                <script type = "text/javascript">
+                {/* <script type = "text/javascript">
                   var count=8;
                 </script>
-                <td> <script type = "text/javascript">document.write(count) </script> <span id ="count"></span></td>
+                <td> <script type = "text/javascript">document.write(count) </script> <span id ="count"></span></td> */}
                 <td>{patient.com_lprib1}</td>
                 <td>{patient.type_lprib1}</td>
                 <td>{patient.cpr_lprib1}</td>

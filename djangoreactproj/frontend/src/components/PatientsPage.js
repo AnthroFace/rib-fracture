@@ -22,7 +22,14 @@ class PatientsPage extends Component {
   }
 
   getPatients = () => {
-    axios.get(API_URL).then((res) => this.setState({ patients: res.data }));
+    axios
+      .get(API_URL)
+      .then((res) =>
+        this.setState({
+          patients: res.data.patients,
+          rib_counts: res.data.rib_counts,
+        })
+      );
   };
 
   getFilteredPatients = () => {

@@ -517,7 +517,7 @@ class SearchBar extends Component {
       // console.log(res.data);
       // console.log("data length:", res.data.length);
 
-      if (res.data.length == 0) {
+      if (res.data.patients.length == 0) {
         axios
           .post(URL, {
             age_start: this.state.age_start,
