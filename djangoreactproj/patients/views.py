@@ -65,34 +65,6 @@ def patients_filter(request):
         try:
             # filtering patients
             for key in serializer.data[0].keys():
-                # print(key)
-                # if key == "age_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
-                #     print("age_start", serializer.data[0][key])
-                #     if serializer.data[0]['age_end'] != "" and serializer.data[0]['age_end'] is not None:
-                #         age_start = serializer.data[0][key]
-                #         age_end = serializer.data[0]['age_end']
-                #         # print(serializer.data[0]['age_end'])
-
-                #         # both_age = True
-
-                # if key == "weight_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
-                #     print("weight_start", serializer.data[0][key])
-                #     if serializer.data[0]['weight_end'] != "" and serializer.data[0]['weight_end'] is not None:
-                #         weight_start = serializer.data[0][key]
-                #         weight_end = serializer.data[0]['weight_end']
-                #         # print(serializer.data[0]['weight_end'])
-
-                #         both_weight = True
-
-                # if key == "height_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
-                #     print("height_start", serializer.data[0][key])
-                #     if serializer.data[0]['height_end'] != "" and serializer.data[0]['height_end'] is not None:
-                #         weight_start = serializer.data[0][key]
-                #         weight_end = serializer.data[0]['height_end']
-                #         # print(serializer.data[0]['weight_end'])
-
-                #         both_height = True
-
                 if key == "age_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
                         age_start = serializer.data[0][key]
                 elif key == "weight_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
@@ -105,43 +77,11 @@ def patients_filter(request):
                         weight_end = serializer.data[0][key]
                 elif key == "height_end" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
                         height_end = serializer.data[0][key]
-                # if key != "pk" and key != "age_start" and key != "age_end" and key != "weight_start" and key != "weight_end" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
-                #     fil_string = fil_string + '\'' + key + '\': ' + '"' + str(serializer.data[0][key]) + '",' 
-                    # print(fil_string)
                 elif key != "pk" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
                     fil_string = fil_string + '\'' + key + '\': ' + '"' + str(serializer.data[0][key]) + '",'
             fil_string = fil_string[:-1]
             fil_string = fil_string + "}"
             fil_dict = ast.literal_eval(fil_string) 
-            # print(fil_dict)
-           
-            # if both_age:
-            #     if both_weight:
-            #         if both_height:
-            #             # all three filters present
-            #             patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end), weight__range=(weight_start, weight_end), height__range=(height_start, height_end))
-            #         else:
-            #             # only age and weight
-            #             patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end), weight__range=(weight_start, weight_end))
-            #     elif both_height:
-            #         # only age and height
-            #         patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end), height__range=(height_start, height_end))
-            #     else:
-            #         # only age
-            #         patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end))
-            # elif both_weight:
-            #     if both_height:
-            #         # only weight and height
-            #         patient_data = Patient.objects.filter(**fil_dict, weight__range=(weight_start, weight_end), height__range=(height_start, height_end))
-            #     else:
-            #         # only weight
-            #         patient_data = Patient.objects.filter(**fil_dict, weight__range=(weight_start, weight_end))
-            # elif both_height:
-            #     # only height
-            #     patient_data = Patient.objects.filter(**fil_dict height__range=(height_start, height_end))
-            # else:
-            #     # none of these 3 filters
-            #     patient_data = Patient.objects.filter(**fil_dict)
 
             patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end), weight__range=(weight_start, weight_end), height__range=(height_start, height_end))
 
@@ -155,18 +95,7 @@ def patients_filter(request):
                         if key in rib_counts.keys() and patient[key] == 1:
                             rib_counts[key] += 1
             rib_counts = json.dumps(rib_counts)
-            # print(rib_counts)
-            # print(type(rib_counts))
-
-            # for patient in patient_serializer.data:
-            #     for key in patient.keys():
-            #         # print(key)
-            #         # if key == "pk":
-            #             # print(key, patient[key])
-            #         if patient[key] === 1:
-            #             rib_counts[key] += 1
-
-            # print(rib_counts)
+        
             return Response({
                 'patients': patient_serializer.data,
                 'filters': serializer.data,
@@ -203,45 +132,3 @@ def filter_delete(request, pk):
     elif request.method == 'DELETE':
         fil.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-# @api_view(['GET'])
-# def filtered_patients_list(request):
-#     if request.method == 'GET':
-#         patients = Patient.objects.all()
-#         filters = Filter.objects.all()
-
-#         patient_serializer = PatientSerializer(patients, context={'request': request}, many=True)
-#         filter_serializer = FilterSerializer(filters, context={'request': request}, many=True)
-        
-#         print("FILTERS",filter_serializer.data[0]['ancestry'])
-#         # print("TYPE", type(filter_serializer.data))
-#         # print(filter_serializer.data[0])
-#         # print("REQUEST",filters)
-#         # print(json.loads(filter_serializer.data.decode('utf-8')))
-
-#         # filter_serializer = FilterSerializer(data=request.data)
-#         # if filter_serializer.is_valid():
-#         #     print("VALIDATED", filter_serializer.validated_data)
-#         #     # data = json.loads(request.body.decode('utf-8'))
-#             # print(patient_data)
-        
-#         # kwargs = {
-#         #     'ancestry': patient_serializer.data
-#         # }
-#         # elif request.method == 'POST':
-#         # serializer = FilterSerializer(data=request.data)
-#         # if serializer.is_valid():
-#         #     # print(serializer.validated_data["fil"])
-#         #     # request.session['fil'] = serializer.validated_data["fil"]
-#         #     # print(request.session.get_expire_at_browser_close())
-#         #     # request.session.modified = True
-#         #     # print("PATIENTS_FILTER", request.session['fil'])
-#         #     serializer.save()
-#         #     return Response(status=status.HTTP_201_CREATED)
-
-#         # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-#         return Response({
-#             'patients':patient_serializer.data,
-#             'filters': filter_serializer.data
-#         })
