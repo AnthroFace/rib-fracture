@@ -6,7 +6,7 @@ class FilterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Filter
-        fields = ('pk', 'age_start', 'age_end', 'weight_start', 'weight_end', 'sex', 'ancestry', 'xray', 'cpr', 'belted', 'obese', 'cardio', 'patho', 'tobacco', 'marijuana', 'alcohol', 'prescription', 'drug_use',
+        fields = ('pk', 'age_start', 'age_end', 'weight_start', 'weight_end', 'height_start', 'height_end', 'sex', 'ancestry', 'xray', 'cpr', 'belted', 'obese', 'cardio', 'patho', 'tobacco', 'marijuana', 'alcohol', 'prescription', 'drug_use',
                   'sternum', 'lprib1', 'lplrib1', 'lalrib1', 'lprib2', 'lplrib2', 'lalrib2', 'larib2', 'lprib3', 'lplrib3', 'lalrib3', 'larib3', 'lprib4',
                   'lplrib4', 'lalrib4', 'larib4', 'lprib5', 'lplrib5', 'lalrib5', 'larib5', 'lprib6', 'lplrib6', 'lalrib6', 'larib6', 'lprib7', 'lplrib7',
                   'lalrib7', 'larib7', 'lprib8', 'lplrib8', 'lalrib8', 'larib8', 'lprib9', 'lplrib9', 'lalrib9', 'larib9', 'lprib10', 'lplrib10', 'lalrib10',
@@ -23,8 +23,12 @@ class FilterSerializer(serializers.ModelSerializer):
             data['age_end'] = None    
         if data.get('weight_start') == "":
             data['weight_start'] = None
-        if data.get('age_end') == "":
-            data['age_end'] = None   
+        if data.get('weight_end') == "":
+            data['weight_end'] = None   
+        if data.get('height_start') == "":
+            data['height_start'] = None
+        if data.get('height_end') == "":
+            data['height_end'] = None   
         if data.get('sternum') == "":
             data['sternum'] = None
         if data.get('lprib1') == "":

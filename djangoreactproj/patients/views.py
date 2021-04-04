@@ -53,12 +53,12 @@ def patients_filter(request):
 
         data = Filter.objects.all()
         print(data)
-        age_start = None
-        age_end = None
-        both_age = False
-        weight_start = None
-        weight_end = None
-        both_weight = False
+        age_start = 0
+        age_end = 10000
+        weight_start = 0
+        weight_end = 10000
+        height_start = 0
+        height_end = 10000
         fil_string = "{"
 
         serializer = FilterSerializer(data, context={'request': request}, many=True)
@@ -66,41 +66,85 @@ def patients_filter(request):
             # filtering patients
             for key in serializer.data[0].keys():
                 # print(key)
+                # if key == "age_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                #     print("age_start", serializer.data[0][key])
+                #     if serializer.data[0]['age_end'] != "" and serializer.data[0]['age_end'] is not None:
+                #         age_start = serializer.data[0][key]
+                #         age_end = serializer.data[0]['age_end']
+                #         # print(serializer.data[0]['age_end'])
+
+                #         # both_age = True
+
+                # if key == "weight_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                #     print("weight_start", serializer.data[0][key])
+                #     if serializer.data[0]['weight_end'] != "" and serializer.data[0]['weight_end'] is not None:
+                #         weight_start = serializer.data[0][key]
+                #         weight_end = serializer.data[0]['weight_end']
+                #         # print(serializer.data[0]['weight_end'])
+
+                #         both_weight = True
+
+                # if key == "height_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                #     print("height_start", serializer.data[0][key])
+                #     if serializer.data[0]['height_end'] != "" and serializer.data[0]['height_end'] is not None:
+                #         weight_start = serializer.data[0][key]
+                #         weight_end = serializer.data[0]['height_end']
+                #         # print(serializer.data[0]['weight_end'])
+
+                #         both_height = True
+
                 if key == "age_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
-                    print("age_start", serializer.data[0][key])
-                    if serializer.data[0]['age_end'] != "" and serializer.data[0]['age_end'] is not None:
                         age_start = serializer.data[0][key]
-                        age_end = serializer.data[0]['age_end']
-                        # print(serializer.data[0]['age_end'])
-
-                        both_age = True
-
-                if key == "weight_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
-                    print("weight_start", serializer.data[0][key])
-                    if serializer.data[0]['weight_end'] != "" and serializer.data[0]['weight_end'] is not None:
+                elif key == "weight_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
                         weight_start = serializer.data[0][key]
-                        weight_end = serializer.data[0]['weight_end']
-                        # print(serializer.data[0]['weight_end'])
-
-                        both_weight = True
-
-                if key != "pk" and key != "age_start" and key != "age_end" and key != "weight_start" and key != "weight_end" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
-                    fil_string = fil_string + '\'' + key + '\': ' + '"' + str(serializer.data[0][key]) + '",' 
+                elif key == "height_start" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                        height_start = serializer.data[0][key]
+                elif key == "age_end" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                        age_end = serializer.data[0][key]
+                elif key == "weight_end" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                        weight_end = serializer.data[0][key]
+                elif key == "height_end" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                        height_end = serializer.data[0][key]
+                # if key != "pk" and key != "age_start" and key != "age_end" and key != "weight_start" and key != "weight_end" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                #     fil_string = fil_string + '\'' + key + '\': ' + '"' + str(serializer.data[0][key]) + '",' 
                     # print(fil_string)
+                elif key != "pk" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
+                    fil_string = fil_string + '\'' + key + '\': ' + '"' + str(serializer.data[0][key]) + '",'
             fil_string = fil_string[:-1]
             fil_string = fil_string + "}"
             fil_dict = ast.literal_eval(fil_string) 
-            print(fil_dict)
+            # print(fil_dict)
            
-            # getting the rib fracture counts for every section
-            if both_age:
-                if both_weight:
-                    patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end), weight__range=(weight_start, weight_end))
-            elif both_weight:
-                patient_data = Patient.objects.filter(**fil_dict, weight__range=(weight_start, weight_end))
-            else:
-                print("normal filter")
-                patient_data = Patient.objects.filter(**fil_dict)
+            # if both_age:
+            #     if both_weight:
+            #         if both_height:
+            #             # all three filters present
+            #             patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end), weight__range=(weight_start, weight_end), height__range=(height_start, height_end))
+            #         else:
+            #             # only age and weight
+            #             patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end), weight__range=(weight_start, weight_end))
+            #     elif both_height:
+            #         # only age and height
+            #         patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end), height__range=(height_start, height_end))
+            #     else:
+            #         # only age
+            #         patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end))
+            # elif both_weight:
+            #     if both_height:
+            #         # only weight and height
+            #         patient_data = Patient.objects.filter(**fil_dict, weight__range=(weight_start, weight_end), height__range=(height_start, height_end))
+            #     else:
+            #         # only weight
+            #         patient_data = Patient.objects.filter(**fil_dict, weight__range=(weight_start, weight_end))
+            # elif both_height:
+            #     # only height
+            #     patient_data = Patient.objects.filter(**fil_dict height__range=(height_start, height_end))
+            # else:
+            #     # none of these 3 filters
+            #     patient_data = Patient.objects.filter(**fil_dict)
+
+            patient_data = Patient.objects.filter(**fil_dict, age__range =(age_start, age_end), weight__range=(weight_start, weight_end), height__range=(height_start, height_end))
+
             patient_serializer = PatientSerializer(patient_data, context={'request': request}, many=True)
             rib_counts = {"sternum": 0,"lprib1": 0,"lplrib1": 0,"lalrib1": 0,"lprib2": 0,"lplrib2": 0,"lalrib2": 0,"larib2": 0,"lprib3": 0,"lplrib3": 0,"lalrib3": 0,"larib3": 0,"lprib4": 0,"lplrib4": 0,"lalrib4": 0,"larib4": 0,"lprib5": 0,"lplrib5": 0,"lalrib5": 0,"larib5": 0,"lprib6": 0,"lplrib6": 0,"lalrib6": 0,"larib6": 0,"lprib7": 0,"lplrib7": 0,"lalrib7": 0,"larib7": 0,"lprib8": 0,"lplrib8": 0,"lalrib8": 0,"larib8": 0,"lprib9": 0,"lplrib9": 0,"lalrib9": 0,"larib9": 0,"lprib10": 0,"lplrib10": 0,"lalrib10": 0,"larib10": 0,"lprib11": 0,"lplrib11": 0,"lalrib11": 0,"lprib12": 0,"lplrib12": 0,"lalrib12": 0,"rprib1": 0,"rplrib1": 0,"ralrib1": 0,"rprib2": 0,"rplrib2": 0,"ralrib2": 0,"rarib2": 0,"rprib3": 0,"rplrib3": 0,"ralrib3": 0,"rarib3": 0,"rprib4": 0,"rplrib4": 0,"ralrib4": 0,"rarib4": 0,"rprib5": 0,"rplrib5": 0,"ralrib5": 0,"rarib5": 0,"rprib6": 0,"rplrib6": 0,"ralrib6": 0,"rarib6": 0,"rprib7": 0,"rplrib7": 0,"ralrib7": 0,"rarib7": 0,"rprib8": 0,"rplrib8": 0,"ralrib8": 0,"rarib8": 0,"rprib9": 0,"rplrib9": 0,"ralrib9": 0,"rarib9": 0,"rprib10": 0,"rplrib10": 0,"ralrib10": 0,"rarib10": 0,"rprib11": 0,"rplrib11": 0,"ralrib11": 0,"rprib12": 0,"rplrib12": 0,"ralrib12": 0}
             # print(rib_counts)

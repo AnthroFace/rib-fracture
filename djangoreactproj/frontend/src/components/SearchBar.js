@@ -126,6 +126,8 @@ class SearchBar extends Component {
       age_end: null,
       weight_start: null,
       weight_end: null,
+      height_start: null,
+      height_end: null,
       ancestry: "",
       sex: "",
       xray: "",
@@ -253,6 +255,138 @@ class SearchBar extends Component {
     axios.delete(URL + pk).then(() => {});
   };
 
+  clearFilter = () => {
+    this.setState({
+      age_start: null,
+      age_end: null,
+      weight_start: null,
+      weight_end: null,
+      height_start: null,
+      height_end: null,
+      ancestry: "",
+      sex: "",
+      xray: "",
+      cpr: "",
+      belted: "",
+      obese: "",
+      cardio: "",
+      patho: "",
+      tobacco: "",
+      marijuana: "",
+      alcohol: "",
+      prescripiton: "",
+      drug_use: "",
+      rib_section: [],
+      ancestryinputValue: "",
+      sexinputvalue: "",
+      xrayinputvalue: "",
+      cprinputvalue: "",
+      beltedinputvalue: "",
+      obeseinputvalue: "",
+      cardioinputvalue: "",
+      pathoinputvalue: "",
+      tobaccoinputvalue: "",
+      marijuanainputvalue: "",
+      alcoholinputvalue: "",
+      prescriptioninputvalue: "",
+      druguseinputvalue: "",
+      ribsectioninputvalue: [],
+      filter: [],
+      sternum: null,
+      lprib1: null,
+      lplrib1: null,
+      lalrib1: null,
+      lprib2: null,
+      lplrib2: null,
+      lalrib2: null,
+      larib2: null,
+      lprib3: null,
+      lplrib3: null,
+      lalrib3: null,
+      larib3: null,
+      lprib4: null,
+      lplrib4: null,
+      lalrib4: null,
+      larib4: null,
+      lprib5: null,
+      lplrib5: null,
+      lalrib5: null,
+      larib5: null,
+      lprib6: null,
+      lplrib6: null,
+      lalrib6: null,
+      larib6: null,
+      lprib7: null,
+      lplrib7: null,
+      lalrib7: null,
+      larib7: null,
+      lprib8: null,
+      lplrib8: null,
+      lalrib8: null,
+      larib8: null,
+      lprib9: null,
+      lplrib9: null,
+      lalrib9: null,
+      larib9: null,
+      lprib10: null,
+      lplrib10: null,
+      lalrib10: null,
+      larib10: null,
+      lprib11: null,
+      lplrib11: null,
+      lalrib11: null,
+      lprib12: null,
+      lplrib12: null,
+      lalrib12: null,
+      rprib1: null,
+      rplrib1: null,
+      ralrib1: null,
+      rprib2: null,
+      rplrib2: null,
+      ralrib2: null,
+      rarib2: null,
+      rprib3: null,
+      rplrib3: null,
+      ralrib3: null,
+      rarib3: null,
+      rprib4: null,
+      rplrib4: null,
+      ralrib4: null,
+      rarib4: null,
+      rprib5: null,
+      rplrib5: null,
+      ralrib5: null,
+      rarib5: null,
+      rprib6: null,
+      rplrib6: null,
+      ralrib6: null,
+      rarib6: null,
+      rprib7: null,
+      rplrib7: null,
+      ralrib7: null,
+      rarib7: null,
+      rprib8: null,
+      rplrib8: null,
+      ralrib8: null,
+      rarib8: null,
+      rprib9: null,
+      rplrib9: null,
+      ralrib9: null,
+      rarib9: null,
+      rprib10: null,
+      rplrib10: null,
+      ralrib10: null,
+      rarib10: null,
+      rprib11: null,
+      rplrib11: null,
+      ralrib11: null,
+      rprib12: null,
+      rplrib12: null,
+      ralrib12: null,
+    });
+    this.props.onClear();
+  };
+
   editFilter = (e) => {
     // e.preventDefault();
     axios
@@ -261,6 +395,8 @@ class SearchBar extends Component {
         age_end: this.state.age_end,
         weight_start: this.state.weight_start,
         weight_end: this.state.weight_end,
+        height_start: this.state.weight_start,
+        height_end: this.state.height_end,
         sex: this.state.sex,
         ancestry: this.state.ancestry,
         xray: this.state.xray,
@@ -388,6 +524,8 @@ class SearchBar extends Component {
             age_end: this.state.age_end,
             weight_start: this.state.weight_start,
             weight_end: this.state.weight_end,
+            height_start: this.state.height_start,
+            height_end: this.state.height_end,
             sex: this.state.sex,
             ancestry: this.state.ancestry,
             xray: this.state.xray,
@@ -537,6 +675,22 @@ class SearchBar extends Component {
           value={this.state.weight_end}
           onChange={(event) => {
             this.setState({ weight_end: event.target.value });
+          }}
+        />
+        <TextField
+          label="Height Start"
+          variant="outlined"
+          value={this.state.height_start}
+          onChange={(event) => {
+            this.setState({ height_start: event.target.value });
+          }}
+        />
+        <TextField
+          label="Height End"
+          variant="outlined"
+          value={this.state.height_end}
+          onChange={(event) => {
+            this.setState({ height_end: event.target.value });
           }}
         />
         <Autocomplete
@@ -869,7 +1023,7 @@ class SearchBar extends Component {
         <Button variant="contained" onClick={this.filter}>
           Filter
         </Button>
-        <Button variant="contained" onClick={this.props.onClear}>
+        <Button variant="contained" onClick={this.clearFilter}>
           Clear
         </Button>
         {console.log(this.state)}
