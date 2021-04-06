@@ -13,7 +13,7 @@ import { API_URL } from "../constants";
 const tempData =[
   ['Case ID',  'Age', 'Sex', 'Weight',  'Height (in)', 'Ancestry',  'MOD', 'COD', 'COD Type',  'XRAY',  'CPR',
    'Belted (if ap)',  'Obese', 'Cardiovascular Issues', 'Pathologies', 'Cigarette/Tobacco Use', 'Marijuana Use',
-   'Alcohol Use', 'Prescription Medications',  'Illicit Drug Use',  'Health Notes',  'Sternum',
+   'Alcohol Use', 'Prescription Medications',  'Illicit Drug Use',  'Health Notes',  'Additional Notes',  'Sternum',
    'CPR', 'l.p.rib.1', 'Completeness',  'Type',  'CPR', 'l.pl.rib.1',  'Completeness',  'Type',  'CPR', 'l.al.rib.1',  
    'Completeness',  'Type',  'CPR', 'l.p.rib.2', 'Completeness',  'Type',  'CPR', 'l.pl.rib.2',  'Completeness',  'Type',
    'CPR', 'l.al.rib.2',  'Completeness',  'Type',  'CPR', 'l.a.rib.2', 'Completeness',  'Type',  'CPR', 'l.p.rib.3', 
@@ -50,7 +50,7 @@ const tempData =[
    'Type',  'CPR', 'r.al.rib.10', 'Completeness',  'Type',  'CPR', 'r.a.rib.10',  'Completeness',  'Type',  'CPR',
    'r.p.rib.11',  'Completeness',  'Type',  'CPR', 'r.pl.rib.11', 'Completeness',  'Type',  'CPR', 'r.al.rib.11',
    'Completeness',  'Type',  'CPR', 'r.p.rib.12',  'Completeness',  'Type',  'CPR', 'r.pl.rib.12', 'Completeness',
-   'Type',  'CPR', 'r.al.rib.12', 'Completeness',  'Type',  'CPR',  'Additional Notes',
+   'Type',  'CPR', 'r.al.rib.12', 'Completeness',  'Type',  'CPR',
 ]
 ];
 
@@ -77,6 +77,7 @@ const ExportHeaders = [
 { label: "Prescription Medications", key: "prescription"},
 { label: "Illicit Drug Use", key: "drug_use"},
 { label: "Health Notes", key: "health_notes"},
+{ label: "Additional Notes", key: "notes"},
 { label: "Sternum", key: "sternum"},
 { label: "CPR", key: "cpr_sternum"},
 { label: "l.p.rib.1", key: "lprib1"},
@@ -439,7 +440,6 @@ const ExportHeaders = [
 { label: "Completeness", key: "com_ralrib12"},
 { label: "Type", key: "type_ralrib12"},
 { label: "CPR", key: "cpr_ralrib12"},
-{ label: "Additional Notes", key: "notes"},
 ];
 /*
 const patientData =[
