@@ -1,7 +1,6 @@
 
 import React , {Component} from 'react'; 
 import {CSVLink} from 'react-csv';
-import PatientList from "./PatientList";
 
 import Box from "@material-ui/core/Box";
 

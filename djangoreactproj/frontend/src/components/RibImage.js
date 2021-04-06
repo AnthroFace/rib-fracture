@@ -590,7 +590,6 @@ class RibImage extends Component {
     this.props.onSelectLocation(area.name);
   };
   clickedOutside = (evt) => {
-    const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
     this.setState({
       msg: `Please select a rib section`,
     });
