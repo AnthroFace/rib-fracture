@@ -188,8 +188,11 @@ export { bottomRightBarTotals };
     ];
     var maxValue = Math.max.apply(Math, nums);
     var minValue = Math.min.apply(Math, nums);
+<<<<<<< Updated upstream
 
     
+=======
+>>>>>>> Stashed changes
     // console.log("data", data)
     return (
       <div>

@@ -19,16 +19,16 @@ class RibImage extends Component {
     // this.setState({ msg: "Hover ribs to see total breaks for each area" });
   };
   clicked = (area) => {
-    this.setState({
-      //  msg: `You clicked on ${area.name}`,
-    });
+    // this.setState({
+    //    msg: `You clicked on ${area.name}`,
+    // });
     //this.props.onSelectLocation(area.name);
   };
   clickedOutside = (evt) => {
     const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
-    this.setState({
-      msg: `Please select a rib section`,
-    });
+    // this.setState({
+    //   msg: `Please select a rib section`,
+    // });
   };
   // moveOnImage = (evt) => {
   //   const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
@@ -37,16 +37,16 @@ class RibImage extends Component {
   //   });
   // };
   enterArea = (area) => {
-    this.setState({
-      hoveredArea: area,
-      msg: `Rib ${area.name} has ${area.breakValue} break(s)`,
-    });
+    // this.setState({
+    //   hoveredArea: area,
+    //   msg: `Rib ${area.name} has ${area.breakValue} break(s)`,
+    // });
   };
   leaveArea = (area) => {
-    this.setState({
-      hoveredArea: null,
-      msg: null,
-    });
+    // this.setState({
+    //   hoveredArea: null,
+    //   msg: null,
+    // });
   };
   // moveOnArea(area, evt) {
   // 	const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };

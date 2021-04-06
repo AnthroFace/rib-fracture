@@ -22,7 +22,7 @@
     "react-csv": "^2.0.3",
     "react-dom": "^16.14.0",
     "react-heatmap-grid": "^0.8.2",
-    "react-image-mapper": "0.0.15",
+    "react-image-mapper": "github:Anthroface/react-image-mapper#master",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.3.1",
     "react-select": "^3.1.1",

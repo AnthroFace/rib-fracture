@@ -516,6 +516,8 @@ class SearchBar extends Component {
     axios.get(URL).then((res) => {
       console.log(res.data);
       console.log("data length:", res.data.length);
+      // console.log("data length:", res.data.patients.length);
+
 
       if (res.data.length == 0) {
         axios

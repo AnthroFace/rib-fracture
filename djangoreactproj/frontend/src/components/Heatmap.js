@@ -16,7 +16,7 @@ class Content1 extends Component {
     // console.log("context1", this.props.rib_count);
     return (
       <Box padding="50px 0px 0px 300px">
-        {/* <RibHeatImage rib_count={this.props.rib_count} /> */}
+        <RibHeatImage rib_count={this.props.rib_count} />
       </Box>
     );
   }
