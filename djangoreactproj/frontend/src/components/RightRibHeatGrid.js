@@ -1,5 +1,6 @@
 import React from "react";
 import HeatMap from "react-heatmap-grid";
+import { rightRibValues } from "./RibHeatGrid"; 
 
 const xLabels = ["p", "pl", "al", "a"];
 // Display only even labels
@@ -72,6 +73,28 @@ const data = [
   [larib12, lplrib12, lalrib12, " "]
 ];
 
+//just to do max for both sides, causing error on this page only with right values, but not on ribheatimage.js or ribheatgrid.js
+/*
+var nums1 = [ 
+   rightRibValues.vrplrib1,rightRibValues.vralrib1, rightRibValues.vrprib1, rightRibValues.vrprib2, rightRibValues.vrplrib2, 
+  rightRibValues.vralrib2, rightRibValues.vrarib2, rightRibValues.vrprib3, rightRibValues.vrplrib3, rightRibValues.vralrib3, rightRibValues.vrarib3,
+  rightRibValues.vrprib4, rightRibValues.vrplrib4, rightRibValues.vralrib4, rightRibValues.vrarib4, rightRibValues.vrprib5, rightRibValues.vrplrib5, 
+  rightRibValues.vralrib5, rightRibValues.vrarib5, rightRibValues.vrprib6, rightRibValues.vrplrib6, rightRibValues.vralrib6, rightRibValues.vrarib6, 
+  rightRibValues.vrprib7, rightRibValues.vrplrib7, rightRibValues.vralrib7, rightRibValues.vrarib7, rightRibValues.vrprib8, rightRibValues.vrplrib8, 
+  rightRibValues.vralrib8, rightRibValues.vrarib8, rightRibValues.vrprib9, rightRibValues.vrplrib9, rightRibValues.vralrib9, rightRibValues.vrarib9,
+  rightRibValues.vrprib10, rightRibValues.vrplrib10, rightRibValues.vralrib10, rightRibValues.vrarib10, rightRibValues.vrplrib11, rightRibValues.vralrib11, 
+  rightRibValues.vrprib11, rightRibValues.vrplrib12, rightRibValues.vralrib12, rightRibValues.vrprib12, 
+//left rib variables
+  larib1, lalrib1, lplrib1, larib2, lalrib2, lplrib2, 
+  lprib2, larib3, lalrib3, lplrib3, lprib3,
+  larib4, lalrib4, lplrib4, lprib4, larib5, lalrib5, 
+  lplrib5, lprib5, larib6, lalrib6, lplrib6, lprib6, 
+  larib7,lalrib7, lplrib7, lprib7, larib8, lalrib8, 
+  lplrib8, lprib8, larib9, lalrib9, lplrib9, lprib9, 
+  larib10, lalrib10, lplrib10, lprib10, larib11, 
+  lalrib11, lplrib11, larib12, lalrib12, lplrib12
+];
+*/
 
   export default function() {
     return (
