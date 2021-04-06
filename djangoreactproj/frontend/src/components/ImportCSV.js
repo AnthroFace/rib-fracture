@@ -163,11 +163,11 @@ class ImportCSV extends Component {
            row.data[12] != "Obese" || row.data[13] != "Cardiovascular Issues" || row.data[14] != "Pathologies" ||
            row.data[15] != "Cigarette/Tobacco Use" || row.data[16] != "Marijuana Use" || row.data[17] != "Alcohol Use" ||
            row.data[18] != "Prescription Medications" || row.data[19] != "Illicit Drug Use" || row.data[20] != "Health Notes" ||
-           row.data[22] != "Sternum" || row.data[23] != "CPR" || row.data[24] != "l.p.rib.1" || row.data[25] != "Completeness" ||
-           row.data[26] != "Type" || row.data[27] != "CPR" || row.data[200] != "l.al.rib.12" || row.data[201] != "Completeness" ||
-           row.data[202] != "Type" || row.data[203] != "CPR" || row.data[204] != "r.p.rib.1" || row.data[205] != "Completeness" ||
-           row.data[206] != "Type" || row.data[207] != "CPR" || row.data[380] != "r.al.rib.12" || row.data[381] != "Completeness" ||
-           row.data[382] != "Type" || row.data[383] != "CPR" || row.data[21] != "Additional Notes") {
+           row.data[21] != "Sternum" || row.data[22] != "CPR" || row.data[23] != "l.p.rib.1" || row.data[24] != "Completeness" ||
+           row.data[25] != "Type" || row.data[26] != "CPR" || row.data[199] != "l.al.rib.12" || row.data[200] != "Completeness" ||
+           row.data[201] != "Type" || row.data[202] != "CPR" || row.data[203] != "r.p.rib.1" || row.data[204] != "Completeness" ||
+           row.data[205] != "Type" || row.data[206] != "CPR" || row.data[379] != "r.al.rib.12" || row.data[380] != "Completeness" ||
+           row.data[381] != "Type" || row.data[382] != "CPR" || row.data[383] != "Additional Notes") {
             alert("This CSV file does not have the expected headers.\nPlease note that headers must match the template exactly and are case sensitive.\nThe template can be downloaded from the Export page.")
             parser.abort()
           }
