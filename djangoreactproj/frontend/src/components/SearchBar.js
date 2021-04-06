@@ -503,21 +503,21 @@ class SearchBar extends Component {
         ralrib12: this.state.ralrib12,
       })
       .then(function (response) {
-        console.log("EDITING", response);
+        // console.log("EDITING", response);
       });
   };
 
   filter = (event) => {
-    console.log("filtering");
+    // console.log("filtering");
     var i;
     for (i = 0; i < this.state.rib_section.length; i++) {
       this.setState({ [this.state.rib_section[i]]: 1 });
     }
     axios.get(URL).then((res) => {
-      // console.log(res.data);
-      // console.log("data length:", res.data.length);
+      console.log(res.data);
+      console.log("data length:", res.data.length);
 
-      if (res.data.patients.length == 0) {
+      if (res.data.length == 0) {
         axios
           .post(URL, {
             age_start: this.state.age_start,
@@ -1026,7 +1026,7 @@ class SearchBar extends Component {
         <Button variant="contained" onClick={this.clearFilter}>
           Clear
         </Button>
-        {console.log(this.state)}
+        {/* {console.log(this.state)} */}
       </div>
     );
   }
