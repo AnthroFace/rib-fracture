@@ -478,7 +478,7 @@ componentDidMount() {
   }
 
 getPatients = () => {
-    axios.get(API_URL).then((res) => this.setState({ patients: res.data }));
+    axios.get(API_URL).then((res) => this.setState({ patients: res.data.patients }));
   };
 
 resetState = () => {
