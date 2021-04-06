@@ -4,6 +4,8 @@ import NewPatientModal from "./NewPatientModal";
 
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
 
+
+
 class PatientList extends Component {
   render() {
     const patients = this.props.patients;
@@ -568,6 +570,10 @@ class PatientList extends Component {
                 <td>{patient.sternum}</td>
                 <td>{patient.cpr_sternum}</td>
                 <td>{patient.lprib1}</td>
+                <script type = "text/javascript">
+                  var count=8;
+                </script>
+                <td> <script type = "text/javascript">document.write(count) </script> <span id ="count"></span></td>
                 <td>{patient.com_lprib1}</td>
                 <td>{patient.type_lprib1}</td>
                 <td>{patient.cpr_lprib1}</td>
@@ -944,6 +950,7 @@ class PatientList extends Component {
           )}
         </tbody>
       </Table>
+      
     );
   }
 }
