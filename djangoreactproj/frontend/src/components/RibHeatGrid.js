@@ -1,5 +1,6 @@
 import React from "react";
 import HeatMap from "react-heatmap-grid";
+import { leftRibValues } from "./RightRibHeatGrid"; 
 
 const xLabels = ["a", "al", "pl", "p"];
 // Display only even labels
@@ -22,12 +23,12 @@ rarib6=2, ralrib6=0, rplrib6=1, rprib6=3,
 rarib7=6, ralrib7=4, rplrib7=7, rprib7=9, 
 rarib8=4, ralrib8=1, rplrib8=8, rprib8=2,
 rarib9=1, ralrib9=3, rplrib9=4, rprib9=7,
-rarib10=6, ralrib10=3, rplrib10=5, rprib10=11,
+rarib10=6, ralrib10=3, rplrib10=5, rprib10=7,
 ralrib11=6, rplrib11=1, rprib11=2, 
 ralrib12=9, rplrib12=7, rprib12=1; 
 
 var rightRibValues ={
-  vralrib1: ralrib1, vrplrib1: rplrib1, vrprib1: rprib1, 
+  vralrib1: ralrib1, vrplrib1:rplrib1, vrprib1: rprib1, 
   vrarib2:rarib2, vralrib2:ralrib2, vrplrib2:rplrib2, vrprib2:rprib2,
   vrarib3:rarib3, vralrib3:ralrib3, vrplrib3:rplrib3, vrprib3:rprib3,
   vrarib4:rarib4, vralrib4:ralrib4, vrplrib4:rplrib4, vrprib4:rprib4,
@@ -42,6 +43,7 @@ var rightRibValues ={
 }; 
 
 export { rightRibValues };
+
 
 var rightBarTotals ={
   rightbar1: rplrib1+ralrib1+rprib1, 
@@ -91,6 +93,32 @@ const data = [
 ];
 
 
+/*
+//To get max and min of both sides of grid. Working on this page but errors on rightribheatgrid.js
+var nums = [rplrib1, ralrib1, rprib1, rprib2, rplrib2, 
+  ralrib2, rarib2, rprib3, rplrib3, ralrib3, rarib3,
+  rprib4, rplrib4, ralrib4, rarib4, rprib5, rplrib5, 
+  ralrib5, rarib5, rprib6, rplrib6, ralrib6, rarib6, 
+  rprib7, rplrib7, ralrib7, rarib7, rprib8, rplrib8, 
+  ralrib8, rarib8, rprib9, rplrib9, ralrib9, rarib9,
+  rprib10, rplrib10, ralrib10, rarib10, rplrib11, ralrib11, 
+  rprib11, rplrib12, ralrib12, rprib12,
+//left rib variables
+  leftRibValues.vlarib1, leftRibValues.vlalrib1, leftRibValues.vlplrib1, leftRibValues.vlarib2, leftRibValues.vlalrib2, leftRibValues.vlplrib2, 
+  leftRibValues.vlprib2, leftRibValues.vlarib3, leftRibValues.vlalrib3, leftRibValues.vlplrib3, leftRibValues.vlprib3,
+  leftRibValues.vlarib4, leftRibValues.vlalrib4, leftRibValues.vlplrib4, leftRibValues.vlprib4, leftRibValues.vlarib5, leftRibValues.vlalrib5, 
+  leftRibValues.vlplrib5, leftRibValues.vlprib5, leftRibValues.vlarib6, leftRibValues.vlalrib6, leftRibValues.vlplrib6, leftRibValues.vlprib6, 
+  leftRibValues.vlarib7,leftRibValues.vlalrib7, leftRibValues.vlplrib7, leftRibValues.vlprib7, leftRibValues.vlarib8, leftRibValues.vlalrib8, 
+  leftRibValues.vlplrib8, leftRibValues.vlprib8, leftRibValues.vlarib9, leftRibValues.vlalrib9, leftRibValues.vlplrib9, leftRibValues.vlprib9, 
+  leftRibValues.vlarib10, leftRibValues.vlalrib10, leftRibValues.vlplrib10, leftRibValues.vlprib10, leftRibValues.vlarib11, 
+  leftRibValues.vlalrib11, leftRibValues.vlplrib11, leftRibValues.vlarib12, leftRibValues.vlalrib12, leftRibValues.vlplrib12
+];
+
+var maxValue = Math.max.apply(null,nums);
+var minValue = Math.min.apply(null, nums);
+
+*/
+
   export default function() {
     return (
       <div>
@@ -104,8 +132,8 @@ const data = [
         squares
         height={45}
         //onClick={(x, y) => alert(`Clicked ${x}, ${y}`)}
-        cellStyle={(background, value, min, max, data, x, y) => ({
-          background: `rgb(230, 40,0, ${1 - (max - value) / (max - min)})`,
+        cellStyle={(background, value, minValue, maxValue, data, x, y) => ({
+          background: `rgb(230, 40,0, ${1 - (maxValue - value) / (maxValue - minValue)})`,
           fontSize: "11.5px",
           color: "#000"
         })}
