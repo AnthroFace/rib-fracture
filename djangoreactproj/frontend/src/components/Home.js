@@ -24,8 +24,8 @@ class Home extends Component {
               alt=""
             />
           </Box>
-          <Box border={0}>
-            <div class = "home">
+          <Box border={0} class = "buttons" >
+            <div  style ={{padding : "5px"}}>
             <Button 
               style={{
                 // borderRadius: 35,
@@ -41,7 +41,7 @@ class Home extends Component {
               New Patient
             </Button>
             </div>
-            <div class = "home1">
+            <div style ={{padding : "5px"}} >
             <Button
               style={{
                 //  borderRadius: 35,
@@ -57,7 +57,7 @@ class Home extends Component {
               Database
             </Button>
             </div>
-            <div class = "home2">
+            <div style ={{padding : "5px"}} >
             <Button
               style={{
                 // borderRadius: 35,
@@ -73,7 +73,7 @@ class Home extends Component {
               Import Data
             </Button>
             </div>
-            <div class = "home3">
+            <div style ={{padding : "5px"}}>
             <Button
               style={{
                 // borderRadius: 35,
@@ -89,7 +89,7 @@ class Home extends Component {
               Export Data
             </Button>
             </div>
-            <div class = "home4">
+            <div style ={{padding : "5px"}}>
             <Button
               style={{
                 // borderRadius: 35,
