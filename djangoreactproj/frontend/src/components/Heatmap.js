@@ -316,8 +316,8 @@ class Heatmap extends React.Component {
             tabsBorderBottomStyle={{ background: "#D0F0C0", height: 4 }}
             leftContentStyle={{ background: "#FFFEE9" }}
             rightContentStyle={{ background: "#FFFEE9" }}
-            leftTabTitle={"Heat Map Grid"}
-            rightTabTitle={"Heat Map Image"}
+            leftTabTitle={"Heat Map Image"}
+            rightTabTitle={"Heat Map Grid"}
             // leftContent={<Content1 rib_count={this.state.rib_count} />}
             // rightContent={<Content2 rib_count={this.state.rib_count} />}
             leftContent={<Content1 rib_count={ribCount} />}
