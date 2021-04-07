@@ -737,6 +737,7 @@ class PatientList extends Component {
             pageSize={10}
             // disableColumnFilter
             checkboxSelection
+            disableColumnMenu
           />
 
           //         <NewPatientModal
