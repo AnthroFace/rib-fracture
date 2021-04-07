@@ -497,7 +497,7 @@ resetState = () => {
         <h4>Export CSV File</h4>
         </div>
       <Box padding = "0px 50px 35px 0px" >
-        <CSVLink class = "ugh" data={this.state.patients} style={link1Style} filename="ExportData.csv">Export Data</CSVLink>
+        <CSVLink data={this.state.patients} headers={ExportHeaders} style={link1Style} filename="ExportData.csv">Export Data</CSVLink>
       </Box>
       <Box padding = "0px 50px 0px 0px" >
         <CSVLink data={tempData} style={link2Style} filename="Template.csv">Download Template</CSVLink>
