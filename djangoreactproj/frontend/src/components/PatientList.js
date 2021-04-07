@@ -10,7 +10,10 @@ class PatientList extends Component {
   render() {
     const patients = this.props.patients;
     return (
-      <Table striped hover size="sm" id="PatientTable">
+
+      <div class = "patienttable">
+      <Table striped hover size="sm">
+        
         <thead>
           <tr>
             <th>Case Number</th>
@@ -950,6 +953,7 @@ class PatientList extends Component {
           )}
         </tbody>
       </Table>
+      </div>
       
     );
   }

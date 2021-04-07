@@ -3,3 +3,35 @@
   background-image: none;
   background-repeat: no-repeat;
 }
+
+.home{
+  white-space: nowrap;
+  font-family: 'Montserrat';
+  padding: 0px 00px 0px 0px;
+  position: absolute;
+}
+
+.home1{
+  white-space: nowrap;
+  font-family: 'Montserrat';
+  padding: 0px 0px 0px 200px;
+  position: absolute;
+}
+.home2{
+  white-space: nowrap;
+  font-family: 'Montserrat';
+  padding: 0px 0px 0px 380px;
+  position: absolute;
+}
+.home3{
+  white-space: nowrap;
+  font-family: 'Montserrat';
+  padding: 80px 0px 0px 100px;
+  position: absolute;
+}
+.home4{
+  white-space: nowrap;
+  font-family: 'Montserrat';
+  padding: 80px 0px 0px 300px;
+  position: absolute;
+}

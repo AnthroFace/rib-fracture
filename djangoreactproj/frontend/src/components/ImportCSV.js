@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 //import Papa from '.\node_modules\PapaParse\papaparse';
 import * as Papa from "papaparse";
+import "./../text.css";
 
 import { API_URL } from "../constants";
 
@@ -616,6 +617,9 @@ class ImportCSV extends Component {
   render() {
     return (
       <div className="ImportCSV">
+        <div class = "csvtitle">
+        <h4>Import CSV File</h4>
+        </div>
         <input
           type="file"
           accept=".csv"

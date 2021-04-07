@@ -1,0 +1,52 @@
+
+.CircleText{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Montserrat';
+}
+
+.textcircle{
+  font-family: 'Montserrat';
+}
+
+.SquareText{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.patientpage{
+  font-family: 'Montserrat';
+  padding: 40px 0px 0px 30px;
+}
+.form1{
+  font-family: 'Montserrat';
+  padding: 10px 0px 0px 30px;
+}
+.form-row{
+  font-family: 'Montserrat';
+}
+
+.send{
+  font-family: 'Montserrat';
+}
+
+.patienttable{
+  font-family: 'Montserrat';
+}
+
+.ImportCSV{
+  font-family: 'Montserrat';
+  padding: 30px 0px 0px 50px;
+}
+.ExportCSV{
+  font-family: 'Montserrat';
+  padding: 30px 0px 0px 50px;
+
+}
+
+.csvtitle{
+  padding: 0px 0px 10px 20px;
+}
+.csvtitle2{
+  padding: 0px 0px 10px 30px;
+}

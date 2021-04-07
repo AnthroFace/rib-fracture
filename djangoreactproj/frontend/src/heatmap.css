@@ -1,4 +1,45 @@
 .Heatmap{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
+    font-family: 'Montserrat';
+}
+
+.heatbaby{
+    position: absolute;
+    padding:50px 0px 0px 595px;
+    font-family: 'Montserrat';
+}
+
+.heatparent{
+    position: relative;
+    padding : 50px 0px 0px 0px;
+    font-family: 'Montserrat';
+}
+.heatgridbaby{
+    position: absolute;
+    padding:0px 0px 0px 0px;
+    font-family: 'Montserrat';
+}
+
+.heatgridparent{
+    position: relative;
+    padding : 0px 0px 0px 0px;
+    font-family: 'Montserrat';
+}
+
+.verticleleft{
+    position: absolute;
+    padding : 691px 0px 964px 00px;
+    font-family: 'Montserrat';
+}
+.verticleright{
+    position: absolute;
+    padding : 1129px 645px 1167px 3px;
+    font-family: 'Montserrat';
+}
+
+.tabs{
+    padding : 25px 0px 0px 175px;
+    font-family: 'Montserrat';
 }

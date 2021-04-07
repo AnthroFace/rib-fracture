@@ -9,15 +9,48 @@ import LeftVertBar from "./LeftVertBar";
 import RightVertBar from "./RightVertBar";
 import LeftHorBar from "./LeftHorBar";
 import RightHorBar from "./RightHorBar";
+
+import CircleLegend from "./CircleLegend";
+import CircleText from "./CircleText";
+import SquareLegend from "./SquareLegend";
+import SquareText from "./SquareText";
+import HeatImageLabel from "./HeatImageLabel";
+import HeatGridLabel from "./HeatGridLabel";
+
+import combinedHeatmap from "./combinedHeatmap";
 import CoolTabs from "react-cool-tabs";
+import ImageMapper from "react-image-mapper";
+import { Label } from "reactstrap";
 
 class Content1 extends Component {
   render() {
-    // console.log("context1", this.props.rib_count);
     return (
-      <Box padding="50px 0px 0px 300px">
-        {/* <RibHeatImage rib_count={this.props.rib_count} /> */}
-      </Box>
+      <div>
+        <Box class="heatbaby">
+          <div>
+            <HeatImageLabel />
+          </div>
+        </Box>
+        <Box class="heatparent">
+          <Box padding="240px 0px 0px 150px" style={{ position: "absolute" }}>
+            <div>
+              <CircleLegend />
+            </div>
+          </Box>
+          <Box padding="240px 0px 0px 150px" style={{ position: "absolute" }}>
+            <div>
+              <CircleText />
+            </div>
+          </Box>
+          <Box
+            border={0}
+            style={{ postion: "absolute" }}
+            padding="0px 0px 0px 500px"
+          >
+            <div>{/* <RibHeatImage rib_count={this.props.rib_count} /> */}</div>
+          </Box>
+        </Box>
+      </div>
     );
   }
 }
@@ -26,58 +59,140 @@ class Content2 extends Component {
   render() {
     // console.log("context2", this.props.rib_count);
     return (
-      <Box padding="0px 0px 0px 0px">
-        <Box
-          padding="0px 0px 35px 0px"
-          border={0}
-          style={{ position: "absolute", transform: "rotate(180deg)" }}
-        >
+      <div>
+        <Box class="heatgridbaby">
           <div>
-            <RightVertBar rib_count={this.props.rib_count} />
+            <HeatGridLabel />
           </div>
         </Box>
+        <Box class="heatgridparent">
+          <Box padding="240px 0px 0px 95px" style={{ position: "absolute" }}>
+            <div>
+              <SquareLegend />
+            </div>
+          </Box>
+          <Box padding="240px 0px 0px 65px" style={{ position: "absolute" }}>
+            <div>
+              <SquareText />
+            </div>
+          </Box>
+          <Box
+            padding="0px 200px 35px 00px"
+            border={0}
+            style={{ position: "absolute", transform: "rotate(180deg)" }}
+          >
+            <div>
+              <RightVertBar rib_count={this.props.rib_count} />
+            </div>
+          </Box>
+          <Box padding="60px 12px 50px 550px" style={{ position: "absolute" }}>
+            <div>
+              <RibHeatGrid rib_count={this.props.rib_count} />
+            </div>
+          </Box>
 
-        <Box padding="60px 12px 50px 350px" style={{ position: "absolute" }}>
-          <div>
-            <RibHeatGrid rib_count={this.props.rib_count} />
-          </div>
-        </Box>
+          <Box padding="60px 12px 0px 760px" style={{ position: "absolute" }}>
+            <div>
+              <RightRibHeatGrid rib_count={this.props.rib_count} />
+            </div>
+          </Box>
+          <Box padding="25px 0px 0px 950px" style={{ position: "absolute" }}>
+            <div>
+              <LeftVertBar rib_count={this.props.rib_count} />
+            </div>
+          </Box>
 
-        <Box padding="60px 12px 0px 560px" style={{ position: "absolute" }}>
-          <div>
-            <RightRibHeatGrid rib_count={this.props.rib_count} />
-          </div>
-        </Box>
+          <Box
+            class="verticleright"
+            border={0}
+            style={{ transform: "rotate(90deg)" }}
+          >
+            <div>
+              <RightHorBar rib_count={this.props.rib_count} />
+            </div>
+          </Box>
 
-        <Box padding="25px 0px 0px 750px" style={{ position: "absolute" }}>
-          <div>
-            <LeftVertBar rib_count={this.props.rib_count} />
-          </div>
+          <Box
+            class="verticleleft"
+            border={0}
+            style={{ transform: "rotate(90deg)" }}
+          >
+            <div>
+              <LeftHorBar rib_count={this.props.rib_count} />
+            </div>
+          </Box>
         </Box>
-
-        <Box
-          padding="865px 0px 738px 0px"
-          border={0}
-          style={{ position: "absolute", transform: "rotate(90deg)" }}
-        >
-          <div>
-            <RightHorBar rib_count={this.props.rib_count} />
-          </div>
-        </Box>
-
-        <Box
-          padding="904px 245px 942px 3px"
-          border={0}
-          style={{ position: "absolute", transform: "rotate(90deg)" }}
-        >
-          <div>
-            <LeftHorBar rib_count={this.props.rib_count} />
-          </div>
-        </Box>
-      </Box>
+      </div>
     );
   }
 }
+
+// export  default  class  Example  extends  React.Component {
+// render() {
+//    return (
+//      <div>
+//        <Box class = "tabs">
+//          <CoolTabs
+//            tabKey={'1'}
+//            style={{ width:  1400, height:  1800, background:  'white' }}
+//            activeTabStyle={{ background:  '#FFFEE9', color:  '#963A2F'  }}
+//            unActiveTabStyle={{ background:  '#D0F0C0', color:  '#963A2F' }}
+//            activeLeftTabBorderBottomStyle={{ background:  '#963A2F', height:  4 }}
+//            activeRightTabBorderBottomStyle={{ background:  '#963A2F', height:  4 }}
+//            tabsBorderBottomStyle={{ background:  '#D0F0C0', height:  4 }}
+//            leftContentStyle={{ background:  '#FFFEE9' }}
+//            rightContentStyle={{ background:  '#FFFEE9' }}
+//            leftTabTitle={'Heat Map Grid'}
+//            rightTabTitle={'Heat Map Image'}
+//            leftContent={<Content1/>}
+//            rightContent={<Content2/>}
+//            contentTransitionStyle={'transform 0.6s ease-in'}
+//            borderTransitionStyle={'all 0.6s ease-in'}/>
+//      </Box>
+//      </div>
+// );
+// }}
+
+//right,bottom,left,top
+//    <Box padding = "50px 0px 0px 400px">
+//      <CoolTabs
+//        tabKey={'1'}
+//        style={{ width:  1000, height:  700, background:  'white' }}
+//        activeTabStyle={{ background:  'red', color:  'white' }}
+//        unActiveTabStyle={{ background:  'green', color:  'black' }}
+//        activeLeftTabBorderBottomStyle={{ background:  'blue', height:  4 }}
+//        activeRightTabBorderBottomStyle={{ background:  'yellow', height:  4 }}
+//        tabsBorderBottomStyle={{ background:  'orange', height:  4 }}
+//        leftContentStyle={{ background:  'lightgreen' }}
+//        rightContentStyle={{ background:  'lightblue' }}
+//        leftTabTitle={'Left title'}
+//        rightTabTitle={'Right title'}
+//        leftContent={<Content1/>}
+//        rightContent={<Content2/>}
+//        contentTransitionStyle={'transform 0.6s ease-in'}
+//        borderTransitionStyle={'all 0.6s ease-in'}/>
+//  </Box>
+
+// class Heatmap extends Component {
+
+//     render() {
+//       return (
+
+//         <div className="Heatmap" >
+
+//         <Box
+//           padding="904px 245px 942px 3px"
+//           border={0}
+//           style={{ position: "absolute", transform: "rotate(90deg)" }}
+//         >
+//           <div>
+//             <LeftHorBar rib_count={this.props.rib_count} />
+//           </div>
+//         </Box>
+//       </Box>
+//     );
+//   }
+// }
 
 class Heatmap extends React.Component {
   state = {
@@ -299,7 +414,8 @@ class Heatmap extends React.Component {
         {/* rib count variable {console.log(ribCount)} */}
         {/* <pre>{JSON.stringify(ribCount, null, 2)}</pre> */}
         {/* <pre>{JSON.stringify(this.state.rib_count, null, 2)}</pre> */}
-        <Box padding="25px 0px 0px 275px">
+
+        {/* <Box padding="25px 0px 0px 275px">
           <CoolTabs
             tabKey={"1"}
             style={{ width: 1200, height: 1800, background: "white" }}
@@ -320,6 +436,32 @@ class Heatmap extends React.Component {
             rightTabTitle={"Heat Map Grid"}
             // leftContent={<Content1 rib_count={this.state.rib_count} />}
             // rightContent={<Content2 rib_count={this.state.rib_count} />}
+            leftContent={<Content1 rib_count={ribCount} />}
+            rightContent={<Content2 rib_count={ribCount} />}
+            contentTransitionStyle={"transform 0.6s ease-in"}
+            borderTransitionStyle={"all 0.6s ease-in"}
+          />
+        </Box> */}
+
+        <Box class="tabs">
+          <CoolTabs
+            tabKey={"1"}
+            style={{ width: 1400, height: 1800, background: "white" }}
+            activeTabStyle={{ background: "#FFFEE9", color: "#963A2F" }}
+            unActiveTabStyle={{ background: "#D0F0C0", color: "#963A2F" }}
+            activeLeftTabBorderBottomStyle={{
+              background: "#963A2F",
+              height: 4,
+            }}
+            activeRightTabBorderBottomStyle={{
+              background: "#963A2F",
+              height: 4,
+            }}
+            tabsBorderBottomStyle={{ background: "#D0F0C0", height: 4 }}
+            leftContentStyle={{ background: "#FFFEE9" }}
+            rightContentStyle={{ background: "#FFFEE9" }}
+            leftTabTitle={"Heat Map Image"}
+            rightTabTitle={"Heat Map Grid"}
             leftContent={<Content1 rib_count={ribCount} />}
             rightContent={<Content2 rib_count={ribCount} />}
             contentTransitionStyle={"transform 0.6s ease-in"}
