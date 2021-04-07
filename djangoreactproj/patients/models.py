@@ -1,5 +1,20 @@
 from django.db import models
 
+class User(models.Model):
+    user_id = models.IntegerField(unique=True)
+    #other user login stuff
+
+    def __str__(self):
+        return self.user_id
+
+class Dataset(models.Model):
+    dataset_id = models.IntegerField(unique=True)
+    dataset_name = models.CharField(max_length=240, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.dataset_name
+
 class Patient(models.Model):
     case_id = models.CharField("Case ID", max_length=240,default="", unique=True)
     age = models.IntegerField("Age", blank=True, null=True)
@@ -385,6 +400,34 @@ class Patient(models.Model):
     com_ralrib12 = models.FloatField(blank=True, null=True)
     type_ralrib12 = models.CharField(max_length=20, blank=True)
     cpr_ralrib12 = models.CharField(max_length=2, blank=True)
+    dataset = models.ForeignKey(Dataset, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.case_id
+
+#    class Meta:
+#        abstract = True
+
+#class NewDynamicModel(object):
+#    _instance = dict()
+# 
+#    def __new__(cls, base_cls, tb_name):
+#        """
+#        Create Class
+#                 :param base_cls: class name
+#                 :param tb_name: table name
+#        :return: 
+#        """
+#        new_cls_name = "%s_To_%s" % (base_cls.__name__, '_'.join(map(lambda x: x.capitalize(), tb_name.split('_'))))
+# 
+#        if new_cls_name not in cls._instance:
+#            new_meta_cls = base_cls.Meta
+#            new_meta_cls.db_table = tb_name
+#            model_cls = type(str(new_cls_name), (base_cls,),
+#                             {'__tablename__': tb_name, 'Meta': new_meta_cls, '__module__': cls.__module__})
+#            cls._instance[new_cls_name] = model_cls
+#        return cls._instance[new_cls_name]
+#        
+# # Use
+#Test_2018 = NewDynamicModel(Patient, 'tb_test_2018')
+#print(Test_2018.objects.all())
