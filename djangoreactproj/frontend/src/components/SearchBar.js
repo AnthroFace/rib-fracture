@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Button from "@material-ui/core/Button";
+import Toolbar from "@material-ui/core/Toolbar";
 
 import axios from "axios";
 
@@ -645,388 +646,409 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <TextField
-          label="Age Start"
-          variant="outlined"
-          value={this.state.age_start}
-          onChange={(event) => {
-            this.setState({ age_start: event.target.value });
-          }}
-        />
-        <TextField
-          label="Age End"
-          variant="outlined"
-          value={this.state.age_end}
-          onChange={(event) => {
-            this.setState({ age_end: event.target.value });
-          }}
-        />
-        <TextField
-          label="Weight Start"
-          variant="outlined"
-          value={this.state.weight_start}
-          onChange={(event) => {
-            this.setState({ weight_start: event.target.value });
-          }}
-        />
-        <TextField
-          label="Weight End"
-          variant="outlined"
-          value={this.state.weight_end}
-          onChange={(event) => {
-            this.setState({ weight_end: event.target.value });
-          }}
-        />
-        <TextField
-          label="Height Start"
-          variant="outlined"
-          value={this.state.height_start}
-          onChange={(event) => {
-            this.setState({ height_start: event.target.value });
-          }}
-        />
-        <TextField
-          label="Height End"
-          variant="outlined"
-          value={this.state.height_end}
-          onChange={(event) => {
-            this.setState({ height_end: event.target.value });
-          }}
-        />
-        <Autocomplete
-          value={this.state.sex}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ sex: "" });
-            } else {
-              if (newValue === "Female") {
-                this.setState({ sex: "F" });
+        <Toolbar>
+          <TextField
+            label="Age Start"
+            variant="outlined"
+            style={{ width: 150, marginRight: 4 }}
+            value={this.state.age_start}
+            onChange={(event) => {
+              this.setState({ age_start: event.target.value });
+            }}
+          />
+          <TextField
+            label="Age End"
+            variant="outlined"
+            style={{ width: 150, marginRight: 4 }}
+            value={this.state.age_end}
+            onChange={(event) => {
+              this.setState({ age_end: event.target.value });
+            }}
+          />
+          <TextField
+            label="Weight Start"
+            variant="outlined"
+            style={{ width: 150, marginRight: 4 }}
+            value={this.state.weight_start}
+            onChange={(event) => {
+              this.setState({ weight_start: event.target.value });
+            }}
+          />
+          <TextField
+            label="Weight End"
+            variant="outlined"
+            style={{ width: 150, marginRight: 4 }}
+            value={this.state.weight_end}
+            onChange={(event) => {
+              this.setState({ weight_end: event.target.value });
+            }}
+          />
+          <TextField
+            label="Height Start"
+            variant="outlined"
+            style={{ width: 150, marginRight: 4 }}
+            value={this.state.height_start}
+            onChange={(event) => {
+              this.setState({ height_start: event.target.value });
+            }}
+          />
+          <TextField
+            label="Height End"
+            variant="outlined"
+            style={{ width: 150, marginRight: 4 }}
+            value={this.state.height_end}
+            onChange={(event) => {
+              this.setState({ height_end: event.target.value });
+            }}
+          />
+        </Toolbar>
+        <Toolbar>
+          <Autocomplete
+            value={this.state.sex}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ sex: "" });
               } else {
-                this.setState({ sex: "M" });
+                if (newValue === "Female") {
+                  this.setState({ sex: "F" });
+                } else {
+                  this.setState({ sex: "M" });
+                }
               }
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.sexinputvalue}
-          onInputChange={(event, newInputValue) => {
-            // console.log(newInputValue);
-            this.setState({ sexinputvalue: newInputValue });
-          }}
-          id="sex-choices"
-          openOnFocus={true}
-          options={Sexes}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Sex" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.ancestry}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ ancestry: "" });
-            } else {
-              this.setState({ ancestry: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.ancestryinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ ancestryinputValue: newInputValue });
-          }}
-          id="ancestry-choice"
-          options={Ancestries}
-          openOnFocus={true}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Ancestry" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.xray}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ xray: "" });
-            } else {
-              this.setState({ xray: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.xrayinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ xrayinputValue: newInputValue });
-          }}
-          id="xray-choice"
-          openOnFocus={true}
-          options={YesNo}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="X-Ray Taken" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.cpr}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ cpr: "" });
-            } else {
-              this.setState({ cpr: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.cprinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ cprinputValue: newInputValue });
-          }}
-          id="cpr-choice"
-          openOnFocus={true}
-          options={YesNo}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="CPR Performed" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.belted}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ belted: "" });
-            } else {
-              this.setState({ belted: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.beltedinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ beltedinputValue: newInputValue });
-          }}
-          id="belted-choice"
-          options={YesNo}
-          openOnFocus={true}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Belted" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.obese}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ obese: "" });
-            } else {
-              this.setState({ obese: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.obeseinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ obeseinputValue: newInputValue });
-          }}
-          id="obese-choice"
-          options={YesNo}
-          openOnFocus={true}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Obese" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.cardio}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ cardio: "" });
-            } else {
-              this.setState({ cardio: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.cardioinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ cardioinputValue: newInputValue });
-          }}
-          id="cardio-choice"
-          options={YesNo}
-          openOnFocus={true}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Cardio" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.patho}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ patho: "" });
-            } else {
-              this.setState({ patho: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.pathoinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ pathoinputValue: newInputValue });
-          }}
-          id="patho-choice"
-          options={YesNo}
-          openOnFocus={true}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Pathology Taken" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.tobacco}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ tobacco: "" });
-            } else {
-              this.setState({ tobacco: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.tobaccoinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ tobaccoinputValue: newInputValue });
-          }}
-          id="tobacco-choice"
-          options={YesNo}
-          openOnFocus={true}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Tobacco Usage" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.marijuana}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ marijuana: "" });
-            } else {
-              this.setState({ marijuana: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.marijuanainputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ marijuanainputValue: newInputValue });
-          }}
-          id="marijuana-choice"
-          options={YesNo}
-          openOnFocus={true}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Marijuana Usage" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.alcohol}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ alcohol: "" });
-            } else {
-              this.setState({ alcohol: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.alcoholinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ alcoholinputValue: newInputValue });
-          }}
-          id="alcohol-choice"
-          options={YesNo}
-          openOnFocus={true}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Alcohol Usage" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          value={this.state.prescription}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ prescription: "" });
-            } else {
-              this.setState({ prescription: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.prescriptioninputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ prescriptioninputValue: newInputValue });
-          }}
-          id="prescription-choice"
-          options={YesNo}
-          openOnFocus={true}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Prescription Medicine Usage"
-              variant="outlined"
-            />
-          )}
-        />
-        <Autocomplete
-          value={this.state.drug_use}
-          onChange={(event, newValue, reason) => {
-            if (reason == "clear") {
-              this.setState({ drug_use: "" });
-            } else {
-              this.setState({ drug_use: newValue });
-            }
-            // this.props.onSelectValue();
-          }}
-          inputValue={this.state.druguseinputValue}
-          onInputChange={(event, newInputValue) => {
-            this.setState({ druguseinputValue: newInputValue });
-          }}
-          id="drug_use-choice"
-          options={YesNo}
-          openOnFocus={true}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label="Drug(s) Usage" variant="outlined" />
-          )}
-        />
-        <Autocomplete
-          multiple
-          value={this.state.rib_section}
-          onChange={(event, newValue, reason) => {
-            var i;
-            if (reason == "clear") {
-              for (i = 0; i < this.state.rib_section.length; i++) {
-                this.setState({ [this.state.rib_section[i]]: null });
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.sexinputvalue}
+            onInputChange={(event, newInputValue) => {
+              // console.log(newInputValue);
+              this.setState({ sexinputvalue: newInputValue });
+            }}
+            id="sex-choices"
+            openOnFocus={true}
+            options={Sexes}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Sex" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.ancestry}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ ancestry: "" });
+              } else {
+                this.setState({ ancestry: newValue });
               }
-              this.setState({ rib_section: "" });
-            } else {
-              this.setState({ rib_section: newValue });
-            }
-          }}
-          // inputValue={this.state.ribsectioninputvalue}
-          // onInputChange={(event, newInputValue) => {
-          //   this.setState({ ribsectioninputvalue: newInputValue });
-          // }}
-          id="rib_section-choice"
-          options={RibSections}
-          openOnFocus={true}
-          filterSelectedOptions
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              variant="outlined"
-              label="Rib Section"
-              placeholder="Rib Section"
-            />
-          )}
-        />
-        <Button variant="contained" onClick={this.filter}>
-          Filter
-        </Button>
-        <Button variant="contained" onClick={this.clearFilter}>
-          Clear
-        </Button>
-        {/* {console.log(this.state)} */}
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.ancestryinputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ ancestryinputValue: newInputValue });
+            }}
+            id="ancestry-choice"
+            options={Ancestries}
+            openOnFocus={true}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Ancestry" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.xray}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ xray: "" });
+              } else {
+                this.setState({ xray: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.xrayinputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ xrayinputValue: newInputValue });
+            }}
+            id="xray-choice"
+            openOnFocus={true}
+            options={YesNo}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="X-Ray" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.cpr}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ cpr: "" });
+              } else {
+                this.setState({ cpr: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.cprinputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ cprinputValue: newInputValue });
+            }}
+            id="cpr-choice"
+            openOnFocus={true}
+            options={YesNo}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="CPR" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.belted}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ belted: "" });
+              } else {
+                this.setState({ belted: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.beltedinputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ beltedinputValue: newInputValue });
+            }}
+            id="belted-choice"
+            options={YesNo}
+            openOnFocus={true}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Belted" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.obese}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ obese: "" });
+              } else {
+                this.setState({ obese: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.obeseinputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ obeseinputValue: newInputValue });
+            }}
+            id="obese-choice"
+            options={YesNo}
+            openOnFocus={true}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Obese" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.cardio}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ cardio: "" });
+              } else {
+                this.setState({ cardio: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.cardioinputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ cardioinputValue: newInputValue });
+            }}
+            id="cardio-choice"
+            options={YesNo}
+            openOnFocus={true}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Cardio" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.patho}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ patho: "" });
+              } else {
+                this.setState({ patho: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.pathoinputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ pathoinputValue: newInputValue });
+            }}
+            id="patho-choice"
+            options={YesNo}
+            openOnFocus={true}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Pathology" variant="outlined" />
+            )}
+          />
+          </Toolbar>
+          <Toolbar>
+          <Autocomplete
+            value={this.state.tobacco}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ tobacco: "" });
+              } else {
+                this.setState({ tobacco: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.tobaccoinputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ tobaccoinputValue: newInputValue });
+            }}
+            id="tobacco-choice"
+            options={YesNo}
+            openOnFocus={true}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Tobacco Usage" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.marijuana}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ marijuana: "" });
+              } else {
+                this.setState({ marijuana: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.marijuanainputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ marijuanainputValue: newInputValue });
+            }}
+            id="marijuana-choice"
+            options={YesNo}
+            openOnFocus={true}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Marijuana Usage" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.alcohol}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ alcohol: "" });
+              } else {
+                this.setState({ alcohol: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.alcoholinputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ alcoholinputValue: newInputValue });
+            }}
+            id="alcohol-choice"
+            options={YesNo}
+            openOnFocus={true}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Alcohol Usage" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.prescription}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ prescription: "" });
+              } else {
+                this.setState({ prescription: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.prescriptioninputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ prescriptioninputValue: newInputValue });
+            }}
+            id="prescription-choice"
+            options={YesNo}
+            openOnFocus={true}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Rx Usage" variant="outlined" />
+            )}
+          />
+          <Autocomplete
+            value={this.state.drug_use}
+            onChange={(event, newValue, reason) => {
+              if (reason == "clear") {
+                this.setState({ drug_use: "" });
+              } else {
+                this.setState({ drug_use: newValue });
+              }
+              // this.props.onSelectValue();
+            }}
+            inputValue={this.state.druguseinputValue}
+            onInputChange={(event, newInputValue) => {
+              this.setState({ druguseinputValue: newInputValue });
+            }}
+            id="drug_use-choice"
+            options={YesNo}
+            openOnFocus={true}
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField {...params} label="Drug Usage" variant="outlined" />
+            )}
+          />
+        </Toolbar>
+
+        <Toolbar>
+          <Autocomplete
+            multiple
+            value={this.state.rib_section}
+            onChange={(event, newValue, reason) => {
+              var i;
+              if (reason == "clear") {
+                for (i = 0; i < this.state.rib_section.length; i++) {
+                  this.setState({ [this.state.rib_section[i]]: null });
+                }
+                this.setState({ rib_section: "" });
+              } else {
+                this.setState({ rib_section: newValue });
+              }
+            }}
+            // inputValue={this.state.ribsectioninputvalue}
+            // onInputChange={(event, newInputValue) => {
+            //   this.setState({ ribsectioninputvalue: newInputValue });
+            // }}
+            id="rib_section-choice"
+            options={RibSections}
+            openOnFocus={true}
+            filterSelectedOptions
+            style={{ width: 500, marginRight: 4 }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                variant="outlined"
+                label="Rib Section(s)"
+                placeholder="Rib Section"
+              />
+            )}
+          />
+        </Toolbar>
+        <Toolbar>
+          <Button
+            style={{ marginRight: 8 }}
+            variant="contained"
+            onClick={this.filter}
+          >
+            Filter
+          </Button>
+          <Button
+            style={{ marginRight: 14 }}
+            variant="contained"
+            onClick={this.clearFilter}
+          >
+            Clear
+          </Button>
+        </Toolbar>
+        {console.log(this.state)}
       </div>
     );
   }
