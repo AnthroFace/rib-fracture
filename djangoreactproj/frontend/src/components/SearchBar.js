@@ -884,6 +884,8 @@ class SearchBar extends Component {
               <TextField {...params} label="Pathology" variant="outlined" />
             )}
           />
+          </Toolbar>
+          <Toolbar>
           <Autocomplete
             value={this.state.tobacco}
             onChange={(event, newValue, reason) => {
@@ -903,7 +905,7 @@ class SearchBar extends Component {
             openOnFocus={true}
             style={{ width: 500, marginRight: 4 }}
             renderInput={(params) => (
-              <TextField {...params} label="Tobacco" variant="outlined" />
+              <TextField {...params} label="Tobacco Usage" variant="outlined" />
             )}
           />
           <Autocomplete
@@ -925,7 +927,7 @@ class SearchBar extends Component {
             openOnFocus={true}
             style={{ width: 500, marginRight: 4 }}
             renderInput={(params) => (
-              <TextField {...params} label="Marijuana" variant="outlined" />
+              <TextField {...params} label="Marijuana Usage" variant="outlined" />
             )}
           />
           <Autocomplete
@@ -947,7 +949,7 @@ class SearchBar extends Component {
             openOnFocus={true}
             style={{ width: 500, marginRight: 4 }}
             renderInput={(params) => (
-              <TextField {...params} label="Alcohol" variant="outlined" />
+              <TextField {...params} label="Alcohol Usage" variant="outlined" />
             )}
           />
           <Autocomplete
@@ -991,7 +993,7 @@ class SearchBar extends Component {
             openOnFocus={true}
             style={{ width: 500, marginRight: 4 }}
             renderInput={(params) => (
-              <TextField {...params} label="Drug(s)" variant="outlined" />
+              <TextField {...params} label="Drug Usage" variant="outlined" />
             )}
           />
         </Toolbar>

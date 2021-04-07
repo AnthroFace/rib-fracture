@@ -4,6 +4,7 @@ import NewPatientModal from "./NewPatientModal";
 
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
 
+
 import {
   DataGrid,
   GridToolbarContainer,
@@ -11,6 +12,8 @@ import {
   GridExportToolbarButton,
   GridToolbar,
 } from "@material-ui/data-grid";
+
+var wid = 3500;
 
 function CustomToolbar() {
   return (
@@ -37,10 +40,10 @@ class PatientList extends Component {
     const patients = this.props.patients;
     var rows2 = [];
     var columns = [];
-    var w = 3000;
+    // var w = 3000
     if (patients && patients.length > 0) {
       if (this.state.all_data) {
-        w = 34340;
+        wid = 34340;
         for (const [index, patient] of patients.entries()) {
         rows2.push({
           id: patient.pk,
@@ -653,6 +656,7 @@ class PatientList extends Component {
       ];
     }
     else {
+      wid = 3500;
       for (const [index, patient] of patients.entries()) {
         rows2.push({
           id: patient.pk,
@@ -720,7 +724,7 @@ class PatientList extends Component {
       //       Toolbar: GridToolbar,
       //     }}
       //   />
-      <div style={{ height: 400, width: { w } }}>
+      <div style={{ height: 400, width: wid }}>
         {!patients || patients.length <= 0 ? (
           <b>Oops, no one here yet</b>
         ) : (
