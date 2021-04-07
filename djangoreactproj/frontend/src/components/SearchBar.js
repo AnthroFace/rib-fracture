@@ -9,16 +9,16 @@ import axios from "axios";
 const URL = "http://localhost:8000/api/filter/";
 
 const Ancestries = [
-  "Asian",
-  "White",
-  "Black",
-  "Hispanic",
-  "Filipino",
-  "American Indian",
-  "Pacific Islander",
-  "West Asian",
-  "Black Hispanic",
-  "Asian Indian",
+  "asian",
+  "white",
+  "black",
+  "hispanic",
+  "filipino",
+  "american indian",
+  "pacific islander",
+  "west asian",
+  "black hispanic",
+  "asian indian",
 ];
 
 const Sexes = ["Female", "Male"];
@@ -884,8 +884,8 @@ class SearchBar extends Component {
               <TextField {...params} label="Pathology" variant="outlined" />
             )}
           />
-          </Toolbar>
-          <Toolbar>
+        </Toolbar>
+        <Toolbar>
           <Autocomplete
             value={this.state.tobacco}
             onChange={(event, newValue, reason) => {
@@ -927,7 +927,11 @@ class SearchBar extends Component {
             openOnFocus={true}
             style={{ width: 500, marginRight: 4 }}
             renderInput={(params) => (
-              <TextField {...params} label="Marijuana Usage" variant="outlined" />
+              <TextField
+                {...params}
+                label="Marijuana Usage"
+                variant="outlined"
+              />
             )}
           />
           <Autocomplete

@@ -4,6 +4,7 @@ import NewPatientModal from "./NewPatientModal";
 
 import ConfirmRemovalModal from "./ConfirmRemovalModal";
 import ConfirmRemoveMult from "./ConfirmRemoveMult";
+import Pagination from "@material-ui/lab/Pagination";
 import { Modal, ModalHeader, ModalFooter } from "reactstrap";
 
 import axios from "axios";
@@ -16,6 +17,7 @@ import {
   GridColumnsToolbarButton,
   GridExportToolbarButton,
   GridToolbar,
+  useGridSlotComponentProps,
 } from "@material-ui/data-grid";
 
 //         <NewPatientModal
@@ -40,6 +42,21 @@ function CustomToolbar() {
       <GridColumnsToolbarButton />
       {/* <GridExportToolbarButton /> */}
     </GridToolbarContainer>
+  );
+}
+
+function CustomPagination() {
+  const { state, apiRef } = useGridSlotComponentProps();
+
+  return (
+    <Pagination
+      // className={classes.root}
+      // color="primary"
+      shape="rounded"
+      count={state.pagination.pageCount}
+      page={state.pagination.page + 1}
+      onChange={(event, value) => apiRef.current.setPage(value - 1)}
+    />
   );
 }
 
@@ -1883,27 +1900,37 @@ class PatientList extends Component {
     return (
       <div>
         {!patients || patients.length <= 0 ? (
-          // <b>Oops, no one here yet</b>
-          <div></div>
+          <b>Oops, no one here yet</b>
         ) : (
+          // <div></div>
           <div style={{ height: 700, width: wid }}>
             <DataGrid
               // {...patients}
               // style={{ height: 1000, width: "100%" }}
               rows={rows2}
               columns={columns}
-              components={{ Toolbar: CustomToolbar }}
+              components={{
+                Toolbar: CustomToolbar,
+                Pagination: CustomPagination,
+              }}
               pageSize={10}
               // disableColumnFilter
               checkboxSelection
               disableColumnMenu
               onRowSelected={this.onSelectionChange}
             />
-            <Button onClick={() => this.toggleAll(this.state.all_data)}>
+            <Button
+              style={{ marginRight: 4 }}
+              onClick={() => this.toggleAll(this.state.all_data)}
+            >
               Toggle Rib View
             </Button>
             <Fragment>
-              <Button color="danger" onClick={() => this.toggle()}>
+              <Button
+                style={{ marginRight: 4 }}
+                color="danger"
+                onClick={() => this.toggle()}
+              >
                 Remove Selected
               </Button>
               <Modal isOpen={this.state.modal} toggle={this.toggle}>
