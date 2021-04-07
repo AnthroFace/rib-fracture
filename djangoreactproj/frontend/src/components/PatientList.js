@@ -33,7 +33,7 @@ class PatientList extends Component {
           id: patient.pk,
           case_id: patient.case_id,
           age: patient.age,
-          sex: patient.age,
+          sex: patient.sex,
           weight: patient.weight,
           height: patient.height,
           ancestry: patient.ancestry,

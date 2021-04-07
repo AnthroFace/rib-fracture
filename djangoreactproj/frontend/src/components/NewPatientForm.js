@@ -1605,6 +1605,10 @@ class NewPatientForm extends React.Component {
         drug_use: "",
         health_notes: "",
         notes: "",
+        rib_fracture: [
+          { location: "", completeness: "", fracture_type: "", cpr: "" },
+        ],
+        num_fractures: 1,
         sternum: "",
         cpr_sternum: "",
         lprib1: null,
@@ -2500,7 +2504,7 @@ class NewPatientForm extends React.Component {
           <RibImage
             onSelectLocation={(event) => this.handleLocationChange(event)}
           />
-          {this.state.rib_fracture.map((fracture, index) => (
+          {/* {this.state.rib_fracture.map((fracture, index) => (
             <Fragment key={`${fracture}~${index}`}>
               <div className="form-group col-sm-6">
                 <label htmlFor="location">Rib (1-12).Location (1-4)</label>
@@ -2571,7 +2575,7 @@ class NewPatientForm extends React.Component {
                 </button>
               </div>
             </Fragment>
-          ))}
+          ))} */}
           {/* <br />
           <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
         </div>
