@@ -5,7 +5,7 @@ import axios from "axios";
 
 import { API_URL } from "../constants";
 
-class ConfirmRemovalModal extends Component {
+class ConfirmRemoveMult extends Component {
   state = {
     modal: false,
   };
@@ -23,15 +23,23 @@ class ConfirmRemovalModal extends Component {
     });
   };
 
+  deletePatients = (pks) => {
+    for (const [index, pk] of pks.entries()) {
+      axios.delete(API_URL + pk);
+    }
+    this.props.resetState();
+    this.toggle();
+  };
+
   render() {
     return (
       <Fragment>
         <Button color="danger" onClick={() => this.toggle()}>
-          Remove
+          Remove Selected
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
-            Do you really want to delete the patient?
+            Delete all selected patients?
           </ModalHeader>
 
           <ModalFooter>
@@ -41,7 +49,7 @@ class ConfirmRemovalModal extends Component {
             <Button
               type="button"
               color="primary"
-              onClick={() => this.deletePatient(this.props.pk)}
+              onClick={() => this.deletePatients(this.props.pks)}
             >
               Yes
             </Button>
@@ -52,4 +60,4 @@ class ConfirmRemovalModal extends Component {
   }
 }
 
-export default ConfirmRemovalModal;
+export default ConfirmRemoveMult;
