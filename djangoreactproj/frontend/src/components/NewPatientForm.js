@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import RibImage from "./RibImage";
-
+import "./../text.css";
 import axios from "axios";
 
 import { API_URL } from "../constants";
@@ -2071,7 +2071,8 @@ class NewPatientForm extends React.Component {
       <Form
         onSubmit={this.props.patient ? this.editPatient : this.createPatient}
       >
-        <FormGroup>
+        <div class = "form1">
+        <FormGroup >
           <Label for="case_id">Case ID:</Label>
           <Input
             type="text"
@@ -2080,6 +2081,7 @@ class NewPatientForm extends React.Component {
             value={this.defaultIfEmpty(this.state.case_id)}
           />
         </FormGroup>
+        
         <FormGroup>
           <Label for="age">Age:</Label>
           <Input
@@ -2496,6 +2498,7 @@ class NewPatientForm extends React.Component {
             value={this.defaultIfEmpty(this.state.notes)}
           />
         </FormGroup>
+        </div>
         <div id="dynamicform" className="form-row">
           <RibImage
             onSelectLocation={(event) => this.handleLocationChange(event)}
@@ -2575,7 +2578,9 @@ class NewPatientForm extends React.Component {
           {/* <br />
           <pre>{JSON.stringify(this.state, null, 2)}</pre> */}
         </div>
+        <div class = "send">
         <Button>Send</Button>
+        </div>
       </Form>
     );
   }

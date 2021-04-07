@@ -3,6 +3,9 @@ import React , {Component} from 'react';
 import {CSVLink} from 'react-csv';
 
 import Box from "@material-ui/core/Box";
+import { Table } from "reactstrap";
+import { Col, Container, Row } from "reactstrap";
+import "./../text.css";
 
 import axios from 'axios'
 import { API_URL } from "../constants";
@@ -450,21 +453,21 @@ const patientData =[
 
 const link1Style  = {
   backgroundColor: '#fff',
-  fontSize: 25,
+  fontSize: 20,
   fontWeight: 500,
   height: 52,
-  padding: '0 63px',
-  borderRadius: 5,
+  padding: '10px 95px',
+  borderRadius: 10,
   color: '#96382f'
 };
 
 const link2Style  = {
   backgroundColor: '#fff',
-  fontSize: 25,
+  fontSize: 20,
   fontWeight: 500,
   height: 52,
-  padding: '0 18px',
-  borderRadius: 5,
+  padding: '10px 55px',
+  borderRadius: 10,
   color: '#96382f'
 };
 
@@ -490,11 +493,13 @@ resetState = () => {
     return (
       
       <div className="ExportCSV" >
-
-      <Box >
-        <CSVLink data={this.state.patients} headers={ExportHeaders} style={link1Style} filename="ExportData.csv">Export Data</CSVLink>
+        <div class = "csvtitle2">
+        <h4>Export CSV File</h4>
+        </div>
+      <Box padding = "0px 50px 35px 0px" >
+        <CSVLink class = "ugh" data={this.state.patients} style={link1Style} filename="ExportData.csv">Export Data</CSVLink>
       </Box>
-      <Box>
+      <Box padding = "0px 50px 0px 0px" >
         <CSVLink data={tempData} style={link2Style} filename="Template.csv">Download Template</CSVLink>
       </Box>
       </div>

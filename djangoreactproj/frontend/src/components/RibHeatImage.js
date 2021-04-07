@@ -1,8 +1,21 @@
 import React, { Component } from "react";
 import ImageMapper from "react-image-mapper";
-import { rightRibValues } from "./RibHeatGrid";
-import { leftRibValues } from "./RightRibHeatGrid";
-import HeatMap from "react-heatmap-grid";
+import RibHeatGrid from './RibHeatGrid';
+
+
+var nums = [RibHeatGrid.rplrib1, RibHeatGrid.ralrib1, RibHeatGrid.rarib1, RibHeatGrid.rprib2, RibHeatGrid.rplrib2, RibHeatGrid.ralrib2, RibHeatGrid.rarib2, RibHeatGrid.rprib3, RibHeatGrid.rplrib3, RibHeatGrid.ralrib3, RibHeatGrid.rarib3,
+  RibHeatGrid.rprib4, RibHeatGrid.rplrib4, RibHeatGrid.ralrib4, RibHeatGrid.rarib4, RibHeatGrid.rprib5, RibHeatGrid.rplrib5, RibHeatGrid.ralrib5, RibHeatGrid.rarib5, RibHeatGrid.rprib6, RibHeatGrid.rplrib6, RibHeatGrid.ralrib6, RibHeatGrid.rarib6, 
+  RibHeatGrid.rprib7, RibHeatGrid.rplrib7, RibHeatGrid.ralrib7, RibHeatGrid.rarib7, RibHeatGrid.rprib8, RibHeatGrid.rplrib8, RibHeatGrid.ralrib8, RibHeatGrid.rarib8, RibHeatGrid.rprib9, RibHeatGrid.rplrib9, RibHeatGrid.ralrib9, RibHeatGrid.rarib9,
+  RibHeatGrid.rprib10, RibHeatGrid.rplrib10, RibHeatGrid.ralrib10, RibHeatGrid.rarib10, RibHeatGrid.rplrib11, RibHeatGrid.ralrib11, RibHeatGrid.rarib11, RibHeatGrid.rplrib12, RibHeatGrid.ralrib12, RibHeatGrid.rarib12
+, //left side
+RibHeatGrid.lplrib1, RibHeatGrid.lalrib1, RibHeatGrid.larib1, RibHeatGrid.lprib2, RibHeatGrid.lplrib2, RibHeatGrid.lalrib2, RibHeatGrid.larib2, RibHeatGrid.lprib3, RibHeatGrid.lplrib3, RibHeatGrid.lalrib3, RibHeatGrid.larib3,
+  RibHeatGrid.lprib4, RibHeatGrid.lplrib4, RibHeatGrid.lalrib4, RibHeatGrid.larib4, RibHeatGrid.lprib5, RibHeatGrid.lplrib5, RibHeatGrid.lalrib5, RibHeatGrid.larib5, RibHeatGrid.lprib6, RibHeatGrid.lplrib6, RibHeatGrid.lalrib6, RibHeatGrid.larib6, 
+  RibHeatGrid.lprib7, RibHeatGrid.lplrib7, RibHeatGrid.lalrib7, RibHeatGrid.larib7, RibHeatGrid.lprib8, RibHeatGrid.lplrib8, RibHeatGrid.lalrib8, RibHeatGrid.larib8, RibHeatGrid.lprib9, RibHeatGrid.lplrib9, RibHeatGrid.lalrib9, RibHeatGrid.rarib9,
+  RibHeatGrid.lprib10, RibHeatGrid.lplrib10, RibHeatGrid.lalrib10, RibHeatGrid.larib10, RibHeatGrid.plrib11, RibHeatGrid.lalrib11, RibHeatGrid.larib11, RibHeatGrid.lplrib12, RibHeatGrid.lalrib12, RibHeatGrid.larib12
+];
+
+var maxValue = Math.max.apply(null,nums);
+var minValue = Math.min.apply(null, nums);
 
 var URL = "/images/rib_image.png";
 
@@ -1461,7 +1474,7 @@ class RibImage extends Component {
     return (
       <div className="grid">
         <div className="presenter">
-          <div style={{ position: "relative" }}>
+          <div border = {0} style={{ position: "relative" }}>
             <ImageMapper
               width={550}
               height={625}
