@@ -1,7 +1,8 @@
 import React from "react";
 import HeatMap from "react-heatmap-grid";
+import { rightRibValues } from "./RibHeatGrid"; 
 
-const xLabels = ["a", "al", "pl", "p"];
+const xLabels = ["p", "pl", "al", "a"];
 // Display only even labels
 /*const xLabelsVisibility = new Array(4)
   .fill(0)
@@ -16,6 +17,19 @@ var larib1=1, lalrib1=8, lplrib1=10, larib2=5, lalrib2=1, lplrib2=3, lprib2=9, l
 larib4=10, lalrib4=4, lplrib4=3, lprib4=1, larib5=2, lalrib5=9, lplrib5=6, lprib5=4, larib6=3, lalrib6=1, lplrib6=0, lprib6=2, 
 larib7=9, lalrib7=7, lplrib7=4, lprib7=6, larib8=2, lalrib8=8, lplrib8=1, lprib8=4, larib9=7, lalrib9=4, lplrib9=3, lprib9=1,
 larib10=11, lalrib10=5, lplrib10=3, lprib10=6, larib11=1, lalrib11=6, lplrib11=2, larib12=7, lalrib12=9, lplrib12=1; 
+
+var leftRibValues ={
+  vlarib1: larib1, vlalrib1: lalrib1, vlplrib1: lplrib1, vlarib2: larib2, vlalrib2: lalrib2, vlplrib2: lplrib2, 
+  vlprib2: lprib2, vlarib3: larib3, vlalrib3: lalrib3, vlplrib3: lplrib3, vlprib3: lprib3,
+  vlarib4: larib4, vlalrib4: lalrib4, vlplrib4: lplrib4, vlprib4: lprib4, vlarib5: larib5, vlalrib5: lalrib5, 
+  vlplrib5: lplrib5, vlprib5: lprib5, vlarib6: larib6, vlalrib6: lalrib6, vlplrib6: lplrib6, vlprib6: lprib6, 
+  vlarib7: larib7, vlalrib7: lalrib7, vlplrib7: lplrib7, vlprib7: lprib7, vlarib8: larib8, vlalrib8: lalrib8, 
+  vlplrib8: lplrib8, vlprib8: lprib8, vlarib9: larib9, vlalrib9: lalrib9, vlplrib9: lplrib9, vlprib9: lprib9, 
+  vlarib10: larib10, vlalrib10: lalrib10, vlplrib10: lplrib10, vlprib10: lprib10, vlarib11: larib11, 
+  vlalrib11: lalrib11, vlplrib11: lplrib11, vlarib12: larib12, vlalrib12: lalrib12, vlplrib12: lplrib12, 
+}; 
+
+export { leftRibValues };
 
 var leftBarTotals ={
   leftbar1: larib1+lalrib1+lplrib1, 
@@ -45,44 +59,179 @@ export { bottomLeftBarTotals };
 
 
 const data = [
-  [larib1, lalrib1, lplrib1, " "],
-  [larib2, lalrib2, lplrib2, lprib2],
-  [larib3, lalrib3, lplrib3, lprib3],
-  [larib4, lalrib4, lplrib4, lprib4],
-  [larib5, lalrib5, lplrib5, lprib5],
-  [larib6, lalrib6, lplrib6, lprib6],
-  [larib7, lalrib7, lplrib7, lprib7],
-  [larib8, lalrib8, lplrib8, lprib8],
-  [larib9, lalrib9, lplrib9, lprib9],
-  [larib10, lalrib10, lplrib10, lprib10],
-  [larib11, lalrib11, lplrib11, " "],
-  [larib12, lalrib12, lplrib12, " "]
+  [larib1, lplrib1, lalrib1, " "],
+  [lprib2, lplrib2, lalrib2, larib2],
+  [lprib3, lplrib3, lalrib3, larib3],
+  [lprib4, lplrib4, lalrib4, larib4],
+  [lprib5, lplrib5, lalrib5, larib5],
+  [lprib6, lplrib6, lalrib6, larib6],
+  [lprib7, lplrib7, lalrib7, larib7],
+  [lprib8, lplrib8, lalrib8, larib8],
+  [lprib9, lplrib9, lalrib9, larib9],
+  [lprib10, lplrib10, lalrib10, larib10],
+  [larib11, lplrib11, lalrib11, " "],
+  [larib12, lplrib12, lalrib12, " "]
 ];
 
+//just to do max for both sides, causing error on this page only with right values, but not on ribheatimage.js or ribheatgrid.js
+/*
+var nums1 = [ 
+   rightRibValues.vrplrib1,rightRibValues.vralrib1, rightRibValues.vrprib1, rightRibValues.vrprib2, rightRibValues.vrplrib2, 
+  rightRibValues.vralrib2, rightRibValues.vrarib2, rightRibValues.vrprib3, rightRibValues.vrplrib3, rightRibValues.vralrib3, rightRibValues.vrarib3,
+  rightRibValues.vrprib4, rightRibValues.vrplrib4, rightRibValues.vralrib4, rightRibValues.vrarib4, rightRibValues.vrprib5, rightRibValues.vrplrib5, 
+  rightRibValues.vralrib5, rightRibValues.vrarib5, rightRibValues.vrprib6, rightRibValues.vrplrib6, rightRibValues.vralrib6, rightRibValues.vrarib6, 
+  rightRibValues.vrprib7, rightRibValues.vrplrib7, rightRibValues.vralrib7, rightRibValues.vrarib7, rightRibValues.vrprib8, rightRibValues.vrplrib8, 
+  rightRibValues.vralrib8, rightRibValues.vrarib8, rightRibValues.vrprib9, rightRibValues.vrplrib9, rightRibValues.vralrib9, rightRibValues.vrarib9,
+  rightRibValues.vrprib10, rightRibValues.vrplrib10, rightRibValues.vralrib10, rightRibValues.vrarib10, rightRibValues.vrplrib11, rightRibValues.vralrib11, 
+  rightRibValues.vrprib11, rightRibValues.vrplrib12, rightRibValues.vralrib12, rightRibValues.vrprib12, 
+//left rib variables
+  larib1, lalrib1, lplrib1, larib2, lalrib2, lplrib2, 
+  lprib2, larib3, lalrib3, lplrib3, lprib3,
+  larib4, lalrib4, lplrib4, lprib4, larib5, lalrib5, 
+  lplrib5, lprib5, larib6, lalrib6, lplrib6, lprib6, 
+  larib7,lalrib7, lplrib7, lprib7, larib8, lalrib8, 
+  lplrib8, lprib8, larib9, lalrib9, lplrib9, lprib9, 
+  larib10, lalrib10, lplrib10, lprib10, larib11, 
+  lalrib11, lplrib11, larib12, lalrib12, lplrib12
+];
+*/
 
-  export default function() {
+  export default function(props) {
+    var d = props.rib_count;
+    // print("ribheatgrid")
+    // console.log("rightribheatgrid", d);
+    // console.log("TYPE", typeof d);
+    var data = [
+      [d["lprib1"], d["lplrib1"], d["lalrib1"], ""],
+      [d["lprib2"], d["lplrib2"], d["lalrib2"], d["larib2"]],
+      [d["lprib3"], d["lplrib3"], d["lalrib3"], d["larib3"]],
+      [d["lprib4"], d["lplrib4"], d["lalrib4"], d["larib4"]],
+      [d["lprib5"], d["lplrib5"], d["lalrib5"], d["larib5"]],
+      [d["lprib6"], d["lplrib6"], d["lalrib6"], d["larib6"]],
+      [d["lprib7"], d["lplrib7"], d["lalrib7"], d["larib7"]],
+      [d["lprib8"], d["lplrib8"], d["lalrib8"], d["larib8"]],
+      [d["lprib9"], d["lplrib9"], d["lalrib9"], d["larib9"]],
+      [d["lprib10"], d["lplrib10"], d["lalrib10"], d["larib10"]],
+      [d["lprib11"], d["lplrib11"], d["lalrib11"], ""],
+      [d["lprib12"], d["lplrib12"], d["lalrib12"], ""],
+    ];
+    var nums = [
+      d["rplrib1"],
+      d["ralrib1"],
+      d["rprib1"],
+      d["rprib2"],
+      d["rplrib2"],
+      d["ralrib2"],
+      d["rarib2"],
+      d["rprib3"],
+      d["rplrib3"],
+      d["ralrib3"],
+      d["rarib3"],
+      d["rprib4"],
+      d["rplrib4"],
+      d["ralrib4"],
+      d["rarib4"],
+      d["rprib5"],
+      d["rplrib5"],
+      d["ralrib5"],
+      d["rarib5"],
+      d["rprib6"],
+      d["rplrib6"],
+      d["ralrib6"],
+      d["rarib6"],
+      d["rprib7"],
+      d["rplrib7"],
+      d["ralrib7"],
+      d["rarib7"],
+      d["rprib8"],
+      d["rplrib8"],
+      d["ralrib8"],
+      d["rarib8"],
+      d["rprib9"],
+      d["rplrib9"],
+      d["ralrib9"],
+      d["rarib9"],
+      d["rprib10"],
+      d["rplrib10"],
+      d["ralrib10"],
+      d["rarib10"],
+      d["rplrib11"],
+      d["ralrib11"],
+      d["rprib11"],
+      d["rplrib12"],
+      d["ralrib12"],
+      d["rprib12"],
+      //left rib variables
+      d["lprib1"],
+      d["lalrib1"],
+      d["lplrib1"],
+      d["larib2"],
+      d["lalrib2"],
+      d["lplrib2"],
+      d["lprib2"],
+      d["larib3"],
+      d["lalrib3"],
+      d["lplrib3"],
+      d["lprib3"],
+      d["larib4"],
+      d["lalrib4"],
+      d["lplrib4"],
+      d["lprib4"],
+      d["larib5"],
+      d["lalrib5"],
+      d["lplrib5"],
+      d["lprib5"],
+      d["larib6"],
+      d["lalrib6"],
+      d["lplrib6"],
+      d["lprib6"],
+      d["larib7"],
+      d["lalrib7"],
+      d["lplrib7"],
+      d["lprib7"],
+      d["larib8"],
+      d["lalrib8"],
+      d["lplrib8"],
+      d["lprib8"],
+      d["larib9"],
+      d["lalrib9"],
+      d["lplrib9"],
+      d["lprib9"],
+      d["larib10"],
+      d["lalrib10"],
+      d["lplrib10"],
+      d["lprib10"],
+      d["lprib11"],
+      d["lalrib11"],
+      d["lplrib11"],
+      d["lprib12"],
+      d["lalrib12"],
+      d["lplrib12"],
+    ];
+    var maxValue = Math.max.apply(Math, nums);
+    var minValue = Math.min.apply(Math, nums);
+
+
+    // console.log("data", data)
     return (
       <div>
         <HeatMap
-        xLabels={xLabels}
-        yLabels={yLabels}
-        xLabelsLocation={"top"}
-       // xLabelsVisibility={xLabelsVisibility}
-        xLabelWidth={60}
-        data={data}
-        squares
-        height={45}
-        //onClick={(x, y) => alert(`Clicked ${x}, ${y}`)}
-        cellStyle={(background, value, min, max, data, x, y) => ({
-          background: `rgb(230, 40,0, ${1 - (max - value) / (max - min)})`,
-          fontSize: "11.5px",
-          color: "#000"
-        })}
-        //renders number
-        cellRender={value => value && <div>{value}</div>}
-      />
-
-
+          xLabels={xLabels}
+          yLabels={yLabels}
+          xLabelsLocation={"top"}
+          // xLabelsVisibility={xLabelsVisibility}
+          xLabelWidth={60}
+          data={data}
+          squares
+          height={45}
+          cellStyle={(background, value, data, x, y) => ({
+            background: `rgb(230, 40,0, ${1 - (maxValue - value) / (maxValue - minValue)})`,
+            fontSize: "11.5px",
+            color: "#000",
+          })}
+          //renders number
+          cellRender={(value) => value && <div>{value}</div>}
+        />
       </div>
     );
   }

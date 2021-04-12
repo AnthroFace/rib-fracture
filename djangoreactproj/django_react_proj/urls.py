@@ -24,6 +24,9 @@ urlpatterns = [
     #re_path(r'^api/datasets/$', views.)#something#
     re_path(r'^api/patients/$', views.patients_list),
     re_path(r'^api/patients/(?P<pk>[0-9]+)$', views.patients_detail),
+    re_path(r'^api/filter/$', views.patients_filter),
+    re_path(r'^api/filter/(?P<pk>[0-9]+)$', views.filter_delete),
+    # re_path(r'^api/filtered/$', views.filtered_patients_list),
     #re_path(r'^api/fractures/(?P<pk>\d+)/$', views.fractures_detail),
     #re_path(r'^api/sections/(?P<pk>\d+)/$', views.sections_detail),
 ]

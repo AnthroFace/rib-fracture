@@ -3,18 +3,18 @@ import { Col, Container, Row } from "reactstrap";
 import PatientList from "./PatientList";
 import Box from "@material-ui/core/Box";
 import SearchBar from "./SearchBar";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import Heatmap from "./Heatmap";
 import Button from "@material-ui/core/Button";
 
 import { API_URL } from "../constants";
 
 const URL = "http://localhost:8000/api/filter";
 
-class PatientsPage extends Component {
+class HeatmapPage extends Component {
   state = {
     patients: [],
-    rib_counts: "",
+    rib_counts: null,
   };
 
   componentDidMount() {
@@ -31,11 +31,11 @@ class PatientsPage extends Component {
   };
 
   getFilteredPatients = () => {
-    var nums = axios.get(URL).then(
+    axios.get(URL).then(
       (res) =>
         this.setState({
           patients: res.data.patients ? res.data.patients : res.data,
-          rib_counts: res.data.rib_counts ? res.data.rib_counts : "",
+          rib_counts: res.data.rib_counts ? res.data.rib_counts : null,
         })
 
       // console.log(res)
@@ -51,6 +51,7 @@ class PatientsPage extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <Box border={0}>
         <Container
@@ -59,34 +60,13 @@ class PatientsPage extends Component {
         >
           <SearchBar
             onSelectValue={this.getFilteredPatients}
-            onClear={this.getPatients}
+            onClear={this.resetState}
           />
-          {/* <Link
-            to={{
-              pathname: "/heatmap",
-              state: {
-                ribCount: this.state.rib_counts,
-              },
-            }}
-          >
-            <Button variant="contained" onClick={this.logging}>
-              HeatMap
-            </Button>
-          </Link> */}
-          <Row textAlign="left">
-            <Col textAlign="left">
-              <PatientList
-                textAlign="left"
-                patients={this.state.patients}
-                resetState={this.resetState}
-              />
-            </Col>
-          </Row>
-          <Row></Row>
+          <Heatmap rib_counts={this.state.rib_counts} />
         </Container>
       </Box>
     );
   }
 }
 
-export default PatientsPage;
+export default HeatmapPage;

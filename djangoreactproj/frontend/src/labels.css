@@ -1,0 +1,35 @@
+.HeatImageLabel{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Montserrat';
+  }
+
+.HeatGridLabel{
+
+  display: flex;
+  flex-wrap: wrap;
+  }
+
+  .horizontalright{
+  
+    padding: 50px 00px 0px 360px;
+    
+  }
+  
+  .horizontalleft{
+    
+    padding: 50px 00px 0px 440px;
+
+  }
+
+  .vertright{
+  
+    padding: 570px 00px 0px 590px;
+    
+  }
+  
+  .vertleft{
+    
+    padding: 570px 00px 0px 35px;
+
+  }

@@ -1,12 +1,14 @@
 import React, { Component, Fragment } from "react";
 import NewPatientForm from "./NewPatientForm";
 import { Typography } from "@material-ui/core";
+import "./../text.css";
 
 class NewPatientPage extends Component {
   state = {};
 
   toggle = () => {
     alert("Database changed");
+    window.scrollTo(0, 0);
   };
 
   resetState = () => {
@@ -402,7 +404,7 @@ class NewPatientPage extends Component {
   render() {
     return (
       <Fragment>
-        <Typography variant="h2">Creating New Patient</Typography>
+        <Typography class = "patientpage" variant="h2">Creating New Patient</Typography>
         <NewPatientForm resetState={this.resetState} toggle={this.toggle} />
       </Fragment>
     );

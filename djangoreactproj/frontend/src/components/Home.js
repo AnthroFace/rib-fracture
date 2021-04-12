@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 class Home extends Component {
   render() {
     return (
-      <div
+      <div 
         style={{
           position: "absolute",
           left: "50%",
@@ -15,7 +15,7 @@ class Home extends Component {
         }}
       >
         <Box border={0} textAlign="center">
-          <Box borderTop={0} borderBottom={0} padding="50px 36px">
+          <Box borderTop={0} borderBottom={0} padding="50px 136px">
             <img
               variant="h1"
               component="h2"
@@ -24,14 +24,15 @@ class Home extends Component {
               alt=""
             />
           </Box>
-          <Box border={0}>
-            <Button
+          <Box border={0} class = "buttons" >
+            <div  style ={{padding : "5px"}}>
+            <Button 
               style={{
                 // borderRadius: 35,
-                color: "#96382f",
+                color: "#963A2F",
                 backgroundColor: "#fffee9",
                 padding: "18px 36px",
-                fontSize: "18px",
+                fontSize: "15px",
               }}
               variant="contained"
               size="large"
@@ -39,13 +40,15 @@ class Home extends Component {
             >
               New Patient
             </Button>
+            </div>
+            <div style ={{padding : "5px"}} >
             <Button
               style={{
                 //  borderRadius: 35,
                 color: "#96382f",
                 backgroundColor: "#fffee9",
                 padding: "18px 36px",
-                fontSize: "18px",
+                fontSize: "15px",
               }}
               variant="contained"
               size="large"
@@ -53,13 +56,15 @@ class Home extends Component {
             >
               Database
             </Button>
+            </div>
+            <div style ={{padding : "5px"}} >
             <Button
               style={{
                 // borderRadius: 35,
                 color: "#96382f",
                 backgroundColor: "#fffee9",
                 padding: "18px 36px",
-                fontSize: "18px",
+                fontSize: "15px",
               }}
               variant="contained"
               size="large"
@@ -67,13 +72,15 @@ class Home extends Component {
             >
               Import Data
             </Button>
+            </div>
+            <div style ={{padding : "5px"}}>
             <Button
               style={{
                 // borderRadius: 35,
                 color:"#96382f",
                 backgroundColor: "#fffee9",
                 padding: "18px 36px",
-                fontSize: "18px",
+                fontSize: "15px",
               }}
               variant="contained"
               size="large"
@@ -81,13 +88,15 @@ class Home extends Component {
             >
               Export Data
             </Button>
+            </div>
+            <div style ={{padding : "5px"}}>
             <Button
               style={{
                 // borderRadius: 35,
                 color:"#96382f",
                 backgroundColor: "#fffee9",
                 padding: "18px 36px",
-                fontSize: "18px",
+                fontSize: "15px",
               }}
               variant="contained"
               size="large"
@@ -95,6 +104,7 @@ class Home extends Component {
             >
               Heatmap
             </Button>
+            </div>
           </Box>
         </Box>
       </div>
