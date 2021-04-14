@@ -2,26 +2,12 @@ import React, { Component } from "react";
 import ImageMapper from "react-image-mapper";
 import RibHeatGrid from './RibHeatGrid';
 
-
-var nums = [RibHeatGrid.rplrib1, RibHeatGrid.ralrib1, RibHeatGrid.rarib1, RibHeatGrid.rprib2, RibHeatGrid.rplrib2, RibHeatGrid.ralrib2, RibHeatGrid.rarib2, RibHeatGrid.rprib3, RibHeatGrid.rplrib3, RibHeatGrid.ralrib3, RibHeatGrid.rarib3,
-  RibHeatGrid.rprib4, RibHeatGrid.rplrib4, RibHeatGrid.ralrib4, RibHeatGrid.rarib4, RibHeatGrid.rprib5, RibHeatGrid.rplrib5, RibHeatGrid.ralrib5, RibHeatGrid.rarib5, RibHeatGrid.rprib6, RibHeatGrid.rplrib6, RibHeatGrid.ralrib6, RibHeatGrid.rarib6, 
-  RibHeatGrid.rprib7, RibHeatGrid.rplrib7, RibHeatGrid.ralrib7, RibHeatGrid.rarib7, RibHeatGrid.rprib8, RibHeatGrid.rplrib8, RibHeatGrid.ralrib8, RibHeatGrid.rarib8, RibHeatGrid.rprib9, RibHeatGrid.rplrib9, RibHeatGrid.ralrib9, RibHeatGrid.rarib9,
-  RibHeatGrid.rprib10, RibHeatGrid.rplrib10, RibHeatGrid.ralrib10, RibHeatGrid.rarib10, RibHeatGrid.rplrib11, RibHeatGrid.ralrib11, RibHeatGrid.rarib11, RibHeatGrid.rplrib12, RibHeatGrid.ralrib12, RibHeatGrid.rarib12
-, //left side
-RibHeatGrid.lplrib1, RibHeatGrid.lalrib1, RibHeatGrid.larib1, RibHeatGrid.lprib2, RibHeatGrid.lplrib2, RibHeatGrid.lalrib2, RibHeatGrid.larib2, RibHeatGrid.lprib3, RibHeatGrid.lplrib3, RibHeatGrid.lalrib3, RibHeatGrid.larib3,
-  RibHeatGrid.lprib4, RibHeatGrid.lplrib4, RibHeatGrid.lalrib4, RibHeatGrid.larib4, RibHeatGrid.lprib5, RibHeatGrid.lplrib5, RibHeatGrid.lalrib5, RibHeatGrid.larib5, RibHeatGrid.lprib6, RibHeatGrid.lplrib6, RibHeatGrid.lalrib6, RibHeatGrid.larib6, 
-  RibHeatGrid.lprib7, RibHeatGrid.lplrib7, RibHeatGrid.lalrib7, RibHeatGrid.larib7, RibHeatGrid.lprib8, RibHeatGrid.lplrib8, RibHeatGrid.lalrib8, RibHeatGrid.larib8, RibHeatGrid.lprib9, RibHeatGrid.lplrib9, RibHeatGrid.lalrib9, RibHeatGrid.rarib9,
-  RibHeatGrid.lprib10, RibHeatGrid.lplrib10, RibHeatGrid.lalrib10, RibHeatGrid.larib10, RibHeatGrid.plrib11, RibHeatGrid.lalrib11, RibHeatGrid.larib11, RibHeatGrid.lplrib12, RibHeatGrid.lalrib12, RibHeatGrid.larib12
-];
-
-var maxValue = Math.max.apply(null,nums);
-var minValue = Math.min.apply(null, nums);
-
 var URL = "/images/rib_image.png";
 
 class RibImage extends Component {
   constructor(props) {
     super(props);
+    //console.log("props", this.props);
     this.state = {
       hoveredArea: null,
       msg: null,
@@ -29,7 +15,7 @@ class RibImage extends Component {
     };
   }
   load = () => {
-    // this.setState({ msg: "Hover ribs to see total breaks for each area" });
+     this.setState({ msg: "Hover ribs to see total breaks for each area" });
   };
   clicked = (area) => {
     this.setState({
@@ -43,12 +29,7 @@ class RibImage extends Component {
       msg: `Please select a rib section`,
     });
   };
-  // moveOnImage = (evt) => {
-  //   const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
-  //   this.setState({
-  //     moveMsg: `You moved on the image at coords ${JSON.stringify(coords)} !`,
-  //   });
-  // };
+ 
   enterArea = (area) => {
     this.setState({
       hoveredArea: area,
@@ -61,143 +42,39 @@ class RibImage extends Component {
       msg: null,
     });
   };
-  // moveOnArea(area, evt) {
-  // 	const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
-  // 	this.setState({
-  // 		moveMsg: `${area.name}`
-  // 	});
-  // };
+
 
   getTipPosition = (area) => {
     return { top: `${area.center[1]}px`, left: `${area.center[0]}px` };
   };
 
+
   render() {
     var d = this.props.rib_count;
-    console.log("ribheatimage render", d);
+//    console.log("ribheatimage render", d);
 
-    //right rib variables
     var nums = [
-      0,1,5,8,1,1,
-      2,4,4,6,8,2,4,4,
-      2,5,5,5,6,5,5,4,
-      3,9,4,5,6,5,8,5,
-      3,10,4,5,5,5,8,3,
-      3,9,4,4,4,5,10,3,
-      3,8,4,4,4,4,10,3,
-      1,6,3,3,4,3,9,2,
-      1,3,3,3,4,1,8,2,
-      0,3,2,3,4,2,7,0,
-      0,2,1,3,1,1,
-      0,2,1,2,1,1,
-      /*
-      nums[1],
-      d["ralrib1"],
-      nums[2],
-      nums[9],
-      nums[8],
-      nums[7],
-      nums[6],
-      nums[17],
-      nums[16],
-      nums[15],
-      nums[14],
-      nums[25],
-      nums[24],
-      nums[23],
-      nums[22],
-      nums[33],
-      nums[32],
-      nums[31],
-      nums[30],
-      nums[41],
-      nums[40],
-      nums[39],
-      nums[38],
-      nums[49],
-      nums[48],
-      nums[47],
-      nums[46],
-      nums[57],
-      nums[56],
-      nums[55],
-      nums[54],
-      nums[65],
-      nums[64],
-      nums[63],
-      nums[62],
-      nums[73],
-      nums[72],
-      nums[71],
-      nums[70],
-      nums[79],
-      nums[78],
-      nums[80],
-      nums[85],
-      nums[84],
-      nums[86],
-      //left rib variables
-      d["lprib1"],
-      nums[5],
-      nums[4],
-      nums[13],
-      nums[12],
-      nums[11],
-      nums[10],
-      nums[21],
-      nums[20],
-      nums[19],
-      nums[18],
-      nums[29],
-      nums[28],
-      nums[27],
-      nums[26],
-      nums[37],
-      nums[36],
-      nums[35],
-      nums[34],
-      nums[45],
-      nums[44],
-      nums[43],
-      nums[42],
-      nums[53],
-      nums[52],
-      nums[51],
-      nums[50],
-      nums[61],
-      nums[60],
-      nums[59],
-      nums[58],
-      nums[69],
-      nums[68],
-      nums[67],
-      nums[66],
-      nums[77],
-      nums[76],
-      nums[75],
-      nums[74],
-      d["lprib11"],
-      nums[83],
-      nums[82],
-      d["lprib12"],
-      nums[89],
-      nums[88],*/
-
+      d["ralrib1"],d["rplrib1"],d["rprib1"],d["lprib1"],d["lplrib1"],d["lalrib1"],
+      d["rarib2"],d["ralrib2"],d["rplrib2"],d["rprib2"],d["lprib2"],d["lplrib2"],d["lalrib2"],d["larib2"],
+      d["rarib3"],d["ralrib3"],d["rplrib3"],d["rprib3"],d["lprib3"],d["lplrib3"],d["lalrib3"],d["larib3"],
+      d["rarib4"],d["ralrib4"],d["rplrib4"],d["rprib4"],d["lprib4"],d["lplrib4"],d["lalrib4"],d["larib4"],
+      d["rarib5"],d["ralrib5"],d["rplrib5"],d["rprib5"],d["lprib5"],d["lplrib5"],d["lalrib5"],d["larib5"],
+      d["rarib6"],d["ralrib6"],d["rplrib6"],d["rprib6"],d["lprib6"],d["lplrib6"],d["lalrib6"],d["larib6"],
+      d["rarib7"],d["ralrib7"],d["rplrib7"],d["rprib7"],d["lprib7"],d["lplrib7"],d["lalrib7"],d["larib7"],
+      d["rarib8"],d["ralrib8"],d["rplrib8"],d["rprib8"],d["lprib8"],d["lplrib8"],d["lalrib8"],d["larib8"],
+      d["rarib9"],d["ralrib9"],d["rplrib9"],d["rprib9"],d["lprib9"],d["lplrib9"],d["lalrib9"],d["larib9"],
+      d["rarib10"],d["ralrib10"],d["rplrib10"],d["rprib10"],d["lprib10"],d["lplrib10"],d["lalrib10"],d["larib10"],
+      d["ralrib11"],d["rplrib11"],d["rprib11"],d["lprib11"],d["lplrib11"],d["lalrib11"],
+      d["ralrib12"],d["rplrib12"],d["rprib12"],d["lprib12"],d["lplrib12"],d["lalrib12"],
     ];
     var maxValue = Math.max.apply(Math, nums);
     var minValue = Math.min.apply(Math, nums);
 
-    //5, 10, 15, 20, 25 radius
-    //darkest red "rgb(220,20,60)"
-    //next darkest "rgb(255,99,71)"
-    //third darkest "rgb(255,127,80)"
-    //second lightest "rgb(233,150,122)"
-    //lightest red "rgb(255,228,196)"
 
     var MAP = {
       name: "my-map",
       areas: [
-        // rib 1      //need to check naming on ribs with 3 sections
+        // rib 1   
         {
           name: "r.al.rib.1",
           breakValue: nums[0], //d["ralrib1"],
@@ -1523,6 +1400,7 @@ class RibImage extends Component {
         </div>
       </div>
     );
+   // }
   }
 }
 
