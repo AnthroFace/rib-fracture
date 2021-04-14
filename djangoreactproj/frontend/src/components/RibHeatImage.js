@@ -15,7 +15,7 @@ class RibImage extends Component {
     };
   }
   load = () => {
-     this.setState({ msg: "Hover ribs to see total breaks for each area" });
+    //  this.setState({ msg: "Hover ribs to see total breaks for each area" });
   };
   clicked = (area) => {
     this.setState({

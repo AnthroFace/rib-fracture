@@ -131,10 +131,6 @@ class Heatmap extends React.Component {
     rib_count: "empty",
   };
 
-  componentDidMount() {
-
-  }
-
   render() {
     // console.log("render rib count", this.state.rib_count)
     // var ribCount = this.props.rib_counts;
