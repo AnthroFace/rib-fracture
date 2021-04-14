@@ -47,7 +47,7 @@ class Content1 extends Component {
             style={{ postion: "absolute" }}
             padding="0px 0px 0px 500px"
           >
-            <div>{/* <RibHeatImage rib_count={this.props.rib_count} /> */}</div>
+            <div>{ <RibHeatImage /*rib_count={this.props.rib_count}*/ /> }</div>
           </Box>
         </Box>
       </div>
