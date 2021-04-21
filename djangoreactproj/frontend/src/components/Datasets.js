@@ -16,7 +16,7 @@ class Datasets extends Component {
       "http://localhost:8000/api/datasets/"
     )
       .then(res => {
-        console.log(res.data);
+        console.log(res.data.datasets);
 
         //let datasetsFromApi = res.data.map(set_name => {
         //	return {value: set_name, display: set_name}
