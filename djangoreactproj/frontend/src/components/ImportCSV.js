@@ -573,7 +573,7 @@ class ImportCSV extends Component {
                   already_exists = true
                 }
                 else {
-                  alert("Error for patient with case ID " + row.data[0] + ":\n" + JSON.stringify(err.response.data))
+                  alert("Error(s) for patient with case ID " + row.data[0] + ":\n" + JSON.stringify(err.response.data))
                 }
               }
               else {
@@ -581,7 +581,7 @@ class ImportCSV extends Component {
                   //do nothing, user has already been warned about repeated patient ID's
                 }
                 else {
-                  alert("Error for patient with case ID " + row.data[0] + ":\n" + JSON.stringify(err.response.data))
+                  alert("Error(s) for patient with case ID " + row.data[0] + ":\n" + JSON.stringify(err.response.data))
                 }
               }
               console.log(row.data[0])

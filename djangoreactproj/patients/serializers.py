@@ -1,6 +1,26 @@
 from rest_framework import serializers
 from .models import Patient
 from .models import Filter
+from .models import Dataset
+
+class DatasetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Dataset
+        fields = ('pk', 'set_name')#, 'user')
+
+    def to_internal_value(self,data):
+        if data.get('set_name') == "":
+            data['set_name'] = None
+        return super(DatasetSerializer,self).to_internal_value(data)
+
+    def create(self, validated_data):
+        return  Dataset.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.set_name = validated_data.get('set_name', instance.set_name)
+        instance.save()
+        
+        return instance
 
 class FilterSerializer(serializers.ModelSerializer):
 

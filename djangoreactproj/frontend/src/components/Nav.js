@@ -9,6 +9,7 @@ import ImportCSV from "./ImportCSV";
 import ExportCSV from "./ExportCSV";
 import Heatmap from "./Heatmap";
 import HeatmapPage from "./HeatmapPage";
+import Datasets from "./Datasets";
 import "./../App.css";
 import Image from "react-image-resizer";
 
@@ -50,6 +51,9 @@ class Nav extends Component {
                 <a className="nav-item nav-link" href="/heatmap">
                   HEATMAP
                 </a>
+                <a className="nav-item nav-link" href="/dataset">
+                  DATASET SELECT
+                </a>
               </div>
             </div>
           </nav>
@@ -62,6 +66,7 @@ class Nav extends Component {
             <Route path="/import/" exact component={ImportCSV} />
             <Route path="/export/" exact component={ExportCSV} />
             <Route path="/heatmap/" exact component={HeatmapPage} />
+            <Route path="/dataset/" exact component={Datasets} />
           </div>
         </div>
       </BrowserRouter>

@@ -21,7 +21,8 @@ from patients import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #re_path(r'^api/datasets/$', views.)#something#
+    re_path(r'^api/datasets/$', views.datasets_list),
+    #re_path(r'^api/datasets/(?P<pk>[0-9]+)$', views.dataset_detail),
     re_path(r'^api/patients/$', views.patients_list),
     re_path(r'^api/patients/(?P<pk>[0-9]+)$', views.patients_detail),
     re_path(r'^api/filter/$', views.patients_filter),

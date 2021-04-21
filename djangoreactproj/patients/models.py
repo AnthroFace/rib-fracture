@@ -1,6 +1,16 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 
+class Dataset(models.Model):
+    set_name = models.CharField("Dataset Name", max_length=240, default="", unique=True)
+    #user = models.ForeignKey(
+    #    'auth.User',
+    #    on_delete=models.CASCADE,
+    #    )
+
+    def __str__(self):
+        return self.title
+
 class Patient(models.Model):
     case_id = models.CharField("Case ID", max_length=240,default="", unique=True)
     age = models.IntegerField("Age", blank=True, null=True)
@@ -386,6 +396,10 @@ class Patient(models.Model):
     com_ralrib12 = models.FloatField(blank=True, null=True)
     type_ralrib12 = models.CharField(max_length=20, blank=True)
     cpr_ralrib12 = models.CharField(max_length=2, blank=True)
+    dataset = models.ForeignKey(
+        'auth.User',
+        on_delete=models.CASCADE,
+        )
 
     def __str__(self):
         return self.case_id
