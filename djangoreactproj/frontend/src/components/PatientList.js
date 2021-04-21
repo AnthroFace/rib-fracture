@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Button, Table } from "reactstrap";
-import NewPatientModal from "./NewPatientModal";
-
-import ConfirmRemovalModal from "./ConfirmRemovalModal";
+import Modal from "@material-ui/core/Modal";
+import EditPatientForm from "./EditPatientForm";
 
 
 import {
@@ -27,6 +26,7 @@ function CustomToolbar() {
 class PatientList extends Component {
   state = {
     all_data: false,
+    editing: false,
   };
 
 
@@ -35,6 +35,21 @@ class PatientList extends Component {
       all_data: !previous.all_data,
     }));
   };
+
+  handleClose = () => {
+    this.setState({ editing: false});
+  }
+
+  doubleClick = (GridRowParams) => {
+    this.setState({ editing: true });
+    console.log(GridRowParams);
+    console.log("double row click");
+  }
+
+  rowClick = (GridRowParams) => {
+    console.log(GridRowParams);
+    console.log("row click");
+  }
 
   render() {
     const patients = this.props.patients;
@@ -738,6 +753,9 @@ class PatientList extends Component {
             // disableColumnFilter
             checkboxSelection
             disableColumnMenu
+            disableSelectionOnClick
+            onRowDoubleClick={this.doubleClick}
+            // onRowClick={this.rowClick}
           />
 
           //         <NewPatientModal
@@ -758,6 +776,20 @@ class PatientList extends Component {
         {/* </Table> */}
         <div>
           {/* <br /> */}
+          <Modal
+            open={this.state.editing}
+            onClose={this.handleClose}
+            // aria-labelledby="simple-modal-title"
+            // aria-describedby="simple-modal-description"
+          >
+            <div>
+              <EditPatientForm
+                resetState={this.props.resetState}
+                toggle={this.toggle}
+                patient={this.props.patient}
+              />
+            </div>
+          </Modal>
           <Button onClick={() => this.toggleAll(this.state.all_data)}>
             Toggle Rib View
           </Button>
