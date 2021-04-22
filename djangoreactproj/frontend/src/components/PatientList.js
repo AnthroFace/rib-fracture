@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Button, Table } from "reactstrap";
-import Modal from "@material-ui/core/Modal";
+// import Modal from "@material-ui/core/Modal";
 import EditPatientForm from "./EditPatientForm";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 
 import {
@@ -27,6 +27,7 @@ class PatientList extends Component {
   state = {
     all_data: false,
     editing: false,
+    confirm: false,
   };
 
 
@@ -36,12 +37,30 @@ class PatientList extends Component {
     }));
   };
 
+  toggleModal = () => {
+    this.setState((previous) => ({
+      editing: !previous.editing,
+    }));
+  };
+
+  confirmEdit = () => {
+    this.setState({ editing: true });
+    this.setState({ confirm: false });
+  }
+
+  toggleConfirm = () => {
+    this.setState((previous) => ({
+      confirm: !previous.confirm,
+    }));
+  }
+
   handleClose = () => {
     this.setState({ editing: false});
   }
 
   doubleClick = (GridRowParams) => {
-    this.setState({ editing: true });
+    // this.setState({ editing: true });
+    this.setState({ confirm: true });
     console.log(GridRowParams);
     console.log("double row click");
   }
@@ -776,19 +795,35 @@ class PatientList extends Component {
         {/* </Table> */}
         <div>
           {/* <br /> */}
-          <Modal
-            open={this.state.editing}
-            onClose={this.handleClose}
-            // aria-labelledby="simple-modal-title"
-            // aria-describedby="simple-modal-description"
-          >
-            <div>
+          <Modal isOpen={this.state.editing} toggle={this.toggleModal}>
+            <ModalHeader toggle={this.toggleModal}>Editing Patient</ModalHeader>
+
+            <ModalBody>
               <EditPatientForm
                 resetState={this.props.resetState}
-                toggle={this.toggle}
+                toggle={this.toggleModal}
                 patient={this.props.patient}
               />
-            </div>
+            </ModalBody>
+          </Modal>
+          <Modal isOpen={this.state.confirm} toggle={this.toggleConfirm}>
+            <ModalHeader toggle={this.toggleConfirm}>
+              Edit this patient?
+            </ModalHeader>
+
+            <ModalFooter>
+              <Button type="button" onClick={() => this.toggleConfirm()}>
+                Cancel
+              </Button>
+              <Button
+                type="button"
+                color="primary"
+                // onClick={() => this.deletePatient(this.props.pk)}
+                onClick={() => this.confirmEdit()}
+              >
+                Confirm
+              </Button>
+            </ModalFooter>
           </Modal>
           <Button onClick={() => this.toggleAll(this.state.all_data)}>
             Toggle Rib View
