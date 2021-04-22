@@ -392,6 +392,7 @@ class SearchBar extends Component {
     // e.preventDefault();
     axios
       .put(URL + "1", {
+        headers: {Authorization: `JWT ${localStorage.getItem('token')}`} ,
         age_start: this.state.age_start,
         age_end: this.state.age_end,
         weight_start: this.state.weight_start,
@@ -514,13 +515,21 @@ class SearchBar extends Component {
     for (i = 0; i < this.state.rib_section.length; i++) {
       this.setState({ [this.state.rib_section[i]]: 1 });
     }
-    axios.get(URL).then((res) => {
+    axios.get(URL, {
+      headers: {
+        Authorization: `JWT ${localStorage.getItem('token')}`
+      } ,
+         params:{
+            dataset: localStorage.getItem("current_dataset")}
+    }).then((res) => {
       console.log(res.data);
       console.log("data length:", res.data.length);
 
       if (res.data.length == 0) {
         axios
           .post(URL, {
+            headers: {Authorization: `JWT ${localStorage.getItem('token')}`} ,
+            dataset: localStorage.getItem("current_dataset"),
             age_start: this.state.age_start,
             age_end: this.state.age_end,
             weight_start: this.state.weight_start,

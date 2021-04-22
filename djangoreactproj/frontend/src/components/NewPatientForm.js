@@ -398,6 +398,7 @@ class NewPatientForm extends React.Component {
     com_ralrib12: null,
     type_ralrib12: "",
     cpr_ralrib12: "",
+    dataset: localStorage.getItem("current_dataset")
   };
 
   componentDidMount() {
@@ -790,6 +791,7 @@ class NewPatientForm extends React.Component {
         com_ralrib12,
         type_ralrib12,
         cpr_ralrib12,
+        dataset,
       } = this.props.patient;
       this.setState({
         pk,
@@ -1179,6 +1181,7 @@ class NewPatientForm extends React.Component {
         com_ralrib12,
         type_ralrib12,
         cpr_ralrib12,
+        dataset,
       });
     }
   }
@@ -1578,6 +1581,7 @@ class NewPatientForm extends React.Component {
       com_ralrib12: this.state.com_ralrib12,
       type_ralrib12: this.state.type_ralrib12,
       cpr_ralrib12: this.state.cpr_ralrib12,
+      dataset: localStorage.getItem("current_dataset")
     };
 
     axios.post(API_URL, data_form, {
@@ -1975,6 +1979,7 @@ class NewPatientForm extends React.Component {
         com_ralrib12: null,
         type_ralrib12: "",
         cpr_ralrib12: "",
+        dataset: localStorage.getItem("current_dataset")
       });
       this.props.toggle();
     });

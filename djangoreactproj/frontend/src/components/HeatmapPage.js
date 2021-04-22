@@ -25,7 +25,9 @@ class HeatmapPage extends Component {
     axios.get(API_URL, {
       headers: {
         Authorization: `JWT ${localStorage.getItem('token')}`
-      }
+      },
+         params:{
+            dataset: localStorage.getItem("current_dataset")}
     }).then((res) =>
       this.setState({
         patients: res.data.patients,
@@ -38,7 +40,9 @@ class HeatmapPage extends Component {
     axios.get(URL, {
       headers: {
         Authorization: `JWT ${localStorage.getItem('token')}`
-      }
+      },
+         params:{
+            dataset: localStorage.getItem("current_dataset")}
     }).then(
       (res) =>
         this.setState({
