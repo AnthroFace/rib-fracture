@@ -1580,7 +1580,11 @@ class NewPatientForm extends React.Component {
       cpr_ralrib12: this.state.cpr_ralrib12,
     };
 
-    axios.post(API_URL, data_form).then(() => {
+    axios.post(API_URL, data_form, {
+        headers: {
+            Authorization: `JWT ${localStorage.getItem('token')}`
+        }
+    }).then(() => {
       this.setState({
         pk: 0,
         case_id: "",
@@ -1978,7 +1982,11 @@ class NewPatientForm extends React.Component {
 
   editPatient = (e) => {
     e.preventDefault();
-    axios.put(API_URL + this.state.pk, this.state).then(() => {
+    axios.put(API_URL + this.state.pk, this.state, {
+        headers: {
+            Authorization: `JWT ${localStorage.getItem('token')}`
+        }
+    }).then(() => {
       this.props.resetState();
       this.props.toggle();
     });

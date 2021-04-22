@@ -562,7 +562,11 @@ class ImportCSV extends Component {
             cpr_ralrib12: row.data[382] ? row.data[382] : "",
             notes: row.data[383],
           };
-          axios.post(API_URL, new_entry).then(() => {
+          axios.post(API_URL, new_entry, {
+      headers: {
+        Authorization: `JWT ${localStorage.getItem('token')}`
+      }
+    }).then(() => {
             console.log("posted patient");
           })
           .catch((err) =>{

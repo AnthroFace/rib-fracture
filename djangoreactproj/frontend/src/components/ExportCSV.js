@@ -481,7 +481,11 @@ componentDidMount() {
   }
 
 getPatients = () => {
-    axios.get(API_URL).then((res) => this.setState({ patients: res.data.patients }));
+    axios.get(API_URL, {
+      headers: {
+         Authorization: `JWT ${localStorage.getItem('token')}`
+      }
+    }).then((res) => this.setState({ patients: res.data.patients }));
   };
 
 resetState = () => {

@@ -22,7 +22,11 @@ class PatientsPage extends Component {
   }
 
   getPatients = () => {
-    axios.get(API_URL).then((res) =>
+    axios.get(API_URL, {
+      headers: {
+        Authorization: `JWT ${localStorage.getItem('token')}`
+      }
+    }).then((res) =>
       this.setState({
         patients: res.data.patients,
         rib_counts: res.data.rib_counts,

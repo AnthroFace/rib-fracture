@@ -10,6 +10,7 @@ class NewDatasetForm extends React.Component {
   state = {
     pk: 0,
     set_name: "",
+    //user: ,
   };
 
   componentDidMount() {
@@ -17,10 +18,12 @@ class NewDatasetForm extends React.Component {
       const {
         pk,
         set_name,
+        user,
       } = this.props.dataset;
       this.setState({
         pk,
         set_name,
+        user,
       });
     }
   }
@@ -37,7 +40,9 @@ class NewDatasetForm extends React.Component {
     var data_form = {
       pk: this.state.pk,
       set_name: this.state.set_name,
+      user: this.state.user,
     };
+
 
     axios.post(URL, data_form, {
         headers: {
@@ -47,6 +52,7 @@ class NewDatasetForm extends React.Component {
       this.setState({
         pk: 0,
         set_name: "",
+        //user: ,
       });
       this.props.toggle();
     });

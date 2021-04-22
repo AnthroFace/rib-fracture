@@ -22,7 +22,11 @@ class HeatmapPage extends Component {
   }
 
   getPatients = () => {
-    axios.get(API_URL).then((res) =>
+    axios.get(API_URL, {
+      headers: {
+        Authorization: `JWT ${localStorage.getItem('token')}`
+      }
+    }).then((res) =>
       this.setState({
         patients: res.data.patients,
         rib_counts: res.data.rib_counts,
@@ -31,7 +35,11 @@ class HeatmapPage extends Component {
   };
 
   getFilteredPatients = () => {
-    axios.get(URL).then(
+    axios.get(URL, {
+      headers: {
+        Authorization: `JWT ${localStorage.getItem('token')}`
+      }
+    }).then(
       (res) =>
         this.setState({
           patients: res.data.patients ? res.data.patients : res.data,

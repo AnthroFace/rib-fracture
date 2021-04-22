@@ -6,7 +6,11 @@ from .models import Dataset
 class DatasetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dataset
-        fields = ('pk', 'set_name')#, 'user')
+        fields = ('pk', 'set_name', 'user')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(DatasetSerializer,self).form_valid(form)
 
     def to_internal_value(self,data):
         if data.get('set_name') == "":
