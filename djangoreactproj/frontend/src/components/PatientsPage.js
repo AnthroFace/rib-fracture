@@ -25,13 +25,16 @@ class PatientsPage extends Component {
     axios.get(API_URL, {
       headers: {
         Authorization: `JWT ${localStorage.getItem('token')}`
-      }
+      } ,
+         params:{
+            dataset: localStorage.getItem("current_dataset")}
     }).then((res) =>
       this.setState({
         patients: res.data.patients,
         rib_counts: res.data.rib_counts,
       })
     );
+    console.log(localStorage.getItem("current_dataset"))
   };
 
   getFilteredPatients = () => {

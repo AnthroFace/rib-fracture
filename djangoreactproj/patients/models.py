@@ -2,17 +2,17 @@ from django.db import models
 from django.core.exceptions import ValidationError
 
 class Dataset(models.Model):
-    set_name = models.CharField("Dataset Name", max_length=240, default="", unique=True)
+    set_name = models.CharField("Dataset Name", max_length=240, default="")
     user = models.ForeignKey(
         'auth.User',
         on_delete=models.CASCADE,
         )
 
     def __str__(self):
-        return self.title
+        return self.user.pk
 
 class Patient(models.Model):
-    case_id = models.CharField("Case ID", max_length=240,default="", unique=True)
+    case_id = models.CharField("Case ID", max_length=240,default="")
     age = models.IntegerField("Age", blank=True, null=True)
     sex = models.CharField("Sex", max_length= 2, blank=True)
     weight = models.IntegerField("Weight", blank=True, null=True)
@@ -396,7 +396,10 @@ class Patient(models.Model):
     com_ralrib12 = models.FloatField(blank=True, null=True)
     type_ralrib12 = models.CharField(max_length=20, blank=True)
     cpr_ralrib12 = models.CharField(max_length=2, blank=True)
-    dataset = models.ForeignKey(Dataset, on_delete=models.CASCADE)
+    dataset = models.CharField(max_length=4, blank=False, null=False)
+
+    class Meta:
+        unique_together = ('case_id', 'dataset') #(fields=['case_id', 'dataset'], name='unique_case_id_per_dataset')
 
     def __str__(self):
         return self.case_id
@@ -518,6 +521,7 @@ class Filter(models.Model):
     rprib12 = models.IntegerField(blank=True, null=True)
     rplrib12 = models.IntegerField(blank=True, null=True)
     ralrib12 = models.IntegerField(blank=True, null=True)
+    dataset = models.CharField(max_length=4, blank=False, null=False)
 
     def save(self, *args, **kwargs):
         if not self.pk and Filter.objects.exists():

@@ -130,6 +130,9 @@ class ImportCSV extends Component {
     });
   };
   handleUpload = () => {
+    if (localStorage.getItem("current_dataset") == null) {
+      alert("You must choose a dataset before uploading.")
+    }
     if (this.state.selectedFile == null) {
       alert("You must select a file to upload.");
       return false;
@@ -561,6 +564,7 @@ class ImportCSV extends Component {
             type_ralrib12: row.data[381] ? row.data[381] : "",
             cpr_ralrib12: row.data[382] ? row.data[382] : "",
             notes: row.data[383],
+            dataset: localStorage.getItem("current_dataset"),
           };
           axios.post(API_URL, new_entry, {
       headers: {

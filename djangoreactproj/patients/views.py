@@ -16,7 +16,8 @@ from .serializers import *
 @api_view(['GET', 'POST'])
 def datasets_list(request):
     if request.method == 'GET':
-        data = Dataset.objects.all()
+        current_user = request.user
+        data = Dataset.objects.filter(user = current_user)
         serializer = DatasetSerializer(data, context={'request': request}, many=True)
 
         return Response({'datasets': serializer.data})
@@ -24,8 +25,8 @@ def datasets_list(request):
     elif request.method == 'POST':
         serializer = DatasetSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(staus=status.HTTP_201_CREATED)
+            serializer.save(user = request.user)
+            return Response()#staus=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -39,7 +40,7 @@ def datasets_detail(request, pk):
     if request.method == 'PUT':
         serializer = DatasetSerializer(dataset, data=request.data,context={'request': request})
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(user = request.user)
             return Response(status=status.HTTP_204_NO_CONTENT)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -51,7 +52,9 @@ def datasets_detail(request, pk):
 @api_view(['GET', 'POST'])
 def patients_list(request):
     if request.method == 'GET':
-        data = Patient.objects.all()
+        myDataset = request.query_params['dataset']
+        data = Patient.objects.filter(dataset = myDataset)
+        #data = Patient.objects.all()
         serializer = PatientSerializer(data, context={'request': request}, many=True)
 
         rib_counts = {"sternum": 0,"lprib1": 0,"lplrib1": 0,"lalrib1": 0,"lprib2": 0,"lplrib2": 0,"lalrib2": 0,"larib2": 0,"lprib3": 0,"lplrib3": 0,"lalrib3": 0,"larib3": 0,"lprib4": 0,"lplrib4": 0,"lalrib4": 0,"larib4": 0,"lprib5": 0,"lplrib5": 0,"lalrib5": 0,"larib5": 0,"lprib6": 0,"lplrib6": 0,"lalrib6": 0,"larib6": 0,"lprib7": 0,"lplrib7": 0,"lalrib7": 0,"larib7": 0,"lprib8": 0,"lplrib8": 0,"lalrib8": 0,"larib8": 0,"lprib9": 0,"lplrib9": 0,"lalrib9": 0,"larib9": 0,"lprib10": 0,"lplrib10": 0,"lalrib10": 0,"larib10": 0,"lprib11": 0,"lplrib11": 0,"lalrib11": 0,"lprib12": 0,"lplrib12": 0,"lalrib12": 0,"rprib1": 0,"rplrib1": 0,"ralrib1": 0,"rprib2": 0,"rplrib2": 0,"ralrib2": 0,"rarib2": 0,"rprib3": 0,"rplrib3": 0,"ralrib3": 0,"rarib3": 0,"rprib4": 0,"rplrib4": 0,"ralrib4": 0,"rarib4": 0,"rprib5": 0,"rplrib5": 0,"ralrib5": 0,"rarib5": 0,"rprib6": 0,"rplrib6": 0,"ralrib6": 0,"rarib6": 0,"rprib7": 0,"rplrib7": 0,"ralrib7": 0,"rarib7": 0,"rprib8": 0,"rplrib8": 0,"ralrib8": 0,"rarib8": 0,"rprib9": 0,"rplrib9": 0,"ralrib9": 0,"rarib9": 0,"rprib10": 0,"rplrib10": 0,"ralrib10": 0,"rarib10": 0,"rprib11": 0,"rplrib11": 0,"ralrib11": 0,"rprib12": 0,"rplrib12": 0,"ralrib12": 0}
@@ -66,7 +69,8 @@ def patients_list(request):
     
         return Response({
             'patients':serializer.data,
-            'rib_counts': rib_counts
+            'rib_counts': rib_counts,
+            'test': myDataset
         })
 
         # return Response(serializer.data)
@@ -100,8 +104,8 @@ def patients_detail(request, pk):
 @api_view(['GET', 'POST'])
 def patients_filter(request):
     if request.method == 'GET':
-
-        data = Filter.objects.all()
+        myDataset = request.query_params['dataset']
+        data = Filter.objects.filter(dataset=myDataset)
         print(data)
         age_start = 0
         age_end = 10000

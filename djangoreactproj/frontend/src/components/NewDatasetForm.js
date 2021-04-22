@@ -10,7 +10,7 @@ class NewDatasetForm extends React.Component {
   state = {
     pk: 0,
     set_name: "",
-    //user: ,
+    user: 0,
   };
 
   componentDidMount() {
@@ -52,9 +52,9 @@ class NewDatasetForm extends React.Component {
       this.setState({
         pk: 0,
         set_name: "",
-        //user: ,
+        user: 0,
       });
-      this.props.toggle();
+      //this.props.toggle();
     });
   };
 

@@ -6,11 +6,7 @@ from .models import Dataset
 class DatasetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dataset
-        fields = ('pk', 'set_name', 'user')
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(DatasetSerializer,self).form_valid(form)
+        fields = ('pk', 'set_name')
 
     def to_internal_value(self,data):
         if data.get('set_name') == "":
@@ -38,7 +34,7 @@ class FilterSerializer(serializers.ModelSerializer):
                   'ralrib2', 'rarib2', 'rprib3', 'rplrib3', 'ralrib3', 'rarib3', 'rprib4', 'rplrib4', 'ralrib4', 'rarib4', 'rprib5', 'rplrib5', 'ralrib5', 
                   'rarib5', 'rprib6', 'rplrib6', 'ralrib6', 'rarib6', 'rprib7', 'rplrib7', 'ralrib7', 'rarib7', 'rprib8', 'rplrib8', 'ralrib8', 'rarib8', 
                   'rprib9', 'rplrib9', 'ralrib9', 'rarib9', 'rprib10', 'rplrib10', 'ralrib10', 'rarib10', 'rprib11', 'rplrib11', 'ralrib11', 'rprib12', 'rplrib12', 
-                  'ralrib12')
+                  'ralrib12', 'dataset')
 
     def to_internal_value(self,data):
         if data.get('age_start') == "":
@@ -235,6 +231,8 @@ class FilterSerializer(serializers.ModelSerializer):
             data['rplrib12'] = None
         if data.get('ralrib12') == "":
             data['ralrib12'] = None
+        if data.get('dataset') == "":
+            data['dataset'] = None
         return super(FilterSerializer,self).to_internal_value(data)
     
     def create(self, validated_data):
@@ -349,6 +347,7 @@ class FilterSerializer(serializers.ModelSerializer):
         instance.rprib12 = validated_data.get('rprib12', instance.rprib12)
         instance.rplrib12 = validated_data.get('rplrib12', instance.rplrib12)
         instance.ralrib12 = validated_data.get('ralrib12', instance.ralrib12)
+        instance.dataset = validated_data.get('dataset', instance.dataset)
         instance.save()
 
         return instance
@@ -399,7 +398,7 @@ class PatientSerializer(serializers.ModelSerializer):
                   'ralrib10', 'com_ralrib10', 'type_ralrib10', 'cpr_ralrib10', 'rarib10', 'com_rarib10', 'type_rarib10', 'cpr_rarib10',
                   'rprib11', 'com_rprib11', 'type_rprib11', 'cpr_rprib11', 'rplrib11', 'com_rplrib11', 'type_rplrib11', 'cpr_rplrib11',
                   'ralrib11', 'com_ralrib11', 'type_ralrib11', 'cpr_ralrib11','rprib12', 'com_rprib12', 'type_rprib12',  'cpr_rprib12','rplrib12', 
-                  'com_rplrib12', 'type_rplrib12', 'cpr_rplrib12','ralrib12', 'com_ralrib12', 'type_ralrib12', 'cpr_ralrib12')
+                  'com_rplrib12', 'type_rplrib12', 'cpr_rplrib12','ralrib12', 'com_ralrib12', 'type_ralrib12', 'cpr_ralrib12', 'dataset')
 
     def to_internal_value(self,data):
         if data.get('age') == "":
@@ -770,6 +769,8 @@ class PatientSerializer(serializers.ModelSerializer):
             data['ralrib12'] = None
         if data.get('com_ralrib12') == "":
             data['com_ralrib12'] = None
+        if data.get('dataset') == "":
+            data['dataset'] = None
         return super(PatientSerializer,self).to_internal_value(data)
     
     def create(self, validated_data):
@@ -1160,6 +1161,7 @@ class PatientSerializer(serializers.ModelSerializer):
         instance.com_ralrib12 = validated_data.get('com_ralrib12', instance.com_ralrib12)
         instance.type_ralrib12 = validated_data.get('type_ralrib12', instance.type_ralrib12)
         instance.cpr_ralrib12 = validated_data.get('cpr_ralrib12', instance.cpr_ralrib12)
+        instance.dataset = validated_data.get('dataset', instance.dataset)
         instance.save()
 
         return instance

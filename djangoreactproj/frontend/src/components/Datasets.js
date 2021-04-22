@@ -10,8 +10,11 @@ class Datasets extends Component {
   state = {
     sets: [],
     selectedSet: "",
-    validationError: ""
+    validationError: "",
+    fullDatasets: [],
+    myDatasets: []
   };
+
 
   componentDidMount() {
     axios.get(URL, {
@@ -23,12 +26,13 @@ class Datasets extends Component {
       .then(res => {
         console.log(res.data.datasets);
 
-       var myDatasets = [];
+
        for (var i = 0; i < res.data.datasets.length; i++) {
-       	myDatasets.push(res.data.datasets[i].set_name);
+       	this.state.myDatasets.push(res.data.datasets[i].set_name);
+       	this.state.fullDatasets.push(res.data.datasets[i]);
        }
 
-       let datasetsFromApi = myDatasets.map(set_name => {
+       let datasetsFromApi = this.state.myDatasets.map(set_name => {
         	return {value: set_name, display: set_name}
         });
 
@@ -49,7 +53,12 @@ class Datasets extends Component {
     }
 
     componentDidUpdate() {
-    	localStorage.setItem("current_dataset", this.state.selectedSet);
+    	for (var i = 0; i < this.state.fullDatasets.length; i++) {
+    		if (this.state.selectedSet === this.state.fullDatasets[i].set_name) {
+    			localStorage.setItem("current_dataset", this.state.fullDatasets[i].pk)
+    			//console.log(this.state.fullDatasets[i].pk)
+    		}
+       }
     	console.log(localStorage.getItem("current_dataset"));
     }
 
