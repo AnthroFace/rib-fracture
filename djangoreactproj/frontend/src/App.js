@@ -93,19 +93,33 @@ class App extends Component {
         form = null;
     }
 
-    return (
-      <div className="App">
-          {form}
-        <h3>
-          {this.state.logged_in
-            ? `Hello, ${this.state.username}`
-            : 'Please Log In'}
-        </h3>
+    //let {isLoggedIn} = this.state; 
+
+    const renderAuthButton = () => {
+      if(!this.state.logged_in){
+        console.log(this.state.logged_in);
+        return  <Fragment>   {form}
         <LoginNav
           logged_in={this.state.logged_in}
           display_form={this.display_form}
           handle_logout={this.handle_logout}
-        />
+          
+        /> </Fragment>;  
+      }
+      else{
+        console.log(this.state.logged_in); 
+        return  <Fragment> 
+        <LoginNav
+          logged_in={this.state.logged_in}
+          display_form={this.display_form}
+          handle_logout={this.handle_logout}
+        /> <Nav /></Fragment>; 
+      }
+    }
+
+    return (
+      <div className="App">
+          {renderAuthButton()}
       </div>
     );
   }
