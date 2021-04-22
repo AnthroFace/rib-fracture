@@ -14,9 +14,11 @@ class Datasets extends Component {
   };
 
   componentDidMount() {
-    axios.get(
-      "http://localhost:8000/api/datasets/"
-    )
+    axios.get(URL, {
+    	headers: {
+    		Authorization: `JWT ${localStorage.getItem('token')}`
+    	}
+    })
 
       .then(res => {
         console.log(res.data.datasets);
@@ -43,14 +45,21 @@ class Datasets extends Component {
       .catch(error => {
         console.log(error);
       });
-  }
+      
+    }
+
+    componentDidUpdate() {
+    	localStorage.setItem("current_dataset", this.state.selectedSet);
+    	console.log(localStorage.getItem("current_dataset"));
+    }
+
 
   render() {
     return (
       <div>
       <Typography class = "patientpage" variant="h2">Select An Existing Dataset</Typography>
         <select
-          value={this.state.selectedSets}
+          value={this.state.selectedSet}
           onChange={e =>
             this.setState({
               selectedSet: e.target.value,
@@ -58,9 +67,10 @@ class Datasets extends Component {
                 e.target.value === ""
                   ? "You must select a dataset"
                   : ""
-            })
+            })   
           }
         >
+
           {this.state.sets.map(set_name => (
             <option
               key={set_name.value}

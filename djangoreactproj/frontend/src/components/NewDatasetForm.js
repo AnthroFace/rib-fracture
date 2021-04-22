@@ -39,7 +39,11 @@ class NewDatasetForm extends React.Component {
       set_name: this.state.set_name,
     };
 
-    axios.post(URL, data_form).then(() => {
+    axios.post(URL, data_form, {
+        headers: {
+        Authorization: `JWT ${localStorage.getItem('token')}`
+      }
+    }).then(() => {
       this.setState({
         pk: 0,
         set_name: "",
