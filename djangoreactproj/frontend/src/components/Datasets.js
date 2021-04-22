@@ -1,5 +1,7 @@
-import React, { Component } from "react";
-
+import React, { Component, Fragment } from "react";
+import NewDatasetForm from "./NewDatasetForm";
+import { Typography } from "@material-ui/core";
+import "./../text.css";
 import axios from "axios";
 
 const URL = "http://localhost:8000/api/datasets/";
@@ -15,13 +17,18 @@ class Datasets extends Component {
     axios.get(
       "http://localhost:8000/api/datasets/"
     )
+
       .then(res => {
         console.log(res.data.datasets);
 
-        //let datasetsFromApi = res.data.map(set_name => {
-        //	return {value: set_name, display: set_name}
-       // });
+       var myDatasets = [];
+       for (var i = 0; i < res.data.datasets.length; i++) {
+       	myDatasets.push(res.data.datasets[i].set_name);
+       }
 
+       let datasetsFromApi = myDatasets.map(set_name => {
+        	return {value: set_name, display: set_name}
+        });
 
         this.setState({
           sets: [
@@ -30,7 +37,7 @@ class Datasets extends Component {
               display:
                 "(Select dataset)"
             }
-          ].concat(res.data)
+          ].concat(datasetsFromApi)
         });
       })
       .catch(error => {
@@ -41,6 +48,7 @@ class Datasets extends Component {
   render() {
     return (
       <div>
+      <Typography class = "patientpage" variant="h2">Select An Existing Dataset</Typography>
         <select
           value={this.state.selectedSets}
           onChange={e =>
@@ -53,12 +61,12 @@ class Datasets extends Component {
             })
           }
         >
-          {this.state.sets.map(dataset => (
+          {this.state.sets.map(set_name => (
             <option
-              key={dataset.value}
-              value={dataset.value}
+              key={set_name.value}
+              value={set_name.value}
             >
-              {dataset.display}
+              {set_name.display}
             </option>
           ))}
         </select>
@@ -70,6 +78,10 @@ class Datasets extends Component {
         >
           {this.state.validationError}
         </div>
+        <div>
+        <Typography class = "patientpage" variant="h2">Create A New Dataset</Typography>
+        <NewDatasetForm resetState={this.resetState} toggle={this.toggle} />
+      </div>
       </div>
     );
   }
