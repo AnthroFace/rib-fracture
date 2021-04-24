@@ -1,52 +1,63 @@
-
-.CircleText{
-    display: flex;
-    flex-wrap: wrap;
-    font-family: 'Montserrat';
+input[type="text"] {
+  width: 500px;
+}
+.column1 {
+  width: 50%;
+  float: left;
+}
+.CircleText {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Montserrat";
 }
 
-.textcircle{
-  font-family: 'Montserrat';
+.textcircle {
+  font-family: "Montserrat";
 }
 
-.SquareText{
+.SquareText {
   display: flex;
   flex-wrap: wrap;
 }
 
-.patientpage{
-  font-family: 'Montserrat';
+.patientpage {
+  font-family: "Montserrat";
   padding: 40px 0px 0px 30px;
 }
-.form1{
-  font-family: 'Montserrat';
+.form1 {
+  font-family: "Montserrat";
   padding: 10px 0px 0px 30px;
 }
-.form-row{
-  font-family: 'Montserrat';
+.form2 {
+  font-family: "Montserrat";
+  padding: 5px 0px;
+}
+.form-row {
+  font-family: "Montserrat";
+  padding: 10px 0px 0px 30px;
 }
 
-.send{
-  font-family: 'Montserrat';
+.send {
+  font-family: "Montserrat";
+  padding: 10px 0px 0px 30px;
 }
 
-.patienttable{
-  font-family: 'Montserrat';
+.patienttable {
+  font-family: "Montserrat";
 }
 
-.ImportCSV{
-  font-family: 'Montserrat';
+.ImportCSV {
+  font-family: "Montserrat";
   padding: 30px 0px 0px 50px;
 }
-.ExportCSV{
-  font-family: 'Montserrat';
+.ExportCSV {
+  font-family: "Montserrat";
   padding: 30px 0px 0px 50px;
-
 }
 
-.csvtitle{
+.csvtitle {
   padding: 0px 0px 10px 20px;
 }
-.csvtitle2{
+.csvtitle2 {
   padding: 0px 0px 10px 30px;
 }

@@ -1991,11 +1991,12 @@ class EditPatientForm extends React.Component {
   render() {
     return (
       <Form onSubmit={this.editPatient}>
-        <div class="form1">
+        <div class="form2">
           <FormGroup>
             <Label for="case_id">Case ID:</Label>
             <Input
               type="text"
+              className="w-75"
               name="case_id"
               onChange={this.onChange}
               value={this.defaultIfEmpty(this.state.case_id)}
@@ -2006,6 +2007,7 @@ class EditPatientForm extends React.Component {
             <Label for="age">Age:</Label>
             <Input
               type="text"
+              className="w-75"
               name="age"
               onChange={this.onChange}
               value={this.defaultIfEmpty(this.state.age)}
@@ -2052,6 +2054,7 @@ class EditPatientForm extends React.Component {
             <Label for="weight">Weight:</Label>
             <Input
               type="text"
+              className="w-75"
               name="weight"
               onChange={this.onChange}
               value={this.defaultIfEmpty(this.state.weight)}
@@ -2061,6 +2064,7 @@ class EditPatientForm extends React.Component {
             <Label for="height">Height:</Label>
             <Input
               type="text"
+              className="w-75"
               name="height"
               onChange={this.onChange}
               value={this.defaultIfEmpty(this.state.height)}
@@ -2090,6 +2094,7 @@ class EditPatientForm extends React.Component {
             <Label for="mod">Mode of Death:</Label>
             <Input
               type="text"
+              className="w-75"
               name="mod"
               onChange={this.onChange}
               value={this.defaultIfEmpty(this.state.mod)}
@@ -2099,6 +2104,7 @@ class EditPatientForm extends React.Component {
             <Label for="cod">Cause of Death:</Label>
             <Input
               type="text"
+              className="w-75"
               name="cod"
               onChange={this.onChange}
               value={this.defaultIfEmpty(this.state.cod)}
@@ -2108,6 +2114,7 @@ class EditPatientForm extends React.Component {
             <Label for="cod_type">COD Type:</Label>
             <Input
               type="text"
+              className="w-75"
               name="cod_type"
               onChange={this.onChange}
               value={this.defaultIfEmpty(this.state.cod_type)}
@@ -2404,6 +2411,7 @@ class EditPatientForm extends React.Component {
             <Label for="health_notes">Health Notes:</Label>
             <Input
               type="text"
+              className="w-75"
               name="health_notes"
               onChange={this.onChange}
               value={this.defaultIfEmpty(this.state.health_notes)}
@@ -2413,6 +2421,7 @@ class EditPatientForm extends React.Component {
             <Label for="notes">Notes:</Label>
             <Input
               type="text"
+              className="w-75"
               name="notes"
               onChange={this.onChange}
               value={this.defaultIfEmpty(this.state.notes)}
