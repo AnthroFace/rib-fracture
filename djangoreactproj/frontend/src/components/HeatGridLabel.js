@@ -7,7 +7,7 @@ class HeatGridLabel extends Component {
     
     render() {
       return (
-      <div class = "HeatGridLabel" >
+      <div className = "HeatGridLabel" >
         <Box border={0} style={{postion:"absolute"}} class = "horizontalright" > 
           <h7 > Horizontal Right Rib Total </h7>
         </Box>

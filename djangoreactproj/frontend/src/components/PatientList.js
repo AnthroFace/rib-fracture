@@ -111,18 +111,11 @@ class PatientList extends Component {
   handleClose = () => {
     this.setState({ editing: false});
     console.log("handleClose", this.state.pk);
-    // console.log("handleClose", this.state.confirm_pk);
   }
 
   doubleClick = (GridRowParams) => {
-    // this.setState({ editing: true });
     this.setState({ confirm: true, pk: GridRowParams.row.id, patient: GridRowParams.row });
-    // console.log(GridRowParams);
-    // console.log("row", GridRowParams.row);
-    // console.log("row.id", GridRowParams.row.id)
-    // console.log("double row click");
     console.log("doubleClick", this.state.pk);
-    // console.log("doubleClick", this.state.confirm_pk);
   }
 
   rowClick = (GridRowParams) => {
@@ -1975,12 +1968,12 @@ class PatientList extends Component {
               disableSelectionOnClick
               onRowDoubleClick={this.doubleClick}
             />
-            <Button
+            {/* <Button
               style={{ marginRight: 4 }}
               onClick={() => this.toggleAll(this.state.all_data)}
             >
               Toggle Rib View
-            </Button>
+            </Button> */}
             <Fragment>
               <Button
                 style={{ marginRight: 4 }}
@@ -2019,7 +2012,7 @@ class PatientList extends Component {
               <EditPatientForm
                 resetState={this.props.resetState}
                 toggle={this.toggleModal}
-                patient={this.props.patient}
+                patient={this.state.patient}
               />
             </ModalBody>
           </Modal>
@@ -2043,9 +2036,9 @@ class PatientList extends Component {
               </Button>
             </ModalFooter>
           </Modal>
-          <Button onClick={() => this.toggleAll(this.state.all_data)}>
+          {/* <Button onClick={() => this.toggleAll(this.state.all_data)}>
             Toggle Rib View
-          </Button>
+          </Button> */}
           <br />
         </div>
       </div>

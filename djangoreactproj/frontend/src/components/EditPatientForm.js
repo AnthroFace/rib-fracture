@@ -1181,6 +1181,7 @@ class EditPatientForm extends React.Component {
         cpr_ralrib12,
       });
     }
+    console.log("edit patient", this.state.pk);
   }
 
   onChange = (e) => {
@@ -2424,7 +2425,7 @@ class EditPatientForm extends React.Component {
               className="w-75"
               name="notes"
               onChange={this.onChange}
-              value={this.defaultIfEmpty(this.state.notes)}
+              value={this.state.notes || ' '}
             />
           </FormGroup>
         </div>
