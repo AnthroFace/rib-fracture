@@ -25,9 +25,12 @@ function CustomToolbar() {
 
 class PatientList extends Component {
   state = {
-    all_data: false,
+    all_data: true,
     editing: false,
     confirm: false,
+    pk: "",
+    patient: "",
+    // confirm_pk: "",
   };
 
 
@@ -38,31 +41,52 @@ class PatientList extends Component {
   };
 
   toggleModal = () => {
+    // console.log(this.state.patient_pk);
     this.setState((previous) => ({
       editing: !previous.editing,
+      pk: "",
+      // confirm_pk: "",
     }));
+    console.log("toggleModal", this.state.pk);
+    // console.log("toggleModal", this.state.confirm_pk);
   };
 
+  confirmCancel = () => {
+    this.setState({ editing: false, confirm: false, pk: ""});
+    console.log("confirmCancel", this.state.pk);
+    // console.log("confirmCancel", this.state.confirm_pk);
+  }
+
   confirmEdit = () => {
-    this.setState({ editing: true });
-    this.setState({ confirm: false });
+    this.setState({ editing: true, confirm: false});
+    console.log("confirmEdit", this.state.pk);
+    console.log("patient:", this.state.patient)
+    // console.log("confirmEdit confirm", this.state.confirm_pk);    
   }
 
   toggleConfirm = () => {
     this.setState((previous) => ({
       confirm: !previous.confirm,
     }));
+    console.log("toggleConfirm", this.state.pk);
+    // console.log("toggleConfirm", this.state.confirm_pk);
   }
 
   handleClose = () => {
     this.setState({ editing: false});
+    console.log("handleClose", this.state.pk);
+    // console.log("handleClose", this.state.confirm_pk);
   }
 
   doubleClick = (GridRowParams) => {
     // this.setState({ editing: true });
-    this.setState({ confirm: true });
-    console.log(GridRowParams);
-    console.log("double row click");
+    this.setState({ confirm: true, pk: GridRowParams.row.id, patient: GridRowParams.row });
+    // console.log(GridRowParams);
+    // console.log("row", GridRowParams.row);
+    // console.log("row.id", GridRowParams.row.id)
+    // console.log("double row click");
+    console.log("doubleClick", this.state.pk);
+    // console.log("doubleClick", this.state.confirm_pk);
   }
 
   rowClick = (GridRowParams) => {
@@ -806,13 +830,14 @@ class PatientList extends Component {
               />
             </ModalBody>
           </Modal>
+
           <Modal isOpen={this.state.confirm} toggle={this.toggleConfirm}>
             <ModalHeader toggle={this.toggleConfirm}>
               Edit this patient?
             </ModalHeader>
 
             <ModalFooter>
-              <Button type="button" onClick={() => this.toggleConfirm()}>
+              <Button type="button" onClick={() => this.confirmCancel()}>
                 Cancel
               </Button>
               <Button
