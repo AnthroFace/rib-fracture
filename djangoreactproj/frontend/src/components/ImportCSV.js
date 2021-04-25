@@ -132,6 +132,7 @@ class ImportCSV extends Component {
   handleUpload = () => {
     if (localStorage.getItem("current_dataset") == null) {
       alert("You must choose a dataset before uploading.")
+      return false;
     }
     if (this.state.selectedFile == null) {
       alert("You must select a file to upload.");
@@ -143,7 +144,8 @@ class ImportCSV extends Component {
     }
 
     var already_exists = false
-    var row_number = 1
+    var row_number = 0
+    var patient_posted = 1
 
     Papa.parse(this.state.selectedFile, {
       //header: true,
@@ -155,8 +157,8 @@ class ImportCSV extends Component {
         //console.log("Row:", row.data);
 
         //check that header row is properly formatted and cancel import if it is not
-        if (row_number === 1) {
-          console.log(row)
+        if (row_number === 0) {
+          //console.log(row)
           if (row.data.length != 384) {
             alert("This CSV file does not have the expected headers.\nPlease note that headers must match the template exactly and are case sensitive.\nThe template can be downloaded from the Export page.")
             parser.abort()
@@ -571,13 +573,18 @@ class ImportCSV extends Component {
         Authorization: `JWT ${localStorage.getItem('token')}`
       }
     }).then(() => {
-            console.log("posted patient");
+            //console.log("posted patient");
+            patient_posted++;
+            //console.log(patient_posted + " " + row_number)
+            if (patient_posted === row_number) {
+              alert("Import Complete");
+            }
           })
           .catch((err) =>{
             if (err.response) {
               if (already_exists == false) {
-                if (err.response.data.case_id == "patient with this Case ID already exists.") {
-                  alert("One or more of these patient Case IDs are already in this database, these entries will be skipped.")
+                if (err.response.data.non_field_errors == "The fields case_id, dataset must make a unique set.") {
+                  alert("One or more of these patient Case IDs are already in this dataset, these entries will be skipped.")
                   already_exists = true
                 }
                 else {
@@ -585,18 +592,22 @@ class ImportCSV extends Component {
                 }
               }
               else {
-                if (err.response.data.case_id == "patient with this Case ID already exists.") {
+                if (err.response.data.non_field_errors == "The fields case_id, dataset must make a unique set.") {
                   //do nothing, user has already been warned about repeated patient ID's
                 }
                 else {
                   alert("Error(s) for patient with case ID " + row.data[0] + ":\n" + JSON.stringify(err.response.data))
                 }
               }
-              console.log(row.data[0])
-              console.log(row_number)
-              console.log(err.response.data);
+              //console.log(row.data[0])
+              //console.log(row_number)
+              //console.log(err.response.data);
               //console.log(err.response.status);
               //console.log(err.response.headers);
+              patient_posted++;
+              if (patient_posted === row_number) {
+                alert("Import Complete");
+              }
             }
           });
         }

@@ -46,6 +46,10 @@ def datasets_detail(request, pk):
 
     elif request.method == 'DELETE':
         dataset.delete()
+        patients = Patient.objects.get(dataset=pk)
+        patients.delete()
+        fils = Filter.objects.get(dataset=pk)
+        fils.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 

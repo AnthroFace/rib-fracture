@@ -101,6 +101,10 @@ class Datasets extends Component {
         <Typography class = "patientpage" variant="h2">Create A New Dataset</Typography>
         <NewDatasetForm resetState={this.resetState} toggle={this.toggle} />
       </div>
+      <div>
+      <Typography class = "patientpage" variant="h2">Delete Selected Dataset</Typography>
+      <something/>
+      </div>
       </div>
     );
   }
