@@ -1242,6 +1242,36 @@ class EditPatientForm extends React.Component {
           </FormGroup>
           <Container>
             <Row>
+              <Col>
+                <FormGroup>
+                  <Label for="sternum">Sternum:</Label>
+
+                  <Input
+                    type="text"
+                    className="w-75"
+                    name="sternum"
+                    onChange={this.onChange}
+                    value={this.defaultIfEmpty(this.state.sternum)}
+                  />
+                </FormGroup>
+              </Col>
+              <Col>
+                <FormGroup>
+                  <Label for="cpr_sternum">CPR Sternum:</Label>
+
+                  <Input
+                    type="text"
+                    className="w-75"
+                    name="cpr_sternum"
+                    onChange={this.onChange}
+                    value={this.defaultIfEmpty(this.state.cpr_sternum)}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+          </Container>
+          <Container>
+            <Row>
               <Col xs="3">
                 <FormGroup>
                   <Label for="lprib1">lprib1:</Label>
