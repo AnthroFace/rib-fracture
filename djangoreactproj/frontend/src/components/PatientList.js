@@ -1956,6 +1956,7 @@ class PatientList extends Component {
         ) : (
           // <div></div>
           <div style={{ height: 700, width: wid }}>
+            Double click a patient row to edit it.
             <DataGrid
               // {...patients}
               // style={{ height: 1000, width: "100%" }}
