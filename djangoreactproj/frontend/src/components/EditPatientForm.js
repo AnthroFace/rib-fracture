@@ -1288,181 +1288,363 @@ class EditPatientForm extends React.Component {
                 RIBS 1
               </AccordionSummary>
               <AccordionDetails>
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    // aria-controls="panel1a-content"
-                    id="panel1a-header"
-                  >
-                    {/* <Typography className={classes.heading}> */}
-                    {/* Accordion 1 */}
-                    {/* </Typography> */}
-                    Left
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Container>
-                      <Row>
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="lprib1">lprib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="lprib1"
-                              onChange={this.onChange}
-                              value={this.state.lprib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
+                <Container>
+                  <Row>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        // aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        {/* <Typography className={classes.heading}> */}
+                        {/* Accordion 1 */}
+                        {/* </Typography> */}
+                        Left
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Container>
+                          <Row>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="lprib1">lprib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="lprib1"
+                                  onChange={this.onChange}
+                                  value={this.state.lprib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
 
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="com_lprib1">com_lprib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="com_lprib1"
-                              onChange={this.onChange}
-                              value={this.state.com_lprib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="com_lprib1">com_lprib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="com_lprib1"
+                                  onChange={this.onChange}
+                                  value={this.state.com_lprib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
 
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="type_lprib1">type_lprib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="type_lprib1"
-                              onChange={this.onChange}
-                              value={this.state.type_lprib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="type_lprib1">type_lprib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="type_lprib1"
+                                  onChange={this.onChange}
+                                  value={this.state.type_lprib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
 
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="cpr_lprib1">cpr_lprib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="cpr_lprib1"
-                              onChange={this.onChange}
-                              value={this.state.cpr_lprib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="lplrib1">lplrib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="lplrib1"
-                              onChange={this.onChange}
-                              value={this.state.lplrib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="cpr_lprib1">cpr_lprib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="cpr_lprib1"
+                                  onChange={this.onChange}
+                                  value={this.state.cpr_lprib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="lplrib1">lplrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="lplrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.lplrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
 
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="com_lplrib1">com_lplrib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="com_lplrib1"
-                              onChange={this.onChange}
-                              value={this.state.com_lplrib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="com_lplrib1">com_lplrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="com_lplrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.com_lplrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
 
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="type_lplrib1">type_lplrib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="type_lplrib1"
-                              onChange={this.onChange}
-                              value={this.state.type_lplrib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="type_lplrib1">type_lplrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="type_lplrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.type_lplrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
 
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="cpr_lplrib1">cpr_lplrib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="cpr_lplrib1"
-                              onChange={this.onChange}
-                              value={this.state.cpr_lplrib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="lalrib1">lalrib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="lalrib1"
-                              onChange={this.onChange}
-                              value={this.state.lalrib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="cpr_lplrib1">cpr_lplrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="cpr_lplrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.cpr_lplrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="lalrib1">lalrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="lalrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.lalrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
 
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="com_lalrib1">com_lalrib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="com_lalrib1"
-                              onChange={this.onChange}
-                              value={this.state.com_lalrib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="com_lalrib1">com_lalrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="com_lalrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.com_lalrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
 
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="type_lalrib1">type_lalrib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="type_lalrib1"
-                              onChange={this.onChange}
-                              value={this.state.type_lalrib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="type_lalrib1">type_lalrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="type_lalrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.type_lalrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
 
-                        <Col xs="3">
-                          <FormGroup>
-                            <Label for="cpr_lalrib1">cpr_lalrib1:</Label>
-                            <Input
-                              type="text"
-                              className="w-75"
-                              name="cpr_lalrib1"
-                              onChange={this.onChange}
-                              value={this.state.cpr_lalrib1 || " "}
-                            />
-                          </FormGroup>
-                        </Col>
-                      </Row>
-                    </Container>
-                  </AccordionDetails>
-                </Accordion>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="cpr_lalrib1">cpr_lalrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="cpr_lalrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.cpr_lalrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+                          </Row>
+                          <Row></Row>
+                        </Container>
+                      </AccordionDetails>
+                    </Accordion>
+                  </Row>
+                  <Row>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        // aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        {/* <Typography className={classes.heading}> */}
+                        {/* Accordion 1 */}
+                        {/* </Typography> */}
+                        Right
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Container>
+                          <Row>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="rprib1">rprib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="rprib1"
+                                  onChange={this.onChange}
+                                  value={this.state.rprib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="com_rprib1">com_rprib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="com_rprib1"
+                                  onChange={this.onChange}
+                                  value={this.state.com_rprib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="type_rprib1">type_rprib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="type_rprib1"
+                                  onChange={this.onChange}
+                                  value={this.state.type_rprib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="cpr_rprib1">cpr_rprib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="cpr_rprib1"
+                                  onChange={this.onChange}
+                                  value={this.state.cpr_rprib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="rplrib1">rplrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="rplrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.rplrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="com_rplrib1">com_rplrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="com_rplrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.com_rplrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="type_rplrib1">type_rplrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="type_rplrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.type_rplrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="cpr_rplrib1">cpr_rplrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="cpr_rplrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.cpr_rplrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="lalrib1">ralrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="ralrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.ralrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="com_ralrib1">com_ralrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="com_ralrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.com_ralrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="type_ralrib1">type_ralrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="type_ralrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.type_ralrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+
+                            <Col xs="3">
+                              <FormGroup>
+                                <Label for="cpr_ralrib1">cpr_ralrib1:</Label>
+                                <Input
+                                  type="text"
+                                  className="w-75"
+                                  name="cpr_ralrib1"
+                                  onChange={this.onChange}
+                                  value={this.state.cpr_ralrib1 || " "}
+                                />
+                              </FormGroup>
+                            </Col>
+                          </Row>
+                        </Container>
+                      </AccordionDetails>
+                    </Accordion>
+                  </Row>
+                </Container>
               </AccordionDetails>
             </Accordion>
           </Container>
