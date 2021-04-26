@@ -1288,7 +1288,6 @@ class EditPatientForm extends React.Component {
                 RIBS 1
               </AccordionSummary>
               <AccordionDetails>
-                <Row></Row>
                 <Accordion>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
