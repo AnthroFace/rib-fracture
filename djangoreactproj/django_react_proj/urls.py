@@ -23,7 +23,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^api/datasets/$', views.datasets_list),
-    #re_path(r'^api/datasets/(?P<pk>[0-9]+)$', views.dataset_detail),
+    re_path(r'^api/datasets/(?P<pk>[0-9]+)$', views.datasets_detail),
     re_path(r'^api/patients/$', views.patients_list),
     re_path(r'^api/patients/(?P<pk>[0-9]+)$', views.patients_detail),
     re_path(r'^api/filter/$', views.patients_filter),

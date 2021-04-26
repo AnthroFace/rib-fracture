@@ -105,6 +105,22 @@ class Home extends Component {
               Heatmap
             </Button>
             </div>
+            <div style ={{padding : "5px"}}>
+            <Button
+              style={{
+                // borderRadius: 35,
+                color:"#96382f",
+                backgroundColor: "#fffee9",
+                padding: "18px 36px",
+                fontSize: "15px",
+              }}
+              variant="contained"
+              size="large"
+              href="/Dataset"
+            >
+              Dataset Select
+            </Button>
+            </div>
           </Box>
         </Box>
       </div>

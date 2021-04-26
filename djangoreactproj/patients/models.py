@@ -396,7 +396,7 @@ class Patient(models.Model):
     com_ralrib12 = models.FloatField(blank=True, null=True)
     type_ralrib12 = models.CharField(max_length=20, blank=True)
     cpr_ralrib12 = models.CharField(max_length=2, blank=True)
-    dataset = models.CharField(max_length=4, blank=False, null=False)
+    dataset = models.CharField(max_length=20, blank=False, null=False)
 
     class Meta:
         unique_together = ('case_id', 'dataset') #(fields=['case_id', 'dataset'], name='unique_case_id_per_dataset')
@@ -521,7 +521,7 @@ class Filter(models.Model):
     rprib12 = models.IntegerField(blank=True, null=True)
     rplrib12 = models.IntegerField(blank=True, null=True)
     ralrib12 = models.IntegerField(blank=True, null=True)
-    dataset = models.CharField(max_length=4, blank=False, null=False)
+    dataset = models.CharField(max_length=20, blank=False, null=False)
 
     def save(self, *args, **kwargs):
         if not self.pk and Filter.objects.exists():

@@ -13,7 +13,7 @@ from django.http import HttpResponse
 from .models import *
 from .serializers import *
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST', 'DELETE'])
 def datasets_list(request):
     if request.method == 'GET':
         current_user = request.user
@@ -30,6 +30,17 @@ def datasets_list(request):
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    #elif request.method == 'DELETE':
+    #    set_key = request.data
+    #    #set_key = set_data.var1
+    #    dataset = Dataset.objects.get(set_key.pk)
+    #    dataset.delete()
+    #    patients = Patient.objects.get(dataset=pk)
+    #    patients.delete()
+    #    fils = Filter.objects.get(dataset=pk)
+    #    fils.delete()
+    #    return Response(status=status.HTTP_204_NO_CONTENT)
+
 @api_view(['PUT', 'DELETE'])
 def datasets_detail(request, pk):
     try:
@@ -40,15 +51,15 @@ def datasets_detail(request, pk):
     if request.method == 'PUT':
         serializer = DatasetSerializer(dataset, data=request.data,context={'request': request})
         if serializer.is_valid():
-            serializer.save(user = request.user)
+            serializer.save()#user = request.user)
             return Response(status=status.HTTP_204_NO_CONTENT)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    elif request.method == 'DELETE':
+    if request.method == 'DELETE':
         dataset.delete()
-        patients = Patient.objects.get(dataset=pk)
+        patients = Patient.objects.filter(dataset=pk)
         patients.delete()
-        fils = Filter.objects.get(dataset=pk)
+        fils = Filter.objects.filter(dataset=pk)
         fils.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 

@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Button, Modal, ModalHeader, ModalFooter } from "reactstrap";
 import NewDatasetForm from "./NewDatasetForm";
 import { Typography } from "@material-ui/core";
 import "./../text.css";
@@ -62,6 +63,37 @@ class Datasets extends Component {
     	console.log(localStorage.getItem("current_dataset"));
     }
 
+    deleteDataset() {
+    	for (var i = 0; i < this.state.fullDatasets.length; i++) {
+    		/*if (this.state.selectedSet === this.state.fullDatasets[i].set_name) {
+    			var dataset_to_delete = this.state.fullDatasets[i]
+    			axios.delete(URL + localStorage.getItem("current_dataset"), {
+        			headers: {
+        				Authorization: `JWT ${localStorage.getItem('token')}`
+      				},
+      				//data: dataset_to_delete //localStorage.getItem("current_dataset")    				
+  				});
+  				console.log("actually tried to delete this " + JSON.stringify(this.state.fullDatasets[i]))
+    		}*/
+    	}
+    	axios.delete(URL + localStorage.getItem("current_dataset"), {
+        			headers: {
+        				Authorization: `JWT ${localStorage.getItem('token')}`
+      				}   				
+  				});
+    	// this.sleep(3000);
+    	this.toggle();
+    	//this.setState({ to_delete: [] });
+    	//this.props.resetState();
+    	window.location.reload();
+  };
+
+  toggle() {
+    this.setState((previous) => ({
+      modal: !previous.modal,
+    }));
+  };
+
 
   render() {
     return (
@@ -103,7 +135,33 @@ class Datasets extends Component {
       </div>
       <div>
       <Typography class = "patientpage" variant="h2">Delete Selected Dataset</Typography>
-      <something/>
+      <Fragment>
+              <Button
+                style={{ marginRight: 4 }}
+                color="danger"
+                onClick={() => this.toggle()}
+              >
+                Remove Selected
+              </Button>
+              <Modal isOpen={this.state.modal} toggle={this.toggle}>
+                <ModalHeader toggle={this.toggle}>
+                  Delete selected dataset? This cannot be undone.
+                </ModalHeader>
+
+                <ModalFooter>
+                  <Button type="button" onClick={() => this.toggle()}>
+                    Cancel
+                  </Button>
+                  <Button
+                    type="button"
+                    color="primary"
+                    onClick={() => this.deleteDataset()}
+                  >
+                  Confirm
+                  </Button>
+                  </ModalFooter>
+                  </Modal>
+                  </Fragment>
       </div>
       </div>
     );

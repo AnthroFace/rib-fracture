@@ -43,7 +43,7 @@ class NewDatasetForm extends React.Component {
       user: this.state.user,
     };
 
-
+    
     axios.post(URL, data_form, {
         headers: {
         Authorization: `JWT ${localStorage.getItem('token')}`
@@ -55,7 +55,8 @@ class NewDatasetForm extends React.Component {
         user: 0,
       });
       //this.props.toggle();
-    });
+    });  
+    window.location.reload();
   };
 
   defaultIfEmpty = (value) => {
