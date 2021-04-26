@@ -145,7 +145,7 @@ class ImportCSV extends Component {
 
     var already_exists = false
     var row_number = 0
-    //var patient_posted = 1
+    var patient_posted = 1
 
     Papa.parse(this.state.selectedFile, {
       //header: true,
@@ -576,9 +576,9 @@ class ImportCSV extends Component {
             //console.log("posted patient");
             //patient_posted++;
             //console.log(patient_posted + " " + row_number)
-            //if (patient_posted === row_number) {
-            //  alert("Import Complete");
-            //}
+            if (patient_posted === row_number) {
+              alert("Import Complete");
+            }
           }).catch((err) =>{
             if (err.response) {
               if (already_exists == false) {
@@ -603,16 +603,16 @@ class ImportCSV extends Component {
               //console.log(err.response.data);
               //console.log(err.response.status);
               //console.log(err.response.headers);
-              //patient_posted++;
-              //if (patient_posted === row_number) {
-              //  alert("Import Complete");
-              //}
+              patient_posted++;
+              if (patient_posted === row_number) {
+                alert("Import Complete");
+              }
             }
-          }).finally(() =>{
+          /*}).finally(() =>{
               alert("Import Complete");
-          }
+          }*/
 
-          );
+          });
         }
         row_number++
       },

@@ -57,10 +57,13 @@ class Datasets extends Component {
     	for (var i = 0; i < this.state.fullDatasets.length; i++) {
     		if (this.state.selectedSet === this.state.fullDatasets[i].set_name) {
     			localStorage.setItem("current_dataset", this.state.fullDatasets[i].pk)
+    			localStorage.setItem("current_dataset_name", this.state.selectedSet)
     			//console.log(this.state.fullDatasets[i].pk)
     		}
        }
-    	console.log(localStorage.getItem("current_dataset"));
+    	console.log(localStorage.getItem("current_dataset_name"));
+    	//window.location.reload();
+    	//console.log("update!")
     }
 
     deleteDataset() {

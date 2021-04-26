@@ -53,7 +53,7 @@ class Nav extends Component {
                   HEATMAP
                 </a>
                 <a className="nav-item nav-link" href="/dataset">
-                  DATASET SELECT
+                  USING DATASET: {localStorage.getItem("current_dataset_name")}
                 </a>
               </div>
             </div>
