@@ -574,7 +574,7 @@ class ImportCSV extends Component {
       }
     }).then(() => {
             //console.log("posted patient");
-            //patient_posted++;
+            patient_posted++;
             //console.log(patient_posted + " " + row_number)
             if (patient_posted === row_number) {
               alert("Import Complete");
