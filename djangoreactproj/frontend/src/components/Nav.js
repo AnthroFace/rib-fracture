@@ -8,6 +8,7 @@ import Home from "./Home";
 import ImportCSV from "./ImportCSV";
 import ExportCSV from "./ExportCSV";
 import Heatmap from "./Heatmap";
+import LoginForm from "./LoginForm"
 import HeatmapPage from "./HeatmapPage";
 import Datasets from "./Datasets";
 import "./../App.css";
@@ -67,6 +68,7 @@ class Nav extends Component {
             <Route path="/export/" exact component={ExportCSV} />
             <Route path="/heatmap/" exact component={HeatmapPage} />
             <Route path="/dataset/" exact component={Datasets} />
+            <Route path="/login/" exact component={LoginForm} />
           </div>
         </div>
       </BrowserRouter>

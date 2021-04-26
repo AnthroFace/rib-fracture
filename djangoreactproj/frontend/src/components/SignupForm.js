@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
+import "./../text.css";
 
 class SignupForm extends React.Component {
   state = {
@@ -19,7 +22,7 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.handle_signup(e, this.state)}>
+      <form onSubmit={e => this.props.handle_signup(e, this.state)} className = "signupform" style = {{padding: "0px 0px 0px 350px"}}>
         <h4>Sign Up</h4>
         <label htmlFor="username">Username</label>
         <input
