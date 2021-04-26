@@ -88,17 +88,17 @@ class PatientList extends Component {
   };
 
   confirmCancel = () => {
-    this.setState({ editing: false, confirm: false, pk: ""});
+    this.setState({ editing: false, confirm: false, pk: "" });
     console.log("confirmCancel", this.state.pk);
     // console.log("confirmCancel", this.state.confirm_pk);
-  }
+  };
 
   confirmEdit = () => {
-    this.setState({ editing: true, confirm: false});
+    this.setState({ editing: true, confirm: false });
     console.log("confirmEdit", this.state.pk);
-    console.log("patient:", this.state.patient)
-    // console.log("confirmEdit confirm", this.state.confirm_pk);    
-  }
+    console.log("patient:", this.state.patient);
+    // console.log("confirmEdit confirm", this.state.confirm_pk);
+  };
 
   toggleConfirm = () => {
     this.setState((previous) => ({
@@ -106,22 +106,26 @@ class PatientList extends Component {
     }));
     console.log("toggleConfirm", this.state.pk);
     // console.log("toggleConfirm", this.state.confirm_pk);
-  }
+  };
 
   handleClose = () => {
-    this.setState({ editing: false});
+    this.setState({ editing: false });
     console.log("handleClose", this.state.pk);
-  }
+  };
 
   doubleClick = (GridRowParams) => {
-    this.setState({ confirm: true, pk: GridRowParams.row.id, patient: GridRowParams.row });
+    this.setState({
+      confirm: true,
+      pk: GridRowParams.row.id,
+      patient: GridRowParams.row,
+    });
     console.log("doubleClick", this.state.pk);
-  }
+  };
 
   rowClick = (GridRowParams) => {
     console.log(GridRowParams);
     console.log("row click");
-  }
+  };
   toggle = () => {
     this.setState((previous) => ({
       modal: !previous.modal,
@@ -2005,7 +2009,12 @@ class PatientList extends Component {
         )}
         <div>
           {/* <br /> */}
-          <Modal isOpen={this.state.editing} toggle={this.toggleModal}>
+          <Modal
+            isOpen={this.state.editing}
+            toggle={this.toggleModal}
+            // contentClassName=""
+            size="lg"
+          >
             <ModalHeader toggle={this.toggleModal}>Editing Patient</ModalHeader>
 
             <ModalBody>
