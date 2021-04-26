@@ -7,16 +7,16 @@ import { API_URL } from "../constants";
 
 class ConfirmRemovalModal extends Component {
   state = {
-    modal: false
+    modal: false,
   };
 
   toggle = () => {
-    this.setState(previous => ({
-      modal: !previous.modal
+    this.setState((previous) => ({
+      modal: !previous.modal,
     }));
   };
 
-  deletePatient = pk => {
+  deletePatient = (pk) => {
     axios.delete(API_URL + pk).then(() => {
       this.props.resetState();
       this.toggle();
@@ -31,7 +31,7 @@ class ConfirmRemovalModal extends Component {
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>
-            Do you really wanna delete the patient?
+            Do you really want to delete the patient?
           </ModalHeader>
 
           <ModalFooter>

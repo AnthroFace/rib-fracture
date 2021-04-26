@@ -85,7 +85,8 @@ class PatientsPage extends Component {
               <PatientList
                 textAlign="left"
                 patients={this.state.patients}
-                resetState={this.resetState}
+                // resetState={this.resetState}
+                resetState={this.resetState.bind(this)}
               />
             </Col>
           </Row>

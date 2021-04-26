@@ -13,23 +13,23 @@ class CircleText extends Component {
         return (
         <div class = "textcircle" style={{postion:"absolute"}}>
           <Box border={0} style={{postion:"absolute"}} padding = "2px 0px 0px 77px">
-            <h5 > 0 - 10 breaks
+            <h5 > Least breaks
             </h5>
           </Box>
           <Box border={0} style={{postion:"absolute"}} padding = "0px 0px 0px 70px">
-            <h5> 10 - 20 breaks
+            <h5> -
             </h5>
           </Box>
           <Box border={0} style={{postion:"absolute"}} padding = "2px 0px 0px 70px">
-            <h5> 20 - 30 breaks
+            <h5> -
             </h5>
           </Box>
           <Box border={0} style={{postion:"absolute"}} padding = "10px 0px 0px 70px">
-            <h5> 30 - 40 breaks
+            <h5> -
             </h5>
           </Box>
           <Box border={0} style={{postion:"absolute"}} padding = "28px 0px 0px 70px">
-            <h5> 40 - 50 breaks
+            <h5> Most breaks
             </h5>
           </Box>
           </div>

@@ -2,26 +2,12 @@ import React, { Component } from "react";
 import ImageMapper from "react-image-mapper";
 import RibHeatGrid from './RibHeatGrid';
 
-
-var nums = [RibHeatGrid.rplrib1, RibHeatGrid.ralrib1, RibHeatGrid.rarib1, RibHeatGrid.rprib2, RibHeatGrid.rplrib2, RibHeatGrid.ralrib2, RibHeatGrid.rarib2, RibHeatGrid.rprib3, RibHeatGrid.rplrib3, RibHeatGrid.ralrib3, RibHeatGrid.rarib3,
-  RibHeatGrid.rprib4, RibHeatGrid.rplrib4, RibHeatGrid.ralrib4, RibHeatGrid.rarib4, RibHeatGrid.rprib5, RibHeatGrid.rplrib5, RibHeatGrid.ralrib5, RibHeatGrid.rarib5, RibHeatGrid.rprib6, RibHeatGrid.rplrib6, RibHeatGrid.ralrib6, RibHeatGrid.rarib6, 
-  RibHeatGrid.rprib7, RibHeatGrid.rplrib7, RibHeatGrid.ralrib7, RibHeatGrid.rarib7, RibHeatGrid.rprib8, RibHeatGrid.rplrib8, RibHeatGrid.ralrib8, RibHeatGrid.rarib8, RibHeatGrid.rprib9, RibHeatGrid.rplrib9, RibHeatGrid.ralrib9, RibHeatGrid.rarib9,
-  RibHeatGrid.rprib10, RibHeatGrid.rplrib10, RibHeatGrid.ralrib10, RibHeatGrid.rarib10, RibHeatGrid.rplrib11, RibHeatGrid.ralrib11, RibHeatGrid.rarib11, RibHeatGrid.rplrib12, RibHeatGrid.ralrib12, RibHeatGrid.rarib12
-, //left side
-RibHeatGrid.lplrib1, RibHeatGrid.lalrib1, RibHeatGrid.larib1, RibHeatGrid.lprib2, RibHeatGrid.lplrib2, RibHeatGrid.lalrib2, RibHeatGrid.larib2, RibHeatGrid.lprib3, RibHeatGrid.lplrib3, RibHeatGrid.lalrib3, RibHeatGrid.larib3,
-  RibHeatGrid.lprib4, RibHeatGrid.lplrib4, RibHeatGrid.lalrib4, RibHeatGrid.larib4, RibHeatGrid.lprib5, RibHeatGrid.lplrib5, RibHeatGrid.lalrib5, RibHeatGrid.larib5, RibHeatGrid.lprib6, RibHeatGrid.lplrib6, RibHeatGrid.lalrib6, RibHeatGrid.larib6, 
-  RibHeatGrid.lprib7, RibHeatGrid.lplrib7, RibHeatGrid.lalrib7, RibHeatGrid.larib7, RibHeatGrid.lprib8, RibHeatGrid.lplrib8, RibHeatGrid.lalrib8, RibHeatGrid.larib8, RibHeatGrid.lprib9, RibHeatGrid.lplrib9, RibHeatGrid.lalrib9, RibHeatGrid.rarib9,
-  RibHeatGrid.lprib10, RibHeatGrid.lplrib10, RibHeatGrid.lalrib10, RibHeatGrid.larib10, RibHeatGrid.plrib11, RibHeatGrid.lalrib11, RibHeatGrid.larib11, RibHeatGrid.lplrib12, RibHeatGrid.lalrib12, RibHeatGrid.larib12
-];
-
-var maxValue = Math.max.apply(null,nums);
-var minValue = Math.min.apply(null, nums);
-
 var URL = "/images/rib_image.png";
 
 class RibImage extends Component {
   constructor(props) {
     super(props);
+    //console.log("props", this.props);
     this.state = {
       hoveredArea: null,
       msg: null,
@@ -29,7 +15,7 @@ class RibImage extends Component {
     };
   }
   load = () => {
-    // this.setState({ msg: "Hover ribs to see total breaks for each area" });
+    //  this.setState({ msg: "Hover ribs to see total breaks for each area" });
   };
   clicked = (area) => {
     this.setState({
@@ -43,12 +29,7 @@ class RibImage extends Component {
       msg: `Please select a rib section`,
     });
   };
-  // moveOnImage = (evt) => {
-  //   const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
-  //   this.setState({
-  //     moveMsg: `You moved on the image at coords ${JSON.stringify(coords)} !`,
-  //   });
-  // };
+ 
   enterArea = (area) => {
     this.setState({
       hoveredArea: area,
@@ -61,1410 +42,1322 @@ class RibImage extends Component {
       msg: null,
     });
   };
-  // moveOnArea(area, evt) {
-  // 	const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
-  // 	this.setState({
-  // 		moveMsg: `${area.name}`
-  // 	});
-  // };
+
 
   getTipPosition = (area) => {
     return { top: `${area.center[1]}px`, left: `${area.center[0]}px` };
   };
 
+
   render() {
     var d = this.props.rib_count;
-    console.log("ribheatimage render", d);
+//    console.log("ribheatimage render", d);
 
-    //right rib variables
     var nums = [
-      d["rplrib1"],
-      d["ralrib1"],
-      d["rprib1"],
-      d["rprib2"],
-      d["rplrib2"],
-      d["ralrib2"],
-      d["rarib2"],
-      d["rprib3"],
-      d["rplrib3"],
-      d["ralrib3"],
-      d["rarib3"],
-      d["rprib4"],
-      d["rplrib4"],
-      d["ralrib4"],
-      d["rarib4"],
-      d["rprib5"],
-      d["rplrib5"],
-      d["ralrib5"],
-      d["rarib5"],
-      d["rprib6"],
-      d["rplrib6"],
-      d["ralrib6"],
-      d["rarib6"],
-      d["rprib7"],
-      d["rplrib7"],
-      d["ralrib7"],
-      d["rarib7"],
-      d["rprib8"],
-      d["rplrib8"],
-      d["ralrib8"],
-      d["rarib8"],
-      d["rprib9"],
-      d["rplrib9"],
-      d["ralrib9"],
-      d["rarib9"],
-      d["rprib10"],
-      d["rplrib10"],
-      d["ralrib10"],
-      d["rarib10"],
-      d["rplrib11"],
-      d["ralrib11"],
-      d["rprib11"],
-      d["rplrib12"],
-      d["ralrib12"],
-      d["rprib12"],
-      //left rib variables
-      d["lprib1"],
-      d["lalrib1"],
-      d["lplrib1"],
-      d["larib2"],
-      d["lalrib2"],
-      d["lplrib2"],
-      d["lprib2"],
-      d["larib3"],
-      d["lalrib3"],
-      d["lplrib3"],
-      d["lprib3"],
-      d["larib4"],
-      d["lalrib4"],
-      d["lplrib4"],
-      d["lprib4"],
-      d["larib5"],
-      d["lalrib5"],
-      d["lplrib5"],
-      d["lprib5"],
-      d["larib6"],
-      d["lalrib6"],
-      d["lplrib6"],
-      d["lprib6"],
-      d["larib7"],
-      d["lalrib7"],
-      d["lplrib7"],
-      d["lprib7"],
-      d["larib8"],
-      d["lalrib8"],
-      d["lplrib8"],
-      d["lprib8"],
-      d["larib9"],
-      d["lalrib9"],
-      d["lplrib9"],
-      d["lprib9"],
-      d["larib10"],
-      d["lalrib10"],
-      d["lplrib10"],
-      d["lprib10"],
-      d["lprib11"],
-      d["lalrib11"],
-      d["lplrib11"],
-      d["lprib12"],
-      d["lalrib12"],
-      d["lplrib12"],
+      d["ralrib1"],d["rplrib1"],d["rprib1"],d["lprib1"],d["lplrib1"],d["lalrib1"],
+      d["rarib2"],d["ralrib2"],d["rplrib2"],d["rprib2"],d["lprib2"],d["lplrib2"],d["lalrib2"],d["larib2"],
+      d["rarib3"],d["ralrib3"],d["rplrib3"],d["rprib3"],d["lprib3"],d["lplrib3"],d["lalrib3"],d["larib3"],
+      d["rarib4"],d["ralrib4"],d["rplrib4"],d["rprib4"],d["lprib4"],d["lplrib4"],d["lalrib4"],d["larib4"],
+      d["rarib5"],d["ralrib5"],d["rplrib5"],d["rprib5"],d["lprib5"],d["lplrib5"],d["lalrib5"],d["larib5"],
+      d["rarib6"],d["ralrib6"],d["rplrib6"],d["rprib6"],d["lprib6"],d["lplrib6"],d["lalrib6"],d["larib6"],
+      d["rarib7"],d["ralrib7"],d["rplrib7"],d["rprib7"],d["lprib7"],d["lplrib7"],d["lalrib7"],d["larib7"],
+      d["rarib8"],d["ralrib8"],d["rplrib8"],d["rprib8"],d["lprib8"],d["lplrib8"],d["lalrib8"],d["larib8"],
+      d["rarib9"],d["ralrib9"],d["rplrib9"],d["rprib9"],d["lprib9"],d["lplrib9"],d["lalrib9"],d["larib9"],
+      d["rarib10"],d["ralrib10"],d["rplrib10"],d["rprib10"],d["lprib10"],d["lplrib10"],d["lalrib10"],d["larib10"],
+      d["ralrib11"],d["rplrib11"],d["rprib11"],d["lprib11"],d["lplrib11"],d["lalrib11"],
+      d["ralrib12"],d["rplrib12"],d["rprib12"],d["lprib12"],d["lplrib12"],d["lalrib12"],
     ];
     var maxValue = Math.max.apply(Math, nums);
     var minValue = Math.min.apply(Math, nums);
 
-    //5, 10, 15, 20, 25 radius
-    //darkest red "rgb(220,20,60)"
-    //next darkest "rgb(255,99,71)"
-    //third darkest "rgb(255,127,80)"
-    //second lightest "rgb(233,150,122)"
-    //lightest red "rgb(255,228,196)"
 
     var MAP = {
       name: "my-map",
       areas: [
-        // rib 1      //need to check naming on ribs with 3 sections
+        // rib 1   
         {
           name: "r.al.rib.1",
-          breakValue: d["ralrib1"],
+          breakValue: nums[0], //d["ralrib1"],
           shape: "circle",
           coords: [
             163,
             47,
-            30 * (1 - (maxValue - d["ralrib1"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[0]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib1"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[0]) / (maxValue - minValue)
           })`,
           //preFillColor: "rgb(255,99,71)"
         },
         {
           name: "r.pl.rib.1",
-          breakValue: d["rplrib1"],
+          breakValue: nums[1],
           shape: "circle",
           coords: [
             205,
             52,
-            30 * (1 - (maxValue - d["rplrib1"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[1]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib1"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[1]) / (maxValue - minValue)
           })`,
           // preFillColor: "rgb(255,228,196)"
         },
         {
           name: "r.p.rib.1",
-          breakValue: d["rprib1"],
+          breakValue: nums[2],
           shape: "circle",
           coords: [
             257,
             50,
-            30 * (1 - (maxValue - d["rprib1"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[2]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib1"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[2]) / (maxValue - minValue)
           })`,
           // preFillColor: "rgb(233,150,122)"
         },
         {
           name: "l.p.rib.1",
-          breakValue: d["larib1"],
+          breakValue: nums[3],
           shape: "circle",
           coords: [
             330,
             51,
-            30 * (1 - (maxValue - d["larib1"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[3]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib1"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[3]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.1",
-          breakValue: d["lplrib1"],
+          breakValue: nums[4],
           shape: "circle",
           coords: [
             381,
             53,
-            30 * (1 - (maxValue - d["lplrib1"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[4]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib1"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[4]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.1",
-          breakValue: d["lalrib1"],
+          breakValue: nums[5],
           shape: "circle",
           coords: [
             425,
             52,
-            30 * (1 - (maxValue - d["lalrib1"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[5]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib1"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[5]) / (maxValue - minValue)
           })`,
         },
         // rib 2
         {
           name: "r.a.rib.2",
-          breakValue: d["rarib2"],
+          breakValue: nums[6],
           shape: "circle",
           coords: [
             113,
             89,
-            30 * (1 - (maxValue - d["rarib2"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[6]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rarib2"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[6]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.al.rib.2",
-          breakValue: d["ralrib2"],
+          breakValue: nums[7],
           shape: "circle",
           coords: [
             152,
             96,
-            30 * (1 - (maxValue - d["ralrib2"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[7]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib2"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[7]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.2",
-          breakValue: d["rplrib2"],
+          breakValue: nums[8],
           shape: "circle",
           coords: [
             197,
             99,
-            30 * (1 - (maxValue - d["rplrib2"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[8]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib2"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[8]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.2",
-          breakValue: d["rprib2"],
+          breakValue: nums[9],
           shape: "circle",
           coords: [
             252,
             99,
-            30 * (1 - (maxValue - d["rprib2"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[9]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib2"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[9]) / (maxValue - minValue)
           })`,
         },
 
         {
           name: "l.p.rib.2",
-          breakValue: d["lprib2"],
+          breakValue: nums[10],
           shape: "circle",
           coords: [
             338,
             99,
-            30 * (1 - (maxValue - d["lprib2"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[10]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lprib2"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[10]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.2",
-          breakValue: d["lplrib2"],
+          breakValue: nums[11],
           shape: "circle",
           coords: [
             390,
             103,
-            30 * (1 - (maxValue - d["lplrib2"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[11]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib2"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[11]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.2",
-          breakValue: d["lalrib2"],
+          breakValue: nums[12],
           shape: "circle",
           coords: [
             435,
             102,
-            30 * (1 - (maxValue - d["lalrib2"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[12]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib2"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[12]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.a.rib.2",
-          breakValue: d["larib2"],
+          breakValue: nums[13],
           shape: "circle",
           coords: [
             477,
             97,
-            30 * (1 - (maxValue - d["larib2"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[13]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib2"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[13]) / (maxValue - minValue)
           })`,
         },
 
         // rib 3
         {
           name: "r.a.rib.3",
-          breakValue: d["rarib3"],
+          breakValue: nums[14],
           shape: "circle",
           coords: [
             100,
             138,
-            30 * (1 - (maxValue - d["rarib3"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[14]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rarib3"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[14]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.al.rib.3",
-          breakValue: d["ralrib3"],
+          breakValue: nums[15],
           shape: "circle",
           coords: [
             145,
             139,
-            30 * (1 - (maxValue - d["ralrib3"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[15]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib3"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[15]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.3",
-          breakValue: d["rplrib3"],
+          breakValue: nums[16],
           shape: "circle",
           coords: [
             193,
             142,
-            30 * (1 - (maxValue - d["rplrib3"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[16]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib3"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[16]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.3",
-          breakValue: d["rprib3"],
+          breakValue: nums[17],
           shape: "circle",
           coords: [
             254,
             144,
-            30 * (1 - (maxValue - d["rprib3"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[17]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib3"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[17]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.p.rib.3",
-          breakValue: d["lprib3"],
+          breakValue: nums[18],
           shape: "circle",
           coords: [
             340,
             144,
-            30 * (1 - (maxValue - d["lprib3"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[18]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lprib3"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[18]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.3",
-          breakValue: d["lplrib3"],
+          breakValue: nums[19],
           shape: "circle",
           coords: [
             395,
             146,
-            30 * (1 - (maxValue - d["lplrib3"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[19]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib3"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[19]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.3",
-          breakValue: d["lalrib3"],
+          breakValue: nums[20],
           shape: "circle",
           coords: [
             444,
             145,
-            30 * (1 - (maxValue - d["lalrib3"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[20]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib3"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[20]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.a.rib.3",
-          breakValue: d["larib3"],
+          breakValue: nums[21],
           shape: "circle",
           coords: [
             488,
             145,
-            30 * (1 - (maxValue - d["larib3"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[21]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib3"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[21]) / (maxValue - minValue)
           })`,
         },
 
         // rib 4
         {
           name: "r.a.rib.4",
-          breakValue: d["rarib4"],
+          breakValue: nums[22],
           shape: "circle",
           coords: [
             90,
             186,
-            30 * (1 - (maxValue - d["rarib4"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[22]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rarib4"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[22]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.al.rib.4",
-          breakValue: d["ralrib4"],
+          breakValue: nums[23],
           shape: "circle",
           coords: [
             140,
             189,
-            30 * (1 - (maxValue - d["ralrib4"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[23]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib4"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[23]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.4",
-          breakValue: d["rplrib4"],
+          breakValue: nums[24],
           shape: "circle",
           coords: [
             190,
             196,
-            30 * (1 - (maxValue - d["rplrib4"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[24]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib4"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[24]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.4",
-          breakValue: d["rprib4"],
+          breakValue: nums[25],
           shape: "circle",
           coords: [
             252,
             192,
-            30 * (1 - (maxValue - d["rprib4"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[25]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib4"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[25]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.p.rib.4",
-          breakValue: d["lprib4"],
+          breakValue: nums[26],
           shape: "circle",
           coords: [
             337,
             193,
-            30 * (1 - (maxValue - d["lprib4"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[26]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lprib4"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[26]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.4",
-          breakValue: d["lplrib4"],
+          breakValue: nums[27],
           shape: "circle",
           coords: [
             398,
             199,
-            30 * (1 - (maxValue - d["lplrib4"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[27]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib4"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[27]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.4",
-          breakValue: d["lalrib4"],
+          breakValue: nums[28],
           shape: "circle",
           coords: [
             447,
             193,
-            30 * (1 - (maxValue - d["lalrib4"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[28]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib4"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[28]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.a.rib.4",
-          breakValue: d["larib4"],
+          breakValue: nums[29],
           shape: "circle",
           coords: [
             496,
             194,
-            30 * (1 - (maxValue - d["larib4"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[29]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib4"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[29]) / (maxValue - minValue)
           })`,
         },
 
         // rib 5
         {
           name: "r.a.rib.5",
-          breakValue: d["rarib5"],
+          breakValue: nums[30],
           shape: "circle",
           coords: [
             70,
             240,
-            30 * (1 - (maxValue - d["rarib5"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[30]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rarib5"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[30]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.al.rib.5",
-          breakValue: d["ralrib5"],
+          breakValue: nums[31],
           shape: "circle",
           coords: [
             132,
             243,
-            30 * (1 - (maxValue - d["ralrib5"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[31]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib5"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[31]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.5",
-          breakValue: d["rplrib5"],
+          breakValue: nums[32],
           shape: "circle",
           coords: [
             187,
             247,
-            30 * (1 - (maxValue - d["rplrib5"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[32]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib5"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[32]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.5",
-          breakValue: d["rprib5"],
+          breakValue: nums[33],
           shape: "circle",
           coords: [
             247,
             245,
-            30 * (1 - (maxValue - d["rprib5"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[33]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib5"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[33]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.p.rib.5",
-          breakValue: d["lprib5"],
+          breakValue: nums[34],
           shape: "circle",
           coords: [
             338,
             245,
-            30 * (1 - (maxValue - d["lprib5"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[34]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lprib5"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[34]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.5",
-          breakValue: d["lplrib5"],
+          breakValue: nums[35],
           shape: "circle",
           coords: [
             400,
             249,
-            30 * (1 - (maxValue - d["lplrib5"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[35]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib5"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[35]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.5",
-          breakValue: d["lalrib5"],
+          breakValue: nums[36],
           shape: "circle",
           coords: [
             455,
             248,
-            30 * (1 - (maxValue - d["lalrib5"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[36]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib5"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[36]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.a.rib.5",
-          breakValue: d["larib5"],
+          breakValue: nums[37],
           shape: "circle",
           coords: [
             505,
             247,
-            30 * (1 - (maxValue - d["larib5"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[37]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib5"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[37]) / (maxValue - minValue)
           })`,
         },
 
         // rib 6
         {
           name: "r.a.rib.6",
-          breakValue: d["rarib6"],
+          breakValue: nums[38],
           shape: "circle",
           coords: [
             66,
             292,
-            30 * (1 - (maxValue - d["rarib6"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[38]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rarib6"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[38]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.al.rib.6",
-          breakValue: d["ralrib6"],
+          breakValue: nums[39],
           shape: "circle",
           coords: [
             132,
             294,
-            30 * (1 - (maxValue - d["ralrib6"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[39]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib6"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[39]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.6",
-          breakValue: d["rplrib6"],
+          breakValue: nums[40],
           shape: "circle",
           coords: [
             187,
             298,
-            30 * (1 - (maxValue - d["rplrib6"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[40]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib6"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[40]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.6",
-          breakValue: d["rprib6"],
+          breakValue: nums[41],
           shape: "circle",
           coords: [
             247,
             294,
-            30 * (1 - (maxValue - d["rprib6"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[41]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib6"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[41]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.p.rib.6",
-          breakValue: d["lprib6"],
+          breakValue: nums[42],
           shape: "circle",
           coords: [
             338,
             294,
-            30 * (1 - (maxValue - d["lprib6"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[42]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lprib6"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[42]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.6",
-          breakValue: d["lplrib6"],
+          breakValue: nums[43],
           shape: "circle",
           coords: [
             400,
             299,
-            30 * (1 - (maxValue - d["lplrib6"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[43]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
-          preFillColor: "red",
+          preFillColor: `rgb(230, 40,0, ${
+            0.95 - (maxValue - nums[43]) / (maxValue - minValue)
+          })`,
         },
         {
           name: "l.al.rib.6",
-          breakValue: d["lalrib6"],
+          breakValue: nums[44],
           shape: "circle",
           coords: [
             455,
             298,
-            30 * (1 - (maxValue - d["lalrib6"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[44]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib6"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[44]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.a.rib.6",
-          breakValue: d["larib6"],
+          breakValue: nums[45],
           shape: "circle",
           coords: [
             507,
             299,
-            30 * (1 - (maxValue - d["larib6"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[45]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib6"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[45]) / (maxValue - minValue)
           })`,
         },
 
         // rib 7
         {
           name: "r.a.rib.7",
-          breakValue: d["rarib7"],
+          breakValue: nums[46],
           shape: "circle",
           coords: [
             69,
             343,
-            30 * (1 - (maxValue - d["rarib7"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[46]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rarib7"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[46]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.al.rib.7",
-          breakValue: d["ralrib7"],
+          breakValue: nums[47],
           shape: "circle",
           coords: [
             128,
             344,
-            30 * (1 - (maxValue - d["ralrib7"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[47]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib7"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[47]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.7",
-          breakValue: d["rplrib7"],
+          breakValue: nums[48],
           shape: "circle",
           coords: [
             180,
             348,
-            30 * (1 - (maxValue - d["rplrib7"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[48]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib7"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[48]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.7",
-          breakValue: d["rprib7"],
+          breakValue: nums[49],
           shape: "circle",
           coords: [
             247,
             344,
-            30 * (1 - (maxValue - d["rprib7"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[49]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib7"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[49]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.p.rib.7",
-          breakValue: d["lprib7"],
+          breakValue: nums[50],
           shape: "circle",
           coords: [
             338,
             344,
-            30 * (1 - (maxValue - d["lprib7"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[50]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lprib7"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[50]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.7",
-          breakValue: d["lplrib7"],
+          breakValue: nums[51],
           shape: "circle",
           coords: [
             408,
             350,
-            30 * (1 - (maxValue - d["lplrib7"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[51]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib7"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[51]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.7",
-          breakValue: d["lalrib7"],
+          breakValue: nums[52],
           shape: "circle",
           coords: [
             462,
             349,
-            30 * (1 - (maxValue - d["lalrib7"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[52]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib7"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[52]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.a.rib.7",
-          breakValue: d["larib7"],
+          breakValue: nums[53],
           shape: "circle",
           coords: [
             506,
             350,
-            30 * (1 - (maxValue - d["larib7"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[53]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib7"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[53]) / (maxValue - minValue)
           })`,
         },
 
         // rib 8
         {
           name: "r.a.rib.8",
-          breakValue: d["rarib8"],
+          breakValue: nums[54],
           shape: "circle",
           coords: [
             76,
             392,
-            30 * (1 - (maxValue - d["rarib8"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[54]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rarib8"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[54]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.al.rib.8",
-          breakValue: d["ralrib8"],
+          breakValue: nums[55],
           shape: "circle",
           coords: [
             128,
             395,
-            30 * (1 - (maxValue - d["ralrib8"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[55]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib8"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[55]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.8",
-          breakValue: d["rplrib8"],
+          breakValue: nums[56],
           shape: "circle",
           coords: [
             185,
             397,
-            30 * (1 - (maxValue - d["rplrib8"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[56]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib8"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[56]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.8",
-          breakValue: d["rprib8"],
+          breakValue: nums[57],
           shape: "circle",
           coords: [
             249,
             396,
-            30 * (1 - (maxValue - d["rprib8"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[57]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib8"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[57]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.p.rib.8",
-          breakValue: d["lprib8"],
+          breakValue: nums[58],
           shape: "circle",
           coords: [
             338,
             397,
-            30 * (1 - (maxValue - d["lprib8"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[58]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lprib8"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[58]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.8",
-          breakValue: d["lplrib8"],
+          breakValue: nums[59],
           shape: "circle",
           coords: [
             404,
             401,
-            30 * (1 - (maxValue - d["lplrib8"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[59]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib8"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[59]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.8",
-          breakValue: d["lalrib8"],
+          breakValue: nums[60],
           shape: "circle",
           coords: [
             461,
             399,
-            30 * (1 - (maxValue - d["lalrib8"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[60]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib8"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[60]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.a.rib.8",
-          breakValue: d["larib8"],
+          breakValue: nums[61],
           shape: "circle",
           coords: [
             508,
             398,
-            30 * (1 - (maxValue - d["larib8"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[61]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib8"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[61]) / (maxValue - minValue)
           })`,
         },
 
         // rib 9
         {
           name: "r.a.rib.9",
-          breakValue: d["rarib9"],
+          breakValue: nums[62],
           shape: "circle",
           coords: [
             90,
             444,
-            30 * (1 - (maxValue - d["rarib9"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[62]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rarib9"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[62]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.al.rib.9",
-          breakValue: d["ralrib9"],
+          breakValue: nums[63],
           shape: "circle",
           coords: [
             136,
             443,
-            30 * (1 - (maxValue - d["ralrib9"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[63]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib9"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[63]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.9",
-          breakValue: d["rplrib9"],
+          breakValue: nums[64],
           shape: "circle",
           coords: [
             192,
             446,
-            30 * (1 - (maxValue - d["rplrib9"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[64]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib9"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[64]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.9",
-          breakValue: d["rprib9"],
+          breakValue: nums[65],
           shape: "circle",
           coords: [
             251,
             444,
-            30 * (1 - (maxValue - d["rprib9"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[65]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib9"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[65]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.p.rib.9",
-          breakValue: d["lprib9"],
+          breakValue: nums[66],
           shape: "circle",
           coords: [
             334,
             444,
-            30 * (1 - (maxValue - d["lprib9"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[66]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lprib9"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[66]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.9",
-          breakValue: d["lplrib9"],
+          breakValue: nums[67],
           shape: "circle",
           coords: [
             396,
             447,
-            30 * (1 - (maxValue - d["lplrib9"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[67]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib9"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[67]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.9",
-          breakValue: d["lalrib9"],
+          breakValue: nums[68],
           shape: "circle",
           coords: [
             452,
             446,
-            30 * (1 - (maxValue - d["lalrib9"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[68]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib9"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[68]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.a.rib.9",
-          breakValue: d["larib9"],
+          breakValue: nums[69],
           shape: "circle",
           coords: [
             494,
             449,
-            30 * (1 - (maxValue - d["larib9"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[69]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib9"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[69]) / (maxValue - minValue)
           })`,
         },
 
         // rib 10
         {
           name: "r.a.rib.10",
-          breakValue: d["rarib10"],
+          breakValue: nums[70],
           shape: "circle",
           coords: [
             105,
             492,
-            30 * (1 - (maxValue - d["rarib10"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[70]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rarib10"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[70]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.al.rib.10",
-          breakValue: d["ralrib10"],
+          breakValue: nums[71],
           shape: "circle",
           coords: [
             148,
             489,
-            30 * (1 - (maxValue - d["ralrib10"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[71]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib10"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[71]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.10",
-          breakValue: d["rplrib10"],
+          breakValue: nums[72],
           shape: "circle",
           coords: [
             199,
             491,
-            30 * (1 - (maxValue - d["rplrib10"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[72]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib10"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[72]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.10",
-          breakValue: d["rprib10"],
+          breakValue: nums[73],
           shape: "circle",
           coords: [
             256,
             488,
-            30 * (1 - (maxValue - d["rprib10"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[73]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib10"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[73]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.p.rib.10",
-          breakValue: d["lprib10"],
+          breakValue: nums[74],
           shape: "circle",
           coords: [
             330,
             488,
-            30 * (1 - (maxValue - d["lprib10"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[74]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lprib10"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[74]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.10",
-          breakValue: d["lplrib10"],
+          breakValue: nums[75],
           shape: "circle",
           coords: [
             388,
             493,
-            30 * (1 - (maxValue - d["lplrib10"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[75]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib10"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[75]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.10",
-          breakValue: d["lalrib10"],
+          breakValue: nums[76],
           shape: "circle",
           coords: [
             444,
             491,
-            30 * (1 - (maxValue - d["lalrib10"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[76]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib10"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[76]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.a.rib.10",
-          breakValue: d["larib10"],
+          breakValue: nums[77],
           shape: "circle",
           coords: [
             483,
             496,
-            30 * (1 - (maxValue - d["larib10"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[77]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib10"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[77]) / (maxValue - minValue)
           })`,
         },
 
         // rib 11
         {
           name: "r.al.rib.11",
-          breakValue: d["ralrib11"],
+          breakValue: nums[78],
           shape: "circle",
           coords: [
             155,
             538,
-            30 * (1 - (maxValue - d["ralrib11"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[78]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib11"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[78]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.11",
-          breakValue: d["rplrib11"],
+          breakValue: nums[79],
           shape: "circle",
           coords: [
             210,
             537,
-            30 * (1 - (maxValue - d["rplrib11"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[79]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib11"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[79]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.11",
-          breakValue: d["rprib11"],
+          breakValue: nums[80],
           shape: "circle",
           coords: [
             260,
             536,
-            30 * (1 - (maxValue - d["rprib11"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[80]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib11"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[80]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.p.rib.11",
-          breakValue: d["larib11"],
+          breakValue: nums[81],
           shape: "circle",
           coords: [
             324,
             535,
-            30 * (1 - (maxValue - d["larib11"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[81]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib11"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[81]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.11",
-          breakValue: d["lplrib11"],
+          breakValue: nums[82],
           shape: "circle",
           coords: [
             375,
             538,
-            30 * (1 - (maxValue - d["lplrib11"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[82]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib11"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[82]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.11",
-          breakValue: d["lalrib11"],
+          breakValue: nums[83],
           shape: "circle",
           coords: [
             430,
             540,
-            30 * (1 - (maxValue - d["lalrib11"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[83]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib11"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[83]) / (maxValue - minValue)
           })`,
         },
 
         // rib 12
         {
           name: "r.al.rib.12",
-          breakValue: d["ralrib12"],
+          breakValue: nums[84],
           shape: "circle",
           coords: [
             168,
             582,
-            30 * (1 - (maxValue - d["ralrib12"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[84]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["ralrib12"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[84]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.pl.rib.12",
-          breakValue: d["rplrib12"],
+          breakValue: nums[85],
           shape: "circle",
           coords: [
             216,
             582,
-            30 * (1 - (maxValue - d["rplrib12"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[85]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rplrib12"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[85]) / (maxValue - minValue)
           })`,
         },
         {
           name: "r.p.rib.12",
-          breakValue: d["rprib12"],
+          breakValue: nums[86],
           shape: "circle",
           coords: [
             257,
             581,
-            30 * (1 - (maxValue - d["rprib12"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[86]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["rprib12"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[86]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.p.rib.12",
-          breakValue: d["larib12"],
+          breakValue: nums[87],
           shape: "circle",
           coords: [
             326,
             581,
-            30 * (1 - (maxValue - d["larib12"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[87]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["larib12"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[87]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.pl.rib.12",
-          breakValue: d["lplrib12"],
+          breakValue: nums[88],
           shape: "circle",
           coords: [
             373,
             583,
-            30 * (1 - (maxValue - d["lplrib12"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[88]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lplrib12"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[88]) / (maxValue - minValue)
           })`,
         },
         {
           name: "l.al.rib.12",
-          breakValue: d["lalrib12"],
+          breakValue: nums[89],
           shape: "circle",
           coords: [
             416,
             585,
-            30 * (1 - (maxValue - d["lalrib12"]) / (maxValue - minValue)),
+            30 * (1 - (maxValue - nums[89]) / (maxValue - minValue)),
           ],
           fillColor: "rgb(96,96,96)",
           preFillColor: `rgb(230, 40,0, ${
-            0.95 - (maxValue - d["lalrib12"]) / (maxValue - minValue)
+            0.95 - (maxValue - nums[89]) / (maxValue - minValue)
           })`,
         },
       ],
@@ -1507,6 +1400,7 @@ class RibImage extends Component {
         </div>
       </div>
     );
+   // }
   }
 }
 
