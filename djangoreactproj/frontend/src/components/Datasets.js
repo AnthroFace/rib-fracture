@@ -64,8 +64,8 @@ class Datasets extends Component {
     }
 
     deleteDataset() {
-    	for (var i = 0; i < this.state.fullDatasets.length; i++) {
-    		/*if (this.state.selectedSet === this.state.fullDatasets[i].set_name) {
+    	/*for (var i = 0; i < this.state.fullDatasets.length; i++) {
+    		if (this.state.selectedSet === this.state.fullDatasets[i].set_name) {
     			var dataset_to_delete = this.state.fullDatasets[i]
     			axios.delete(URL + localStorage.getItem("current_dataset"), {
         			headers: {
@@ -74,18 +74,23 @@ class Datasets extends Component {
       				//data: dataset_to_delete //localStorage.getItem("current_dataset")    				
   				});
   				console.log("actually tried to delete this " + JSON.stringify(this.state.fullDatasets[i]))
-    		}*/
-    	}
+    		}
+    	}*/
     	axios.delete(URL + localStorage.getItem("current_dataset"), {
         			headers: {
         				Authorization: `JWT ${localStorage.getItem('token')}`
       				}   				
+  				}).finally(() => {
+  					this.toggle();
+  					localStorage.removeItem("current_dataset");
+    				window.location.reload();
   				});
-    	// this.sleep(3000);
-    	this.toggle();
+    	//this.sleep(3000);
+    	//this.toggle();
     	//this.setState({ to_delete: [] });
     	//this.props.resetState();
-    	window.location.reload();
+    	//localStorage.removeItem("current_dataset");
+    	//window.location.reload();
   };
 
   toggle() {

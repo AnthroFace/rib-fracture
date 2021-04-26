@@ -55,8 +55,9 @@ class NewDatasetForm extends React.Component {
         user: 0,
       });
       //this.props.toggle();
+    }).finally(() => {
+      window.location.reload();
     });  
-    window.location.reload();
   };
 
   defaultIfEmpty = (value) => {

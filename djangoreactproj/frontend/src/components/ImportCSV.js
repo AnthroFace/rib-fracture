@@ -145,7 +145,7 @@ class ImportCSV extends Component {
 
     var already_exists = false
     var row_number = 0
-    var patient_posted = 1
+    //var patient_posted = 1
 
     Papa.parse(this.state.selectedFile, {
       //header: true,
@@ -574,13 +574,12 @@ class ImportCSV extends Component {
       }
     }).then(() => {
             //console.log("posted patient");
-            patient_posted++;
+            //patient_posted++;
             //console.log(patient_posted + " " + row_number)
-            if (patient_posted === row_number) {
-              alert("Import Complete");
-            }
-          })
-          .catch((err) =>{
+            //if (patient_posted === row_number) {
+            //  alert("Import Complete");
+            //}
+          }).catch((err) =>{
             if (err.response) {
               if (already_exists == false) {
                 if (err.response.data.non_field_errors == "The fields case_id, dataset must make a unique set.") {
@@ -604,12 +603,16 @@ class ImportCSV extends Component {
               //console.log(err.response.data);
               //console.log(err.response.status);
               //console.log(err.response.headers);
-              patient_posted++;
-              if (patient_posted === row_number) {
-                alert("Import Complete");
-              }
+              //patient_posted++;
+              //if (patient_posted === row_number) {
+              //  alert("Import Complete");
+              //}
             }
-          });
+          }).finally(() =>{
+              alert("Import Complete");
+          }
+
+          );
         }
         row_number++
       },
