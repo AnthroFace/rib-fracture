@@ -822,8 +822,8 @@ class EditPatientForm extends React.Component {
     return (
       <Form onSubmit={this.editPatient}>
         <div class="form1">
-          pk print
-          {this.state.pk}
+          {/* pk print
+          {this.state.pk} */}
           <FormGroup>
             <Label for="case_id">Case ID:</Label>
             <Input
@@ -1245,7 +1245,9 @@ class EditPatientForm extends React.Component {
               value={this.state.notes || " "}
             />
           </FormGroup>
-          {/* <RibImage></RibImage> */}
+          <div style={{ marginLeft: "150px", marginBottom: "30px" }}>
+            <RibImage />
+          </div>
           <Container>
             <Row>
               <Col>
