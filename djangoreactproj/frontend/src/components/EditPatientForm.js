@@ -10,6 +10,11 @@ import {
   Container,
 } from "reactstrap";
 import RibImage from "./RibImage";
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import "./../text.css";
 import axios from "axios";
 
@@ -1240,6 +1245,7 @@ class EditPatientForm extends React.Component {
               value={this.state.notes || " "}
             />
           </FormGroup>
+          {/* <RibImage></RibImage> */}
           <Container>
             <Row>
               <Col>
@@ -1270,60 +1276,196 @@ class EditPatientForm extends React.Component {
               </Col>
             </Row>
           </Container>
+          {/* START OF RIBS */}
           <Container>
-            <Row>
-              <Col xs="3">
-                <FormGroup>
-                  <Label for="lprib1">lprib1:</Label>
-                  <Input
-                    type="text"
-                    className="w-75"
-                    name="lprib1"
-                    onChange={this.onChange}
-                    value={this.state.lprib1 || " "}
-                  />
-                </FormGroup>
-              </Col>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                // aria-controls="panel1a-content"
+                id="rib1"
+              >
+                {/* <Typography>Accordion 1</Typography> */}
+                RIBS 1
+              </AccordionSummary>
+              <AccordionDetails>
+                <Row></Row>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    // aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    {/* <Typography className={classes.heading}> */}
+                    {/* Accordion 1 */}
+                    {/* </Typography> */}
+                    Left
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Container>
+                      <Row>
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="lprib1">lprib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="lprib1"
+                              onChange={this.onChange}
+                              value={this.state.lprib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
 
-              <Col xs="3">
-                <FormGroup>
-                  <Label for="com_lprib1">com_lprib1:</Label>
-                  <Input
-                    type="com_lprib1"
-                    className="w-75"
-                    name="notes"
-                    onChange={this.onChange}
-                    value={this.state.com_lprib1 || " "}
-                  />
-                </FormGroup>
-              </Col>
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="com_lprib1">com_lprib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="com_lprib1"
+                              onChange={this.onChange}
+                              value={this.state.com_lprib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
 
-              <Col xs="3">
-                <FormGroup>
-                  <Label for="type_lprib1">type_lprib1:</Label>
-                  <Input
-                    type="text"
-                    className="w-75"
-                    name="type_lprib1"
-                    onChange={this.onChange}
-                    value={this.state.type_lprib1 || " "}
-                  />
-                </FormGroup>
-              </Col>
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="type_lprib1">type_lprib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="type_lprib1"
+                              onChange={this.onChange}
+                              value={this.state.type_lprib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
 
-              <Col xs="3">
-                <FormGroup>
-                  <Label for="cpr_lprib1">cpr_lprib1:</Label>
-                  <Input
-                    type="text"
-                    className="w-75"
-                    name="cpr_lprib1"
-                    onChange={this.onChange}
-                    value={this.state.cpr_lprib1 || " "}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="cpr_lprib1">cpr_lprib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="cpr_lprib1"
+                              onChange={this.onChange}
+                              value={this.state.cpr_lprib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="lplrib1">lplrib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="lplrib1"
+                              onChange={this.onChange}
+                              value={this.state.lplrib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
+
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="com_lplrib1">com_lplrib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="com_lplrib1"
+                              onChange={this.onChange}
+                              value={this.state.com_lplrib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
+
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="type_lplrib1">type_lplrib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="type_lplrib1"
+                              onChange={this.onChange}
+                              value={this.state.type_lplrib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
+
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="cpr_lplrib1">cpr_lplrib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="cpr_lplrib1"
+                              onChange={this.onChange}
+                              value={this.state.cpr_lplrib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="lalrib1">lalrib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="lalrib1"
+                              onChange={this.onChange}
+                              value={this.state.lalrib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
+
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="com_lalrib1">com_lalrib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="com_lalrib1"
+                              onChange={this.onChange}
+                              value={this.state.com_lalrib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
+
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="type_lalrib1">type_lalrib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="type_lalrib1"
+                              onChange={this.onChange}
+                              value={this.state.type_lalrib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
+
+                        <Col xs="3">
+                          <FormGroup>
+                            <Label for="cpr_lalrib1">cpr_lalrib1:</Label>
+                            <Input
+                              type="text"
+                              className="w-75"
+                              name="cpr_lalrib1"
+                              onChange={this.onChange}
+                              value={this.state.cpr_lalrib1 || " "}
+                            />
+                          </FormGroup>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </AccordionDetails>
+                </Accordion>
+              </AccordionDetails>
+            </Accordion>
           </Container>
         </div>
         <div class="send">
