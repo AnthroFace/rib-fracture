@@ -1,25 +1,19 @@
 import React, { Fragment } from "react";
-import { Button, Form, Col, Row, FormGroup, Input, Label } from "reactstrap";
+import {
+  Button,
+  Form,
+  Col,
+  Row,
+  FormGroup,
+  Input,
+  Label,
+  Container,
+} from "reactstrap";
 import RibImage from "./RibImage";
 import "./../text.css";
 import axios from "axios";
 
 import { API_URL } from "../constants";
-
-const styles = {
-  grid: {
-    paddingLeft: 0,
-    paddingRight: 0,
-  },
-  row: {
-    marginLeft: 0,
-    marginRight: 0,
-  },
-  col: {
-    paddingLeft: 0,
-    paddingRight: 0,
-  },
-};
 
 class EditPatientForm extends React.Component {
   state = {
@@ -823,8 +817,8 @@ class EditPatientForm extends React.Component {
     return (
       <Form onSubmit={this.editPatient}>
         <div class="form1">
-          {/* pk print
-          {this.state.pk} */}
+          pk print
+          {this.state.pk}
           <FormGroup>
             <Label for="case_id">Case ID:</Label>
             <Input
@@ -1246,59 +1240,61 @@ class EditPatientForm extends React.Component {
               value={this.state.notes || " "}
             />
           </FormGroup>
-          <Row>
-            <Col style={styles.col}>
-              <FormGroup>
-                <Label for="lprib1">lprib1:</Label>
-                <Input
-                  type="text"
-                  className="w-25"
-                  name="lprib1"
-                  onChange={this.onChange}
-                  value={this.state.lprib1 || " "}
-                />
-              </FormGroup>
-            </Col>
+          <Container>
+            <Row>
+              <Col xs="3">
+                <FormGroup>
+                  <Label for="lprib1">lprib1:</Label>
+                  <Input
+                    type="text"
+                    className="w-75"
+                    name="lprib1"
+                    onChange={this.onChange}
+                    value={this.state.lprib1 || " "}
+                  />
+                </FormGroup>
+              </Col>
 
-            <Col md={3}>
-              <FormGroup>
-                <Label for="com_lprib1">com_lprib1:</Label>
-                <Input
-                  type="com_lprib1"
-                  className="w-25"
-                  name="notes"
-                  onChange={this.onChange}
-                  value={this.state.com_lprib1 || " "}
-                />
-              </FormGroup>
-            </Col>
+              <Col xs="3">
+                <FormGroup>
+                  <Label for="com_lprib1">com_lprib1:</Label>
+                  <Input
+                    type="com_lprib1"
+                    className="w-75"
+                    name="notes"
+                    onChange={this.onChange}
+                    value={this.state.com_lprib1 || " "}
+                  />
+                </FormGroup>
+              </Col>
 
-            <Col md={3}>
-              <FormGroup>
-                <Label for="type_lprib1">type_lprib1:</Label>
-                <Input
-                  type="text"
-                  className="w-25"
-                  name="type_lprib1"
-                  onChange={this.onChange}
-                  value={this.state.type_lprib1 || " "}
-                />
-              </FormGroup>
-            </Col>
+              <Col xs="3">
+                <FormGroup>
+                  <Label for="type_lprib1">type_lprib1:</Label>
+                  <Input
+                    type="text"
+                    className="w-75"
+                    name="type_lprib1"
+                    onChange={this.onChange}
+                    value={this.state.type_lprib1 || " "}
+                  />
+                </FormGroup>
+              </Col>
 
-            <Col md={3}>
-              <FormGroup>
-                <Label for="cpr_lprib1">cpr_lprib1:</Label>
-                <Input
-                  type="text"
-                  className="w-25"
-                  name="cpr_lprib1"
-                  onChange={this.onChange}
-                  value={this.state.cpr_lprib1 || " "}
-                />
-              </FormGroup>
-            </Col>
-          </Row>
+              <Col xs="3">
+                <FormGroup>
+                  <Label for="cpr_lprib1">cpr_lprib1:</Label>
+                  <Input
+                    type="text"
+                    className="w-75"
+                    name="cpr_lprib1"
+                    onChange={this.onChange}
+                    value={this.state.cpr_lprib1 || " "}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+          </Container>
         </div>
         <div class="send">
           <Button>Send</Button>
