@@ -94,7 +94,11 @@ class PatientList extends Component {
   deletePatients = (pks) => {
     console.log(pks);
     for (const [index, pk] of pks.entries()) {
-      axios.delete(API_URL + pk);
+      axios.delete(API_URL + pk, {
+                    headers: {
+                        Authorization: `JWT ${localStorage.getItem('token')}`
+                    }                   
+                });
     }
     // this.sleep(3000);
     this.toggle();
