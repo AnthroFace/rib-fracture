@@ -587,7 +587,9 @@ class RibImage extends Component {
     this.setState({
       msg: `You clicked on ${area.name}`,
     });
-    this.props.onSelectLocation(area.name);
+    if (this.props.onSelectLocation) {
+      this.props.onSelectLocation(area.name);
+    }
   };
   clickedOutside = (evt) => {
     this.setState({

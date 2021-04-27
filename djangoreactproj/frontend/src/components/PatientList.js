@@ -1,11 +1,8 @@
 import React, { Component, Fragment } from "react";
-import { Button, Table } from "reactstrap";
-import NewPatientModal from "./NewPatientModal";
-
-import ConfirmRemovalModal from "./ConfirmRemovalModal";
-import ConfirmRemoveMult from "./ConfirmRemoveMult";
+// import Modal from "@material-ui/core/Modal";
+import EditPatientForm from "./EditPatientForm";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import Pagination from "@material-ui/lab/Pagination";
-import { Modal, ModalHeader, ModalFooter } from "reactstrap";
 
 import axios from "axios";
 
@@ -62,7 +59,12 @@ function CustomPagination() {
 
 class PatientList extends Component {
   state = {
-    all_data: false,
+    all_data: true,
+    editing: false,
+    confirm: false,
+    pk: "",
+    patient: "",
+    // confirm_pk: "",
     // rows =
     to_delete: [],
     modal: false,
@@ -74,6 +76,56 @@ class PatientList extends Component {
     }));
   };
 
+  toggleModal = () => {
+    // console.log(this.state.patient_pk);
+    this.setState((previous) => ({
+      editing: !previous.editing,
+      pk: "",
+      // confirm_pk: "",
+    }));
+    console.log("toggleModal", this.state.pk);
+    // console.log("toggleModal", this.state.confirm_pk);
+  };
+
+  confirmCancel = () => {
+    this.setState({ editing: false, confirm: false, pk: "" });
+    console.log("confirmCancel", this.state.pk);
+    // console.log("confirmCancel", this.state.confirm_pk);
+  };
+
+  confirmEdit = () => {
+    this.setState({ editing: true, confirm: false });
+    console.log("confirmEdit", this.state.pk);
+    console.log("patient:", this.state.patient);
+    // console.log("confirmEdit confirm", this.state.confirm_pk);
+  };
+
+  toggleConfirm = () => {
+    this.setState((previous) => ({
+      confirm: !previous.confirm,
+    }));
+    console.log("toggleConfirm", this.state.pk);
+    // console.log("toggleConfirm", this.state.confirm_pk);
+  };
+
+  handleClose = () => {
+    this.setState({ editing: false });
+    console.log("handleClose", this.state.pk);
+  };
+
+  doubleClick = (GridRowParams) => {
+    this.setState({
+      confirm: true,
+      pk: GridRowParams.row.id,
+      patient: GridRowParams.row,
+    });
+    console.log("doubleClick", this.state.pk);
+  };
+
+  rowClick = (GridRowParams) => {
+    console.log(GridRowParams);
+    console.log("row click");
+  };
   toggle = () => {
     this.setState((previous) => ({
       modal: !previous.modal,
@@ -1904,6 +1956,7 @@ class PatientList extends Component {
         ) : (
           // <div></div>
           <div style={{ height: 700, width: wid }}>
+            Double click a patient row to edit it.
             <DataGrid
               // {...patients}
               // style={{ height: 1000, width: "100%" }}
@@ -1917,14 +1970,15 @@ class PatientList extends Component {
               // disableColumnFilter
               checkboxSelection
               disableColumnMenu
-              onRowSelected={this.onSelectionChange}
+              disableSelectionOnClick
+              onRowDoubleClick={this.doubleClick}
             />
-            <Button
+            {/* <Button
               style={{ marginRight: 4 }}
               onClick={() => this.toggleAll(this.state.all_data)}
             >
               Toggle Rib View
-            </Button>
+            </Button> */}
             <Fragment>
               <Button
                 style={{ marginRight: 4 }}
@@ -1955,6 +2009,46 @@ class PatientList extends Component {
           </div>
         )}
         <div>
+          {/* <br /> */}
+          <Modal
+            isOpen={this.state.editing}
+            toggle={this.toggleModal}
+            // contentClassName=""
+            size="lg"
+          >
+            <ModalHeader toggle={this.toggleModal}>Editing Patient</ModalHeader>
+
+            <ModalBody>
+              <EditPatientForm
+                resetState={this.props.resetState}
+                toggle={this.toggleModal}
+                patient={this.state.patient}
+              />
+            </ModalBody>
+          </Modal>
+
+          <Modal isOpen={this.state.confirm} toggle={this.toggleConfirm}>
+            <ModalHeader toggle={this.toggleConfirm}>
+              Edit this patient?
+            </ModalHeader>
+
+            <ModalFooter>
+              <Button type="button" onClick={() => this.confirmCancel()}>
+                Cancel
+              </Button>
+              <Button
+                type="button"
+                color="primary"
+                // onClick={() => this.deletePatient(this.props.pk)}
+                onClick={() => this.confirmEdit()}
+              >
+                Confirm
+              </Button>
+            </ModalFooter>
+          </Modal>
+          {/* <Button onClick={() => this.toggleAll(this.state.all_data)}>
+            Toggle Rib View
+          </Button> */}
           <br />
         </div>
       </div>
