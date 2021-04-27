@@ -6,16 +6,9 @@ import Box from "@material-ui/core/Box";
 class Home extends Component {
   render() {
     return (
-      <div 
-        style={{
-          position: "absolute",
-          left: "50%",
-          top: "40%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        <Box border={0} textAlign="center">
-          <Box borderTop={0} borderBottom={0} padding="50px 136px">
+      <div>
+        <div style = {{padding :"50px 0px 0px 610px", position: "fixed"}}>
+          <Box borderTop={0} borderBottom={0}>
             <img
               variant="h1"
               component="h2"
@@ -24,6 +17,16 @@ class Home extends Component {
               alt=""
             />
           </Box>
+         </div> 
+      <div 
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "40%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <Box border={0} textAlign="center" style ={{padding:"100px 0px 0px 0px"}}>
           <Box border={0} class = "buttons" >
             <div  style ={{padding : "5px"}}>
             <Button 
@@ -123,6 +126,7 @@ class Home extends Component {
             </div>
           </Box>
         </Box>
+      </div>
       </div>
     );
   }
