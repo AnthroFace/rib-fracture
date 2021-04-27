@@ -27,6 +27,13 @@ The main functionality of our project is rooted in being able to have user input
 
 The users will be able to input, store, and access collected data with ease. Users will also be able to see correlations and make empirically founded interpretations rather than subjective interpretations. Sharing data amongst users will also become easier. The data will not have to be written down, will be better organized to allow for statistical analysis to find patterns between bone breaks.    
 
+# Project Deliverables:
+
+**Project Poster**
+<a href="anthroface.github.io/rib-fracture/POSTER_T28.pdf" target="_blank">This poster</a> has descriptions about our project and development process as well as goals for future work.
+
+**Project Video** 
+<a href="https://www.youtube.com/watch?v=cD_3mzcr1BE&ab_channel=GabrielleTalavera" target="_blank">This video</a> showcases screen recordings of the current working project, including features such as importing and exporting patient data, creating a new patient, and creating heatmaps to show where breaks occur most frequently.
 
 # Project related resources:    
 
