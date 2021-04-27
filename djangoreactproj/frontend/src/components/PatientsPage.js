@@ -38,13 +38,7 @@ class PatientsPage extends Component {
   };
 
   getFilteredPatients = () => {
-    var nums = axios.get(URL, {
-      headers: {
-        Authorization: `JWT ${localStorage.getItem('token')}`
-      } ,
-         params:{
-            dataset: localStorage.getItem("current_dataset")}
-    }).then(
+    var nums = axios.get(URL).then(
       (res) =>
         this.setState({
           patients: res.data.patients ? res.data.patients : res.data,

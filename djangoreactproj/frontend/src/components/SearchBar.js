@@ -392,7 +392,7 @@ class SearchBar extends Component {
     // e.preventDefault();
     axios
       .put(URL + "1", {
-        dataset: localStorage.getItem("current_dataset"),
+        headers: {Authorization: `JWT ${localStorage.getItem('token')}`} ,
         age_start: this.state.age_start,
         age_end: this.state.age_end,
         weight_start: this.state.weight_start,
@@ -503,9 +503,8 @@ class SearchBar extends Component {
         rprib12: this.state.rprib12,
         rplrib12: this.state.rplrib12,
         ralrib12: this.state.ralrib12,
-      }, 
-      {headers: {Authorization: `JWT ${localStorage.getItem('token')}`}}
-      ).then(function (response) {
+      })
+      .then(function (response) {
         // console.log("EDITING", response);
       });
   };
@@ -529,6 +528,7 @@ class SearchBar extends Component {
       if (res.data.length == 0) {
         axios
           .post(URL, {
+            headers: {Authorization: `JWT ${localStorage.getItem('token')}`} ,
             dataset: localStorage.getItem("current_dataset"),
             age_start: this.state.age_start,
             age_end: this.state.age_end,
@@ -641,8 +641,8 @@ class SearchBar extends Component {
             rprib12: this.state.rprib12,
             rplrib12: this.state.rplrib12,
             ralrib12: this.state.ralrib12,
-          }, {headers: {Authorization: `JWT ${localStorage.getItem('token')}`}} 
-          ).then(function (response) {
+          })
+          .then(function (response) {
             // console.log(response);
           });
       } else {
