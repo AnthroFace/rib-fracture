@@ -11,7 +11,7 @@ class NewPatientPage extends Component {
     window.scrollTo(0, 0);
   };
 
-  resetState = () => {
+  resetState = () => {  
     this.setState({
       pk: 0,
       case_id: "",

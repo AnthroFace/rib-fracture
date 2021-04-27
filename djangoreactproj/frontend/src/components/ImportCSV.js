@@ -131,7 +131,8 @@ class ImportCSV extends Component {
   };
   handleUpload = () => {
     if (localStorage.getItem("current_dataset") == null) {
-      alert("You must choose a dataset before uploading.")
+      alert("You must choose a dataset to import to.")
+      window.location.href = "/dataset";
       return false;
     }
     if (this.state.selectedFile == null) {

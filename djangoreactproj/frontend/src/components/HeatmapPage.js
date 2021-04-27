@@ -55,7 +55,15 @@ class HeatmapPage extends Component {
   };
 
   resetState = () => {
-    this.getPatients();
+    if (localStorage.getItem("current_dataset") == null) 
+   {
+      alert("You must choose a dataset before viewing it.");
+      window.location.href = "/dataset";
+   }
+   else
+   {
+      this.getPatients();
+   }
   };
 
   logging = () => {

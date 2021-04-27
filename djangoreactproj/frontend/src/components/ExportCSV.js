@@ -480,6 +480,7 @@ componentDidMount() {
     this.resetState();
   }
 
+
 getPatients = () => {
     axios.get(API_URL, {
       headers: {
@@ -494,7 +495,15 @@ getPatients = () => {
 
 
 resetState = () => {
-    this.getPatients();
+   if (localStorage.getItem("current_dataset") == null) 
+   {
+      alert("You must choose a dataset before exporting.");
+      window.location.href = "/dataset";
+   }
+   else
+   {
+      this.getPatients();
+   }
   }; 
 
 
