@@ -18,29 +18,29 @@ class RibImage extends Component {
     //  this.setState({ msg: "Hover ribs to see total breaks for each area" });
   };
   clicked = (area) => {
-    this.setState({
+    /*this.setState({
       //  msg: `You clicked on ${area.name}`,
     });
-    //this.props.onSelectLocation(area.name);
+    //this.props.onSelectLocation(area.name);*/
   };
   clickedOutside = (evt) => {
-    const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
+    /*const coords = { x: evt.nativeEvent.layerX, y: evt.nativeEvent.layerY };
     this.setState({
       msg: `Please select a rib section`,
-    });
+    });*/
   };
  
   enterArea = (area) => {
-    this.setState({
+    /*this.setState({
       hoveredArea: area,
       msg: `Rib ${area.name} has ${area.breakValue} break(s)`,
-    });
+    });*/
   };
   leaveArea = (area) => {
-    this.setState({
+    /*this.setState({
       hoveredArea: null,
       msg: null,
-    });
+    });*/
   };
 
 
@@ -1374,13 +1374,13 @@ class RibImage extends Component {
               //imgWidth="100"
               src={URL}
               map={MAP}
-              onLoad={this.load}
+             /* onLoad={this.load}
               onClick={(area) => this.clicked(area)}
               onMouseEnter={(area) => this.enterArea(area)}
               onMouseLeave={(area) => this.leaveArea(area)}
               // onMouseMove={(area, _, evt) => this.moveOnArea(area, evt)}
               onImageClick={(evt) => this.clickedOutside(evt)}
-              //onImageMouseMove={(evt) => this.moveOnImage(evt)}
+              //onImageMouseMove={(evt) => this.moveOnImage(evt)}*/
               lineWidth={4}
               strokeColor={"white"}
             />

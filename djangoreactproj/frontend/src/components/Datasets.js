@@ -16,6 +16,16 @@ class Datasets extends Component {
     myDatasets: []
   };
 
+  onSelect = e => {
+    this.setState({
+              selectedSet: e.target.value,
+              validationError:
+                e.target.value === ""
+                  ? "You must select a dataset"
+                  : ""
+            });
+            window.location.reload();
+  }
 
   componentDidMount() {
     axios.get(URL, {
@@ -109,14 +119,8 @@ class Datasets extends Component {
       <Typography class = "patientpage" variant="h2">Select An Existing Dataset</Typography>
         <select
           value={this.state.selectedSet}
-          onChange={e =>
-            this.setState({
-              selectedSet: e.target.value,
-              validationError:
-                e.target.value === ""
-                  ? "You must select a dataset"
-                  : ""
-            })   
+          onChange={
+            this.onSelect   
           }
         >
 
