@@ -6,6 +6,18 @@ import Box from "@material-ui/core/Box";
 class Home extends Component {
   render() {
     return (
+      <div>
+      <div style = {{padding :"20px 0px 00px 610px" ,position: "fixed"}}>
+      <Box borderTop={0} borderBottom={0} >
+        <img
+          variant="h1"
+          component="h2"
+          height="200"
+          src="/images/AnthrofaceLogo1.png"
+          alt=""
+        />
+      </Box>
+      </div>
       <div 
         style={{
           position: "absolute",
@@ -14,16 +26,7 @@ class Home extends Component {
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Box border={0} textAlign="center">
-          <Box borderTop={0} borderBottom={0} padding="50px 136px">
-            <img
-              variant="h1"
-              component="h2"
-              height="200"
-              src="/images/AnthrofaceLogo1.png"
-              alt=""
-            />
-          </Box>
+        <Box border={0} textAlign="center" >
           <Box border={0} class = "buttons" >
             <div  style ={{padding : "5px"}}>
             <Button 
@@ -111,18 +114,19 @@ class Home extends Component {
                 // borderRadius: 35,
                 color:"#96382f",
                 backgroundColor: "#fffee9",
-                padding: "18px 36px",
+                padding: "18px 42px",
                 fontSize: "15px",
               }}
               variant="contained"
               size="large"
               href="/Dataset"
             >
-              Dataset Select
+              Set Select
             </Button>
             </div>
           </Box>
         </Box>
+      </div>
       </div>
     );
   }

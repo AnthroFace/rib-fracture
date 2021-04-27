@@ -6,7 +6,20 @@ import "./../App.css";
 
 function LoginNav(props) {
   const logged_out_nav = (
-    <div className = "buttons" style = {{padding : "0px 0px 0px 550px"}}>
+    
+    <div>
+    <div style ={{padding :"60px 0px 0px 485px", position: "fixed"}} >
+          <Box borderTop={0} borderBottom={0} padding="50px 136px">
+            <img
+              variant="h1"
+              component="h2"
+              height="200"
+              src="/images/AnthrofaceLogo1.png"
+              alt=""
+            />
+          </Box>
+        </div>
+      <div className = "buttons" style = {{padding : "400px 0px 0px 550px"}}>
       <div  style ={{padding : "5px"}}>
           <Button 
               style={{
@@ -53,6 +66,7 @@ function LoginNav(props) {
               Guest
             </Button>
       </div>
+    </div>
     </div>
   );
 

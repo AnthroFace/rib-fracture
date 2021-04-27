@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.handle_login(e, this.state)} className = "loginform" style = {{padding: "0px 0px 0px 350px"}}>
+      <form onSubmit={e => this.props.handle_login(e, this.state)} className = "loginform" style = {{  padding: "310px 0px 0px 350px"}}>
         <h4>Log In</h4>
         <label htmlFor="username">Username</label>
         <input

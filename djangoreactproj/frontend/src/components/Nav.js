@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment} from "react";
 import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router-dom";
 
@@ -11,8 +11,13 @@ import Heatmap from "./Heatmap";
 import LoginForm from "./LoginForm"
 import HeatmapPage from "./HeatmapPage";
 import Datasets from "./Datasets";
+import LoginNav from "./LoginNav";
 import "./../App.css";
 import Image from "react-image-resizer";
+
+function logIn(props){
+
+}
 
 class Nav extends Component {
   render() {
@@ -57,6 +62,12 @@ class Nav extends Component {
                 </a>
               </div>
             </div>
+            <Fragment> 
+        <LoginNav
+          logged_in={this.state.logged_in}
+          display_form={this.display_form}
+          handle_logout={this.handle_logout}
+        /> <Nav /></Fragment>; 
           </nav>
           <div className="content">
             <Route path="/" exact component={Home} />

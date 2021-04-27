@@ -101,17 +101,6 @@ class App extends Component {
     //let {isLoggedIn} = this.state; 
 
     const renderAuthButton = () => {
-      <div style ={{padding :"100px 0px 0px 485px"}}>
-      <Box borderTop={0} borderBottom={0} padding="50px 136px">
-        <img
-          variant="h1"
-          component="h2"
-          height="200"
-          src="/images/AnthrofaceLogo1.png"
-          alt=""
-        />
-      </Box>
-      </div>
       if(!this.state.logged_in){
         console.log(this.state.logged_in);
         return  <Fragment>   {form}
@@ -124,12 +113,6 @@ class App extends Component {
       }
       else{
         console.log(this.state.logged_in); 
-        return  <Fragment> 
-        <LoginNav
-          logged_in={this.state.logged_in}
-          display_form={this.display_form}
-          handle_logout={this.handle_logout}
-        /> <Nav /></Fragment>; 
       }
     }
 
