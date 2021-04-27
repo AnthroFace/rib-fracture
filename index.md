@@ -31,7 +31,7 @@ The users will be able to input, store, and access collected data with ease. Use
 
 **Project Poster**
 
-<a href="anthroface.github.io/rib-fracture/folder/POSTER_T28.pdf" target="_blank">This poster</a> has descriptions about our project and development process as well as goals for future work.
+<a href="anthroface.github.io/POSTER_T28.pdf" target="_blank">This poster</a> has descriptions about our project and development process as well as goals for future work.
 
 **Project Video** 
 
