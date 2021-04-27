@@ -30,9 +30,11 @@ The users will be able to input, store, and access collected data with ease. Use
 # Project Deliverables:
 
 **Project Poster**
-<a href="anthroface.github.io/rib-fracture/POSTER_T28.pdf" target="_blank">This poster</a> has descriptions about our project and development process as well as goals for future work.
+
+<a href="anthroface.github.io/rib-fracture/folder/POSTER_T28.pdf" target="_blank">This poster</a> has descriptions about our project and development process as well as goals for future work.
 
 **Project Video** 
+
 <a href="https://www.youtube.com/watch?v=cD_3mzcr1BE&ab_channel=GabrielleTalavera" target="_blank">This video</a> showcases screen recordings of the current working project, including features such as importing and exporting patient data, creating a new patient, and creating heatmaps to show where breaks occur most frequently.
 
 # Project related resources:    
