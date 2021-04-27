@@ -28,7 +28,7 @@ class App extends Component {
       })
         .then(res => res.json())
         .then(json => {
-          this.setState({ username: json.username });
+          //this.setState({ username: json.username });
         });
     }
   }
