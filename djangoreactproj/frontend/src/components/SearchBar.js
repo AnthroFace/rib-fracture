@@ -392,6 +392,7 @@ class SearchBar extends Component {
     // e.preventDefault();
     axios
       .put(URL + "1", {
+        dataset: localStorage.getItem("current_dataset"),
         age_start: this.state.age_start,
         age_end: this.state.age_end,
         weight_start: this.state.weight_start,
