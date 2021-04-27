@@ -57,3 +57,11 @@ input[type="text"] {
 .csvtitle2 {
   padding: 0px 0px 10px 30px;
 }
+
+.loginform{
+  position: absolute;
+}
+
+.signupform{
+  position: absolute;
+}

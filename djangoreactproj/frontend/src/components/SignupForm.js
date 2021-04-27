@@ -22,7 +22,7 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.handle_signup(e, this.state)} className = "signupform" style = {{padding: "0px 0px 0px 350px"}}>
+      <form onSubmit={e => this.props.handle_signup(e, this.state)} className = "signupform" style = {{padding: "350px 0px 0px 300px"}}>
         <h4>Sign Up</h4>
         <label htmlFor="username">Username</label>
         <input
