@@ -107,7 +107,7 @@ class Content2 extends Component {
             style={{ transform: "rotate(90deg)" }}
           >
             <div>
-              <RightHorBar rib_count={this.props.rib_count} />
+              <LeftHorBar rib_count={this.props.rib_count} />
             </div>
           </Box>
 
@@ -117,7 +117,7 @@ class Content2 extends Component {
             style={{ transform: "rotate(90deg)" }}
           >
             <div>
-              <LeftHorBar rib_count={this.props.rib_count} />
+              <RightHorBar rib_count={this.props.rib_count} />
             </div>
           </Box>
         </Box>
