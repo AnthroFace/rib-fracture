@@ -523,9 +523,9 @@ class Filter(models.Model):
     ralrib12 = models.IntegerField(blank=True, null=True)
     dataset = models.CharField(max_length=20, blank=False, null=False)
 
-    def save(self, *args, **kwargs):
-        if not self.pk and Filter.objects.exists():
+    #def save(self, *args, **kwargs):
+    #    if not self.pk and Filter.objects.exists():
         # if you'll not check for self.pk 
         # then error will also raised in update of exists model
-            raise ValidationError('There is can be only one Filter instance')
-        return super(Filter, self).save(*args, **kwargs)
+    #        raise ValidationError('There is can be only one Filter instance')
+    #    return super(Filter, self).save(*args, **kwargs)
