@@ -148,7 +148,7 @@ def patients_filter(request):
                 elif key == "height_end" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
                         height_end = serializer.data[0][key]
                 elif key != "pk" and serializer.data[0][key] != "" and serializer.data[0][key] is not None:
-                    fil_string = fil_string + '\'' + key + '\': ' + '"' + str(serializer.data[0][key]) + '",'
+                    fil_string = fil_string + '\'' + key + '__iexact\': ' + '"' + str(serializer.data[0][key]) + '",'
             fil_string = fil_string[:-1]
             fil_string = fil_string + "}"
             fil_dict = ast.literal_eval(fil_string) 
