@@ -2,12 +2,13 @@
   background-color: #818051;
   background-image: none;
   background-repeat: no-repeat;
+  position: initial;
 }
 .buttons{
   display: flex;
   flex-wrap: wrap;
   white-space: nowrap;
-  padding: 0px 0px 0px 80px;
+  
 }
 
 .home{

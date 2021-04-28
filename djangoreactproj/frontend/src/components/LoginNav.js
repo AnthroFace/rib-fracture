@@ -22,10 +22,10 @@ function LoginNav(props) {
         />
       </Box>
       </div>
-    <div style ={{      left: "45%",
-      top: "25%",
-      transform: "translate(0%, 42%)"  , position : "fixed"}}>
-    <div className = "buttons" style = {{padding : "100px 0px 0px 0px"}}>
+    <div style ={{      left: "40%",
+      top: "40%",
+      transform: "translate(0%, 0%)"  , position : "absolute"}}>
+    <div className = "buttons" style = {{padding : "0px 0px 0px 0px"}}>
       <div  style ={{padding : "5px"}}>
           <Button 
               style={{
@@ -41,7 +41,22 @@ function LoginNav(props) {
               Login
             </Button>
       </div>
-  
+      <div  style ={{padding : "5px"}}>
+            <Button 
+              style={{
+                // borderRadius: 35,
+                color: "#963A2F",
+                backgroundColor: "#fffee9",
+                padding: "18px 36px",
+                fontSize: "15px",
+              }}
+              variant="contained"
+              size="large"
+              onClick={() => props.display_form('signup')}
+            >
+              Sign Up
+            </Button>
+      </div>
       {/* <div  style ={{padding : "5px"}}>
             <Button 
               style={{
