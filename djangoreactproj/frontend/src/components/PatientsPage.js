@@ -34,7 +34,7 @@ class PatientsPage extends Component {
         rib_counts: res.data.rib_counts,
       })
     );
-    console.log(localStorage.getItem("current_dataset"))
+    // console.log(localStorage.getItem("current_dataset"))
   };
 
   getFilteredPatients = () => {

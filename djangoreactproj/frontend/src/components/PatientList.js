@@ -144,13 +144,20 @@ class PatientList extends Component {
   }
 
   deletePatients = (pks) => {
-    console.log(pks);
+    console.log("DELETE PATIENTS")
+    console.log("Pks", pks);
     for (const [index, pk] of pks.entries()) {
       axios.delete(API_URL + pk, {
                     headers: {
                         Authorization: `JWT ${localStorage.getItem('token')}`
                     }                   
-                });
+                }).then(res => {
+        console.log("deleted")
+        console.log(res.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
     }
     // this.sleep(3000);
     this.toggle();
@@ -1938,6 +1945,7 @@ class PatientList extends Component {
               disableColumnMenu
               disableSelectionOnClick
               onRowDoubleClick={this.doubleClick}
+              onRowSelected={this.onSelectionChange}
             />
             <Button
               style={{ marginRight: 4 }}
