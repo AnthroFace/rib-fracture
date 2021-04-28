@@ -59,7 +59,7 @@ function CustomPagination() {
 
 class PatientList extends Component {
   state = {
-    all_data: true,
+    all_data: false,
     editing: false,
     confirm: false,
     pk: "",
