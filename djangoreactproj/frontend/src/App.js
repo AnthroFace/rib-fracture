@@ -46,6 +46,13 @@ class App extends Component {
       },
       body: JSON.stringify(data)
     })
+      .then(function(res) {
+        if (!res.ok) 
+        {
+          throw Error(res.statusText);
+        }
+        return res;
+        })
       .then(res => res.json())
       .then(json => {
         localStorage.setItem('token', json.token);
@@ -54,6 +61,9 @@ class App extends Component {
           displayed_form: '',
           username: json.user.username
         });
+      })
+      .catch(function(err) {
+        alert("Invalid username and/or password.");
       });
   };
 
