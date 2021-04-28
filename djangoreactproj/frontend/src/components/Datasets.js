@@ -96,6 +96,7 @@ class Datasets extends Component {
   				}).finally(() => {
   					this.toggle();
   					localStorage.removeItem("current_dataset");
+            localStorage.removeItem("current_dataset_name");
     				window.location.reload();
   				});
     	//this.sleep(3000);
