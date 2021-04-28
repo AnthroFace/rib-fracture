@@ -38,7 +38,7 @@ class Nav extends Component {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div className="navbar-nav">
                 <a className="nav-item nav-link" href="/Database">
-                  PATIENTS
+                  DATABASE
                 </a>
                 <a className="nav-item nav-link" href="/Create">
                   NEW PATIENT

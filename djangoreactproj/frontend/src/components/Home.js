@@ -23,36 +23,21 @@ class Home extends Component {
       <div 
         style={{
           position:"fixed",
-          left: "50%",
+          left: "48%",
           top: "40%",
           transform: "translate(-50%, -50%)",
         }}
       >
         <Box border={0} textAlign="center" style ={{padding:"250px 0px 0px 0px"}}>
           <Box border={0} class = "buttons" >
-            <div  style ={{padding : "5px"}}>
-            <Button 
-              style={{
-                // borderRadius: 35,
-                color: "#963A2F",
-                backgroundColor: "#fffee9",
-                padding: "18px 36px",
-                fontSize: "15px",
-              }}
-              variant="contained"
-              size="large"
-              href="/Create"
-            >
-              New Patient
-            </Button>
-            </div>
-            <div style ={{padding : "5px"}} >
+          <Box>
+          <div style ={{padding : "5px"}} >
             <Button
               style={{
                 //  borderRadius: 35,
                 color: "#96382f",
                 backgroundColor: "#fffee9",
-                padding: "18px 36px",
+                padding: "18px 47px",
                 fontSize: "15px",
               }}
               variant="contained"
@@ -84,14 +69,32 @@ class Home extends Component {
                 // borderRadius: 35,
                 color:"#96382f",
                 backgroundColor: "#fffee9",
+                padding: "18px 54px",
+                fontSize: "15px",
+              }}
+              variant="contained"
+              size="large"
+              href="/Heatmap"
+            >
+              Heatmap
+            </Button>
+            </div>
+            </Box>
+            <Box>
+            <div  style ={{padding : "5px"}}>
+            <Button 
+              style={{
+                // borderRadius: 35,
+                color: "#963A2F",
+                backgroundColor: "#fffee9",
                 padding: "18px 36px",
                 fontSize: "15px",
               }}
               variant="contained"
               size="large"
-              href="/Export"
+              href="/Create"
             >
-              Export Data
+              New Patient
             </Button>
             </div>
             <div style ={{padding : "5px"}}>
@@ -105,11 +108,12 @@ class Home extends Component {
               }}
               variant="contained"
               size="large"
-              href="/Heatmap"
+              href="/Export"
             >
-              Heatmap
+              Export Data
             </Button>
             </div>
+            
             <div style ={{padding : "5px"}}>
             <Button
               style={{
@@ -123,9 +127,10 @@ class Home extends Component {
               size="large"
               href="/Dataset"
             >
-              Dataset Select
+              Select Dataset
             </Button>
             </div>
+            </Box>
           </Box>
         </Box>
       </div>
