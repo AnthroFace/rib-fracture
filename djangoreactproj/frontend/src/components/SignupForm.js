@@ -22,6 +22,12 @@ class SignupForm extends React.Component {
 
   render() {
     return (
+      <div        style={{
+        position:"fixed",
+        left: "50%",
+        top: "40%",
+        transform: "translate(-50%, -50%)",
+      }}>
       <form onSubmit={e => this.props.handle_signup(e, this.state)} className = "signupform" style = {{padding: "350px 0px 0px 300px"}}>
         <h4>Sign Up</h4>
         <label htmlFor="username">Username</label>
@@ -39,7 +45,7 @@ class SignupForm extends React.Component {
           onChange={this.handle_change}
         />
         <input type="submit" />
-      </form>
+      </form></div>
     );
   }
 }
