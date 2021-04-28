@@ -409,6 +409,8 @@ class PatientSerializer(serializers.ModelSerializer):
             data['height'] = None
         if data.get('sternum') == "":
             data['sternum'] = None
+        if data.get('cpr_sternum') == None:
+            data['cpr_sternum'] = ""
         if data.get('lprib1') == "":
             data['lprib1'] = None
         if data.get('com_lprib1') == "":

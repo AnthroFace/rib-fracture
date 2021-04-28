@@ -35,7 +35,7 @@ class Patient(models.Model):
     health_notes = models.TextField('Health Notes', blank=True)
     notes = models.TextField('Notes', blank=True, null=True)
     sternum = models.IntegerField(blank=True, null=True)
-    cpr_sternum = models.CharField(max_length=2, blank=True)
+    cpr_sternum = models.CharField(max_length=2, blank=True, null=True)
     lprib1 = models.IntegerField(blank=True, null=True)
     com_lprib1 = models.FloatField(blank=True, null=True)
     type_lprib1 = models.CharField(max_length=20, blank=True)
