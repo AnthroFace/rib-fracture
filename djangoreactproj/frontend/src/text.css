@@ -60,14 +60,14 @@ input[type="text"] {
 
 .loginform{
   position: absolute;
-  left: 30%;
+  left: 37%;
   top: 33%;
   transform: translate(-20%, -20%);
 }
 
 .signupform{
   position: absolute;
-  left: 30%;
+  left: 37%;
   top: 33%;
   transform: translate(-20%, -20%);
 }
