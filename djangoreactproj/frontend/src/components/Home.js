@@ -7,7 +7,9 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div style = {{padding :"50px 0px 0px 610px", position: "fixed"}}>
+        <div style = {{          left: "48%",
+          top: "30%",
+          transform: "translate(-50%, -50%)" ,  position: "fixed"}}>
           <Box borderTop={0} borderBottom={0}>
             <img
               variant="h1"
@@ -20,13 +22,13 @@ class Home extends Component {
          </div> 
       <div 
         style={{
-          position: "absolute",
+          position:"fixed",
           left: "50%",
           top: "40%",
           transform: "translate(-50%, -50%)",
         }}
       >
-        <Box border={0} textAlign="center" style ={{padding:"100px 0px 0px 0px"}}>
+        <Box border={0} textAlign="center" style ={{padding:"250px 0px 0px 0px"}}>
           <Box border={0} class = "buttons" >
             <div  style ={{padding : "5px"}}>
             <Button 
@@ -114,7 +116,7 @@ class Home extends Component {
                 // borderRadius: 35,
                 color:"#96382f",
                 backgroundColor: "#fffee9",
-                padding: "18px 36px",
+                padding: "18px 23px",
                 fontSize: "15px",
               }}
               variant="contained"

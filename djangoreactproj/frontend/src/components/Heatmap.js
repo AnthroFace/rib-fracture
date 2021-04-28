@@ -233,7 +233,13 @@ class Heatmap extends React.Component {
       ribCount = JSON.parse(ribCount);
     }
     return (
-      <div>
+      <div
+      style={{
+        position:"relative",
+        left: "0%",
+        top: "50%",
+        
+      }}>
 
         <Box class="tabs">
           <CoolTabs

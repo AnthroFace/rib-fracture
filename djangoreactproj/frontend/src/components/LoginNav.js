@@ -9,8 +9,10 @@ import "./../text.css";
 function LoginNav(props) {
   const logged_out_nav = (
     <div>
-       <div style ={{padding :"110px 0px 0px 500px" , position : "fixed"}}>
-      <Box borderTop={0} borderBottom={0} padding="50px 136px">
+       <div style ={{      left: "45%",
+      top: "5%",
+      transform: "translate(0%, 42%)"  , position : "fixed"}}>
+      <Box borderTop={0} borderBottom={0} >
         <img
           variant="h1"
           component="h2"
@@ -20,8 +22,10 @@ function LoginNav(props) {
         />
       </Box>
       </div>
-
-    <div className = "buttons" style = {{padding : "450px 0px 0px 550px"}}>
+    <div style ={{      left: "45%",
+      top: "25%",
+      transform: "translate(0%, 42%)"  , position : "fixed"}}>
+    <div className = "buttons" style = {{padding : "100px 0px 0px 0px"}}>
       <div  style ={{padding : "5px"}}>
           <Button 
               style={{
@@ -37,6 +41,7 @@ function LoginNav(props) {
               Login
             </Button>
       </div>
+  
       {/* <div  style ={{padding : "5px"}}>
             <Button 
               style={{
@@ -85,6 +90,7 @@ function LoginNav(props) {
               Guest
             </Button>
       </div>
+    </div>
     </div>
      </div>
   );
