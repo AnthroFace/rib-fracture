@@ -22,7 +22,7 @@ function LoginNav(props) {
         />
       </Box>
       </div>
-    <div style ={{      left: "40%",
+    <div style ={{      left: "45%",
       top: "40%",
       transform: "translate(0%, 0%)"  , position : "absolute"}}>
     <div className = "buttons" style = {{padding : "0px 0px 0px 0px"}}>
@@ -89,22 +89,7 @@ function LoginNav(props) {
               Admin
             </Button>
       </div> */}
-      <div  style ={{padding : "5px"}}>
-            <Button 
-              style={{
-                // borderRadius: 35,
-                color: "#963A2F",
-                backgroundColor: "#fffee9",
-                padding: "18px 36px",
-                fontSize: "15px",
-              }}
-              variant="contained"
-              size="large"
-              onClick={() => props.display_form('guestlogin')}
-            >
-              Guest
-            </Button>
-      </div>
+
     </div>
     </div>
      </div>
