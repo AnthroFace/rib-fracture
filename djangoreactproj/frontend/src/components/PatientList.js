@@ -144,26 +144,64 @@ class PatientList extends Component {
   }
 
   deletePatients = (pks) => {
-    console.log("DELETE PATIENTS")
+    console.log("DELETE PATIENTS");
     console.log("Pks", pks);
     for (const [index, pk] of pks.entries()) {
-      axios.delete(API_URL + pk, {
-                    headers: {
-                        Authorization: `JWT ${localStorage.getItem('token')}`
-                    }                   
-                }).then(res => {
-        console.log("deleted")
-        console.log(res.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      axios
+        .delete(API_URL + pk, {
+          headers: {
+            Authorization: `JWT ${localStorage.getItem("token")}`,
+          },
+        })
+        .then((res) => {
+          console.log("deleted");
+          console.log(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
     // this.sleep(3000);
     this.toggle();
     this.setState({ to_delete: [] });
     this.props.resetState();
     window.location.reload();
+  };
+
+  onSelectionModelChange = (selection) => {
+    console.log(selection);
+    console.log(typeof selection);
+    console.log(selection.selectionModel);
+    console.log(typeof selection.selectionModel);
+    var model = selection.selectionModel;
+    // var del = [...this.state.to_delete];
+    var del = [];
+
+    // var arr = Object.values(model);
+    // console.log(Object.entries(model));
+    // console.log(typeof arr);
+
+    console.log("before for");
+    for (const [i, pk] of model.entries()) {
+      // console.log("for", parseInt(pk));
+      // console.log(typeof parseInt(pk));
+      // if (del.includes(parseInt(pk))) {
+      //   console.log("exisits");
+      //   var index = del.indexOf(parseInt(pk));
+      //   if (index > -1) {
+      //     del.splice(index, 1);
+      //   }
+      //   //
+      // } else {
+      //   console.log("does not exist");
+      //   del.push(parseInt(pk));
+      //   console.log("adding", del);
+      // }
+      del.push(parseInt(pk));
+    }
+    console.log("after for");
+    console.log("del", del);
+    this.setState({ to_delete: del });
   };
 
   onSelectionChange = (selection) => {
@@ -584,7 +622,7 @@ class PatientList extends Component {
       }
       if (this.state.all_data) {
         wid = 34340;
-        
+
         // console.log(rows2);
 
         columns = [
@@ -1808,7 +1846,6 @@ class PatientList extends Component {
         ];
       } else {
         wid = 3600;
-        
 
         columns = [
           { field: "case_id", headerName: "Case ID", width: 110 },
@@ -1928,7 +1965,7 @@ class PatientList extends Component {
           <b>Oops, no one here yet</b>
         ) : (
           // <div></div>
-          <div style={{ height: 700, width: wid }}>
+          <div style={{ width: wid }}>
             Double click a patient row to edit it.
             <DataGrid
               // {...patients}
@@ -1940,12 +1977,14 @@ class PatientList extends Component {
                 Pagination: CustomPagination,
               }}
               pageSize={10}
+              autoHeight={true}
               // disableColumnFilter
               checkboxSelection
               disableColumnMenu
               disableSelectionOnClick
               onRowDoubleClick={this.doubleClick}
-              onRowSelected={this.onSelectionChange}
+              // onRowSelected={this.onSelectionChange}
+              onSelectionModelChange={this.onSelectionModelChange}
             />
             <Button
               style={{ marginRight: 4 }}
