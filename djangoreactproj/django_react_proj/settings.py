@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+import datetime
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -100,6 +100,8 @@ CORS_ORIGIN_WHITELIST = (
 
 
 JWT_AUTH = {
+    # how long the original token is valid for
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=2),
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'django_react_proj.utils.my_jwt_response_handler'
 }
 
