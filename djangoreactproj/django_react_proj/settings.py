@@ -101,7 +101,7 @@ CORS_ORIGIN_WHITELIST = (
 
 JWT_AUTH = {
     # how long the original token is valid for
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(days=2),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=2),
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'django_react_proj.utils.my_jwt_response_handler'
 }
 
