@@ -135,6 +135,9 @@ class Heatmap extends React.Component {
     // console.log("render rib count", this.state.rib_count)
     // var ribCount = this.props.rib_counts;
     // ribCount = JSON.parse(ribCount);
+
+    var passed = false;
+
     var ribCount = (ribCount = {
       sternum: 0,
       lprib1: 0,
@@ -229,43 +232,75 @@ class Heatmap extends React.Component {
       ralrib12: 0,
     });
     if (this.props.rib_counts) {
+      passed = true;
       ribCount = this.props.rib_counts;
       ribCount = JSON.parse(ribCount);
     }
-    return (
-      <div
-      style={{
-        position:"relative",
-        left: "0%",
-        top: "50%",
-        
-      }}>
+    // return (
+      // <div>
 
-        <Box class="tabs">
-          <CoolTabs
-            tabKey={"1"}
-            style={{ width: 1400, height: 1800, background: "white" }}
-            activeTabStyle={{ background: "#FFFEE9", color: "#963A2F" }}
-            unActiveTabStyle={{ background: "#D0F0C0", color: "#963A2F" }}
-            activeLeftTabBorderBottomStyle={{
-              background: "#963A2F",
-              height: 4,
-            }}
-            activeRightTabBorderBottomStyle={{
-              background: "#963A2F",
-              height: 4,
-            }}
-            tabsBorderBottomStyle={{ background: "#D0F0C0", height: 4 }}
-            leftContentStyle={{ background: "#FFFEE9" }}
-            rightContentStyle={{ background: "#FFFEE9" }}
-            leftTabTitle={"Heat Map Image"}
-            rightTabTitle={"Heat Map Grid"}
-            leftContent={<Content1 rib_count={ribCount} />}
-            rightContent={<Content2 rib_count={ribCount} />}
-            contentTransitionStyle={"transform 0.6s ease-in"}
-            borderTransitionStyle={"all 0.6s ease-in"}
-          />
-        </Box>
+      //   <Box class="tabs">
+      //     <CoolTabs
+      //       tabKey={"1"}
+      //       style={{ width: 1400, height: 1800, background: "white" }}
+      //       activeTabStyle={{ background: "#FFFEE9", color: "#963A2F" }}
+      //       unActiveTabStyle={{ background: "#D0F0C0", color: "#963A2F" }}
+      //       activeLeftTabBorderBottomStyle={{
+      //         background: "#963A2F",
+      //         height: 4,
+      //       }}
+      //       activeRightTabBorderBottomStyle={{
+      //         background: "#963A2F",
+      //         height: 4,
+      //       }}
+      //       tabsBorderBottomStyle={{ background: "#D0F0C0", height: 4 }}
+      //       leftContentStyle={{ background: "#FFFEE9" }}
+      //       rightContentStyle={{ background: "#FFFEE9" }}
+      //       leftTabTitle={"Heat Map Image"}
+      //       rightTabTitle={"Heat Map Grid"}
+      //       leftContent={<Content1 rib_count={ribCount} />}
+      //       rightContent={<Content2 rib_count={ribCount} />}
+      //       contentTransitionStyle={"transform 0.6s ease-in"}
+      //       borderTransitionStyle={"all 0.6s ease-in"}
+      //     />
+      //   </Box>
+      // </div>
+    // );
+
+    return (
+      <div>
+        {!passed ? (
+          <b>You need to be using a non-empty dataset.</b>
+        ) : (
+          <div>
+            <Box class="tabs">
+              <CoolTabs
+                tabKey={"1"}
+                style={{ width: 1400, height: 1800, background: "white" }}
+                activeTabStyle={{ background: "#FFFEE9", color: "#963A2F" }}
+                unActiveTabStyle={{ background: "#D0F0C0", color: "#963A2F" }}
+                activeLeftTabBorderBottomStyle={{
+                  background: "#963A2F",
+                  height: 4,
+                }}
+                activeRightTabBorderBottomStyle={{
+                  background: "#963A2F",
+                  height: 4,
+                }}
+                tabsBorderBottomStyle={{ background: "#D0F0C0", height: 4 }}
+                leftContentStyle={{ background: "#FFFEE9" }}
+                rightContentStyle={{ background: "#FFFEE9" }}
+                leftTabTitle={"Heat Map Image"}
+                rightTabTitle={"Heat Map Grid"}
+                leftContent={<Content1 rib_count={ribCount} />}
+                rightContent={<Content2 rib_count={ribCount} />}
+                contentTransitionStyle={"transform 0.6s ease-in"}
+                borderTransitionStyle={"all 0.6s ease-in"}
+              />
+            </Box>
+          </div>
+        )}
+        <div></div>
       </div>
     );
   }
