@@ -407,6 +407,7 @@ class EditPatientForm extends React.Component {
     com_ralrib12: null,
     type_ralrib12: "",
     cpr_ralrib12: "",
+    dataset: localStorage.getItem("current_dataset")
   };
 
   componentDidMount() {
@@ -797,6 +798,7 @@ class EditPatientForm extends React.Component {
       com_ralrib12: this.props.patient.com_ralrib12,
       type_ralrib12: this.props.patient.type_ralrib12,
       cpr_ralrib12: this.props.patient.cpr_ralrib12,
+      dataset: localStorage.getItem("current_dataset")
     });
   }
 
@@ -807,7 +809,11 @@ class EditPatientForm extends React.Component {
 
   editPatient = (e) => {
     e.preventDefault();
-    axios.put(API_URL + this.state.pk, this.state).then(() => {
+    axios.put(API_URL + this.state.pk, this.state, {
+        headers: {
+            Authorization: `JWT ${localStorage.getItem('token')}`
+        }
+      }).then(() => {
       console.log(this.state);
       this.props.resetState();
       this.props.toggle();
